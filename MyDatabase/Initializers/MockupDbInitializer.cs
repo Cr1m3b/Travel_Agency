@@ -8,7 +8,7 @@ using MyDatabase.Seeding;
 
 namespace MyDatabase.Initializers
 {
-    public class MockupDbInitializer :DropCreateDatabaseAlways<ApplicationDbContext>
+    public class MockupDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext db)
         {
@@ -16,7 +16,7 @@ namespace MyDatabase.Initializers
             //Seeding Methods ex. service.SeedPackages();
 
 
-            base.Seed(db); 
+            base.Seed(db);
         }
     }
 }

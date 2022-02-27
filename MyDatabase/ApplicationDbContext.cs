@@ -12,18 +12,18 @@ namespace MyDatabase
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false) 
+        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer<ApplicationDbContext>(new MockupDbInitializer());
             Database.Initialize(false);
         }
-        
+
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
         //Declaration of the DbSets
-        
+
     }
 }
