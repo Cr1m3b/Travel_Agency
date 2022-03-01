@@ -11,7 +11,6 @@ namespace Entities.Models
     {
         [Key]
         public int BookingId { get; set; }
-        public decimal? Price { get; set; }
         public DateTime PurchaseDate { get; set; }
         //Navigation Properties
         public int PackageId { get; set; }
