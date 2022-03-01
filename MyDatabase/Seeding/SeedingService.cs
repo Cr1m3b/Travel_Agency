@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel.DataAnnotations;
+    
 namespace MyDatabase.Seeding
 {
     public class SeedingService
@@ -27,6 +28,25 @@ namespace MyDatabase.Seeding
             db.SaveChanges();
             //(V)TodoSeedingfor her classes
         }
-       
+
+        // User Seeding
+        public void SeedUsers()
+        {
+            User user1 = new User() { FirstName = "John", LastName = "Fox", Email = "JohnFox@yahoo.com",ContactNumber="6984578901",Country="United States of America" };
+            User user2 = new User() { FirstName = "Jane", LastName = "Lewis", Email = "JaneLewis@hotmail.com",ContactNumber= "6978798963", Country="Canada" };
+            db.USERS.Add(user1);
+            db.USERS.Add(user2);
+            db.SaveChanges();
+        }
+
+        // Comment Seeding
+        public void SeedComments()
+        {
+            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end",FirstName="Kate",LastName="Sutton"};
+            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated", FirstName = "Juan", LastName = "Lasso" };
+            db.Comments.Add(com1);
+            db.Comments.Add(com2);
+            db.SaveChanges();
+        }
     }
 }
