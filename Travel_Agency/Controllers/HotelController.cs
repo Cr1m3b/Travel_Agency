@@ -11,11 +11,11 @@ namespace Travel_Agency.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Hotel
-        public ActionResult Index()
-        {
-            //var hotels=db.Hotels.Include(h=>h.);   
-            //return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    //var hotels=db.Hotels.Include(h=>h.);   
+        //    //return View();
+        //}
 
         // GET: Hotel/Details/5
         public ActionResult Details(int id)

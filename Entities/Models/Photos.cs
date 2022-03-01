@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class Photos
+    public class Photo
     {
-        public Photos()
+        public Photo()
         {
             //Kanw hashset
         }
