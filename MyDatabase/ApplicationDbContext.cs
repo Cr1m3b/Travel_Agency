@@ -29,6 +29,9 @@ namespace MyDatabase
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<User> USERS { get; set; } 
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Flight> Flight { get; set; }
+        public DbSet<Photos> Photos { get; set; }
 
     }
 }

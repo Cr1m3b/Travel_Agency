@@ -90,11 +90,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
+    <Compile Include="Enums\KindOfBeds.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Enums\Destinations.cs" />
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Photos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

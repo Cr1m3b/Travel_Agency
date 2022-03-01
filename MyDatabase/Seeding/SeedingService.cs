@@ -26,6 +26,7 @@ namespace MyDatabase.Seeding
             db.Bookings.Add(b1);
             b1.Package = p1;
             db.SaveChanges();
+            //(V)TodoSeedingfor her classes
         }
 
         // User Seeding
