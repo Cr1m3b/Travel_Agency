@@ -23,6 +23,7 @@ namespace MyDatabase.Seeding
             Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02) };
             b1.Package = p1;
             db.SaveChanges();
+            //(V)TodoSeedingfor her classes
         }
        
     }
