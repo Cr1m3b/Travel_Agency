@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models.CustomValidations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Entities.Models
     {
         [Key]
         public int BookingId { get; set; }
+        [Display(Name = "Purchased Date")]
+        [CustomValidation(typeof(MyValidations), "ValidateDateAttribute")]
         public DateTime PurchaseDate { get; set; }
         //Navigation Properties
         public int PackageId { get; set; }

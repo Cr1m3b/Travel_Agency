@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\CustomValidations\MyValidations.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Comment.cs" />

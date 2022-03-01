@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace Entities.Models
 {
     public class Package
     {
+        public Package()
+        {
+            Photos = new HashSet<Photo>();
+            Comments= new HashSet<Comment>();
+        }
         [Key]
         public int PackageId { get; set; }
         public string Title { get; set; }
@@ -16,9 +22,18 @@ namespace Entities.Models
         public DateTime TripDate { get; set; }
         public int TripDuration { get; set; }
         public decimal Price { get; set; }
+        public Destinations Destinations { get; set; }
+        //Navigation Properties
+        public ICollection<Photo> Photos { get; set; }
+        public int HotelId { get; set; }
+        public Hotel Hotel { get; set; }
+        public int FlightId { get; set; }
+        public Flight Flight { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+
+
         //TODO: 
-        //Add Destination kai package status(active,pending,expired)
-        //List<Photos>
+        //Package status(active,pending,expired)
 
     }
 }

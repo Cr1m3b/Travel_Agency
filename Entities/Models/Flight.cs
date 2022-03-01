@@ -8,9 +8,14 @@ namespace Entities.Models
 {
     public class Flight
     {
+        public Flight()
+        {
+            Packages= new HashSet<Package>();
+        }
         public int FlightId { get; set; }
         public string CompanyName { get; set; }
+        //Navigation Properties
+        public ICollection<Package> Packages { get; set; }
 
-  
     }
 }

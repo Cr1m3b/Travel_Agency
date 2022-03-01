@@ -9,10 +9,16 @@ namespace Entities.Models
 {
     public class Hotel
     {
+        public Hotel()
+        {
+            Packages = new HashSet<Package>();
+        }
         public int HotelId { get; set; }
         public string HotelName { get; set;}
         public int HotelStars { get; set;}
         public Destinations Destinations { get; set; }
+        //Navigation Properties
+        public ICollection<Package> Packages { get; set; }
 
     }
 }
