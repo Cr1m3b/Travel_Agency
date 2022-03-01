@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Entities.Models
         public int PhotoId { get; set; }
         [Display(Name = "Photo URL")]
         public string Url { get; set; }
+        public Destinations Destinations { get; set; }
 
         //Navigation Properties
 

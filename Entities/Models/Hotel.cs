@@ -1,4 +1,4 @@
-﻿using Entities.Enums;
+﻿using Entities.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +12,7 @@ namespace Entities.Models
         public int HotelId { get; set; }
         public string HotelName { get; set;}
         public int HotelStars { get; set;}
-        public KindOfBeds Beds { get; set; }
-        public DateTime CheckInDay { get; set; }
-        public DateTime CheckOutDay { get; set; }
-        //public User User { get; set; }
-        //public Destinations Destinations
+        public Destinations Destinations { get; set; }
 
     }
 }
