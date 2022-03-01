@@ -21,6 +21,8 @@ namespace MyDatabase.Seeding
         {
             Package p1 = new Package() { Title = "Beautiful Spain", Description = "Vacations at Barcelone", TripDate = new DateTime(2022, 5, 12), TripDuration = 4, Price = 476 };
             Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02) };
+            db.Packages.Add(p1);
+            db.Bookings.Add(b1);
             b1.Package = p1;
             db.SaveChanges();
             //(V)TodoSeedingfor her classes
