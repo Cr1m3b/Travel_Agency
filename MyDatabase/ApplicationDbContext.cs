@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyDatabase.Initializers;
+using Entities.Models;
 
 namespace MyDatabase
 {
@@ -24,6 +25,8 @@ namespace MyDatabase
             return new ApplicationDbContext();
         }
         //Declaration of the DbSets
+        public DbSet<Package> Packages { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
 
     }
 }

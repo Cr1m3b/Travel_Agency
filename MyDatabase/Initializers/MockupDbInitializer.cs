@@ -14,7 +14,7 @@ namespace MyDatabase.Initializers
         {
             SeedingService service = new SeedingService(db);
             //Seeding Methods ex. service.SeedPackages();
-
+            service.SeedPackages();
 
             base.Seed(db);
         }
