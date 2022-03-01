@@ -9,11 +9,16 @@ namespace Entities.Models
 {
     public class Photos
     {
+        public Photos()
+        {
+            //Kanw hashset
+        }
         public int PhotoId { get; set; }
         [Display(Name = "Photo URL")]
         public string Url { get; set; }
 
         //Navigation Properties
-        public  Package Package { get; set; }
+
+        public  ICollection<Package> Packages { get; set; }
     }
 }
