@@ -12,9 +12,9 @@ namespace Entities.Models
         [Key]
         public int CommentId { get; set; }
 
-        [Display(Name = "Enter your comment :")]
-        [MinLength(5, ErrorMessage = "Comment cannot be less than 5")]
-        [MaxLength(200, ErrorMessage = "Comment cannot be greater than 200")]
+        [Display(Name = "Comments")]
+       //[MinLength(5, ErrorMessage = "Comment cannot be less than 5")]
+       // [MaxLength(200, ErrorMessage = "Comment cannot be greater than 200")]
         public string CommentContent { get; set; }
         public DateTime PostTime { get { return DateTime.Now; } }
 

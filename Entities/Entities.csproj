@@ -97,7 +97,6 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Enums\Destinations.cs" />
     <Compile Include="Models\Package.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Photos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
