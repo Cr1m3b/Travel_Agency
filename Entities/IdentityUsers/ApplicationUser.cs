@@ -16,12 +16,14 @@ namespace Entities.IdentityUsers
 
         [Display(Name = "Enter your first name :")]
         [Required(ErrorMessage = "The firstname is required.")]
-        [Range(2, 20, ErrorMessage = "The firstname must be between 2 and 20 characters")]
+        [MinLength(2, ErrorMessage = "First name cannot be less than 2")]
+        [MaxLength(20, ErrorMessage = "First name cannot be greater than 20")]
         public string FirstName { get; set; }
 
         [Display(Name = "Enter your last name :")]
-        [Required(ErrorMessage = "The laststname is required.")]
-        [Range(2, 20, ErrorMessage = "The lastname must be between 2 and 20 characters")]
+        [Required(ErrorMessage = "The last name is required.")]
+        [MinLength(2, ErrorMessage = "Last name cannot be less than 2")]
+        [MaxLength(20, ErrorMessage = "Last name cannot be greater than 20")]
         public string LastName { get; set; }
 
         [Display(Name = "Enter your contact phone number:")]
@@ -32,7 +34,8 @@ namespace Entities.IdentityUsers
 
         [Display(Name = "Enter your country:")]
         [Required(ErrorMessage = "Country is required.")]
-        [Range(3, 12, ErrorMessage = "The name of the country must be between 3 and 12 characters")]
+        [MinLength(2, ErrorMessage = "Country name cannot be less than 2")]
+        [MaxLength(20, ErrorMessage = "Country name cannot be greater than 20")]
         public string Country { get; set; }
 
 
