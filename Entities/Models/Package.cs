@@ -15,11 +15,12 @@ namespace Entities.Models
             Photos = new HashSet<Photo>();
             Comments= new HashSet<Comment>();
         }
-        [Key]
         public int PackageId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        [Display(Name = "Trip Date")]
         public DateTime TripDate { get; set; }
+        [Display(Name = "Trip Duration")]
         public int TripDuration { get; set; }
         public decimal Price { get; set; }
         public Destinations Destinations { get; set; }

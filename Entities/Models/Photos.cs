@@ -12,7 +12,7 @@ namespace Entities.Models
     {
         public Photo()
         {
-            //Kanw hashset
+           Packages=new HashSet<Package>();
         }
         public int PhotoId { get; set; }
         [Display(Name = "Photo URL")]
