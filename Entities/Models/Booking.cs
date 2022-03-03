@@ -10,10 +10,9 @@ namespace Entities.Models
 {
     public class Booking
     {
-        [Key]
         public int BookingId { get; set; }
         [Display(Name = "Purchased Date")]
-        [CustomValidation(typeof(MyValidations), "ValidateDateAttribute")]
+       // [CustomValidation(typeof(MyValidations), "ValidateDateAttribute")]
         public DateTime PurchaseDate { get; set; }
         //Navigation Properties
         public int PackageId { get; set; }
