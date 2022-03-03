@@ -1,4 +1,5 @@
-﻿using Entities.Models.Enums;
+﻿using Entities.Enums;
+using Entities.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,6 +26,7 @@ namespace Entities.Models
         public int TripDuration { get; set; }
         public decimal Price { get; set; }
         public Destinations Destinations { get; set; }
+        public Status PackageStatus { get; set; }
         //Navigation Properties
         public ICollection<Photo> Photos { get; set; }
         public int HotelId { get; set; }
@@ -33,8 +35,7 @@ namespace Entities.Models
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        //TODO: 
-        //Package status(active,pending,expired)
+       
 
     }
 }
