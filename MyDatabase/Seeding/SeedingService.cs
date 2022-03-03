@@ -31,7 +31,7 @@ namespace MyDatabase.Seeding
             db.Bookings.Add(b1);
             b1.Package = p1;
 
-            //(V)TodoSeedingfor her classes
+           
 
 
             // Comment Seeding
