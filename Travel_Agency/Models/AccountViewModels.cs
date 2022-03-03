@@ -48,9 +48,6 @@ namespace Travel_Agency.Models
 
     public class LoginViewModel
     {
-       
-
-
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]

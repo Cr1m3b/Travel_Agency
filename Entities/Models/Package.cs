@@ -32,7 +32,7 @@ namespace Entities.Models
         public int FlightId { get; set; }
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public HashSet<Rating> Ratings { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
         //TODO: 
         //Package status(active,pending,expired)
 
