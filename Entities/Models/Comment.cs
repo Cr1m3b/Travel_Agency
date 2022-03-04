@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.IdentityUsers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Entities.Models
         public DateTime PostTime { get { return DateTime.Now; } }
 
         //TODO: Navigation Properties for user
+        public ApplicationUser ApplicationUser { get; set; }
 
     }
 }

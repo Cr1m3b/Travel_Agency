@@ -44,7 +44,7 @@ namespace MyDatabase.Seeding
             db.Photos.Add(photosParis);
             db.Photos.Add(PhotosRome);
 
-            p1.Photos.Add(PhotosBarcelona);
+            p1.Photos.Add(photosBarcelona);
 
 
 

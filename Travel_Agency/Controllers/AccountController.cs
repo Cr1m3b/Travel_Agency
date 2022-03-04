@@ -152,7 +152,7 @@ namespace Travel_Agency.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName,FirstName=model.FirstName,LastName=model.LastName,Email = model.Email,ContactNumber=model.ContactNumber};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
