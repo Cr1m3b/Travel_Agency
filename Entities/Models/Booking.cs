@@ -1,4 +1,5 @@
-﻿using Entities.Models.CustomValidations;
+﻿using Entities.IdentityUsers;
+using Entities.Models.CustomValidations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,6 @@ namespace Entities.Models
         //Navigation Properties
         public int PackageId { get; set; }
         public Package Package { get; set; }
-        //TODO: Navigation Properties for user
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
