@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Entities.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Entities.IdentityUsers
         //[MaxLength(20, ErrorMessage = "Country name cannot be greater than 20")]
         public string Country { get; set; }
 
+        public Wishlist Whishlist { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
