@@ -44,6 +44,9 @@ namespace MyDatabase.Seeding
             db.Photos.Add(PhotosParis);
             db.Photos.Add(PhotosRome);
 
+            p1.Photos.Add(PhotosBarcelona);
+
+
 
             // Comment Seeding
             Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end" };
