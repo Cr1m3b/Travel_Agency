@@ -31,6 +31,8 @@ namespace MyDatabase
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
 
     }
 }

@@ -16,7 +16,7 @@ namespace Entities.Models
         [Range(1,5)]
         public int RateScore { get; set; }
 
-        public DateTime RatingTime { get { return DateTime.Now; } }
+        public DateTime RatingTime { get; set; }
 
         public ApplicationUser RatingUser { get; set; }
     }

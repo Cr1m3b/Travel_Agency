@@ -69,11 +69,13 @@ namespace Travel_Agency.Models
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "The firstname is required.")]
+        [Display(Name = "First Name")]
         [MinLength(2, ErrorMessage = "First name cannot be less than 2")]
         [MaxLength(20, ErrorMessage = "First name cannot be greater than 20")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "The last name is required.")]
+        [Display(Name = "Last Name")]
         [MinLength(2, ErrorMessage = "Last name cannot be less than 2")]
         [MaxLength(20, ErrorMessage = "Last name cannot be greater than 20")]
         public string LastName { get; set; }
@@ -84,6 +86,7 @@ namespace Travel_Agency.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Contact phone is required.")]
+        [Display(Name = "Contact Number")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Invalid Contact Number")]
         [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Contact Number.")]
         public string ContactNumber { get; set; }

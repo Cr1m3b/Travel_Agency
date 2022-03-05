@@ -17,7 +17,7 @@ namespace Entities.Models
        //[MinLength(5, ErrorMessage = "Comment cannot be less than 5")]
        //[MaxLength(200, ErrorMessage = "Comment cannot be greater than 200")]
         public string CommentContent { get; set; }
-        public DateTime PostTime { get { return DateTime.Now; } }
+        public DateTime PostTime { get; set; }
 
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
