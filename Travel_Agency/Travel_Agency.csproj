@@ -183,10 +183,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\PhotoController.cs" />
+    <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -317,6 +320,7 @@
     <Content Include="Theme\TravelAgency\admin\assets\images\comment4.jpg" />
     <Content Include="Theme\TravelAgency\admin\assets\images\comment5.jpg" />
     <Content Include="Theme\TravelAgency\admin\assets\images\comment6.jpg" />
+    <Content Include="Theme\TravelAgency\admin\assets\images\favicon.png" />
     <Content Include="Theme\TravelAgency\admin\assets\images\img25.jpg" />
     <Content Include="Theme\TravelAgency\admin\assets\images\img26.jpg" />
     <Content Include="Theme\TravelAgency\admin\assets\images\img27.jpg" />
@@ -680,6 +684,24 @@
     <Content Include="Theme\TravelAgency\assets\vendors\slick\fonts\slick.eot" />
     <Content Include="Theme\TravelAgency\assets\vendors\slick\fonts\slick.ttf" />
     <Content Include="Theme\TravelAgency\assets\vendors\slick\fonts\slick.woff" />
+    <Content Include="Views\Shared\Admin\Components\_DashboardNavigationBar.cshtml" />
+    <Content Include="Views\Shared\Admin\Components\_TopNavigationBar.cshtml" />
+    <Content Include="Views\Shared\Admin\Components\_Footer.cshtml" />
+    <Content Include="Views\Shared\Client\Components\_Footer.cshtml" />
+    <Content Include="Views\Shared\Client\Components\_TopNavigationBar.cshtml" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\Shared\Admin\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\Client\_ClientLayout.cshtml" />
+    <Content Include="Views\Shared\Client\Components\_CustomSearch.cshtml" />
+    <Content Include="Views\Rating\Create.cshtml" />
+    <Content Include="Views\Rating\Delete.cshtml" />
+    <Content Include="Views\Rating\Details.cshtml" />
+    <Content Include="Views\Rating\Edit.cshtml" />
+    <Content Include="Views\Rating\Index.cshtml" />
+    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\Delete.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Package\Create.cshtml" />
     <Content Include="Views\Package\Delete.cshtml" />
     <Content Include="Views\Package\Details.cshtml" />
@@ -700,6 +722,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Theme\TravelAgency\assets\fonts\" />
     <Folder Include="Views\Hotel\" />
+    <Folder Include="Views\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
