@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Entities.Models.Package>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotel.HotelName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TripDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TripDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destinations)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackageStatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flight.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.HotelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destinations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PackageId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PackageId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PackageId })
+            </td>
+        </tr>
+    }
+
+</table>

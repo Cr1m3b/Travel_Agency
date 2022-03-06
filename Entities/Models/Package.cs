@@ -19,6 +19,7 @@ namespace Entities.Models
         }
         public int PackageId { get; set; }
         public string Title { get; set; }
+        public string MainPhoto { get; set; }
         public string Description { get; set; }
         [Display(Name = "Trip Date")]
         public DateTime TripDate { get; set; }
