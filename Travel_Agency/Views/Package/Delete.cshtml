@@ -1,96 +1,39 @@
 ﻿@model Entities.Models.Package
 
 @{
-    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Package</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Flight.CompanyName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Flight.CompanyName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Hotel.HotelName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hotel.HotelName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TripDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TripDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TripDuration)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TripDuration)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Destinations)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Destinations)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PackageStatus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PackageStatus)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<div class="db-info-wrap db-package-wrap">
+    <div class="dashboard-box table-opp-color-box">
+        <h4>Packages List</h4>
+        <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Destination</th>
+                        <th>status</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+            </table>
         </div>
-    }
+    </div>
+    <!-- pagination html -->
+    <div class="pagination-wrap">
+        <nav class="pagination-inner">
+            <ul class="pagination disabled">
+                <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
+                <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </div>
 </div>

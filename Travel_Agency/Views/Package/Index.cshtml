@@ -1,85 +1,80 @@
 ﻿@model IEnumerable<Entities.Models.Package>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div id="page" class="full-page">
+    <main id="content" class="site-main">
+        <!-- Inner Banner html start-->
+        <section class="inner-banner-wrap">
+            <div class="inner-baner-container" style="background-image: url(assets/images/inner-banner.jpg);">
+                <div class="container">
+                    <div class="inner-banner-content">
+                        <h1 class="inner-title">Tour Packages</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-shape"></div>
+        </section>
+        <!-- Inner Banner html end-->
+        <!-- packages html start -->
+        <div class="package-section">
+            <div class="container">
+                <div class="package-inner">
+                    <div class="row">
+                        @foreach (var package in Model)
+                        {
+                            <div class="col-lg-4 col-md-6">
+                                <div class="package-wrap">
+                                    <figure class="feature-image">
+                                        <a href="/Package/Details/@package.PackageId">
+                                            <img src=@package.MainPhoto alt="">
+                                        </a>
+                                    </figure>
+                                    <div class="package-price">
+                                        <h6>
+                                            <span>$@package.Price </span> / per person
+                                        </h6>
+                                    </div>
+                                    <div class="package-content-wrap">
+                                        <div class="package-meta text-center">
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-clock"></i>
+                                                    @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                   @package.Destinations
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="package-content">
+                                            <h3>
+                                                <a href="/Package/Details/@package.PackageId">@package.Title</a>
+                                            </h3>
+                                            <div class="review-area">
+                                                <span class="review-text">(@package.Comments.Count)</span>
+                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                    <span style="width: 70%"></span>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                            <div class="btn-wrap">
+                                                <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                                <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-
-
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Flight.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hotel.HotelName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TripDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TripDuration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Destinations)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PackageStatus)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Flight.CompanyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hotel.HotelName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TripDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TripDuration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destinations)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PackageStatus)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PackageId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PackageId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PackageId })
-            </td>
-        </tr>
-    }
-
-</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- packages html end -->
+    </main>
+</div>
