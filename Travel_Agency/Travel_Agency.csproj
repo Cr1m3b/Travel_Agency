@@ -185,6 +185,7 @@
     <Compile Include="Controllers\AdminController\AdminPackageController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\DestinationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -722,6 +723,7 @@
     <Content Include="Views\AdminPackage\Details.cshtml" />
     <Content Include="Views\AdminPackage\Edit.cshtml" />
     <Content Include="Views\AdminPackage\Index.cshtml" />
+    <Content Include="Views\Destination\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
