@@ -11,7 +11,7 @@ namespace Travel_Agency.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Photo
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var photos=db.Photos;
             return View(photos);
