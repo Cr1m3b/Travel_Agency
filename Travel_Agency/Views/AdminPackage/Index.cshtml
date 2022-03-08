@@ -9,13 +9,13 @@
 <div class="db-info-wrap db-package-wrap">
     <div class="dashboard-box table-opp-color-box">
         <h4>Packages List</h4>
-        <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
+       
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Trip Date</th>
                         <th>Destination</th>
                         <th>status</th>
                         <th>action</th>
@@ -24,14 +24,12 @@
                 <tbody>
                     @foreach (var package in Model)
                     {
-
-
                         <tr>
                             <td>
-                                <span class="package-name">Singapore Holiday Tour</span>
+                                <span class="package-name">@package.Title</span>
                             </td>
-                            <td>12 may</td>
-                            <td>Japan</td>
+                            <td>@package.TripDate.ToString("dd/MM/yyyy")</td>
+                            <td>@package.Destinations</td>
                             <td>
                                 @if (package.PackageStatus == Entities.Enums.Status.Active)
                                 {
@@ -47,8 +45,8 @@
                                 }
                             </td>
                             <td>
-                                <span class="badge badge-success"><i class="far fa-edit"></i></span>
-                                <span class="badge badge-danger"><i class="far fa-trash-alt"></i></span>
+                                <a href="#"><span class="badge badge-success"><i class="far fa-edit"></i></span></a>
+                                <a href="/AdminPackage/Delete/@package.PackageId"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                             </td>
                         </tr>
                     }

@@ -126,6 +126,8 @@ namespace Travel_Agency.Controllers.AdminController
                 return HttpNotFound();
             }
             return View(package);
+
+
         }
 
         // POST: AdminPackage/Delete/5
@@ -133,9 +135,28 @@ namespace Travel_Agency.Controllers.AdminController
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Package package = db.Packages.Find(id);
-            db.Packages.Remove(package);
+            var package = db.Packages.Where(x => x.PackageId == id).Include(x => x.Comments).Include(x => x.Ratings).FirstOrDefault();
+            if (package == null)
+            {
+                return HttpNotFound();
+            }
+            var commentIds = package.Comments.Select(x => x.CommentId).ToList();
+            foreach (var com in commentIds)
+            {
+                var comment = db.Comments.Find(com);
+                db.Entry(comment).State = EntityState.Deleted;
+            }
             db.SaveChanges();
+            var ratingIds = package.Ratings.Select(x => x.RatingId).ToList();
+            foreach (var rate in ratingIds)
+            {
+                var rating = db.Ratings.Find(rate);
+                db.Entry(rating).State = EntityState.Deleted;
+            }
+            db.SaveChanges();
+            db.Entry(package).State = EntityState.Deleted;
+            db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
 
