@@ -700,8 +700,6 @@
     <Content Include="Views\Rating\Details.cshtml" />
     <Content Include="Views\Rating\Edit.cshtml" />
     <Content Include="Views\Rating\Index.cshtml" />
-    <Content Include="Views\Comment\Create.cshtml" />
-    <Content Include="Views\Comment\Delete.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Package\Delete.cshtml" />
@@ -724,6 +722,7 @@
     <Content Include="Views\AdminPackage\Edit.cshtml" />
     <Content Include="Views\AdminPackage\Index.cshtml" />
     <Content Include="Views\Destination\Index.cshtml" />
+    <Content Include="Views\Package\PackageOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
