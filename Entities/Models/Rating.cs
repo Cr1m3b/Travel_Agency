@@ -17,7 +17,7 @@ namespace Entities.Models
         public int RateScore { get; set; }
 
         public DateTime RatingTime { get; set; }
-
+        //Navigation Properties
         public ApplicationUser RatingUser { get; set; }
     }
 }
