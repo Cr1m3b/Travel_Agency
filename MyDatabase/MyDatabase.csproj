@@ -73,43 +73,6 @@
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Images\Athens\Athens1.jpg" />
-    <Content Include="Images\Athens\Athens2.jpg" />
-    <Content Include="Images\Athens\Athens3.jpg" />
-    <Content Include="Images\Athens\Athens4.jpg" />
-    <Content Include="Images\Athens\Athens5.jpg" />
-    <Content Include="Images\Athens\Athens6.jpg" />
-    <Content Include="Images\Athens\Athens7.jpg" />
-    <Content Include="Images\Barcelona\Barcelona1.jpg" />
-    <Content Include="Images\Barcelona\Barcelona2.jpg" />
-    <Content Include="Images\Barcelona\Barcelona3.jpg" />
-    <Content Include="Images\Barcelona\Barcelona4.jpg" />
-    <Content Include="Images\Barcelona\Barcelona5.jpg" />
-    <Content Include="Images\Barcelona\Barcelona6.jpg" />
-    <Content Include="Images\Barcelona\Barcelona7.jpg" />
-    <Content Include="Images\London\London1.jpg" />
-    <Content Include="Images\London\London2.jpg" />
-    <Content Include="Images\London\London3.jpg" />
-    <Content Include="Images\London\London4.jpg" />
-    <Content Include="Images\Paris\Paris1.jpg" />
-    <Content Include="Images\Paris\Paris10.jpg" />
-    <Content Include="Images\Paris\Paris2.jpg" />
-    <Content Include="Images\Paris\Paris3.jpg" />
-    <Content Include="Images\Paris\Paris4.jpg" />
-    <Content Include="Images\Paris\Paris5.jpg" />
-    <Content Include="Images\Paris\Paris6.jpg" />
-    <Content Include="Images\Paris\Paris7.jpg" />
-    <Content Include="Images\Paris\Paris8.jpg" />
-    <Content Include="Images\Paris\Paris9.jpg" />
-    <Content Include="Images\Rome\Rome1.jpg" />
-    <Content Include="Images\Rome\Rome2.jpg" />
-    <Content Include="Images\Rome\Rome3.jpg" />
-    <Content Include="Images\Rome\Rome4.jpg" />
-    <Content Include="Images\Rome\Rome5.jpg" />
-    <Content Include="Images\Rome\Rome5.png" />
-    <Content Include="Images\Rome\Rome6.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

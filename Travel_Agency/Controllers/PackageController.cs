@@ -22,6 +22,12 @@ namespace Travel_Agency.Controllers
             return View(packages.ToList());
         }
 
+        public ActionResult PackageOffer()
+        {
+            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos);
+            return View(packages.ToList());
+        }
+
         // GET: Package/Details/5
         public ActionResult Details(int? id)
         {
@@ -40,6 +46,7 @@ namespace Travel_Agency.Controllers
             }
             return View(package);
         }
+
 
         // GET: Package/Create
         public ActionResult Create()

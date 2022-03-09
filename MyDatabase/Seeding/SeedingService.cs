@@ -24,7 +24,7 @@ namespace MyDatabase.Seeding
         {
             //Package Seeding
             Package p1 = new Package() { Title = "Barcelona", Description = "Vacations at Barcelone", MainPhoto= "https://c.pxhere.com/photos/a9/f0/spain_barcelona_triumphal_arch_street_view_spain_landscape_building-642076.jpg!d", TripDate = new DateTime(2022, 5, 12), TripDuration = 4, Price = 476, Destinations = Destinations.Barcelona, PackageStatus = Status.Active };
-            Package p2 = new Package() { Title = "Paris", Description = "Vacations at Paris",MainPhoto= "https://c.pxhere.com/photos/31/a4/eiffel_tower_lights_fountains_twilight_city_urban_paris_france-1046619.jpg!d", TripDate = new DateTime(2022, 5, 3), TripDuration = 3, Price = 699, Destinations = Destinations.Paris, PackageStatus = Status.Active };
+            Package p2 = new Package() { Title = "Paris", Description = "Vacations at Paris",MainPhoto= "https://fadeceilings.com/wp-content/uploads/2019/08/AdobeStock_65117955-720x460.jpeg", TripDate = new DateTime(2022, 5, 3), TripDuration = 3, Price = 699, Destinations = Destinations.Paris, PackageStatus = Status.Active };
             Package p3 = new Package() { Title = "Athens", Description = "Vacations at Athens",MainPhoto= "https://c.pxhere.com/photos/a9/a9/temple_athens_greece_architecture_ancient_greek_history_culture-763875.jpg!s1", TripDate = new DateTime(2022, 9, 1), TripDuration = 5, Price = 355, Destinations = Destinations.Athens, PackageStatus = Status.Pending };
             Package p4 = new Package() { Title = "London", Description = "Vacations at London",MainPhoto= "https://c.pxhere.com/photos/29/2d/london_parliament_england_ben_ben_westminster_tower_city_british-772846.jpg!d", TripDate = new DateTime(2022, 1, 12), TripDuration = 4, Price = 340, Destinations = Destinations.London, PackageStatus = Status.Expired };
             Package p5 = new Package() { Title = "Rome", Description = "Vacations at Rome",MainPhoto= "https://c.pxhere.com/photos/a9/4e/colosseum_rome_italy_roman_architecture_landmark_italian_tourism-744892.jpg!d", TripDate = new DateTime(2021, 5, 12), TripDuration = 6, Price = 529, Destinations = Destinations.Barcelona, PackageStatus = Status.Expired };
@@ -48,14 +48,18 @@ namespace MyDatabase.Seeding
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
-            Photo photosBarcelona = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdDk_JTBO1VJYeoHp3tnqs8XGkB7wfN9EY6Q&usqp=CAU" };
+            Photo photosBarcelona1 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/fd/f4/museum_historically_architecture_building_barcelona_city_park_spain-1414417.jpg!s1" };
+            Photo photosBarcelona2 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/d6/f3/national_palace_palau_nacional_palace_abendstimmung_twilight_afterglow_barcelona_sky-950954.jpg!s1" };
+            Photo photosBarcelona3 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/91/ac/barcelona_montjuic_sunset_plaza_espa_a-1068204.jpg!s1" };
             Photo photosLondon = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvp5BzRDdhtlUNh7CGHYdVp_HFwDs_FOx-Ow&usqp=CAU" };
             Photo photosParis = new Photo() { Destinations = Destinations.Paris, Url = "https://c.pxhere.com/photos/3c/c2/eiffel_tower_paris-159.jpg!s1" };
             Photo photosRome = new Photo() { Destinations = Destinations.Rome, Url = "http://www.cosavisitarearoma.it/images/immagini_articoli/piazza-di-spagna.jpg" };
-            List<Photo> photos = new List<Photo>() { photosAthens, photosBarcelona, photosLondon, photosParis, photosRome };
+            List<Photo> photos = new List<Photo>() { photosAthens,photosBarcelona1, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome };
             db.Photos.AddRange(photos);
 
-            p1.Photos.Add(photosBarcelona);
+            p1.Photos.Add(photosBarcelona1);
+            p1.Photos.Add(photosBarcelona2);
+            p1.Photos.Add(photosBarcelona3);
             p2.Photos.Add(photosParis);
             p3.Photos.Add(photosAthens);
             p4.Photos.Add(photosLondon);
@@ -69,7 +73,7 @@ namespace MyDatabase.Seeding
             List<Comment> comments = new List<Comment>() { com1, com2 };
             db.Comments.AddRange(comments);
 
-            p4.Comments.Add(com2);
+            p1.Comments.Add(com2);
             p5.Comments.Add(com1);
 
 
