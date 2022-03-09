@@ -14,9 +14,6 @@
         <th>
             @Html.DisplayNameFor(model => model.RateScore)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RatingTime)
-        </th>
         <th></th>
     </tr>
 
@@ -24,9 +21,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RateScore)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingTime)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RatingId }) |
