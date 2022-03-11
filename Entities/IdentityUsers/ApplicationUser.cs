@@ -25,5 +25,6 @@ namespace Entities.IdentityUsers
             // Add custom user claims here
             return userIdentity;
         }
+
     }
 }

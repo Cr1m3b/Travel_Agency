@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Entities.Models.Enums;
 using Entities.Enums;
+using Entities.IdentityUsers;
 
 namespace MyDatabase.Seeding
 {
@@ -118,8 +119,38 @@ namespace MyDatabase.Seeding
             p1.Ratings.Add(r1);
 
 
-            db.SaveChanges();
 
+            //ApplicationUser Seeding
+            ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", Email = "john1@yahoo.gr", FirstName = "John", LastName = "Hopkins" };
+            ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", Email = "nick1@gmail.com", FirstName = "Nick", LastName = "Hughes" };
+
+            List<ApplicationUser> applicationUsers = new List<ApplicationUser>() { ap1,ap2 };
+
+            db.Users.Add(ap1);
+            db.Users.Add(ap2);
+
+            com1.ApplicationUser = ap1;
+            com2.ApplicationUser = ap2;
+
+
+
+            //ReplyComment Seeding
+             ReplyComment rep1=new ReplyComment() {ReplyContent= "All recommendations were within our budget. An invaluable service! Thank you",ReplyPostTime=DateTime.Now };
+             ReplyComment rep2=new ReplyComment() {ReplyContent= "The video chat was well worth the fee, and helped us to fell confident about our choices for the trip",ReplyPostTime=DateTime.Now };
+
+        
+
+            List<ReplyComment> replyComments = new List<ReplyComment>() { rep1, rep2 };
+
+            db.ReplyComments.AddRange(replyComments);
+
+            rep1.ApplicationUser = ap1;
+            rep2.ApplicationUser = ap2;
+
+            com1.ReplyComments.Add(rep2);
+            com2.ReplyComments.Add(rep1);
+
+            db.SaveChanges();
         }
 
     }

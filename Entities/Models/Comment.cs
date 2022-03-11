@@ -10,6 +10,11 @@ namespace Entities.Models
 {
     public class Comment
     {
+        public Comment()
+        {
+            ReplyComments = new HashSet<ReplyComment>();
+        }
+
         [Key]
         public int CommentId { get; set; }
 
@@ -21,7 +26,8 @@ namespace Entities.Models
 
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
-        public Rating Rating { get; set; }
+        public Package Package { get; set; }
+        public ICollection<ReplyComment> ReplyComments { get; set; }   
 
     }
 }

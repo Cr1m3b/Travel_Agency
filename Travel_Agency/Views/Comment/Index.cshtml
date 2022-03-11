@@ -22,122 +22,136 @@
         text-align: left;
         vertical-align: middle;
     }
-
 </style>
-
-
 
 <div class="db-info-wrap db-comment-wrap">
     <h4>Comments List</h4>
+
     <p>Our Customer's Comments</p>
-        <!-- post comment html -->
-        <div class="comment-area">
-                <ol>
-                    <li>
-                        <div class="comment-content">
-                            <div class="comment-header">
-                                <h4 class="author-name">Tom Sawyer</h4>
-                                <span class="post-on">Jana 10 2020</span>
-                            </div>
-                            <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                            <div class="rating-wrap">
-                                <div class="rating-start" title="Rated 5 out of 5">
-                                    <span></span>
+  
+    @foreach (var com in Model)
+    {
+        <div class="dashboard-box">
+            <div class="comment-area">
+                <div class="comment-area-inner">
+                    <ol>
+                        <li>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h4 class="author-name">@com.ApplicationUser.FirstName @com.ApplicationUser.LastName</h4>
+                                    <span class="post-on">@com.PostTime</span>
                                 </div>
-                            </div>
-                            <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                            <div class="comment-detail">
-                                <br />
-                                <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#myModal">Remove Comment</button>
-                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                <a href="~/Views/Comment/Edit.cshtml" class="reply"><i class="far fa-edit"></i>Edit</a>
+                                <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
+                                <p>@com.CommentContent</p>
+                                <div class="comment-detail">
 
-                                <!-- Modal -->
-                                <div id="myModal" class="modal" role="dialog">
-                                    <div class="modal-dialog">
+                                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#myModal">Remove Comment</button>
+                                    <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#modalForm">Reply</button>
+                                    @*<a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>*@
+                                    <a href="~/Views/Comment/Edit.cshtml" class="reply"><i class="far fa-edit"></i>Edit</a>
 
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
+                                    <!-- Modal (Remove) -->
+                                    <div id="myModal" class="modal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
                                             <div class="modal-content">
-                                                <h4 class="modal-header">Remove Comment</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Are you sure you want to remove this comment</p>
+                                                <div class="modal-content">
+                                                    <h4 class="modal-header">Remove Comment</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure you want to remove this comment?</p>
 
-                                                <button class="btn btn-danger" name="comment" id="remove">Remove</button>
-                                                <button class="btn btn-default" name="comment" data-dismiss="modal">Close</button>
+                                                    <button class="btn btn-danger" name="comment" id="remove">Remove</button>
+                                                    <button class="btn btn-default" name="comment" data-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <ol>
-                        <li>
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <h4 class="author-name">Tom Sawyer</h4>
-                                    <span class="post-on">Jana 10 2020</span>
-                                </div>
-                                <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                                <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                <div class="comment-detail">
-                                    <button class="btn btn-danger" onclick="RemoveFunction()">Remove</button>                                                
-                                    <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                    <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                </ol>
-           
-               
-                <ol>
-                    <li>
-                        <div class="comment-content">
-                            <div class="comment-header">
-                                <h4 class="author-name">Tom Sawyer</h4>
-                                <span class="post-on">Jana 10 2020</span>
-                            </div>
-                            <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                            <div class="rating-wrap">
-                                <div class="rating-start" title="Rated 5 out of 5">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                            <div class="comment-detail">
-                                <button class="btn btn-danger" onclick="RemoveFunction()">Remove</button>                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
-                            </div>
-                        </div>
-                    </li>
-                    <ol>
-                        <li>
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <h4 class="author-name">Tom Sawyer</h4>
-                                    <span class="post-on">Jana 10 2020</span>
-                                </div>
-                                <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                                <div class="rating-wrap">
-                                    <div class="rating-start" title="Rated 5 out of 5">
-                                        <span></span>
+
+
+                                    <!-- Modal (Reply) -->
+                                    <div id="modalForm" class="modal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <form method="post" action="">
+                                                    <div class="modal-content">
+                                                        <h4 class="modal-header" style="align-self:center;">Reply</h4>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <textarea name="reply_body" id="reply_body" cols="60" rows="3" placeholder="Type your comment here...."></textarea>
+                                                            <input type="hidden" name="Reply" value="" />
+                                                        </div>
+                                                        <button class="btn btn-info" name="reply" id="postreply">Post Reply</button>
+                                                        <button class="btn btn-default" name="reply" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                <div class="comment-detail">
-                                    <button class="btn btn-danger" onclick="RemoveFunction()">Remove</button>                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                    <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
+
+
+
+
+
+
                                 </div>
                             </div>
                         </li>
+                        @if (com.ReplyComments != null)
+                        {
+
+                            foreach (var reply in com.ReplyComments)
+                            {
+                                <ol>
+                                    <li>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <h4 class="author-name">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>
+                                                <span class="post-on">@reply.ReplyPostTime</span>
+                                            </div>
+                                            <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
+                                            <p>@reply.ReplyContent</p>
+                                            <div class="comment-detail">
+
+                                                <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#myModal">Remove Comment</button>
+                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                                <a href="~/Views/Comment/Edit.cshtml" class="reply"><i class="far fa-edit"></i>Edit</a>
+                                                <!-- Modal -->
+                                                <div id="myModal" class="modal" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-content">
+                                                                <h4 class="modal-header">Remove Comment</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Are you sure you want to remove this comment?</p>
+
+                                                                <button class="btn btn-danger" name="comment" id="remove">Remove</button>
+                                                                <button class="btn btn-default" name="comment" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+
+                            }
+                        }
+
                     </ol>
-                </ol>
-           
+                </div>
+            </div>
         </div>
-    <!-- pagination html -->
+    }
     <div class="pagination-wrap">
         <nav class="pagination-inner">
             <ul class="pagination disabled">
@@ -150,31 +164,8 @@
     </div>
 </div>
 
-
-@*@section scripts{
-    <script type="text/javascript">
-        LoadComments();
-        function LoadComments() {
-            var settings = {
-                "url": "https://localhost:44335/Comment",
-                "method": "GET",
-                "timeout": 0,
-            };
-
-            $.ajax(settings).done(function (response) {
-
-                let comments = response;
-                for (var com of comments) {
-                    let template = `
-                                    
-                                    `
-                
-                    }
-                }
-            }
-        });
+@section scripts{
 
 
-    </script>
-    
-    }*@
+}
+
