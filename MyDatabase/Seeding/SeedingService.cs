@@ -106,9 +106,9 @@ namespace MyDatabase.Seeding
             p5.Hotel = h5;
 
             //Rate Seeding
-            Rating r1 = new Rating() { RateScore = 3, RatingTime=new DateTime(2022,06,15) };
-            Rating r2 = new Rating() { RateScore = 5 ,RatingTime=new DateTime(2022,06,06)};
-            Rating r3 = new Rating() { RateScore = 4 ,RatingTime=new DateTime(2022,09,09)};
+            Rating r1 = new Rating() { RateScore = 3};
+            Rating r2 = new Rating() { RateScore = 5};
+            Rating r3 = new Rating() { RateScore = 4};
             List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
             db.Ratings.AddRange(ratings);
 

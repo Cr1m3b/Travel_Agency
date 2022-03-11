@@ -3,112 +3,178 @@
 @{
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
+<style>
+    .modal {
+        text-align: center;
+        padding: 0 !important;
+    }
 
-            <div class="db-info-wrap db-comment-wrap">
-                <h4>Comments List</h4>
-                <p>Nonummy hac atque adipisicing donec placeat pariatur quia ornare nisl.</p>
-                <div class="dashboard-box">
-                    <!-- post comment html -->
-                    <div class="comment-area">
-                        <div class="comment-area-inner">
-                            <ol>
-                                <li>
-                                    <div class="comment-content">
-                                        <div class="comment-header">
-                                            <h4 class="author-name">Tom Sawyer</h4>
-                                            <span class="post-on">Jana 10 2020</span>
-                                        </div>
-                                        <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                                        <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                        <div class="comment-detail">
-                                            <a href="#" class="reply"><i class="far fa-trash-alt"></i>Remove</a>
-                                            <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                            <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+</style>
+
+
+
+<div class="db-info-wrap db-comment-wrap">
+    <h4>Comments List</h4>
+    <p>Our Customer's Comments</p>
+        <!-- post comment html -->
+        <div class="comment-area">
+                <ol>
+                    <li>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <h4 class="author-name">Tom Sawyer</h4>
+                                <span class="post-on">Jana 10 2020</span>
+                            </div>
+                            <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
+                            <div class="rating-wrap">
+                                <div class="rating-start" title="Rated 5 out of 5">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
+                            <div class="comment-detail">
+                                <br />
+                                <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#myModal">Remove Comment</button>
+                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                <a href="~/Views/Comment/Edit.cshtml" class="reply"><i class="far fa-edit"></i>Edit</a>
+
+                                <!-- Modal -->
+                                <div id="myModal" class="modal" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-content">
+                                                <h4 class="modal-header">Remove Comment</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to remove this comment</p>
+
+                                                <button class="btn btn-danger" name="comment" id="remove">Remove</button>
+                                                <button class="btn btn-default" name="comment" data-dismiss="modal">Close</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </li>
-                                <ol>
-                                    <li>
-                                        <div class="comment-content">
-                                            <div class="comment-header">
-                                                <h4 class="author-name">Tom Sawyer</h4>
-                                                <span class="post-on">Jana 10 2020</span>
-                                            </div>
-                                            <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                                            <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                            <div class="comment-detail">
-                                                <a href="#" class="reply"><i class="far fa-trash-alt"></i>Remove</a>
-                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                                <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </ol>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="dashboard-box">
-                    <!-- post comment html -->
-                    <div class="comment-area">
-                        <div class="comment-area-inner">
-                            <ol>
-                                <li>
-                                    <div class="comment-content">
-                                        <div class="comment-header">
-                                            <h4 class="author-name">Tom Sawyer</h4>
-                                            <span class="post-on">Jana 10 2020</span>
-                                        </div>
-                                        <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                                        <div class="rating-wrap">
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                        <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                        <div class="comment-detail">
-                                            <a href="#" class="reply"><i class="far fa-trash-alt"></i>Remove</a>
-                                            <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                            <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <ol>
-                                    <li>
-                                        <div class="comment-content">
-                                            <div class="comment-header">
-                                                <h4 class="author-name">Tom Sawyer</h4>
-                                                <span class="post-on">Jana 10 2020</span>
-                                            </div>
-                                            <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
-                                            <div class="rating-wrap">
-                                                <div class="rating-start" title="Rated 5 out of 5">
-                                                    <span></span>
-                                                </div>
-                                            </div>
-                                            <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                            <div class="comment-detail">
-                                                <a href="#" class="reply"><i class="far fa-trash-alt"></i>Remove</a>
-                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                                <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                <!-- pagination html -->
-                <div class="pagination-wrap">
-                    <nav class="pagination-inner">
-                        <ul class="pagination disabled">
-                            <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                            <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+                    </li>
+                    <ol>
+                        <li>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h4 class="author-name">Tom Sawyer</h4>
+                                    <span class="post-on">Jana 10 2020</span>
+                                </div>
+                                <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
+                                <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
+                                <div class="comment-detail">
+                                    <button class="btn btn-danger" onclick="RemoveFunction()">Remove</button>                                                
+                                    <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                    <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </ol>
            
+               
+                <ol>
+                    <li>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <h4 class="author-name">Tom Sawyer</h4>
+                                <span class="post-on">Jana 10 2020</span>
+                            </div>
+                            <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
+                            <div class="rating-wrap">
+                                <div class="rating-start" title="Rated 5 out of 5">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
+                            <div class="comment-detail">
+                                <button class="btn btn-danger" onclick="RemoveFunction()">Remove</button>                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
+                            </div>
+                        </div>
+                    </li>
+                    <ol>
+                        <li>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h4 class="author-name">Tom Sawyer</h4>
+                                    <span class="post-on">Jana 10 2020</span>
+                                </div>
+                                <h5 class="comment-title"><span>comment on:</span>Tips To Reduce Your Travel Costs</h5>
+                                <div class="rating-wrap">
+                                    <div class="rating-start" title="Rated 5 out of 5">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
+                                <div class="comment-detail">
+                                    <button class="btn btn-danger" onclick="RemoveFunction()">Remove</button>                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                    <a href="#" class="reply"><i class="far fa-edit"></i>Edit</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </ol>
+           
+        </div>
+    <!-- pagination html -->
+    <div class="pagination-wrap">
+        <nav class="pagination-inner">
+            <ul class="pagination disabled">
+                <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
+                <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+@*@section scripts{
+    <script type="text/javascript">
+        LoadComments();
+        function LoadComments() {
+            var settings = {
+                "url": "https://localhost:44335/Comment",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+
+                let comments = response;
+                for (var com of comments) {
+                    let template = `
+                                    
+                                    `
+                
+                    }
+                }
+            }
+        });
+
+
+    </script>
+    
+    }*@

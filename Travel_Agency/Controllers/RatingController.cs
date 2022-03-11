@@ -47,7 +47,7 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RatingId,RateScore,RatingTime")] Rating rating)
+        public ActionResult Create([Bind(Include = "RatingId,RateScore")] Rating rating)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RatingId,RateScore,RatingTime")] Rating rating)
+        public ActionResult Edit([Bind(Include = "RatingId,RateScore")] Rating rating)
         {
             if (ModelState.IsValid)
             {

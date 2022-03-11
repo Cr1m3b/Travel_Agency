@@ -21,6 +21,7 @@ namespace Entities.Models
 
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
+        public Rating Rating { get; set; }
 
     }
 }
