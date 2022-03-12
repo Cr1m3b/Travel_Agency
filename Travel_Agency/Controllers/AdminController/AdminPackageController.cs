@@ -64,8 +64,34 @@ namespace Travel_Agency.Controllers.AdminController
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PackageId,Title,MainPhoto,Description,TripDate,TripDuration,Price,Destinations,PackageStatus,HotelId,FlightId")] Package package)
+        public ActionResult Create(Package package,HttpPostedFileBase[] galleryPhotos, HttpPostedFileBase packagePhoto)
         {
+            if(galleryPhotos != null)
+            {
+                List<Photo> packagePhotos = new List<Photo>();
+                foreach (var photo in galleryPhotos)
+                {
+                    string url = "/Content/Images/" + photo.FileName;
+                    photo.SaveAs(Server.MapPath(url));
+                    var ph = new Photo() { Destinations = package.Destinations, Url = url };
+                    packagePhotos.Add(ph);
+                }
+                package.Photos=packagePhotos;
+            }
+            if(packagePhoto != null)
+            {
+                string url = "/Content/Images/" + packagePhoto.FileName;
+                packagePhoto.SaveAs(Server.MapPath(url));
+                package.MainPhoto = url;
+            }
+            foreach (ModelState modelState in ViewData.ModelState.Values)
+            {
+                foreach (ModelError error in modelState.Errors)
+                {
+                    // Get the Error details.
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 db.Packages.Add(package);

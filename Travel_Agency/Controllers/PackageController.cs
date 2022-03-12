@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Entities.Enums;
 using Entities.Models;
 using MyDatabase;
 
@@ -27,6 +28,12 @@ namespace Travel_Agency.Controllers
             var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos);
             return View(packages.ToList());
         }
+        public ActionResult PackageReviews()
+        {
+            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).Where(p=>p.PackageStatus == Status.Expired).ToList();
+            return View(packages);
+        }
+
 
         // GET: Package/Details/5
         public ActionResult Details(int? id)

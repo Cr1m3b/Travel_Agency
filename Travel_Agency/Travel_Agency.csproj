@@ -761,6 +761,7 @@
     <Content Include="Views\AdminPackage\Edit.cshtml" />
     <Content Include="Views\AdminPackage\Index.cshtml" />
     <Content Include="Views\Destination\Index.cshtml" />
+    <Content Include="Views\Package\PackageReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
