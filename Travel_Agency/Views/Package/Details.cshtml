@@ -30,7 +30,7 @@
                                     <ul>
                                         <li>
                                             <i class="far fa-clock"></i>
-                                            @($"{Model.TripDuration +1} days / {Model.TripDuration} nights")
+                                            @($"{Model.TripDuration + 1} days / {Model.TripDuration} nights")
                                         </li>
                                         <li>
                                             <i class="fas fa-map-marked-alt"></i>
@@ -154,7 +154,8 @@
                                                     <div class="full-width rate-wrap">
                                                         <label>Your rating</label>
                                                         <div class="procduct-rate">
-                                                            <span>   </span>
+                                                            @{ double rating = Model.CalcRating(); }
+                                                            <span style="width:50%"></span>
                                                         </div>
                                                     </div>
                                                     <p>

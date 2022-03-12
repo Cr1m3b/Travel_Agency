@@ -115,7 +115,6 @@ namespace MyDatabase.Seeding
             p1.Ratings.Add(r1);
             p1.Ratings.Add(r3);
             p2.Ratings.Add(r2);
-            p1.Ratings.Add(r1);
 
 
             db.SaveChanges();
