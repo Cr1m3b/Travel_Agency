@@ -18,7 +18,8 @@ namespace Travel_Agency.Controllers
         // GET: Comment
         public ActionResult Index()
         {
-            return View(db.Comments.Include(x=>x.ApplicationUser).Include(x => x.Package).Include(x=>x.ReplyComments).ToList());
+            var comments = db.Comments.Include(x => x.ApplicationUser).Include(x => x.Package).Include(x => x.ReplyComments).ToList();
+            return View(comments);
         }
 
         // GET: Comment/Details/5
