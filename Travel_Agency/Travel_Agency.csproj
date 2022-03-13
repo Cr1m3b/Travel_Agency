@@ -220,6 +220,12 @@
     <Content Include="Content\Images\Barcelona\Barcelona5.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona6.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona7.jpg" />
+    <Content Include="Content\Images\Lisbon\Lisbon1.jpg" />
+    <Content Include="Content\Images\Lisbon\Lisbon2.jpg" />
+    <Content Include="Content\Images\Lisbon\Lisbon3.png" />
+    <Content Include="Content\Images\Lisbon\Lisbon4.jpg" />
+    <Content Include="Content\Images\Lisbon\Lisbon5.jpg" />
+    <Content Include="Content\Images\Lisbon\Lisbon6.jpg" />
     <Content Include="Content\Images\London\London1.jpg" />
     <Content Include="Content\Images\London\London2.jpg" />
     <Content Include="Content\Images\London\London3.jpg" />
@@ -762,6 +768,7 @@
     <Content Include="Views\AdminPackage\Index.cshtml" />
     <Content Include="Views\Destination\Index.cshtml" />
     <Content Include="Views\Package\PackageReviews.cshtml" />
+    <Content Include="Views\Package\PackagesPerDestination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
