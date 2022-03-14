@@ -1,114 +1,158 @@
 ﻿@model Entities.Models.Package
 
 @{
-    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Package</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.PackageId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+<div class="db-info-wrap db-add-tour-wrap">
+    <div class="col-lg-12 col-xl-12">
+        @using (Html.BeginForm("Edit", "AdminPackage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.PackageId)
+            <div class="col-lg-12 col-xl-12">
+                <div class="dashboard-box">
+                    <div class="custom-field-wrap">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Title)
+                            @Html.EditorFor(model => model.Title)
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Description)
+                                    @Html.TextAreaFor(model => model.Description)
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Program)
+                                    @Html.TextAreaFor(model => model.Program)
+                                    @Html.ValidationMessageFor(model => model.Program, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <h4>Dates and Prices</h4>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Destinations)
+                                            @Html.EnumDropDownListFor(model => model.Destinations)
+                                            @Html.ValidationMessageFor(model => model.Destinations)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.LabelFor(model => model.TripDate)
+                                        <div class="row">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.TripDate)
+                                                @Html.ValidationMessageFor(model => model.TripDate)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.LabelFor(model => model.TripDuration)
+                                        <div class="row">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.TripDuration)
+                                                @Html.ValidationMessageFor(model => model.TripDuration)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PackageStatus)
+                                            @Html.EnumDropDownListFor(model => model.PackageStatus)
+                                            @Html.ValidationMessageFor(model => model.PackageStatus)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Hotel.HotelName)
+                                            @Html.DropDownList("HotelId")
+                                            @Html.ValidationMessageFor(model => model.HotelId)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Fly With</label>
+                                            @Html.DropDownList("FlightId")
+                                            @Html.ValidationMessageFor(model => model.FlightId)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Price)
+                                            @Html.EditorFor(model => model.Price)
+                                            @Html.ValidationMessageFor(model => model.Price)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-box">
+                            <h4>Main Photo</h4>
+                            <div class="custom-field-wrap">
+                                <div class="dragable-field">
+                                    <div class="dragable-field-inner">
+                                        @*<p class="drag-drop-info">Drop Files To Upload</p>
+                                            <p>or</p>*@
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                                <span class="upload-btn">Upload a new image</span>
+                                                <br />
+                                                @Html.HiddenFor(model => model.MainPhoto)
+                                                @Html.EditorFor(model => model.MainPhoto)
+                                                <img src=@Model.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
+                                                <input type="file" name="packagePhoto" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-box">
+                            <h4>Gallery</h4>
+                            <div class="custom-field-wrap">
+                                <div class="dragable-field">
+                                    <div class="dragable-field-inner">
+                                        @*<p class="drag-drop-info">Drop Files To Upload</p>
+                                            <p>or</p>*@
+                                        <div class="upload-input">
+                                            <div class="form-group">
+                                                <span class="upload-btn">Upload a new image</span>
+                                                <br />
+                                                        @foreach (var photo in Model.Photos)
+                                                        {
+                                                            <img src=@photo.Url style="object-fit:cover; width:434px ;height:344px " alt="">
+                                                        }
+                                                <input type="file" name="galleryPhotos" multiple="multiple">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-box">
+                            <div class="custom-field-wrap">
+                                <div class="form-group">
+                                    <div class="col-md-2 offset-md-5">
+                                        <input type="submit" value="Edit" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MainPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MainPhoto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MainPhoto, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TripDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TripDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TripDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TripDuration, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TripDuration, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TripDuration, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Destinations, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Destinations, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Destinations, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PackageStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.PackageStatus, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PackageStatus, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HotelId, "HotelId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("HotelId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.HotelId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FlightId, "FlightId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("FlightId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FlightId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+        }
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

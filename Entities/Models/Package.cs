@@ -21,6 +21,7 @@ namespace Entities.Models
         public string Title { get; set; }
         public string MainPhoto { get; set; }
         public string Description { get; set; }
+        public string Program { get; set; }
         [Display(Name = "Trip Date")]
         public DateTime TripDate { get; set; }
         [Display(Name = "Trip Duration")]

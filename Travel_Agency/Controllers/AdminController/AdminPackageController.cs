@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entities.Enums;
+using Entities.Models;
+using MyDatabase;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,9 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Entities.Enums;
-using Entities.Models;
-using MyDatabase;
 
 namespace Travel_Agency.Controllers.AdminController
 {
@@ -22,7 +21,7 @@ namespace Travel_Agency.Controllers.AdminController
             var packages = db.Packages.Include(x => x.Flight).Include(x => x.Hotel).ToList();
             if (status == "active")
             {
-              packages= packages.Where(x => x.PackageStatus == Status.Active).ToList();
+                packages = packages.Where(x => x.PackageStatus == Status.Active).ToList();
             }
             if (status == "pending")
             {
@@ -32,7 +31,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 packages = packages.Where(x => x.PackageStatus == Status.Expired).ToList();
             }
- 
+
             return View(packages);
         }
 
@@ -64,9 +63,9 @@ namespace Travel_Agency.Controllers.AdminController
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Package package,HttpPostedFileBase[] galleryPhotos, HttpPostedFileBase packagePhoto)
+        public ActionResult Create(Package package, HttpPostedFileBase[] galleryPhotos, HttpPostedFileBase packagePhoto)
         {
-            if(galleryPhotos != null)
+            if (galleryPhotos != null)
             {
                 List<Photo> packagePhotos = new List<Photo>();
                 foreach (var photo in galleryPhotos)
@@ -76,20 +75,13 @@ namespace Travel_Agency.Controllers.AdminController
                     var ph = new Photo() { Destinations = package.Destinations, Url = url };
                     packagePhotos.Add(ph);
                 }
-                package.Photos=packagePhotos;
+                package.Photos = packagePhotos;
             }
-            if(packagePhoto != null)
+            if (packagePhoto != null)
             {
                 string url = "/Content/Images/" + packagePhoto.FileName;
                 packagePhoto.SaveAs(Server.MapPath(url));
                 package.MainPhoto = url;
-            }
-            foreach (ModelState modelState in ViewData.ModelState.Values)
-            {
-                foreach (ModelError error in modelState.Errors)
-                {
-                    // Get the Error details.
-                }
             }
 
             if (ModelState.IsValid)
@@ -111,7 +103,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package = db.Packages.Find(id);
+            Package package = db.Packages.Include(x => x.Photos).ToList().Find(x => x.PackageId == id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -126,10 +118,34 @@ namespace Travel_Agency.Controllers.AdminController
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PackageId,Title,MainPhoto,Description,TripDate,TripDuration,Price,Destinations,PackageStatus,HotelId,FlightId")] Package package)
+        public ActionResult Edit(Package package, HttpPostedFileBase[] galleryPhotos, HttpPostedFileBase packagePhoto)
         {
+            if (packagePhoto != null)
+            {
+                string url = "/Content/Images/" + packagePhoto.FileName;
+                packagePhoto.SaveAs(Server.MapPath(url));
+                package.MainPhoto = url;
+            }
+            if (galleryPhotos != null)
+            {
+                List<Photo> packagePhotos = new List<Photo>();
+                foreach (var photo in galleryPhotos)
+                {
+                    if (photo != null)
+                    {
+                        string url = "/Content/Images/" + photo.FileName;
+                        photo.SaveAs(Server.MapPath(url));
+                        var ph = new Photo() { Destinations = package.Destinations, Url = url };
+                        packagePhotos.Add(ph);
+                    }
+                }
+                if (packagePhotos.Count > 0) package.Photos = packagePhotos;
+            }
+
+            
             if (ModelState.IsValid)
             {
+
                 db.Entry(package).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -182,7 +198,7 @@ namespace Travel_Agency.Controllers.AdminController
             db.SaveChanges();
             db.Entry(package).State = EntityState.Deleted;
             db.SaveChanges();
-            
+
             return RedirectToAction("Index");
         }
 
