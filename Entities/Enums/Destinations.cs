@@ -12,6 +12,7 @@ namespace Entities.Models.Enums
         Barcelona,
         London,
         Paris,
-        Rome
+        Rome,
+        Lisbon
     }
 }

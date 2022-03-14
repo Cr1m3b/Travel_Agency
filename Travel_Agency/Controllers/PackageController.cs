@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Entities.Enums;
 using Entities.Models;
+using Entities.Models.Enums;
 using MyDatabase;
 
 namespace Travel_Agency.Controllers
@@ -22,7 +23,20 @@ namespace Travel_Agency.Controllers
             var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p=>p.Photos);
             return View(packages.ToList());
         }
-
+        public ActionResult PackagesPerDestination(string destination)
+        {
+            var packages = db.Packages.Where(p => p.Destinations.ToString().Equals(destination)).ToList();
+            //var packages = db.Packages;
+            //var destinationpackages = new List<Package>();
+            //foreach (var p in packages)
+            //{
+            //    if (p.Destinations.ToString() == destination)
+            //    {
+            //        destinationpackages.Add(p);
+            //    }
+            //}
+            return View(packages);
+        }
         public ActionResult PackageOffer()
         {
             var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos);
