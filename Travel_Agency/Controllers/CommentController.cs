@@ -18,7 +18,8 @@ namespace Travel_Agency.Controllers
         // GET: Comment
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            var comments = db.Comments.Include(x => x.ApplicationUser).Include(x => x.Package).Include(x => x.ReplyComments).ToList();
+            return View(comments);
         }
 
         // GET: Comment/Details/5
@@ -60,19 +61,30 @@ namespace Travel_Agency.Controllers
         }
 
         // GET: Comment/Edit/5
-        public ActionResult Edit(int? id)
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Comment comment = db.Comments.Find(id);
+
+
+        //    if (comment == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(comment);
+        //}
+
+        public ActionResult Edit()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(comment);
+        return View(); 
         }
+
+
+
+
 
         // POST: Comment/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
