@@ -4,12 +4,10 @@
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
 
-
-
 <div class="db-info-wrap db-package-wrap">
     <div class="dashboard-box table-opp-color-box">
         <h4>Packages List</h4>
-       
+
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -17,14 +15,14 @@
                         <th>Title</th>
                         <th>Trip Date</th>
                         <th>Destination</th>
-                        <th>status</th>
-                        <th>action</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var package in Model)
                     {
-                        <tr>
+                        <tr id="row_@package.PackageId">
                             <td>
                                 <span class="package-name">@package.Title</span>
                             </td>
@@ -45,10 +43,12 @@
                                 }
                             </td>
                             <td>
-                                <a href="#"><span class="badge badge-success"><i class="far fa-edit"></i></span></a>
+                                <a href="/AdminPackage/Edit/@package.PackageId"><span class="badge badge-success"><i class="far fa-edit"></i></span></a>
                                 <a href="/AdminPackage/Delete/@package.PackageId"><span class="badge badge-danger"><i class="far fa-trash-alt"></i></span></a>
                             </td>
                         </tr>
+
+
                     }
                 </tbody>
             </table>
