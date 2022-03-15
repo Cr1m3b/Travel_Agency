@@ -213,6 +213,8 @@
     <Content Include="Content\Images\Athens\Athens6.jpg" />
     <Content Include="Content\Images\Athens\Athens7.jpg" />
     <Content Include="Content\Images\Backgrounds\Europe.jpg" />
+    <Content Include="Content\Images\Backgrounds\kgr87n-1.jpg" />
+    <Content Include="Content\Images\Backgrounds\vonitsa.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona1.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona2.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona3.jpg" />
@@ -769,6 +771,7 @@
     <Content Include="Views\Destination\Index.cshtml" />
     <Content Include="Views\Package\PackageReviews.cshtml" />
     <Content Include="Views\Package\PackagesPerDestination.cshtml" />
+    <Content Include="Views\Package\PackageOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

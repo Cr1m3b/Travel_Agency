@@ -26,17 +26,11 @@ namespace Travel_Agency.Controllers
         public ActionResult PackagesPerDestination(string destination)
         {
             var packages = db.Packages.Where(p => p.Destinations.ToString().Equals(destination)).ToList();
-            //var packages = db.Packages;
-            //var destinationpackages = new List<Package>();
-            //foreach (var p in packages)
-            //{
-            //    if (p.Destinations.ToString() == destination)
-            //    {
-            //        destinationpackages.Add(p);
-            //    }
-            //}
+          
             return View(packages);
         }
+      
+
         public ActionResult PackageOffer()
         {
             var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos);
