@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Entities.Models;
+using Entities.Models.ViewModels;
 using MyDatabase;
 
 namespace Travel_Agency.Controllers
@@ -48,16 +49,16 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,CommentContent")] Comment comment)
+        public ActionResult Create(CommentReplyVM com)
         {
-            if (ModelState.IsValid)
-            {
-                db.Comments.Add(comment);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            ReplyComment rcom = new ReplyComment();
+            rcom.ReplyContent = com.Reply;
+            rcom.CommentId = com.ComId;
+            rcom.ReplyPostTime = DateTime.Now;
+            db.ReplyComments.Add(rcom);
+            db.SaveChanges();
 
-            return View(comment);
+            return RedirectToAction("Index");
         }
 
         // GET: Comment/Edit/5
