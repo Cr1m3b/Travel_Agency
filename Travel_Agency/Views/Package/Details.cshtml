@@ -132,8 +132,8 @@
                                                             </figure>
                                                             <div class="comment-content">
                                                                 <div class="comment-header">
-                                                                    @*<h5 class="author-name">@comment.ApplicationUser.FirstName</h5>*@
-                                                                    <span class="post-on">@comment.PostTime</span>
+                                                                    <h5 class="author-name">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
+                                                                    <span class="post-on">@comment.PostTime.ToString("dd/MM/yyyy")</span>
                                                                     <div class="rating-wrap">
                                                                         <div class="rating-start" title="Rated 5 out of 5">
                                                                             <span></span>
