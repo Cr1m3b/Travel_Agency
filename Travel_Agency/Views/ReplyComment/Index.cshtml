@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Entities.Models.ReplyComment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment.CommentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyPostTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment.CommentContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyPostTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReplyCommentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReplyCommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReplyCommentId })
+        </td>
+    </tr>
+}
+
+</table>

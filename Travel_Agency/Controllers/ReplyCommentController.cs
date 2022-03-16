@@ -7,44 +7,44 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Entities.Models;
-using Entities.Models.ViewModels;
 using MyDatabase;
 
 namespace Travel_Agency.Controllers
 {
-    public class CommentController : Controller
+    public class ReplyCommentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Comment
+        // GET: ReplyComment
         public ActionResult Index()
         {
-            var comments = db.Comments.Include(x => x.ApplicationUser).Include(x => x.Package).Include(x => x.ReplyComments).ToList();
-            return View(comments);
+            var replyComments = db.ReplyComments.Include(r => r.Comment);
+            return View(replyComments.ToList());
         }
 
-        // GET: Comment/Details/5
+        // GET: ReplyComment/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            ReplyComment replyComment = db.ReplyComments.Find(id);
+            if (replyComment == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(replyComment);
         }
 
-        // GET: Comment/Create
+        // GET: ReplyComment/Create
         public ActionResult Create()
         {
+            ViewBag.CommentId = new SelectList(db.Comments, "CommentId", "CommentContent");
             return View();
         }
 
-        // POST: Comment/Create
+        // POST: ReplyComment/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,88 +58,67 @@ namespace Travel_Agency.Controllers
             db.ReplyComments.Add(rcom);
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Comment");
+
         }
 
-        // GET: Comment/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Comment comment = db.Comments.Find(id);
+        
 
-
-        //    if (comment == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(comment);
-        //}
-
-        public ActionResult Edit()
+        // GET: ReplyComment/Edit/5
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ReplyComment replyComment = db.ReplyComments.Find(id);
+            if (replyComment == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.CommentId = new SelectList(db.Comments, "CommentId", "CommentContent", replyComment.CommentId);
+            return View(replyComment);
         }
 
-
-
-
-
-        // POST: Comment/Edit/5
+        // POST: ReplyComment/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentId,CommentContent")] Comment comment)
+        public ActionResult Edit([Bind(Include = "ReplyCommentId,ReplyContent,ReplyPostTime,CommentId")] ReplyComment replyComment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                db.Entry(replyComment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
+            ViewBag.CommentId = new SelectList(db.Comments, "CommentId", "CommentContent", replyComment.CommentId);
+            return View(replyComment);
         }
 
-        // GET: Comment/Delete/5
+        // GET: ReplyComment/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            ReplyComment replyComment = db.ReplyComments.Find(id);
+            if (replyComment == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(replyComment);
         }
 
-        // POST: Comment/Delete/5
+        // POST: ReplyComment/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-
-            var comment = db.Comments.Where(c => c.CommentId == id).Include(c => c.ReplyComments).FirstOrDefault();
-            if (comment == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            }
-
-            for (int i = 0; i < comment.ReplyComments.Count; i++)
-            {
-                var com = comment.ReplyComments.ElementAt(i);
-
-                db.Entry(com).State = EntityState.Deleted;
-            }
-
-            comment.ReplyComments.Clear();
-
-            db.Comments.Remove(comment);
+            ReplyComment replyComment = db.ReplyComments.Find(id);
+            db.ReplyComments.Remove(replyComment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

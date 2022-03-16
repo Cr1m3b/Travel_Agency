@@ -74,8 +74,8 @@ namespace MyDatabase.Seeding
 
 
             // Comment Seeding
-            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25) };
-            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29) };
+            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25),Rating=4 };
+            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29), Rating = 5 };
             List<Comment> comments = new List<Comment>() { com1, com2 };
             db.Comments.AddRange(comments);
 
