@@ -192,6 +192,7 @@
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
+    <Compile Include="Controllers\ReplyCommentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -772,6 +773,11 @@
     <Content Include="Views\Package\PackageReviews.cshtml" />
     <Content Include="Views\Package\PackagesPerDestination.cshtml" />
     <Content Include="Views\Package\PackageOffer.cshtml" />
+    <Content Include="Views\ReplyComment\Create.cshtml" />
+    <Content Include="Views\ReplyComment\Delete.cshtml" />
+    <Content Include="Views\ReplyComment\Details.cshtml" />
+    <Content Include="Views\ReplyComment\Edit.cshtml" />
+    <Content Include="Views\ReplyComment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

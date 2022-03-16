@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Entities.Models;
+using Entities.Models.ViewModels;
 using MyDatabase;
 
 namespace Travel_Agency.Controllers
@@ -58,11 +59,11 @@ namespace Travel_Agency.Controllers
             db.ReplyComments.Add(rcom);
             db.SaveChanges();
 
-            return RedirectToAction("Index","Comment");
+            return RedirectToAction("Index", "Comment");
 
         }
 
-        
+
 
         // GET: ReplyComment/Edit/5
         public ActionResult Edit(int? id)
