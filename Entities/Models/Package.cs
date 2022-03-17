@@ -29,6 +29,7 @@ namespace Entities.Models
         public decimal Price { get; set; }
         //[Range(0, 100, ErrorMessage = "The percentage of offer must be equal or greater to zero and equal or smaller than 100")]
         public int Discount { get; set; }
+        public string MapEmbededUrl { get; set; }
         public decimal DiscountedPrice()
         {
            return  Price - ((Price * Discount /100));
