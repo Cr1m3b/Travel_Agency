@@ -43,25 +43,7 @@ namespace Entities.Models
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        public double CalcRating()
-        {
-            if (Ratings.Count==0)
-            {
-                return 0;
-            }
-            else
-            {
-                double rating = 0;
-                int sum = 0;
-                foreach (var r in Ratings)
-                {
-                    sum += r.RateScore;
-                }
-                rating = sum / Ratings.Count;
-                return rating;
-            }
-            
-        }
+        
     }
     
 }

@@ -132,16 +132,16 @@
                                                             </figure>
                                                             <div class="comment-content">
                                                                 <div class="comment-header">
-                                                                    @*<h5 class="author-name">@comment.ApplicationUser.FirstName</h5>*@
-                                                                    <span class="post-on">@comment.PostTime</span>
+                                                                    <h5 class="author-name">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
+                                                                    <span class="post-on">@comment.PostTime.ToString("dd/MM/yyyy")</span>
                                                                     <div class="rating-wrap">
                                                                         <div class="rating-start" title="Rated 5 out of 5">
                                                                             <span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                                                <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                                                <p>@comment.CommentContent</p>
+                                                                @*<a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>*@
                                                             </div>
                                                         </li>
                                                     </ol>
@@ -150,22 +150,26 @@
                                             </div>
                                             <div class="comment-form-wrap">
                                                 <h3 class="comment-title">Leave a Comment</h3>
-                                                <form class="comment-form">
+                                                @using (Html.BeginForm("Create", "Comment", FormMethod.Post))
+                                                {
                                                     <div class="full-width rate-wrap">
                                                         <label>Your rating</label>
                                                         <div class="procduct-rate">
-                                                            @{ double rating = Model.CalcRating(); }
-                                                            <span style="width:50%"></span>
+                                                            @*@{ double rating = Model.CalcRating(); }*@
+                                                            @*<span style="width:50%"></span>*@
+                                                          
                                                         </div>
                                                     </div>
+
+                                                    @Html.AntiForgeryToken()
                                                     <p>
                                                         <textarea rows="6" placeholder="Your review"></textarea>
                                                     </p>
                                                     <p>
                                                         <input type="submit" name="submit" value="Submit">
                                                     </p>
-                                                </form>
-                                            </div>
+                                                                }
+                                                </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">

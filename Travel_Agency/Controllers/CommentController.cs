@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Entities.Models;
+using Entities.Models.ViewModels;
 using MyDatabase;
 
 namespace Travel_Agency.Controllers
@@ -48,15 +49,15 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentId,CommentContent")] Comment comment)
+        public ActionResult Create(Comment comment)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                comment.PostTime = DateTime.Now;
+                db.Entry(comment).State = EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(comment);
         }
 
@@ -79,7 +80,7 @@ namespace Travel_Agency.Controllers
 
         public ActionResult Edit()
         {
-        return View(); 
+            return View();
         }
 
 
@@ -122,7 +123,22 @@ namespace Travel_Agency.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
+
+            var comment = db.Comments.Where(c => c.CommentId == id).Include(c => c.ReplyComments).FirstOrDefault();
+            if (comment == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            for (int i = 0; i < comment.ReplyComments.Count; i++)
+            {
+                var com = comment.ReplyComments.ElementAt(i);
+
+                db.Entry(com).State = EntityState.Deleted;
+            }
+
+            comment.ReplyComments.Clear();
+
             db.Comments.Remove(comment);
             db.SaveChanges();
             return RedirectToAction("Index");

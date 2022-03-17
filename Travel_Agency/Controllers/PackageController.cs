@@ -52,7 +52,7 @@ namespace Travel_Agency.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Package package = db.Packages.Include(p=>p.Photos)
-                                         .Include(p=>p.Comments)
+                                         .Include(p=>p.Comments.Select(a=>a.ApplicationUser))
                                          .Include(p => p.Flight)
                                          .Include(p => p.Hotel)
                                          .ToList().Find(x=>x.PackageId==id);

@@ -139,7 +139,14 @@ namespace Travel_Agency.Controllers.AdminController
                         packagePhotos.Add(ph);
                     }
                 }
-                if (packagePhotos.Count > 0) package.Photos = packagePhotos;
+                if (packagePhotos.Count > 0)
+                {
+                    package.Photos = packagePhotos;
+                    foreach (var photo in package.Photos)
+                    {
+                        db.Entry(photo).State = EntityState.Added;
+                    }
+                }
             }
 
             

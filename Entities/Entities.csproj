@@ -102,6 +102,7 @@
     <Compile Include="Models\Photos.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\ShoppingCard.cs" />
+    <Compile Include="Models\ViewModels\CommentReplyVM.cs" />
     <Compile Include="Models\Wishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
