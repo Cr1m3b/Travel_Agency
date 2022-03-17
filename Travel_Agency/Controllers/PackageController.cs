@@ -33,8 +33,9 @@ namespace Travel_Agency.Controllers
 
         public ActionResult PackageOffer()
         {
-            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos);
-            return View(packages.ToList());
+            var packages = db.Packages.Where(p=>p.Discount!=0).Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).ToList();
+         
+            return View(packages);
         }
         public ActionResult PackageReviews()
         {

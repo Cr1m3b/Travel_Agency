@@ -24,13 +24,15 @@ namespace MyDatabase.Seeding
         public void SeedPackages()
         {
             //Package Seeding
-            Package p1 = new Package() { Title = "Barcelona", Description = "Vacations at Barcelone", MainPhoto= "https://c.pxhere.com/photos/a9/f0/spain_barcelona_triumphal_arch_street_view_spain_landscape_building-642076.jpg!d", TripDate = new DateTime(2022, 5, 12), TripDuration = 4, Price = 476, Destinations = Destinations.Barcelona, PackageStatus = Status.Active };
+            Package p1 = new Package() { Title = "Barcelona", Description = "Vacations at Barcelone", MainPhoto= "https://c.pxhere.com/photos/a9/f0/spain_barcelona_triumphal_arch_street_view_spain_landscape_building-642076.jpg!d", TripDate = new DateTime(2022, 6, 12), TripDuration = 4, Price = 476, Destinations = Destinations.Barcelona, PackageStatus = Status.Active };
+            Package p8 = new Package() { Title = "Barcelona", Description = "Vacations at Barcelone", MainPhoto= "https://c.pxhere.com/photos/a9/f0/spain_barcelona_triumphal_arch_street_view_spain_landscape_building-642076.jpg!d", TripDate = new DateTime(2022, 5, 12), TripDuration = 4, Price = 476, Discount=20, Destinations = Destinations.Barcelona, PackageStatus = Status.Active };
             Package p2 = new Package() { Title = "Paris", Description = "Vacations at Paris",MainPhoto= "https://fadeceilings.com/wp-content/uploads/2019/08/AdobeStock_65117955-720x460.jpeg", TripDate = new DateTime(2022, 5, 3), TripDuration = 3, Price = 699, Destinations = Destinations.Paris, PackageStatus = Status.Active };
             Package p3 = new Package() { Title = "Athens", Description = "Vacations at Athens",MainPhoto= "https://c.pxhere.com/photos/a9/a9/temple_athens_greece_architecture_ancient_greek_history_culture-763875.jpg!s1", TripDate = new DateTime(2022, 9, 1), TripDuration = 5, Price = 355, Destinations = Destinations.Athens, PackageStatus = Status.Pending };
             Package p4 = new Package() { Title = "London", Description = "Vacations at London",MainPhoto= "https://c.pxhere.com/photos/29/2d/london_parliament_england_ben_ben_westminster_tower_city_british-772846.jpg!d", TripDate = new DateTime(2022, 1, 12), TripDuration = 4, Price = 340, Destinations = Destinations.London, PackageStatus = Status.Expired };
             Package p5 = new Package() { Title = "Rome", Description = "Vacations at Rome",MainPhoto= "https://c.pxhere.com/photos/a9/4e/colosseum_rome_italy_roman_architecture_landmark_italian_tourism-744892.jpg!d", TripDate = new DateTime(2021, 5, 12), TripDuration = 6, Price = 529, Destinations = Destinations.Rome, PackageStatus = Status.Expired };
-            Package p6 = new Package() { Title = "Lisbon", Description = "Vacations at Lisbon",MainPhoto= "https://www.nationsonline.org/gallery/Portugal/Praca-do-Comercio-Lisbon.jpg", TripDate = new DateTime(2022, 4, 28), TripDuration = 3, Price = 329, Destinations = Destinations.Lisbon, PackageStatus = Status.Active };
-            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6 };
+            Package p6 = new Package() { Title = "Lisbon", Description = "Vacations at Lisbon",MainPhoto= "https://www.nationsonline.org/gallery/Portugal/Praca-do-Comercio-Lisbon.jpg", TripDate = new DateTime(2022, 6, 28), TripDuration = 3, Price = 350, Destinations = Destinations.Lisbon, PackageStatus = Status.Active };
+            Package p7 = new Package() { Title = "Lisbon", Description = "Vacations at Lisbon",MainPhoto= "https://www.nationsonline.org/gallery/Portugal/Praca-do-Comercio-Lisbon.jpg", TripDate = new DateTime(2022, 4, 30), TripDuration = 3, Price = 329, Discount=30, Destinations = Destinations.Lisbon, PackageStatus = Status.Active };
+            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7 };
             db.Packages.AddRange(packages);
 
             //Booking Seeding
@@ -40,7 +42,9 @@ namespace MyDatabase.Seeding
             Booking b4 = new Booking() { PurchaseDate = new DateTime(2021, 12, 28) };
             Booking b5 = new Booking() { PurchaseDate = new DateTime(2021, 03, 02) };
             Booking b6 = new Booking() { PurchaseDate = new DateTime(2022, 03, 02) };
-            List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5,b6 };
+            Booking b7 = new Booking() { PurchaseDate = new DateTime(2022, 03, 02) };
+            Booking b8 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02) };
+            List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5,b6,b7,b8 };
             db.Bookings.AddRange(bookings);
 
             b1.Package = p1;
@@ -49,6 +53,8 @@ namespace MyDatabase.Seeding
             b4.Package = p4;
             b5.Package = p5;
             b6.Package = p6;
+            b7.Package = p7;
+            b8.Package = p8;
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
@@ -70,6 +76,8 @@ namespace MyDatabase.Seeding
             p4.Photos.Add(photosLondon);
             p5.Photos.Add(photosRome);
             p6.Photos.Add(photosLisbon);
+            p7.Photos.Add(photosLisbon);
+            p8.Photos.Add(photosAthens);
 
 
 
@@ -96,6 +104,8 @@ namespace MyDatabase.Seeding
             p4.Flight = f3;
             p5.Flight = f1;
             p6.Flight = f3;
+            p7.Flight = f1;
+            p8.Flight = f1;
 
             //Hotel Seeding
             Hotel h1 = new Hotel() { HotelName = "Saint-Roch", HotelStars = 2, Destinations = Destinations.Paris };
@@ -113,6 +123,8 @@ namespace MyDatabase.Seeding
             p4.Hotel = h3;
             p5.Hotel = h5;
             p6.Hotel = h6;
+            p7.Hotel = h6;
+            p8.Hotel = h4;
 
             //Rate Seeding
             Rating r1 = new Rating() { RateScore = 3};

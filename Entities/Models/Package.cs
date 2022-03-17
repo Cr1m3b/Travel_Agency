@@ -27,6 +27,12 @@ namespace Entities.Models
         [Display(Name = "Trip Duration")]
         public int TripDuration { get; set; }
         public decimal Price { get; set; }
+        //[Range(0, 100, ErrorMessage = "The percentage of offer must be equal or greater to zero and equal or smaller than 100")]
+        public int Discount { get; set; }
+        public decimal DiscountedPrice()
+        {
+           return  Price - ((Price * Discount /100));
+        }
         public Destinations Destinations { get; set; }
         public Status PackageStatus { get; set; }
         //Navigation Properties
