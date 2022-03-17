@@ -128,6 +128,15 @@ namespace Travel_Agency.Controllers.AdminController
             }
             if (galleryPhotos != null)
             {
+             
+                //var photoIds= package.Photos.Select(x => x.PhotoId).ToList();
+                //foreach (var id in photoIds)
+                //{
+                //    var photo = db.Photos.Find(id);
+                //    db.Entry(photo).State = EntityState.Deleted;
+                //    db.SaveChanges();
+                //}
+
                 List<Photo> packagePhotos = new List<Photo>();
                 foreach (var photo in galleryPhotos)
                 {
