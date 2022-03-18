@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @*<div class="col-sm-6">
+                            <div class="col-sm-6">
                                 <div class="desti-item overlay-desti-item">
                                     <figure class="desti-image">
                                         <img style="object-fit: cover; width: 322px; height: 300px" src="~/Content/Images/Barcelona/Barcelona8.jpg" alt="">
@@ -117,7 +117,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>*@
+                            </div>
                             <div class="col-sm-6">
                                 <div class="desti-item overlay-desti-item">
                                     <figure class="desti-image">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div class="btn-wrap text-center">
-                    <a href="#" class="button-primary">MORE DESTINATION</a>
+                    <a href="/Destination/Index" class="button-primary">MORE DESTINATION</a>
                 </div>
             </div>
         </div>
@@ -198,6 +198,7 @@
                     </div>
                 </div>
             </div>
+            <!--Here start POPULAR PACKAGES-->
             <div class="package-inner">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
@@ -346,7 +347,7 @@
                     </div>
                 </div>
                 <div class="btn-wrap text-center">
-                    <a href="#" class="button-primary">VIEW ALL PACKAGES</a>
+                    <a href="/Package/Index" class="button-primary">VIEW ALL PACKAGES</a>
                 </div>
             </div>
         </div>
@@ -368,86 +369,42 @@
                     </div>
                 </div>
             </div>
+           <!--Here start the offers-->
             <div class="special-inner">
                 <div class="row">
+                    @foreach (var package in ViewBag.ListHighestDiscount)
+                    {
+
                     <div class="col-md-6 col-lg-4">
                         <div class="special-item">
                             <figure class="special-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img9.jpg" alt="">
+                                <img src="@package.MainPhoto" alt="">
                             </figure>
                             <div class="badge-dis">
                                 <span>
-                                    <strong>20%</strong>
+                                    <strong>@package.Discount%</strong>
                                     off
                                 </span>
                             </div>
                             <div class="special-content">
                                 <div class="meta-cat">
-                                    <a href="#">CANADA</a>
+                                    <a href="#">@package.Destinations</a>
                                 </div>
                                 <h3>
                                     <a href="#">Experience the natural beauty of glacier</a>
                                 </h3>
                                 <div class="package-price">
                                     Price:
-                                    <del>$1500</del>
-                                    <ins>$1200</ins>
+                                    <del>$@package.Price</del>
+                                    <ins>$@package.DiscountedPrice()</ins>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="special-item">
-                            <figure class="special-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img10.jpg" alt="">
-                            </figure>
-                            <div class="badge-dis">
-                                <span>
-                                    <strong>15%</strong>
-                                    off
-                                </span>
-                            </div>
-                            <div class="special-content">
-                                <div class="meta-cat">
-                                    <a href="#">NEW ZEALAND</a>
-                                </div>
-                                <h3>
-                                    <a href="#">Trekking to the mountain camp site</a>
-                                </h3>
-                                <div class="package-price">
-                                    Price:
-                                    <del>$1300</del>
-                                    <ins>$1105</ins>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="special-item">
-                            <figure class="special-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img11.jpg" alt="">
-                            </figure>
-                            <div class="badge-dis">
-                                <span>
-                                    <strong>15%</strong>
-                                    off
-                                </span>
-                            </div>
-                            <div class="special-content">
-                                <div class="meta-cat">
-                                    <a href="#">MALAYSIA</a>
-                                </div>
-                                <h3>
-                                    <a href="#">Sunset view of beautiful lakeside city</a>
-                                </h3>
-                                <div class="package-price">
-                                    Price:
-                                    <del>$1800</del>
-                                    <ins>$1476</ins>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+                    }
+
                 </div>
             </div>
         </div>
