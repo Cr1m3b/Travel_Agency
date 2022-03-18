@@ -25,135 +25,71 @@
                     <div class="row">
                         @foreach (var package in Model)
                         {
-                            if (package.Discount != 0)
-
-                            {
-                                <div class="col-lg-4 col-md-6">
-                                 
-                                    
-                                  
-                                    <div class="package-wrap">
-                                        <figure class="feature-image">
-
-                                            @*<span>
-                                                <strong>@package.Discount%</strong>
-                                                off
-                                            </span>*@
-                                            <a href="/Package/Details/@package.PackageId">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="package-wrap">
+                                    <figure class="feature-image">
+                                        <a href="/Package/Details/@package.PackageId">
                                             <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
-                                            </a>
+                                        </a>
 
-                                        </figure>
-
-                                        <div  class="package-price">
+                                    </figure>
+                                    @if (package.Discount != 0)
+                                    {
+                                        <div class="package-price">
                                             <h6>
-                                                <span > @package.Discount% </span>Discount
+                                                <span> @package.Discount% </span>Discount
                                                 <br />
 
-        <span>$@package.DiscountedPrice() </span> / per person
+                                                <span>$@package.DiscountedPrice() </span> / per person
 
                                             </h6>
                                         </div>
-                                        @*<div class="package-inner" style="position:center">
-                                         
-                                                <span>$@package.Price </span> / per person
-
-                                           
-                                        </div>*@
-
-            
-
-                                        <div class="package-content-wrap">
-                                            <div class="package-meta text-center">
-                                                <ul>
-                                                    <li>
-                                                        <i class="far fa-clock"></i>
-                                                        @($"{package.TripDuration +1} days / {package.TripDuration} nights")
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-map-marker-alt"></i>
-                                                        @package.Destinations
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="package-content">
-                                                <h3>
-                                                    <a href="/Package/Details/@package.PackageId">@package.Title</a>
-
-
-                                                </h3>
-                                                <h5> @package.TripDate.ToShortDateString() </h5>
-                                                <div class="review-area">
-                                                    <span class="review-text">@package.Comments.Count</span>
-                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                        <span style="width: 70%"></span>
-                                                    </div>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                                <div class="btn-wrap">
-                                                    <a href="#" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
-                                                    <a href="#" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-
-                            else
-                            {
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="package-wrap">
-                                        <figure class="feature-image">
-                                            <a href="/Package/Details/@package.PackageId">
-                                                <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
-                                            </a>
-                                        </figure>
+                                    }
+                                    else
+                                    {
                                         <div class="package-price">
                                             <h6>
                                                 <span>$@package.Price </span> / per person
                                             </h6>
                                         </div>
-                                        <div class="package-content-wrap">
-                                            <div class="package-meta text-center">
-                                                <ul>
-                                                    <li>
-                                                        <i class="far fa-clock"></i>
-                                                        @($"{package.TripDuration +1} days / {package.TripDuration} nights")
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-map-marker-alt"></i>
-                                                        @package.Destinations
-                                                    </li>
-                                                </ul>
+                                    }
+
+                                    <div class="package-content-wrap">
+                                        <div class="package-meta text-center">
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-clock"></i>
+                                                    @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    @package.Destinations
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="package-content">
+                                            <h3>
+                                                <a href="/Package/Details/@package.PackageId">@package.Title</a>
+
+
+                                            </h3>
+                                            <h5> @package.TripDate.ToShortDateString() </h5>
+                                            <div class="review-area">
+                                                <span class="review-text">@package.Comments.Count</span>
+                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                    <span style="width: 70%"></span>
+                                                </div>
                                             </div>
-                                            <div class="package-content">
-                                                <h3>
-                                                    <a href="/Package/Details/@package.PackageId">@package.Title</a>
-
-
-                                                </h3>
-                                                <h5> @package.TripDate.ToShortDateString() </h5>
-                                                <div class="review-area">
-                                                    <span class="review-text">@package.Comments.Count</span>
-                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                        <span style="width: 70%"></span>
-                                                    </div>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                                <div class="btn-wrap">
-                                                    <a href="#" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
-                                                    <a href="#" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
-                                                </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                            <div class="btn-wrap">
+                                                <a href="#" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
+                                                <a href="#" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            }
+                            </div>
                         }
-
-
                     </div>
                 </div>
             </div>

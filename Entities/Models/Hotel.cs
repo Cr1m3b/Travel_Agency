@@ -19,6 +19,7 @@ namespace Entities.Models
         public string HotelName { get; set;}
         [Display(Name = "Hotel Stars")]
         public int HotelStars { get; set;}
+        public string MapEmbededUrl { get; set; }
         public Destinations Destinations { get; set; }
         //Navigation Properties
         public ICollection<Package> Packages { get; set; }
