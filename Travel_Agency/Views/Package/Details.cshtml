@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="inner-shape"></div>
-        </section> 
+        </section>
         <!-- Inner Banner html end-->
         <div class="single-tour-section">
             <div class="container">
@@ -75,35 +75,35 @@
                                         <div class="itinerary-timeline-wrap">
                                             @Model.Program
                                             @*<ul>
-                                                <li>
-                                                    <div class="timeline-content">
-                                                        <div class="day-count">Day <span>1</span></div>
-                                                        <h4>Ancient Rome Visit</h4>
-                                                        <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-content">
-                                                        <div class="day-count">Day <span>2</span></div>
-                                                        <h4>Classic Rome Sightseeing</h4>
-                                                        <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-content">
-                                                        <div class="day-count">Day <span>3</span></div>
-                                                        <h4>Vatican City Visit</h4>
-                                                        <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-content">
-                                                        <div class="day-count">Day <span>4</span></div>
-                                                        <h4>Italian Food Tour</h4>
-                                                        <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                    </div>
-                                                </li>
-                                            </ul>*@
+                                                    <li>
+                                                        <div class="timeline-content">
+                                                            <div class="day-count">Day <span>1</span></div>
+                                                            <h4>Ancient Rome Visit</h4>
+                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="timeline-content">
+                                                            <div class="day-count">Day <span>2</span></div>
+                                                            <h4>Classic Rome Sightseeing</h4>
+                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="timeline-content">
+                                                            <div class="day-count">Day <span>3</span></div>
+                                                            <h4>Vatican City Visit</h4>
+                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="timeline-content">
+                                                            <div class="day-count">Day <span>4</span></div>
+                                                            <h4>Italian Food Tour</h4>
+                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>*@
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab">
@@ -114,7 +114,7 @@
                                             <div class="review-score-content">
                                                 <h3>
                                                     Excellent
-                                                    <span>( Based on 24 reviews )</span>
+                                                    <span>( Based on @Model.Comments.Count reviews )</span>
                                                 </h3>
                                                 <p>Tincidunt iaculis pede mus lobortis hendrerit eveniet impedit aenean mauris qui, pharetra rem doloremque laboris euismod deserunt non, cupiditate, vestibulum.</p>
                                             </div>
@@ -158,7 +158,7 @@
                                                         <div class="procduct-rate">
                                                             @*@{ double rating = Model.CalcRating(); }*@
                                                             @*<span style="width:50%"></span>*@
-                                                          
+
                                                         </div>
                                                     </div>
 
@@ -169,13 +169,13 @@
                                                     <p>
                                                         <input type="submit" name="submit" value="Submit">
                                                     </p>
-                                                                }
-                                                </div>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">
                                         <div class="map-area">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810779084!2d-0.24168048758363828!3d51.52877184055496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sde!4v1647357646186!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                            <iframe src="@Model.Hotel.MapEmbededUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -198,16 +198,35 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="sidebar">
-                            <div class="package-price">
-                                <h5 class="price">
-                                    <span>@Model.Price</span> / per person
-                                </h5>
-                                <div class="start-wrap">
-                                    <div class="rating-start" title="Rated 5 out of 5">
-                                        <span style="width: 60%"></span>
+                            @if (Model.Discount != 0)
+                            {
+                                <div class="package-price">
+                                    <h5 class="price">
+                                        <span> @Model.Discount% </span>Discount
+                                        <br />
+
+                                        <span>$@Model.DiscountedPrice() </span> / per person
+                                    </h5>
+                                    <div class="start-wrap">
+                                        <div class="rating-start" title="Rated 5 out of 5">
+                                            <span style="width: 60%"></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
+                            else
+                            {
+                                <div class="package-price">
+                                    <h5 class="price">
+                                        <span>$@Model.Price </span> / per person
+                                    </h5>
+                                    <div class="start-wrap">
+                                        <div class="rating-start" title="Rated 5 out of 5">
+                                            <span style="width: 60%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
 
                             <div class="travel-package-content text-center" style="background-image: url(assets/images/img11.jpg);">
                                 <h5>MORE PACKAGES</h5>

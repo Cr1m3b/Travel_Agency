@@ -10,9 +10,11 @@ namespace Entities.Models.Enums
     {
         Athens,
         Barcelona,
+        Cappadocia,
+        Lisbon,
         London,
         Paris,
         Rome,
-        Lisbon
+        
     }
 }

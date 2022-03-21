@@ -798,6 +798,10 @@
       <Project>{010de2d0-30c1-4dfa-ad2b-bf5383c1cf43}</Project>
       <Name>MyDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersistenceLayer\PersistenceLayer.csproj">
+      <Project>{4CD4D88F-A276-4DF6-BA46-7F8679CE367C}</Project>
+      <Name>PersistenceLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
