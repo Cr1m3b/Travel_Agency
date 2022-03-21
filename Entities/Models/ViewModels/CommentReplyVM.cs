@@ -9,6 +9,6 @@ namespace Entities.Models.ViewModels
     public class CommentReplyVM
     {
         public string Reply { get; set; }
-        public int ComId { get; set; }
+        public int ComId{ get; set; }
     }
 }

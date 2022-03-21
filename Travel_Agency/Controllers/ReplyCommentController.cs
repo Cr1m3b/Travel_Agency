@@ -50,17 +50,17 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CommentReplyVM com)
+        public ActionResult Create(ReplyComment reply, int id)
         {
-            ReplyComment rcom = new ReplyComment();
-            rcom.ReplyContent = com.Reply;
-            rcom.CommentId = com.ComId;
-            rcom.ReplyPostTime = DateTime.Now;
-            db.ReplyComments.Add(rcom);
-            db.SaveChanges();
+            reply.ReplyPostTime = DateTime.Now;
+            reply.CommentId = id;
+            if (ModelState.IsValid)
+            {
 
+                db.ReplyComments.Add(reply);
+                db.SaveChanges();
+            }
             return RedirectToAction("Index", "Comment");
-
         }
 
 
@@ -121,7 +121,7 @@ namespace Travel_Agency.Controllers
             ReplyComment replyComment = db.ReplyComments.Find(id);
             db.ReplyComments.Remove(replyComment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Comment");
         }
 
         protected override void Dispose(bool disposing)

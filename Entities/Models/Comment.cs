@@ -19,18 +19,19 @@ namespace Entities.Models
         public int CommentId { get; set; }
 
         [Display(Name = "Comments")]
-       //[MinLength(5, ErrorMessage = "Comment cannot be less than 5")]
-       //[MaxLength(200, ErrorMessage = "Comment cannot be greater than 200")]
+        //[MinLength(5, ErrorMessage = "Comment cannot be less than 5")]
+        //[MaxLength(200, ErrorMessage = "Comment cannot be greater than 200")]
         public string CommentContent { get; set; }
         public DateTime PostTime { get; set; }
         public int Rating { get; set; }
 
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
+        public int PackageId { get; set; }
         public Package Package { get; set; }
-        public ICollection<ReplyComment> ReplyComments { get; set; }   
+        public ICollection<ReplyComment> ReplyComments { get; set; }
 
-      
+
 
     }
 }
