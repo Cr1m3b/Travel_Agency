@@ -24,18 +24,30 @@ namespace Travel_Agency.Controllers
         }
 
         // GET: ReplyComment/Details/5
-        public ActionResult Details(int? id)
+
+        public ActionResult UserReply(int id)
         {
-            if (id == null)
+            ViewBag.CommentId = new SelectList(db.Comments, "CommentId", "CommentContent");
+            ViewBag.PackageId = new SelectList(db.Packages, "PackageId", "Title");
+            return View();
+        }
+
+        // POST: ReplyComment/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserReply(ReplyComment reply, int id)
+        {
+            reply.ReplyPostTime = DateTime.Now;
+            reply.CommentId = id;
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                db.ReplyComments.Add(reply);
+                db.SaveChanges();
             }
-            ReplyComment replyComment = db.ReplyComments.Find(id);
-            if (replyComment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(replyComment);
+            return RedirectToAction("Details", "Package", new { id = id });
         }
 
         // GET: ReplyComment/Create
@@ -62,7 +74,6 @@ namespace Travel_Agency.Controllers
             }
             return RedirectToAction("Index", "Comment");
         }
-
 
 
         // GET: ReplyComment/Edit/5

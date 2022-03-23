@@ -39,8 +39,10 @@ namespace Travel_Agency.Controllers
         }
 
         // GET: Comment/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            var package=db.Packages.Find(id);
+            ViewBag.Title=package.Title;
             return View();
         }
 
@@ -58,9 +60,9 @@ namespace Travel_Agency.Controllers
             {
                 db.Entry(comment).State = EntityState.Added;
                 db.SaveChanges();
-                return RedirectToAction("PackageReviews", "Package");
+                return RedirectToAction("Index", "Package");
             }
-            return RedirectToAction("PackageReviews", "Package");
+            return RedirectToAction("Index", "Package");
         }
 
         // GET: Comment/Edit/5
