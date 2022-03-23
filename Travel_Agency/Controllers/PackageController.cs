@@ -56,6 +56,7 @@ namespace Travel_Agency.Controllers
             }
             Package package = db.Packages.Include(p=>p.Photos)
                                          .Include(p=>p.Comments.Select(a=>a.ApplicationUser))
+                                         .Include(p=>p.Comments.Select(r=>r.ReplyComments))
                                          .Include(p => p.Flight)
                                          .Include(p => p.Hotel)
                                          .ToList().Find(x=>x.PackageId==id);
