@@ -69,8 +69,8 @@ namespace Travel_Agency.Controllers
             if (ModelState.IsValid)
             {
             ReplyComment rcom = new ReplyComment();
-            rcom.ReplyContent = com.Reply;
-            rcom.CommentId = com.ComId;
+            //rcom.ReplyContent = com.Reply;
+            //rcom.CommentId = com.ComId;
             rcom.ReplyPostTime = DateTime.Now;
             db.ReplyComments.Add(rcom);
             db.SaveChanges();
