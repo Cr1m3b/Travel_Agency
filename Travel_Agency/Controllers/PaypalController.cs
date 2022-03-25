@@ -86,10 +86,10 @@ namespace Travel_Agency.Controllers
             //create itemlist and add item objects to it  
             var itemList = new ItemList()
             {
-                items = new List<Item>()
+                items = new List<PayPal.Api.Item>()
             };
             //Adding Item Details like name, currency, price etc  
-            itemList.items.Add(new Item()
+            itemList.items.Add(new PayPal.Api.Item()
             {
                 name = "Item Name comes here",
                 currency = "EUR",
