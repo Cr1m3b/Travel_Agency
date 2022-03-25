@@ -25,6 +25,7 @@ namespace Entities.Models
         public DateTime PostTime { get; set; }
         public int Rating { get; set; }
 
+
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
         public int PackageId { get; set; }
