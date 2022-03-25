@@ -68,7 +68,7 @@
 
                             </table>
                         </div>
-                        @*<div class="totalAmountArea">
+                        <div class="totalAmountArea">
                             @{
                                 List<Item> cart = (List<Item>)Session["cart"];
                                 var total = cart.Sum(item => item.Package.Price * item.Quantity);
@@ -80,7 +80,7 @@
                                 
                                 <li><strong>Grand Total</strong> <span class="grandTotal">$ @total</span></li>
                             </ul>
-                        </div>*@
+                        </div>
                         <div class="checkBtnArea text-right">
                             <a href="#" class="button-primary">checkout</a>
                         </div>
@@ -109,7 +109,7 @@
     <!-- header html end -->  
 </div>
 
-@section scripts{
+@*@section scripts{
     <script>
       
 
@@ -155,7 +155,7 @@
     
     
     
-    }
+    }*@
 
 
 
