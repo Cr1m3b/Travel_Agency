@@ -96,6 +96,7 @@
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ReplyComment.cs" />
     <Compile Include="Models\CustomValidations\MyValidations.cs" />
     <Compile Include="Models\Flight.cs" />

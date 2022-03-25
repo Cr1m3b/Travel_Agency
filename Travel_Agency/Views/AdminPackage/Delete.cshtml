@@ -5,30 +5,19 @@
 }
 
 <div class="db-info-wrap db-package-wrap">
+        <div class="dashboard-box table-opp-color-box">
+            <h3>Are you sure you want to delete this?</h3>
+            <h4>Package</h4>
+            <hr />
+            <h3>Title: @Model.Title</h3>
+            <br />
+            <h3>Date: @Model.TripDate.ToString("dd/MM/yyyy")</h3>
+            <br />
+            <h3>Price: @Model.Price</h3>
 
-    <h3>Are you sure you want to delete this package?</h3>
-    <div>
-        <dl class="dl-horizontal">
-            <dd>
-                <strong>Package:</strong>
-                <br />
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-            <dd>
-                <strong>Trip Date:</strong>
-                <br />
-                @Html.DisplayFor(model => model.TripDate)
-            </dd>
-            <dd>
-                <strong>Price:</strong>
-                <br />
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-        </dl>
-    </div>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
         <div class="form-actions" style="position:absolute;top:40%;left:2%">
             <button type="submit" value="Delete" class="btn btn-info btn-danger">Delete</button>

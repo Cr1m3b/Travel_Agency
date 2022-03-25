@@ -46,16 +46,6 @@ namespace Entities.Models
             //return Math.Floor(discountedPrice);
         }
 
-        public double AveragePackageRating()
-        {
-           double sum = 0;
-            foreach (var com in Comments)
-            {
-                sum += com.Rating;
-            }
-            return Math.Round(sum /Comments.Count,MidpointRounding.ToEven);
-        }
-
     }
     
 }
