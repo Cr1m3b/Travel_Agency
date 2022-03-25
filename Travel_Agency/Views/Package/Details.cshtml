@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
 
-
 <div id="page" class="full-page">
     <main id="content" class="site-main">
         <!-- Inner Banner html start-->
@@ -74,43 +73,17 @@
                                         </div>
                                         <div class="itinerary-timeline-wrap">
                                             @Model.Program
-                                            @*<ul>
-                                                    <li>
-                                                        <div class="timeline-content">
-                                                            <div class="day-count">Day <span>1</span></div>
-                                                            <h4>Ancient Rome Visit</h4>
-                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline-content">
-                                                            <div class="day-count">Day <span>2</span></div>
-                                                            <h4>Classic Rome Sightseeing</h4>
-                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline-content">
-                                                            <div class="day-count">Day <span>3</span></div>
-                                                            <h4>Vatican City Visit</h4>
-                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline-content">
-                                                            <div class="day-count">Day <span>4</span></div>
-                                                            <h4>Italian Food Tour</h4>
-                                                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>*@
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab">
                                         <div class="summary-review">
-                                            <div class="review-score">
-                                                <span>4.9</span>
-                                            </div>
+                                            @if (!(@Model.Comments.Count == 0))
+                                            {
+                                                <div class="review-score">
+                                                    <span>@Model.AveragePackageRating()</span>
+                                                </div>
+                                            }
+
                                             <div class="review-score-content">
                                                 <h3>
                                                     Excellent
@@ -121,55 +94,82 @@
                                         </div>
                                         <!-- review comment html -->
                                         <div class="comment-area">
-                                            <h3 class="comment-title">@Model.Comments.Count Reviews</h3>
+                                            @if ((@Model.Comments.Count == 0))
+                                            {
+                                                <h3 class="comment-title">No Reviews</h3>
+                                            }
+                                            else if ((@Model.Comments.Count == 1))
+                                            {
+                                                <h3 class="comment-title">@Model.Comments.Count Review</h3>
+                                            }
+                                            else
+                                            {
+                                                <h3 class="comment-title">@Model.Comments.Count Reviews</h3>
+                                            }
+                                            <a href="/Comment/Create/@Model.PackageId"  style="font-size:large; color: red; position:absolute;left:320px;top:870px">Post Your Review</a>
+                                            @using (Html.BeginForm("Create", "Comment", FormMethod.Get))
+                                            {
+                                                @Html.AntiForgeryToken()
+
+
+                                            }
                                             <div class="comment-area-inner">
                                                 @foreach (var comment in Model.Comments)
                                                 {
-                                                    <ol>
-                                                        <li>
-                                                            <figure class="comment-thumb">
-                                                                <img src="assets/images/img22.jpg" alt="">
-                                                            </figure>
-                                                            <div class="comment-content">
-                                                                <div class="comment-header">
-                                                                    <h5 class="author-name">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
-                                                                    <span class="post-on">@comment.PostTime.ToString("dd/MM/yyyy")</span>
-                                                                    <div class="rating-wrap">
-                                                                        <div class="rating-start" title="Rated 5 out of 5">
-                                                                            <span></span>
+                                                    <div class="dashboard-box">
+                                                        <div class="comment-area">
+                                                            <div class="comment-area-inner">
+                                                                <ol>
+                                                                    <li>
+
+                                                                        <div class="comment-content">
+                                                                            <div class="comment-header">
+                                                                                <h5 class="author-name">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
+                                                                                <span class="post-on" style="color:dodgerblue">@comment.PostTime.ToString("dd/MM/yyyy")</span>
+                                                                                <div class="rating-wrap">
+                                                                                    <div class="rating-start" title="Rated 5 out of 5">
+                                                                                        <span style="width: calc((@comment.Rating*20%))"></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p>@comment.CommentContent</p>
+                                                                            <div class="comment-detail">
+
+                                                                                <a href="/ReplyComment/UserReply/@comment.CommentId" class="btn btn-info btn-default">Post Reply</a>
+
+                                                                            </div>
+                                                                            @*<a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>*@
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                                <p>@comment.CommentContent</p>
-                                                                @*<a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>*@
+                                                                    </li>
+
+                                                                    @if (comment.ReplyComments != null)
+                                                                    {
+
+                                                                        foreach (var reply in comment.ReplyComments)
+                                                                        {
+
+                                                                            <li>
+                                                                                <div class="comment-content">
+                                                                                    <div class="comment-header">
+                                                                                        <div style="color:#021a76;font-style:italic">Reply to @comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName:</div>
+                                                                                        <h5 class="author-name" style="color:red">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h5>
+                                                                                        <span class="post-on">@reply.ReplyPostTime.ToString("dd/MM/yyyy")</span>
+                                                                                    </div>
+                                                                                    <p>@reply.ReplyContent</p>
+                                                                                </div>
+                                                                            </li>
+
+
+                                                                        }
+                                                                    }
+                                                                </ol>
                                                             </div>
-                                                        </li>
-                                                    </ol>
-                                                }
-
-                                            </div>
-                                            <div class="comment-form-wrap">
-                                                <h3 class="comment-title">Leave a Comment</h3>
-                                                @using (Html.BeginForm("Create", "Comment", FormMethod.Post))
-                                                {
-                                                    <div class="full-width rate-wrap">
-                                                        <label>Your rating</label>
-                                                        <div class="procduct-rate">
-                                                            @*@{ double rating = Model.CalcRating(); }*@
-                                                            @*<span style="width:50%"></span>*@
-
                                                         </div>
                                                     </div>
-
-                                                    @Html.AntiForgeryToken()
-                                                    <p>
-                                                        <textarea rows="6" placeholder="Your review"></textarea>
-                                                    </p>
-                                                    <p>
-                                                        <input type="submit" name="submit" value="Submit">
-                                                    </p>
                                                 }
                                             </div>
+
+
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">
@@ -215,16 +215,20 @@
                             }
                             else
                             {
-                                <div class="package-price">
-                                    <h5 class="price">
-                                        <span>$@Model.Price </span> / per person
-                                    </h5>
-                                    <div class="start-wrap">
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 60%"></span>
-                                        </div>
+                        <div class="package-price">
+                            <h5 class="price">
+                                <span>$@Model.Price </span> / per person
+                            </h5>
+                            @if (!(@Model.Comments.Count == 0))
+                            {
+                                <div class="start-wrap">
+                                    <div class="rating-start" title="Rated 5 out of 5">
+                                        <span style="width: 60%"></span>
                                     </div>
                                 </div>
+                            }
+
+                        </div>
                             }
 
                             <div class="travel-package-content text-center" style="background-image: url(assets/images/img11.jpg);">

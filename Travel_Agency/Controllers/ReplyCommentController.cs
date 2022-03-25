@@ -24,18 +24,30 @@ namespace Travel_Agency.Controllers
         }
 
         // GET: ReplyComment/Details/5
-        public ActionResult Details(int? id)
+
+        public ActionResult UserReply(int id)
         {
-            if (id == null)
+            ViewBag.CommentId = new SelectList(db.Comments, "CommentId", "CommentContent");
+            ViewBag.PackageId = new SelectList(db.Packages, "PackageId", "Title");
+            return View();
+        }
+
+        // POST: ReplyComment/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserReply(ReplyComment reply, int id)
+        {
+            reply.ReplyPostTime = DateTime.Now;
+            reply.CommentId = id;
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                db.ReplyComments.Add(reply);
+                db.SaveChanges();
             }
-            ReplyComment replyComment = db.ReplyComments.Find(id);
-            if (replyComment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(replyComment);
+            return RedirectToAction("Details", "Package", new { id = id });
         }
 
         // GET: ReplyComment/Create
@@ -50,8 +62,12 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CommentReplyVM com)
+        public ActionResult Create(ReplyComment reply, int id)
         {
+            reply.ReplyPostTime = DateTime.Now;
+            reply.CommentId = id;
+            if (ModelState.IsValid)
+            {
             ReplyComment rcom = new ReplyComment();
             rcom.ReplyContent = com.Reply;
             rcom.CommentId = com.ComId;
@@ -59,6 +75,9 @@ namespace Travel_Agency.Controllers
             db.ReplyComments.Add(rcom);
             db.SaveChanges();
 
+                db.ReplyComments.Add(reply);
+                db.SaveChanges();
+            }
             return RedirectToAction("Index", "Comment");
 
         }
@@ -121,7 +140,7 @@ namespace Travel_Agency.Controllers
             ReplyComment replyComment = db.ReplyComments.Find(id);
             db.ReplyComments.Remove(replyComment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Comment");
         }
 
         protected override void Dispose(bool disposing)

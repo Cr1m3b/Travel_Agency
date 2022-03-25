@@ -1,30 +1,31 @@
-﻿@using Travel_Agency.Models
-@model LoginViewModel
+﻿@model Travel_Agency.Models.LoginViewModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="login-page" style="background-image: url(../../Theme/TravelAgency/admin/assets/images/bg.jpg);">
-    <div class="login-from-wrap">
-        <form class="login-from">
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="login-page" style="background-image: url(../../Theme/TravelAgency/admin/assets/images/bg.jpg);">
+        <div class="login-from-wrap">
+
             <h1 class="site-title">
-                <a href="~/Home/Index">
-                    <img src="~/Theme/TravelAgency/admin/assets/images/logo.png" alt="">
-                </a>
+                <img src="~/Theme/TravelAgency/admin/assets/images/logo.png" alt="">
             </h1>
             <div class="form-group">
-                <label for="first_name1">User Name</label>
-                <input type="text" class="validate">
+                @Html.LabelFor(model => model.UserName)
+                @Html.EditorFor(model => model.UserName)
             </div>
             <div class="form-group">
-                <label for="last_name">Password</label>
-                <input id="last_name" type="password" class="validate">
+                @Html.LabelFor(model => model.Password)
+                @Html.EditorFor(model => model.Password)
             </div>
             <div class="form-group">
-                <a class="button-primary" href="dashboard.html">Login</a>
+                <input class="btn btn-primary" type="submit" value="Login" />
             </div>
-            <a href="forgot.html" class="for-pass">Forgot Password?</a>
-        </form>
+            <a href="~/Account/ForgotPassword" class="for-pass">Forgot Password?</a>
+        </div>
     </div>
-</div>
+}
 

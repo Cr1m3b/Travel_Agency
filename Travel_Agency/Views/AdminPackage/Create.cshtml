@@ -78,7 +78,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Hotel.MapEmbededUrl)
-                                            @Html.EditorFor(model => model.Hotel.MapEmbededUrl)
+                                            @Html.EditorFor(model => model.Hotel.MapEmbededUrl, new {htmlAttributes = new { placeholder = "The <src> of embeded map" } })
 
                                         </div>
                                     </div>

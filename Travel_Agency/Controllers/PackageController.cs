@@ -20,8 +20,10 @@ namespace Travel_Agency.Controllers
         // GET: Package
         public ActionResult Index()
         {
-            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p=>p.Photos).ToList();
-            ViewBag.package = packages;
+            var packages = db.Packages.Where(x => x.PackageStatus == Status.Active)
+                                      .Include(p => p.Flight)
+                                      .Include(p => p.Hotel)
+                                      .Include(p=>p.Photos).ToList();
             return View(packages);
         }
         public ActionResult PackagesPerDestination(string destination)
@@ -54,6 +56,7 @@ namespace Travel_Agency.Controllers
             }
             Package package = db.Packages.Include(p=>p.Photos)
                                          .Include(p=>p.Comments.Select(a=>a.ApplicationUser))
+                                         .Include(p=>p.Comments.Select(r=>r.ReplyComments))
                                          .Include(p => p.Flight)
                                          .Include(p => p.Hotel)
                                          .ToList().Find(x=>x.PackageId==id);

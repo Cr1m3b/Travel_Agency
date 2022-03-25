@@ -3,26 +3,6 @@
 @{
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
-<style>
-    .modal {
-        text-align: center;
-        padding: 0 !important;
-    }
-
-        .modal:before {
-            content: '';
-            display: inline-block;
-            height: 100%;
-            vertical-align: middle;
-            margin-right: -4px;
-        }
-
-    .modal-dialog {
-        display: inline-block;
-        text-align: left;
-        vertical-align: middle;
-    }
-</style>
 
 <div class="db-info-wrap db-comment-wrap">
     <h4>Comments List</h4>
@@ -45,70 +25,14 @@
                                 <p>@com.CommentContent</p>
                                 <div class="comment-detail">
 
-                                    <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#@com.ApplicationUser.Id">Remove Comment</button>
-                                    <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#@com.ApplicationUser.UserName">Reply</button>
-
-                                    <!-- Modal (Remove) -->
-                                    <div id="@com.ApplicationUser.Id" class="modal" role="dialog">
-                                        <div class="modal-dialog">
-
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-content">
-                                                    <h4 class="modal-header">Remove Comment</h4>
-                                                </div>
-                                                <form action="@Url.Action("Delete","Comment")" method="post">
-                                                    @Html.AntiForgeryToken()
-                                                    <div class="modal-body">
-                                                        <p>Are you sure you want to remove this comment?</p>
-
-                                                        <input type="hidden" name="Id" value="@com.CommentId" />
-                                                        <button class="btn btn-danger" name="comment" value="Delete" type="submit">Remove</button>
-                                                        <button class="btn btn-default" name="comment" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    @*=========Reply Create===========*@
-                                    <!-- Modal (Reply) -->
-                                    <div id="@com.ApplicationUser.UserName" class="modal" role="dialog">
-                                        <div class="modal-dialog">
-
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                @using (Html.BeginForm("Create", "ReplyComment", FormMethod.Post))
-                                                {
-                                                    <p>@com.ApplicationUser.FirstName</p>
-                                                    <p>@com.ApplicationUser.LastName</p>
-                                                    <p>@com.CommentId</p>
-                                                    @Html.AntiForgeryToken()
-                                                    <div class="modal-content">
-                                                        <h4 class="modal-header" style="align-self:center;">Reply</h4>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <div class="form-group">
-                                                            <textarea name="Reply" id="reply_body" cols="60" rows="3" placeholder="Type your comment here...."></textarea>
-                                                            <input type="hidden" name="ComId" value="@com.CommentId" />
-                                                        </div>
-                                                        <input class="btn btn-info" type="submit" value="Post Reply" />
-                                                        @*<button class="btn btn-info" name="reply" id="postreply">Post Reply</button>*@
-                                                        <button class="btn btn-default" name="reply" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                }
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
+                                    <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                    <a href="/Comment/Delete/@com.CommentId" class="btn btn-info btn-danger">Remove Comment</a>
 
                                 </div>
                             </div>
                         </li>
+
+
                         @if (com.ReplyComments != null)
                         {
 
@@ -125,59 +49,9 @@
                                             <p>@reply.ReplyContent</p>
                                             <div class="comment-detail">
 
-                                                <button type="button" class="btn btn-info btn-danger" data-toggle="modal" data-target="#@com.ApplicationUser.Id">Remove Comment</button>
-                                                <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#@com.ApplicationUser.UserName">Reply</button>
-
-                                                <!-- Modal -->
-                                                <div id="@com.ApplicationUser.Id" class="modal" role="dialog">
-                                                    <div class="modal-dialog">
-
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                            <div class="modal-content">
-                                                                <h4 class="modal-header">Remove Comment</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Are you sure you want to remove this comment?</p>
-
-                                                                <button class="btn btn-danger" name="comment" id="remove">Remove</button>
-                                                                <button class="btn btn-default" name="comment" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                @*=========Reply Create===========*@
-                                                <!-- Modal (Reply) -->
-                                                <div id="@com.ApplicationUser.UserName" class="modal" role="dialog">
-                                                    <div class="modal-dialog">
-
-                                                        <!-- Modal content-->
-                                                        <div class="modal-content">
-                                                            @using (Html.BeginForm("Create", "ReplyComment", FormMethod.Post))
-                                                            {
-                                                                <p>@com.ApplicationUser.FirstName</p>
-                                                                <p>@com.ApplicationUser.LastName</p>
-                                                                <p>@com.CommentId</p>
-                                                                @Html.AntiForgeryToken()
-                                                                <div class="modal-content">
-                                                                    <h4 class="modal-header" style="align-self:center;">Reply</h4>
-                                                                </div>
-
-                                                                <div class="modal-body">
-                                                                    <div class="form-group">
-                                                                        <textarea name="Reply" id="reply_body" cols="60" rows="3" placeholder="Type your comment here...."></textarea>
-                                                                        <input type="hidden" name="ComId" value="@com.CommentId" />
-                                                                    </div>
-                                                                    <input class="btn btn-info" type="submit" value="Post Reply" />
-                                                                    @*<button class="btn btn-info" name="reply" id="postreply">Post Reply</button>*@
-                                                                    <button class="btn btn-default" name="reply" data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            }
-
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                                <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
+                                                
                                             </div>
                                         </div>
                                     </li>
