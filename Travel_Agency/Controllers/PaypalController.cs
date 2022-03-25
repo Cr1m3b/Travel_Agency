@@ -92,8 +92,8 @@ namespace Travel_Agency.Controllers
             itemList.items.Add(new Item()
             {
                 name = "Item Name comes here",
-                currency = "USD",
-                price = "1",
+                currency = "EUR",
+                price = "10",
                 quantity = "1",
                 sku = "sku"
             });
@@ -111,14 +111,14 @@ namespace Travel_Agency.Controllers
             var details = new Details()
             {
                 tax = "1",
-                shipping = "1",
-                subtotal = "1"
+                //shipping = "1",
+                subtotal = "10"
             };
             //Final amount with details  
             var amount = new Amount()
             {
-                currency = "USD",
-                total = "3", // Total must be equal to sum of tax, shipping and subtotal.  
+                currency = "EUR",
+                total = "11", // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
@@ -126,7 +126,7 @@ namespace Travel_Agency.Controllers
             transactionList.Add(new Transaction()
             {
                 description = "Transaction description",
-                invoice_number = "your generated invoice number", //Generate an Invoice No  
+                invoice_number = Guid.NewGuid().ToString(), //Generate an Invoice No  
                 amount = amount,
                 item_list = itemList
             });
