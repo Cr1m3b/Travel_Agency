@@ -48,21 +48,52 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
-                                        @Html.LabelFor(model => model.TripDate)
-                                        <div class="row">
-                                            <div class="form-group">
-                                                @Html.EditorFor(model => model.TripDate)
-                                                @Html.ValidationMessageFor(model => model.TripDate)
-                                            </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.TripDate)
+                                            @Html.EditorFor(model => model.TripDate)
+                                            @Html.ValidationMessageFor(model => model.TripDate)
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
-                                        @Html.LabelFor(model => model.TripDuration)
-                                        <div class="row">
-                                            <div class="form-group">
-                                                @Html.EditorFor(model => model.TripDuration)
-                                                @Html.ValidationMessageFor(model => model.TripDuration)
-                                            </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.TripDuration)
+                                            @Html.EditorFor(model => model.TripDuration)
+                                            @Html.ValidationMessageFor(model => model.TripDuration)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Fly With</label>
+                                            @Html.DropDownList("FlightId")
+                                            @Html.ValidationMessageFor(model => model.FlightId)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Hotel.HotelName)
+                                            @Html.DropDownList("HotelId")
+                                            @Html.ValidationMessageFor(model => model.HotelId)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Hotel.MapEmbededUrl)
+                                            @Html.EditorFor(model => model.Hotel.MapEmbededUrl)
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Price)
+                                            @Html.EditorFor(model => model.Price)
+                                            @Html.ValidationMessageFor(model => model.Price)
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Discount)
+                                            @Html.EditorFor(model => model.Discount)
+                                            @Html.ValidationMessageFor(model => model.Discount)
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -70,27 +101,6 @@
                                             @Html.LabelFor(model => model.PackageStatus)
                                             @Html.EnumDropDownListFor(model => model.PackageStatus)
                                             @Html.ValidationMessageFor(model => model.PackageStatus)
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Hotel.HotelName)
-                                            @Html.DropDownList("HotelId")
-                                            @Html.ValidationMessageFor(model => model.HotelId)
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Fly With</label>
-                                            @Html.DropDownList("FlightId")
-                                            @Html.ValidationMessageFor(model => model.FlightId)
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Price)
-                                            @Html.EditorFor(model => model.Price)
-                                            @Html.ValidationMessageFor(model => model.Price)
                                         </div>
                                     </div>
                                 </div>

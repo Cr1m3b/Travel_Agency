@@ -92,6 +92,7 @@
     <Compile Include="Enums\Status.cs" />
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ReplyComment.cs" />
     <Compile Include="Models\CustomValidations\MyValidations.cs" />
     <Compile Include="Models\Flight.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Models\Photos.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\ShoppingCard.cs" />
+    <Compile Include="Models\ViewModels\CommentReplyVM.cs" />
     <Compile Include="Models\Wishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

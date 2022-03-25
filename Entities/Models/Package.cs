@@ -29,10 +29,6 @@ namespace Entities.Models
         public decimal Price { get; set; }
         //[Range(0, 100, ErrorMessage = "The percentage of offer must be equal or greater to zero and equal or smaller than 100")]
         public int Discount { get; set; }
-        public decimal DiscountedPrice()
-        {
-           return  Price - ((Price * Discount /100));
-        }
         public Destinations Destinations { get; set; }
         public Status PackageStatus { get; set; }
         //Navigation Properties
@@ -43,25 +39,13 @@ namespace Entities.Models
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        public double CalcRating()
+        public decimal DiscountedPrice()
         {
-            if (Ratings.Count==0)
-            {
-                return 0;
-            }
-            else
-            {
-                double rating = 0;
-                int sum = 0;
-                foreach (var r in Ratings)
-                {
-                    sum += r.RateScore;
-                }
-                rating = sum / Ratings.Count;
-                return rating;
-            }
-            
+            var discountedPrice= Price - ((Price * Discount / 100));
+            return discountedPrice;
+            //return Math.Floor(discountedPrice);
         }
+
     }
     
 }

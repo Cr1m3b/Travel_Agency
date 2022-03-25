@@ -128,6 +128,15 @@ namespace Travel_Agency.Controllers.AdminController
             }
             if (galleryPhotos != null)
             {
+             
+                //var photoIds= package.Photos.Select(x => x.PhotoId).ToList();
+                //foreach (var id in photoIds)
+                //{
+                //    var photo = db.Photos.Find(id);
+                //    db.Entry(photo).State = EntityState.Deleted;
+                //    db.SaveChanges();
+                //}
+
                 List<Photo> packagePhotos = new List<Photo>();
                 foreach (var photo in galleryPhotos)
                 {
@@ -139,7 +148,14 @@ namespace Travel_Agency.Controllers.AdminController
                         packagePhotos.Add(ph);
                     }
                 }
-                if (packagePhotos.Count > 0) package.Photos = packagePhotos;
+                if (packagePhotos.Count > 0)
+                {
+                    package.Photos = packagePhotos;
+                    foreach (var photo in package.Photos)
+                    {
+                        db.Entry(photo).State = EntityState.Added;
+                    }
+                }
             }
 
             

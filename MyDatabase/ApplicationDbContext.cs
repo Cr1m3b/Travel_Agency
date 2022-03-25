@@ -35,5 +35,7 @@ namespace MyDatabase
         public DbSet<Wishlist> Wishlists { get; set; }
 
         public System.Data.Entity.DbSet<Entities.Models.ReplyComment> ReplyComments { get; set; }
+
+        object placeHolderVariable;
     }
 }
