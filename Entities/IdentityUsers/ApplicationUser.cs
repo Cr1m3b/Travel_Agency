@@ -16,7 +16,7 @@ namespace Entities.IdentityUsers
         
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string ContactNumber { get; set; }
+        //public string ContactNumber { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
