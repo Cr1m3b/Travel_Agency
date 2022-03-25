@@ -47,6 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -190,6 +193,7 @@
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\PaypalController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\ReplyCommentController.cs" />
@@ -747,7 +751,6 @@
     <Content Include="Views\Rating\Edit.cshtml" />
     <Content Include="Views\Rating\Index.cshtml" />
     <Content Include="Views\Comment\Delete.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Package\Delete.cshtml" />
     <Content Include="Views\Package\Details.cshtml" />
@@ -774,10 +777,12 @@
     <Content Include="Views\Package\PackageOffer.cshtml" />
     <Content Include="Views\ReplyComment\Create.cshtml" />
     <Content Include="Views\ReplyComment\Delete.cshtml" />
-    <Content Include="Views\ReplyComment\Details.cshtml" />
+    <Content Include="Views\ReplyComment\UserReply.cshtml" />
     <Content Include="Views\ReplyComment\Edit.cshtml" />
     <Content Include="Views\ReplyComment\Index.cshtml" />
     <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Paypal\SuccessView.cshtml" />
+    <Content Include="Views\Paypal\FailureView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -798,6 +803,10 @@
     <ProjectReference Include="..\MyDatabase\MyDatabase.csproj">
       <Project>{010de2d0-30c1-4dfa-ad2b-bf5383c1cf43}</Project>
       <Name>MyDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PersistenceLayer\PersistenceLayer.csproj">
+      <Project>{4CD4D88F-A276-4DF6-BA46-7F8679CE367C}</Project>
+      <Name>PersistenceLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
