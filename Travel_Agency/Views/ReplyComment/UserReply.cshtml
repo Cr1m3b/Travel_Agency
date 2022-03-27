@@ -14,7 +14,7 @@
         </div>
         <div class="inner-shape"></div>
 
-        <div class="db-info-wrap db-add-tour-wrap" style="height:650px;">
+        <div class="db-info-wrap db-add-tour-wrap" style="height:300px;">
             <div class="col-lg-12 col-xl-12">
 
                 @using (Html.BeginForm("UserReply", "ReplyComment", FormMethod.Post))
@@ -25,12 +25,13 @@
 
                     <div class="custom-field-wrap">
 
-                        <div class="col-lg-6 col-xl-6">
+                        <div class="col-lg-2 col-xl-4">
                             <div class="form-group" style="height:100px;">
 
                                 <strong class="control-label col-md-2">Type your reply for here....</strong>
+                                
                                 <div class="form-group">
-                                    <textarea cols="20" id="ReplyContent" name="ReplyContent" rows="2"></textarea>
+                                    <textarea id="ReplyContent" name="ReplyContent" rows="4"></textarea>
 
                                     @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
                                 </div>

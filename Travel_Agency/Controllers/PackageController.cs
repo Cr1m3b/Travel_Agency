@@ -20,26 +20,31 @@ namespace Travel_Agency.Controllers
         // GET: Package
         public ActionResult Index()
         {
-            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Comments).Include(p=>p.Photos).ToList();
+            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Comments).Include(p => p.Photos).ToList();
             return View(packages);
         }
         public ActionResult PackagesPerDestination(string destination)
         {
             var packages = db.Packages.Where(p => p.Destinations.ToString().Equals(destination)).ToList();
-          
+
             return View(packages);
         }
-      
+
 
         public ActionResult PackageOffer()
         {
-            var packages = db.Packages.Where(p=>p.Discount!=0).Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).ToList();
-         
+            var packages = db.Packages.Where(p => p.Discount != 0).Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).ToList();
+
             return View(packages);
         }
         public ActionResult PackageReviews()
         {
-            var packages = db.Packages.Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).Where(p=>p.PackageStatus == Status.Expired).ToList();
+            var packages = db.Packages.Include(p => p.Flight)
+                                      .Include(p => p.Comments.Select(a => a.ApplicationUser))
+                                      .Include(p => p.Comments.Select(r => r.ReplyComments))
+                                      .Include(p => p.Hotel)
+                                      .Include(p => p.Photos)
+                                       .Where(p => p.PackageStatus == Status.Expired).ToList();
             return View(packages);
         }
 
@@ -51,12 +56,12 @@ namespace Travel_Agency.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package = db.Packages.Include(p=>p.Photos)
-                                         .Include(p=>p.Comments.Select(a=>a.ApplicationUser))
-                                         .Include(p=>p.Comments.Select(r=>r.ReplyComments))
+            Package package = db.Packages.Include(p => p.Photos)
+                                         .Include(p => p.Comments.Select(a => a.ApplicationUser))
+                                         .Include(p => p.Comments.Select(r => r.ReplyComments))
                                          .Include(p => p.Flight)
                                          .Include(p => p.Hotel)
-                                         .ToList().Find(x=>x.PackageId==id);
+                                         .ToList().Find(x => x.PackageId == id);
             if (package == null)
             {
                 return HttpNotFound();
