@@ -23,8 +23,8 @@ namespace Entities.Models
         //[MaxLength(200, ErrorMessage = "Comment cannot be greater than 200")]
         public string CommentContent { get; set; }
         public DateTime PostTime { get; set; }
-
         public int Rating { get; set; }
+
 
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
@@ -33,6 +33,8 @@ namespace Entities.Models
         public ICollection<ReplyComment> ReplyComments { get; set; }
 
 
+
+      
 
     }
 }

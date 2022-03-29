@@ -34,6 +34,8 @@ namespace MyDatabase
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
 
-        public System.Data.Entity.DbSet<Entities.Models.ReplyComment> ReplyComments { get; set; }
+        public DbSet<ReplyComment> ReplyComments { get; set; }
+
+        object placeHolderVariable;
     }
 }

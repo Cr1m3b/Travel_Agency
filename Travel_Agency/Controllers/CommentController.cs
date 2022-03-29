@@ -58,6 +58,7 @@ namespace Travel_Agency.Controllers
 
             if (ModelState.IsValid)
             {
+                comment.PostTime = DateTime.Now;
                 db.Entry(comment).State = EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("Details", "Package", new { id = id });

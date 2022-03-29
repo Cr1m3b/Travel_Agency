@@ -68,12 +68,20 @@ namespace Travel_Agency.Controllers
             reply.CommentId = id;
             if (ModelState.IsValid)
             {
+            ReplyComment rcom = new ReplyComment();
+            //rcom.ReplyContent = com.Reply;
+            //rcom.CommentId = com.ComId;
+            rcom.ReplyPostTime = DateTime.Now;
+            db.ReplyComments.Add(rcom);
+            db.SaveChanges();
 
                 db.ReplyComments.Add(reply);
                 db.SaveChanges();
             }
             return RedirectToAction("Index", "Comment");
+
         }
+
 
 
         // GET: ReplyComment/Edit/5
