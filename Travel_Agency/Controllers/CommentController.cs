@@ -61,9 +61,9 @@ namespace Travel_Agency.Controllers
                 comment.PostTime = DateTime.Now;
                 db.Entry(comment).State = EntityState.Added;
                 db.SaveChanges();
-                return RedirectToAction("Index", "Package");
+                return RedirectToAction("Details", "Package", new { id = id });
             }
-            return RedirectToAction("Index", "Package");
+            return RedirectToAction("Create", "Comment", new { id = id });
         }
 
         // GET: Comment/Edit/5
