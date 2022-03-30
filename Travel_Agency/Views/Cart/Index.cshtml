@@ -93,6 +93,10 @@
                             {
 
                                 List<Item> cart = (List<Item>)Session["cart"];
+                                if(cart==null)
+                                {
+                                    cart = new List<Item>();
+                                }
                                 var total = cart.Sum(item => item.Package.Price * item.Quantity);
 
 
