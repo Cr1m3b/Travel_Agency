@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController\AdminBookingController.cs" />
     <Compile Include="Controllers\AdminController\AdminPackageController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -786,6 +787,11 @@
     <Content Include="Views\Paypal\FailureView.cshtml" />
     <Content Include="Views\ReplyComment\Details.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\AdminBooking\Create.cshtml" />
+    <Content Include="Views\AdminBooking\Delete.cshtml" />
+    <Content Include="Views\AdminBooking\Details.cshtml" />
+    <Content Include="Views\AdminBooking\Edit.cshtml" />
+    <Content Include="Views\AdminBooking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -62,13 +62,13 @@
                                                 <td data-column="Price">$ @(item.Package.Price - item.Package.Price * 11 / 100)</td>
                                                 <td data-column="Quantity" class="count-input">
                                                     <div>
-                                                       
-                                                        <a id="minus-btn"class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-minus"></i></a>
-                                                      
-                                                            <input class="quantity" type="text" value="@item.Quantity">
-                                                            <a id="plus-btn" href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-plus"></i></a>
 
-</div>
+                                                        <a id="minus-btn" class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-minus"></i></a>
+
+                                                        <input class="quantity" type="text" value="@item.Quantity">
+                                                        <a id="plus-btn" href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-plus"></i></a>
+
+                                                    </div>
                                                 </td>
                                                 <td data-column="Sub Total" id="ZZZ">$ @(item.Package.Price * item.Quantity)</td>
                                             </tr>
@@ -80,9 +80,9 @@
                         </div>
                         <div class="updateArea">
                             <div class="input-group align-self-md-center">
-                               <h3>Would you like to explore more places?</h3>
+                                <h3>Would you like to explore more places?</h3>
                             </div>
-                           
+
                             <a href="/Package/Index" class="outline-primary update-btn  ">Tour Packages</a>
                         </div>
                         <div class="totalAmountArea">

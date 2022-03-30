@@ -1,15 +1,18 @@
 ﻿using Entities.Models;
+using MyDatabase;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Travel_Agency.Controllers
 {
     public class PaypalController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Paypal
         public ActionResult PaymentWithPaypal(string Cancel = null)
         {
@@ -64,6 +67,12 @@ namespace Travel_Agency.Controllers
             catch (Exception ex)
             {
                 return View("FailureView");
+            }
+            var booking = Session["lastBooking"];
+            if (booking != null)
+            {
+                db.Entry(booking).State = EntityState.Added;
+                db.SaveChanges();
             }
             //on successful payment, show success page to user.  
             return View("SuccessView");

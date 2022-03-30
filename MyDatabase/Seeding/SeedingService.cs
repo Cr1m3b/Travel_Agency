@@ -36,23 +36,17 @@ namespace MyDatabase.Seeding
             db.Packages.AddRange(packages);
 
             //Booking Seeding
-            Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02) };
-            Booking b2 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02) };
-            Booking b3 = new Booking() { PurchaseDate = new DateTime(2022, 08, 04) };
-            Booking b4 = new Booking() { PurchaseDate = new DateTime(2021, 12, 28) };
-            Booking b5 = new Booking() { PurchaseDate = new DateTime(2021, 03, 02) };
-            Booking b6 = new Booking() { PurchaseDate = new DateTime(2022, 03, 02) };
-            Booking b7 = new Booking() { PurchaseDate = new DateTime(2022, 03, 02) };
-            List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5,b6,b7 };
+            Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02), PackagesCost=476 };
+            Booking b2 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
+            Booking b3 = new Booking() { PurchaseDate = new DateTime(2022, 08, 04), PackagesCost = 962 };
+           
+            List<Booking> bookings = new List<Booking>() { b1, b2, b3 };
             db.Bookings.AddRange(bookings);
 
-            b1.Package = p1;
-            b2.Package = p2;
-            b3.Package = p3;
-            b4.Package = p4;
-            b5.Package = p5;
-            b6.Package = p6;
-            b7.Package = p7;
+            b1.Packages.Add(p1);
+            b2.Packages.Add(p2);
+            b3.Packages.Add(p6);
+            b3.Packages.Add(p7);
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
