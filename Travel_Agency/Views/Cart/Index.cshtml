@@ -66,10 +66,10 @@
                                                 <td data-column="Quantity" class="count-input">
                                                     <div>
 
-                                                        <a  class="minus-btn" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId })" ><i class="fa fa-minus"></i></a>
+                                                        <a id="minus-btn" class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-minus"></i></a>
 
                                                         <input class="quantity" type="text" value="@item.Quantity">
-                                                        <a class="plus-btn" href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId })" ><i class="fa fa-plus"></i></a>
+                                                        <a id="plus-btn" href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-plus"></i></a>
 
                                                     </div>
                                                 </td>
@@ -104,7 +104,7 @@
                             }
                         </div>
                         <div class="checkBtnArea text-right">
-                            <a href="#" class="button-primary">checkout</a>
+                            <a href="/Booking/Create" class="button-primary">checkout</a>
                         </div>
                     </form>
                 </div>

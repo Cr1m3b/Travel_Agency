@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Entities.Models.Booking>
+@{
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+<div class="db-info-wrap db-booking">
+    <div class="dashboard-box table-opp-color-box">
+        <h4>Recent Booking</h4>
+        <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>User</th>
+                        <th>Booking Date</th>
+                        <th>Destination</th>
+                        <th>Trip Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        foreach (var package in booking.Packages)
+                        {
+                            <tr>
+                                <td>@booking.BookingId</td>
+                                <td>
+                                    <span>John Doe</span>
+                                </td>
+                                <td>@booking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                <td>@package.Destinations</td>
+                                <td>@package.TripDate.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -11,13 +11,23 @@ namespace Entities.Models
 {
     public class Booking
     {
+        public Booking()
+        {
+            Packages=new HashSet<Package>();
+        }
         public int BookingId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+
         [Display(Name = "Purchased Date")]
        // [CustomValidation(typeof(MyValidations), "ValidateDateAttribute")]
         public DateTime PurchaseDate { get; set; }
+        public decimal PackagesCost { get; set; }
         //Navigation Properties
-        public int PackageId { get; set; }
-        public Package Package { get; set; }
+        public ICollection<Package> Packages { get; set; }
+
         public ApplicationUser ApplicationUser { get; set; }
     }
 }
