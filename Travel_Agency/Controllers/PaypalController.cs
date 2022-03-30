@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using Item = Entities.Models.Item;
 
 namespace Travel_Agency.Controllers
 {
@@ -68,6 +69,7 @@ namespace Travel_Agency.Controllers
             {
                 return View("FailureView");
             }
+            //Create and add booking at database
             var booking = Session["lastBooking"];
             if (booking != null)
             {
@@ -98,14 +100,23 @@ namespace Travel_Agency.Controllers
                 items = new List<PayPal.Api.Item>()
             };
             //Adding Item Details like name, currency, price etc  
-            itemList.items.Add(new PayPal.Api.Item()
+            var cart = (List<Item>)Session["cart"];
+            decimal paypalTotal = 0;
+            foreach (var item in cart)
             {
-                name = "Item Name comes here",
-                currency = "EUR",
-                price = "10",
-                quantity = "1",
-                sku = "sku"
-            });
+                var itemPrice = Math.Round(item.Package.FinalPrice() / 1.11M, 2, MidpointRounding.ToEven);
+               
+                paypalTotal += item.Package.FinalPrice() * item.Quantity;
+                
+                itemList.items.Add(new PayPal.Api.Item()
+                {
+                    name = item.Package.Title,
+                    currency = "EUR",
+                    price = itemPrice.ToString(),
+                    quantity = item.Quantity.ToString(),
+                    sku = "sku"
+                });
+            }
             var payer = new Payer()
             {
                 payment_method = "paypal"
@@ -117,17 +128,18 @@ namespace Travel_Agency.Controllers
                 return_url = redirectUrl
             };
             // Adding Tax, shipping and Subtotal details  
+            var paypalSubtotal = Math.Round(paypalTotal / 1.11M, 2, MidpointRounding.ToEven);
             var details = new Details()
             {
-                tax = "1",
+                tax = (paypalTotal - paypalSubtotal).ToString(),
                 //shipping = "1",
-                subtotal = "10"
+                subtotal = paypalSubtotal.ToString()
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "EUR",
-                total = "11", // Total must be equal to sum of tax, shipping and subtotal.  
+                total = paypalTotal.ToString(), // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();

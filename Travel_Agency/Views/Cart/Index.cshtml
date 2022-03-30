@@ -59,7 +59,7 @@
                                                     <span class="cartImage"><img src="@item.Package.MainPhoto" alt="image"></span>
                                                 </td>
                                                 <td data-column="Product Name">@item.Package.Title</td>
-                                                <td data-column="Price">$ @(item.Package.Price - item.Package.Price * 11 / 100)</td>
+                                                <td data-column="Price">€ @item.Package.FinalPrice()</td>
                                                 <td data-column="Quantity" class="count-input">
                                                     <div>
 
@@ -70,7 +70,7 @@
 
                                                     </div>
                                                 </td>
-                                                <td data-column="Sub Total" id="ZZZ">$ @(item.Package.Price * item.Quantity)</td>
+                                                <td data-column="Total Price" id="ZZZ">€ @(item.Package.FinalPrice() * item.Quantity)</td>
                                             </tr>
                                         }
                                     }
@@ -92,13 +92,13 @@
                                 {
                                     cart = new List<Item>();
                                 }
-                                var total = cart.Sum(item => item.Package.Price * item.Quantity);
+                                var total = cart.Sum(item => item.Package.FinalPrice() * item.Quantity);
 
 
                                 <ul class="list-unstyled">
-                                    <li><strong>Sub Total</strong> <span>$@(total-total*11/100)</span></li>
-                                    <li><strong>Vat</strong> <span>$ @(total*11/100)</span></li>
-                                    <li><strong>Grand Total</strong> <span class="grandTotal">$ @total</span></li>
+                                    <li><strong>Sub Total</strong> <span>€ @Math.Round(total/1.11M, 2, MidpointRounding.ToEven)</span></li>
+                                    <li><strong>Vat</strong> <span>€ @Math.Round(total- (total / 1.11M), 2, MidpointRounding.ToEven)</span></li>
+                                    <li><strong>Grand Total</strong> <span class="grandTotal">€ @total.ToString("N2")</span></li>
                                 </ul>
                             }
                         </div>
