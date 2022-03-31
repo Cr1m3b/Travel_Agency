@@ -1,9 +1,12 @@
-﻿@using Entities.Models
+﻿
+@using Entities.Models
+
+
 
 <div id="page" class="full-page">
 
     <main id="content" class="site-main">
-        <!-- Inner Banner html start-->
+        @*Inner Banner html start*@
         <section class="inner-banner-wrap">
             <div class="inner-baner-container" style="background-image: url(../../Content/Images/Backgrounds/Horizont.jpg);">
                 <div class="container">
@@ -14,7 +17,7 @@
             </div>
             <div class="inner-shape"></div>
         </section>
-        <!-- Inner Banner html end-->
+        @*Inner Banner html end*@
         <div class="step-section cart-section">
             <div class="container">
                 <div class="step-link-wrap">
@@ -31,11 +34,12 @@
                         <a href="#" class="step-icon"></a>
                     </div>
                 </div>
-                <!-- step one form html start -->
+                @*step one form html start*@
+                <h1>@ViewBag.Anchor</h1>
                 <div class="cart-list-inner">
                     <form action="#">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="cart">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -43,7 +47,7 @@
                                         <th>Product Name</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
-                                        <th>Sub Total</th>
+                                        <th>Total Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,27 +55,32 @@
                                     {
                                         foreach (var item in (List<Item>)Session["cart"])
                                         {
-                                            <tr>
-                                                <td><a href="@Url.Action("Remove", "Cart", new { id = item.Package.PackageId })">x</a></td>
-                                                <td class="">
+                                            if (item.Quantity>0)
+                                            {
+                                    <tr class="monitor">
+                                        <td><a href="@Url.Action("Remove", "Cart", new { id = item.Package.PackageId })">x</a></td>
+                                        <td class="">
 
 
-                                                    <span class="cartImage"><img src="@item.Package.MainPhoto" alt="image"></span>
-                                                </td>
-                                                <td data-column="Product Name">@item.Package.Title</td>
-                                                <td data-column="Price">$ @(item.Package.Price - item.Package.Price * 11 / 100)</td>
-                                                <td data-column="Quantity" class="count-input">
-                                                    <div>
-                                                       
-                                                        <a id="minus-btn"class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-minus"></i></a>
-                                                      
-                                                            <input class="quantity" type="text" value="@item.Quantity">
-                                                            <a id="plus-btn" href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-plus"></i></a>
+                                            <span class="cartImage"><img src="@item.Package.MainPhoto" alt="image"></span>
+                                        </td>
+                                        <td data-column="Product Name">@item.Package.Title</td>
+                                        <td data-column="Price">€ @item.Package.FinalPrice()</td>
+                                        <td data-column="Quantity" class="count-input">
+                                            <div>
 
-</div>
-                                                </td>
-                                                <td data-column="Sub Total" id="ZZZ">$ @(item.Package.Price * item.Quantity)</td>
-                                            </tr>
+                                                <a id="minus-btn" class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId ,anchor="#cart"})"><i class="fa fa-minus"></i></a>
+
+                                                <input class="quantity" type="text" value="@item.Quantity">
+                                                <a id="plus-btn" href="@Url.Action("AddOneMore", "Cart", new { id = item.Package.PackageId ,anchor="#cart"})"><i class="fa fa-plus"></i></a>
+
+                                            </div>
+                                        </td>
+                                        <td data-column="Total Price" id="ZZZ">€ @(item.Package.FinalPrice() * item.Quantity)</td>
+                                    </tr>
+
+                                            }
+                                            
                                         }
                                     }
                                 </tbody>
@@ -80,35 +89,40 @@
                         </div>
                         <div class="updateArea">
                             <div class="input-group align-self-md-center">
-                               <h3>Would you like to explore more places?</h3>
+                                <h3>Would you like to explore more places?</h3>
                             </div>
-                           
+
                             <a href="/Package/Index" class="outline-primary update-btn  ">Tour Packages</a>
                         </div>
                         <div class="totalAmountArea">
-                            @{
+                            @if (!((List<Item>)Session["cart"] == null))
+                            {
+
                                 List<Item> cart = (List<Item>)Session["cart"];
-                                var total = cart.Sum(item => item.Package.Price * item.Quantity);
+                                if(cart==null)
+                                {
+                                    cart = new List<Item>();
+                                }
+                                var total = cart.Sum(item => item.Package.FinalPrice() * item.Quantity);
 
 
                                 <ul class="list-unstyled">
-                                    <li><strong>Sub Total</strong> <span>$@(total-total*11/100)</span></li>
-                                    <li><strong>Vat</strong> <span>$ @(total*11/100)</span></li>
-                                    <li><strong>Grand Total</strong> <span class="grandTotal">$ @total</span></li>
+                                    <li><strong>Sub Total</strong> <span>€ @Math.Round(total/1.11M, 2, MidpointRounding.ToEven)</span></li>
+                                    <li><strong>Vat</strong> <span>€ @Math.Round(total- (total / 1.11M), 2, MidpointRounding.ToEven)</span></li>
+                                    <li><strong>Grand Total</strong> <span class="grandTotal">€ @total.ToString("N2")</span></li>
                                 </ul>
                             }
                         </div>
                         <div class="checkBtnArea text-right">
-                            <a href="#" class="button-primary">checkout</a>
+                            <a href="/Booking/Create" class="button-primary">checkout</a>
                         </div>
                     </form>
                 </div>
-                <!-- step one form html end -->
+                @*step one form html end*@
             </div>
         </div>
     </main>
-
-    <!-- custom search field html -->
+    @*custom search field html*@
     <div class="header-search-form">
         <div class="container">
             <div class="header-search-container">
@@ -121,7 +135,60 @@
             </div>
         </div>
     </div>
-    <!-- header html end -->
+    @*header html end*@
 </div>
+@{ 
+    int   a = 5;
+    int b = 2;
+    string c = ViewBag.Anchor;
+    string result="";
+    if (c=="#Anchor")
+    {
+        result = "#Anchor";
+    }
+
+
+
+
+}
+@section scripts{
+    <script>
+       
+        console.log(@result);
+
+
+       
+        $(window).ready(function () {
+          
+
+
+        });
+        $(window).on("load", function () {
+            //var ele = document.getElementById("cart").offsetTop;
+
+            //window.scroll(0, ele);
+            var element = document.getElementById("cart");
+
+
+
+            element.scrollIntoView();
+            element.scrollIntoView(false);
+            element.scrollIntoView({ block: "end" });
+            element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+
+
+
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
 
 

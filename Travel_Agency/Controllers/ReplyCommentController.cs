@@ -32,9 +32,6 @@ namespace Travel_Agency.Controllers
             return View();
         }
 
-        // POST: ReplyComment/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult UserReply(ReplyComment reply, int id)
@@ -68,15 +65,8 @@ namespace Travel_Agency.Controllers
             reply.CommentId = id;
             if (ModelState.IsValid)
             {
-            ReplyComment rcom = new ReplyComment();
-            //rcom.ReplyContent = com.Reply;
-            //rcom.CommentId = com.ComId;
-            rcom.ReplyPostTime = DateTime.Now;
-            db.ReplyComments.Add(rcom);
+            db.ReplyComments.Add(reply);
             db.SaveChanges();
-
-                db.ReplyComments.Add(reply);
-                db.SaveChanges();
             }
             return RedirectToAction("Index", "Comment");
 

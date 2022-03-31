@@ -8,13 +8,14 @@
     <h4>Comments List</h4>
 
     <p>Our Customer's Comments</p>
+    <div class="list-wrapper">
 
-    @foreach (var com in Model)
-    {
-        <div class="dashboard-box">
+        @foreach (var com in Model)
+            {
+        <div class="list-item">
             <div class="comment-area">
                 <div class="comment-area-inner">
-                    <ol>
+                    <ol class="comment&reply">
                         <li>
                             <div class="comment-content">
                                 <div class="comment-header">
@@ -34,46 +35,72 @@
 
 
                         @if (com.ReplyComments != null)
-                        {
+                                {
 
-                            foreach (var reply in com.ReplyComments)
-                            {
-                               
-                                    <li>
-                                        <div class="comment-content">
-                                            <div class="comment-header">
-                                                @*<h4 class="author-name">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>*@
-                                                <span class="post-on">@reply.ReplyPostTime</span>
-                                            </div>
-                                            <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
-                                            <p>@reply.ReplyContent</p>
-                                            <div class="comment-detail">
+                                    foreach (var reply in com.ReplyComments)
+                                    {
 
-                                                <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
-                                                <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
-                                                
-                                            </div>
-                                        </div>
-                                    </li>
-                              
+                        <li>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h4 class="author-name">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>
+                                    <span class="post-on">@reply.ReplyPostTime</span>
+                                </div>
+                                <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
+                                <p>@reply.ReplyContent</p>
+                                <div class="comment-detail">
 
-                            }
-                        }
+                                    <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                    <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
+
+                                </div>
+                            </div>
+                        </li>
+
+
+                                    }
+                                }
 
                     </ol>
                 </div>
             </div>
         </div>
-    }
-    <div class="pagination-wrap">
-        <nav class="pagination-inner">
-            <ul class="pagination disabled">
-                <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-            </ul>
-        </nav>
+            }
     </div>
+
+
+    <div id="pagination-container" class="light-theme simple-pagination">
+        <ul>
+            <li class="active"><span class="current prev">«</span></li>
+            <li class="active"><span class="current">1</span></li>
+            <li><a href="#page-2" class="page-link">2</a></li>
+            <li><a href="#page-2" class="page-link next">»</a></li>
+        </ul>
+    </div>
+
 </div>
 
+@section scripts{
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+    <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
+    <script type="text/javascript">
+        var items = $(".list-wrapper .list-item");
+        var numItems = items.length;
+        var perPage = 2;
+
+        items.slice(perPage).hide();
+
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
+    </script>
+
+} 

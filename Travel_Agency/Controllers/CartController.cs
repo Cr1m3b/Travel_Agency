@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.Ajax.Utilities;
 using MyDatabase;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,15 @@ namespace Travel_Agency.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Cart
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
+            public ActionResult Index()
+            {
+            
+                return View();
+            }
 
-     
-        public ActionResult Buy(int id)
-        {
-          
+            public ActionResult Buy(int id)
+            {
 
             if (Session["cart"] == null)
             {
@@ -42,28 +43,43 @@ namespace Travel_Agency.Controllers
                 }
                 Session["cart"] = cart;
             }
+          
             return RedirectToAction("Index");
-        }
+            }
 
-        public ActionResult RemoveOnce(int id)
+            public ActionResult Remove(int id)
+            {
+                List<Item> cart = (List<Item>)Session["cart"];
+                int index = isExist(id);
+                cart.RemoveAt(index);
+                Session["cart"] = cart;
+                return RedirectToAction("Index");
+            }
+       
+        public ActionResult RemoveOnce(int id, string anchor)
         {
             List<Item> cart = (List<Item>)Session["cart"];
+
+            cart = (List<Item>)Session["cart"];
             int index = isExist(id);
             cart[index].Quantity--;
             Session["cart"] = cart;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { anchor });
+
         }
-        public ActionResult Remove(int id)
+      
+        public ActionResult AddOneMore(int id, string anchor)
         {
             List<Item> cart = (List<Item>)Session["cart"];
+           
             int index = isExist(id);
-            cart.RemoveAt(index);
+            cart[index].Quantity++;
             Session["cart"] = cart;
-            return RedirectToAction("Index");
+            return  RedirectToAction("Index", new { anchor });
         }
-
+         
         private int isExist(int id)
-        {
+            {
             List<Item> cart = (List<Item>)Session["cart"];
             for (int i = 0; i < cart.Count; i++)
                 if (cart[i].Package.PackageId.Equals(id))
@@ -71,12 +87,10 @@ namespace Travel_Agency.Controllers
             return -1;
         }
 
-
-
-
-
-
-
-       
     }
+
+
+
+
+
 }

@@ -20,6 +20,7 @@ namespace Travel_Agency.Controllers
         public ActionResult Index()
         {
             var comments = db.Comments.Include(x => x.ApplicationUser).Include(x => x.Package).Include(x => x.ReplyComments).ToList();
+
             return View(comments);
         }
 
@@ -61,9 +62,9 @@ namespace Travel_Agency.Controllers
                 comment.PostTime = DateTime.Now;
                 db.Entry(comment).State = EntityState.Added;
                 db.SaveChanges();
-                return RedirectToAction("Index", "Package");
+                return RedirectToAction("Details", "Package", new { id = id });
             }
-            return RedirectToAction("Index", "Package");
+            return RedirectToAction("Create", "Comment", new { id = id });
         }
 
         // GET: Comment/Edit/5
