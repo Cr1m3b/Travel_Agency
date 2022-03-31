@@ -5,75 +5,159 @@
 }
 
 <div class="db-info-wrap db-comment-wrap">
-    <h4>Comments List</h4>
+        <h4>Comments List</h4>
 
-    <p>Our Customer's Comments</p>
+        <p>Our Customer's Comments</p>
+        <div class="about-comment" style="display:none">
 
-    @foreach (var com in Model)
-    {
-        <div class="dashboard-box">
-            <div class="comment-area">
-                <div class="comment-area-inner">
-                    <ol>
-                        <li>
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <h4 class="author-name">@com.ApplicationUser.FirstName @com.ApplicationUser.LastName</h4>
-                                    <span class="post-on">@com.PostTime</span>
-                                </div>
-                                <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
-                                <p>@com.CommentContent</p>
-                                <div class="comment-detail">
-
-                                    <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
-                                    <a href="/Comment/Delete/@com.CommentId" class="btn btn-info btn-danger">Remove Comment</a>
-
-                                </div>
-                            </div>
-                        </li>
-
-
-                        @if (com.ReplyComments != null)
-                        {
-
-                            foreach (var reply in com.ReplyComments)
-                            {
-                               
-                                    <li>
-                                        <div class="comment-content">
-                                            <div class="comment-header">
-                                                @*<h4 class="author-name">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>*@
-                                                <span class="post-on">@reply.ReplyPostTime</span>
-                                            </div>
-                                            <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
-                                            <p>@reply.ReplyContent</p>
-                                            <div class="comment-detail">
-
-                                                <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
-                                                <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
-                                                
-                                            </div>
+            @foreach (var com in Model)
+            {
+                <div class="dashboard-box">
+                    <div class="comment-area">
+                        <div class="comment-area-inner">
+                            <ol class="comment&reply">
+                                <li>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <h4 class="author-name">@com.ApplicationUser.FirstName @com.ApplicationUser.LastName</h4>
+                                            <span class="post-on">@com.PostTime</span>
                                         </div>
-                                    </li>
-                              
+                                        <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
+                                        <p>@com.CommentContent</p>
+                                        <div class="comment-detail">
 
-                            }
-                        }
+                                            <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                            <a href="/Comment/Delete/@com.CommentId" class="btn btn-info btn-danger">Remove Comment</a>
 
-                    </ol>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                                @if (com.ReplyComments != null)
+                                {
+
+                                    foreach (var reply in com.ReplyComments)
+                                    {
+
+                                        <li>
+                                            <div class="comment-content">
+                                                <div class="comment-header">
+                                                    @*<h4 class="author-name">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>*@
+                                                    <span class="post-on">@reply.ReplyPostTime</span>
+                                                </div>
+                                                <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
+                                                <p>@reply.ReplyContent</p>
+                                                <div class="comment-detail">
+
+                                                    <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                                    <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
+
+                                                </div>
+                                            </div>
+                                        </li>
+
+
+                                    }
+                                }
+
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
-    }
-    <div class="pagination-wrap">
-        <nav class="pagination-inner">
-            <ul class="pagination disabled">
-                <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
-                <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
+        <div class="pagination">
+            <li class="page-item current-page active"> <a class="page-link" href="#">1</a></li>
+            <li class="page-item dots"> <a class="page-link" href="#">...</a></li>
+            <li class="page-item current-page"> <a class="page-link" href="#">5</a></li>
+            <li class="page-item current-page"> <a class="page-link" href="#">6</a></li>
+            <li class="page-item dots"> <a class="page-link" href="#">...</a></li>
+            <li class="page-item current-page"> <a class="page-link" href="#">10</a></li>
+        </div>
 
+
+
+
+
+        @*<div class="pagination-wrap">
+                <ul class="pagination disabled">
+                    <li class="page-item"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
+                    <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+        </div>*@
+    </div>
+
+@section scripts{
+
+    <script type="text/javascript">
+        function getPageList(totalPages, page, maxLength) {
+            function range(start,end){
+                return Array.from(Array(end - start + 1), (_, i) => i + start);
+            }
+
+            var sideWidth = maxLength < 9 ? 1 : 2;
+            var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+            var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+
+
+            if (totalPages <= maxLength) {
+                return range(1, totalPages);
+            }
+
+            if (page <= maxLength - sideWidth - 1 - rightWidth) {
+                return range(1, maxLength - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1, totalPages));
+            }
+
+            if (page >= totalPages - sideWidth-1-rightWidth) {
+                return range(1, sideWidth).concat(0, range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages));
+            }
+
+            return range(1, sideWidth).concat(0, range(page - leftWidth, page + rightWidth), 0, range(totalPages - sideWidth + 1, totalPages));
+        }
+
+        $(function () {
+            var numberofItems = $(".dashboard-box").length;
+            console.log(numberofItems);
+            var limitPerPage = 2;
+            var totalPages = Math.ceil(numberofItems / limitPerPage);
+            var paginationSize = 7;
+            var currentPage;
+
+            function showPage(whichPage) {
+                if (whichPage < 1 || whichPage > totalPages) return false;
+
+                currentPage = whichPage;
+
+                $(".comment-area-inner .comment&reply").hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
+
+                $("pagination li").slice(1, -1).remove();
+
+                getPageList(totalPages, currentPage, paginationSize).forEach(item => {
+                    $("<li>").addClass("page-item").addClass(item ? "current-page" : "dots").
+                        toggleClass("active", item === currentPage).append($("<a>").addClass("page-link")
+                            .attr({ href: "javascript:void(0)" }).text(item || "...")).insertBefore("next-page");
+                });
+
+                $(".previous-page").toggleClass("disable", currentPage === 1);
+                $(".next-page").toggleClass("disable", currentPage === totalPages);
+                return true;
+            }
+
+            $(".pagination").append(
+                $("<li>").addClass("page-item").addClass("previous-page").append($("<a>").addClass("page-link").attr({ href: "javascript:void(0)" }).text("Prev")),
+                $("<li>").addClass("page-item").addClass("next-page").append($("<a>").addClass("page-link").attr({ href: "javascript:void(0)" }).text("Next"))
+            );
+
+            $(".about-comment").show();
+            showPage(1);
+
+            $(document).on("click", ".pagination li.current-page:not(.active)", function () {
+                return showPage(+$(this).text());
+            });
+        });
+    </script>
+
+} 

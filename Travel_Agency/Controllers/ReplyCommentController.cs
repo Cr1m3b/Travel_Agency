@@ -67,9 +67,6 @@ namespace Travel_Agency.Controllers
             {
             db.ReplyComments.Add(reply);
             db.SaveChanges();
-
-                db.ReplyComments.Add(reply);
-                db.SaveChanges();
             }
             return RedirectToAction("Index", "Comment");
 

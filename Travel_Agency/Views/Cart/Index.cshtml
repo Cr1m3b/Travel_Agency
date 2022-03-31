@@ -35,10 +35,11 @@
                     </div>
                 </div>
                 @*step one form html start*@
+                <h1>@ViewBag.Anchor</h1>
                 <div class="cart-list-inner">
                     <form action="#">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="cart">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -54,27 +55,32 @@
                                     {
                                         foreach (var item in (List<Item>)Session["cart"])
                                         {
-                                            <tr class="monitor">
-                                                <td><a href="@Url.Action("Remove", "Cart", new { id = item.Package.PackageId })">x</a></td>
-                                                <td class="">
+                                            if (item.Quantity>0)
+                                            {
+                                    <tr class="monitor">
+                                        <td><a href="@Url.Action("Remove", "Cart", new { id = item.Package.PackageId })">x</a></td>
+                                        <td class="">
 
 
-                                                    <span class="cartImage"><img src="@item.Package.MainPhoto" alt="image"></span>
-                                                </td>
-                                                <td data-column="Product Name">@item.Package.Title</td>
-                                                <td data-column="Price">€ @item.Package.FinalPrice()</td>
-                                                <td data-column="Quantity" class="count-input">
-                                                    <div>
+                                            <span class="cartImage"><img src="@item.Package.MainPhoto" alt="image"></span>
+                                        </td>
+                                        <td data-column="Product Name">@item.Package.Title</td>
+                                        <td data-column="Price">€ @item.Package.FinalPrice()</td>
+                                        <td data-column="Quantity" class="count-input">
+                                            <div>
 
-                                                        <a id="minus-btn" class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-minus"></i></a>
+                                                <a id="minus-btn" class="" href="@Url.Action("RemoveOnce", "Cart", new { id = item.Package.PackageId ,anchor="#cart"})"><i class="fa fa-minus"></i></a>
 
-                                                        <input class="quantity" type="text" value="@item.Quantity">
-                                                        <a id="plus-btn" href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId })"><i class="fa fa-plus"></i></a>
+                                                <input class="quantity" type="text" value="@item.Quantity">
+                                                <a id="plus-btn" href="@Url.Action("AddOneMore", "Cart", new { id = item.Package.PackageId ,anchor="#cart"})"><i class="fa fa-plus"></i></a>
 
-                                                    </div>
-                                                </td>
-                                                <td data-column="Total Price" id="ZZZ">€ @(item.Package.FinalPrice() * item.Quantity)</td>
-                                            </tr>
+                                            </div>
+                                        </td>
+                                        <td data-column="Total Price" id="ZZZ">€ @(item.Package.FinalPrice() * item.Quantity)</td>
+                                    </tr>
+
+                                            }
+                                            
                                         }
                                     }
                                 </tbody>
@@ -131,7 +137,58 @@
     </div>
     @*header html end*@
 </div>
+@{ 
+    int   a = 5;
+    int b = 2;
+    string c = ViewBag.Anchor;
+    string result="";
+    if (c=="#Anchor")
+    {
+        result = "#Anchor";
+    }
 
 
+
+
+}
+@section scripts{
+    <script>
+       
+        console.log(@result);
+
+
+       
+        $(window).ready(function () {
+          
+
+
+        });
+        $(window).on("load", function () {
+            //var ele = document.getElementById("cart").offsetTop;
+
+            //window.scroll(0, ele);
+            var element = document.getElementById("cart");
+
+
+
+            element.scrollIntoView();
+            element.scrollIntoView(false);
+            element.scrollIntoView({ block: "end" });
+            element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+
+
+
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
 
 

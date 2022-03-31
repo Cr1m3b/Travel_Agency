@@ -16,6 +16,7 @@ namespace Travel_Agency.Controllers
        
             public ActionResult Index()
             {
+            
                 return View();
             }
 
@@ -54,8 +55,8 @@ namespace Travel_Agency.Controllers
                 Session["cart"] = cart;
                 return RedirectToAction("Index");
             }
-        [HttpPost]
-        public ActionResult RemoveOnce(int id)
+       
+        public ActionResult RemoveOnce(int id, string anchor)
         {
             List<Item> cart = (List<Item>)Session["cart"];
 
@@ -63,18 +64,18 @@ namespace Travel_Agency.Controllers
             int index = isExist(id);
             cart[index].Quantity--;
             Session["cart"] = cart;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { anchor });
 
         }
-        [HttpPost]
-        public ActionResult AddOneMore(int id)
+      
+        public ActionResult AddOneMore(int id, string anchor)
         {
             List<Item> cart = (List<Item>)Session["cart"];
            
             int index = isExist(id);
             cart[index].Quantity++;
             Session["cart"] = cart;
-            return  RedirectToAction("Index");
+            return  RedirectToAction("Index", new { anchor });
         }
          
         private int isExist(int id)

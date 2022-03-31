@@ -13,7 +13,8 @@ namespace Travel_Agency.Controllers
         // GET: Destination
         public ActionResult Index()
         {
-            return View();
+            var packages = db.Packages.ToList();
+            return View(packages);
         }
         protected override void Dispose(bool disposing)
         {
