@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -7,25 +8,22 @@ using System.Web;
 using System.Web.Mvc;
 using Entities.IdentityUsers;
 using Entities.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using MyDatabase;
 
-
-namespace Travel_Agency.Controllers
+namespace Travel_Agency.Controllers.AdminController
 {
-    public class BookingController : Controller
+    public class AdminBookingController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Booking
+        // GET: AdminBooking
         public ActionResult Index()
         {
             var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Packages).ToList();
             return View(bookings);
         }
 
-        // GET: Booking/Details/5
+        // GET: AdminBooking/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,49 +38,30 @@ namespace Travel_Agency.Controllers
             return View(booking);
         }
 
-        // GET: Booking/Create
+        // GET: AdminBooking/Create
         public ActionResult Create()
         {
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            var cart = (List<Item>)Session["cart"];
-            if (cart!=null)
-            {
-                decimal cost = 0;
-                foreach (var item in cart)
-                {
-                    cost = cost + item.Package.Price*item.Quantity;
-                }
-                ViewBag.PackageCost=cost;
-            }
-            if (user != null)
-            {
-                ViewBag.User = user;
-            }
             return View();
         }
 
-        // POST: Booking/Create
+        // POST: AdminBooking/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Booking booking)
         {
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-
             if (ModelState.IsValid)
             {
-                if (user != null)
-                {
-                    booking.ApplicationUser = user;
-                }
-                booking.PurchaseDate = DateTime.Now;
+                db.Bookings.Add(booking);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            Session["lastBooking"] = booking;
-            return RedirectToAction("PaymentWithPaypal","Paypal");
+
+            return View(booking);
         }
 
-        // GET: Booking/Edit/5
+        // GET: AdminBooking/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -94,16 +73,15 @@ namespace Travel_Agency.Controllers
             {
                 return HttpNotFound();
             }
-            //  ViewBag.PackageId = new SelectList(db.Packages, "PackageId", "Title", booking.PackageId);
             return View(booking);
         }
 
-        // POST: Booking/Edit/5
+        // POST: AdminBooking/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookingId,Price,PurchaseDate,PackageId")] Booking booking)
+        public ActionResult Edit([Bind(Include = "BookingId,PurchaseDate,PackagesCost,MyProperty")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -111,11 +89,10 @@ namespace Travel_Agency.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            // ViewBag.PackageId = new SelectList(db.Packages, "PackageId", "Title", booking.PackageId);
             return View(booking);
         }
 
-        // GET: Booking/Delete/5
+        // GET: AdminBooking/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -130,7 +107,7 @@ namespace Travel_Agency.Controllers
             return View(booking);
         }
 
-        // POST: Booking/Delete/5
+        // POST: AdminBooking/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

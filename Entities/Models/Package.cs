@@ -39,11 +39,14 @@ namespace Entities.Models
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
-        public decimal DiscountedPrice()
+        /// <summary>
+        /// Final price of package (after calculating discount, if any)
+        /// </summary>
+        /// <returns>decimal price</returns>
+        public decimal FinalPrice()
         {
-            var discountedPrice= Price - ((Price * Discount / 100));
-            return discountedPrice;
-            //return Math.Floor(discountedPrice);
+            var finalPrice= Price - ((Price * Discount / 100));
+            return Math.Floor(finalPrice);
         }
         public double AveragePackageRating()
         {
