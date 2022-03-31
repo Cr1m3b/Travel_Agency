@@ -1,0 +1,115 @@
+﻿@model Entities.IdentityUsers.ApplicationUser
+
+@{
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<div class="db-info-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="dashboard-box user-form-wrap">
+                <h4>User Details</h4>
+                <form class="form-horizontal" method="post">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>First name</label>
+                                <input name="firstname" class="form-control" type="text" value="@Model.FirstName">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Last name</label>
+                                <input name="lastname" class="form-control" type="text" value="@Model.LastName">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" class="form-control" type="email" value="@Model.Email">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Date of Birth</label>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input name="birthday" class="form-control" type="text" value="@Model.Birthdate.Day">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input name="birthmonth" class="form-control" type="text" value="@Model.Birthdate.Month">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <input name="birthyear" class="form-control" type="text" value="@Model.Birthdate.Year">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <h4>Contact Details</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Country Code</label>
+                                @{
+                                    string[] phoneResults = (Model.PhoneNumber).Split(' ');
+                                    string code = phoneResults[0];
+                                    string phone = phoneResults[1];
+                                }
+                                <input name="phonecode" class="form-control" type="text" value="@code">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input name="phone" class="form-control" type="text" value="@phone">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <input name="country" class="form-control" type="text" value="@Model.Country">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input name="city" class="form-control" type="text" value="@Model.City">
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input name="address" class="form-control" type="text" value="@Model.Address">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Zip-Code</label>
+                                <input name="zip-code" class="form-control" type="text" value="@Model.ZipCode">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4>Upload Profile Photo</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="upload-input">
+                                <div class="form-group">
+                                    <span class="upload-btn">Upload a image</span>
+                                    <input type="file" name="myfile">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="button-primary">Upload Setting</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

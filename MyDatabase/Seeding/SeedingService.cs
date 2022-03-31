@@ -140,10 +140,8 @@ namespace MyDatabase.Seeding
 
 
             //ApplicationUser Seeding
-            ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", Email = "john1@yahoo.gr", FirstName = "John", LastName = "Hopkins" };
-            ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", Email = "nick1@gmail.com", FirstName = "Nick", LastName = "Hughes" };
-
-            List<ApplicationUser> applicationUsers = new List<ApplicationUser>() { ap1,ap2 };
+            ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", FirstName = "John", LastName = "Hopkins", PhoneNumber = "+30 6984548965", Email = "john1@yahoo.gr", Birthdate = new DateTime ( 1990, 8, 1 ), Country="France", City="Paris", ZipCode="75001",Address= "Rue Pierre Guérin 21" };
+            ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", FirstName = "Nick", LastName = "Hughes", PhoneNumber = "+30 6981236365", Email = "nick1@gmail.com", Birthdate = new DateTime(1984, 5, 10), Country = "Greece", City = "Athens", ZipCode = "10431", Address = "Patision 32" };
 
             db.Users.Add(ap1);
             db.Users.Add(ap2);

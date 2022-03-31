@@ -37,6 +37,5 @@ namespace MyDatabase
         public DbSet<ReplyComment> ReplyComments { get; set; }
       
 
-        object placeHolderVariable;
     }
 }

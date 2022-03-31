@@ -20,12 +20,6 @@ namespace Travel_Agency.Controllers
         }
          
 
-        [Authorize]
-        public ActionResult AdminIndex()
-        {
-            return View();
-        }
-        
         public ActionResult Index()
         {
             var offersList=homeService.GetThreeMaxDiscounts();

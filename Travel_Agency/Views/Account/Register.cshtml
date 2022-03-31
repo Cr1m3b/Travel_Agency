@@ -3,9 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
+
     <div class="login-page" style="background-image: url(../../Theme/TravelAgency/admin/assets/images/bg.jpg);">
         <div class="login-from-wrap">
 
