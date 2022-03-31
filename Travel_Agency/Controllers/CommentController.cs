@@ -20,6 +20,7 @@ namespace Travel_Agency.Controllers
         public ActionResult Index()
         {
             var comments = db.Comments.Include(x => x.ApplicationUser).Include(x => x.Package).Include(x => x.ReplyComments).ToList();
+
             return View(comments);
         }
 
