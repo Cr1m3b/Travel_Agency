@@ -191,8 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController\AdminBookingController.cs" />
-    <Compile Include="Controllers\AdminController\AdminPackageController.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminBookingController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminPackageController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
