@@ -206,6 +206,7 @@
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\ReplyCommentController.cs" />
+    <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,7 +229,9 @@
     <Content Include="Content\Images\Athens\Athens7.jpg" />
     <Content Include="Content\Images\Backgrounds\Europe.jpg" />
     <Content Include="Content\Images\Backgrounds\kgr87n-1.jpg" />
+    <Content Include="Content\Images\Backgrounds\TravelReady.png" />
     <Content Include="Content\Images\Backgrounds\vonitsa.jpg" />
+    <Content Include="Content\Images\Backgrounds\wish.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona1.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona2.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona3.jpg" />
@@ -802,6 +805,7 @@
     <Content Include="Views\AdminBooking\Index.cshtml" />
     <Content Include="Views\AdminDashboard\Users.cshtml" />
     <Content Include="Views\AdminDashboard\EditUser.cshtml" />
+    <Content Include="Views\WishList\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

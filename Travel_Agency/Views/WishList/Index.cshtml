@@ -1,0 +1,105 @@
+﻿@using Entities.Models
+
+
+    <div id="page" class="full-page">
+        
+        <main id="content" class="site-main">
+            <!-- Inner Banner html start-->
+            <section class="inner-banner-wrap">
+                <div class="inner-baner-container" style="background-image: url(../../Content/Images/Backgrounds/wish.jpg);">
+                    <div class="container">
+                        <div class="inner-banner-content">
+                            <h1 class="inner-title">Wish List</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-shape"></div>
+            </section>
+            <!-- Inner Banner html end-->
+            <!-- packages html start -->
+            <div class="package-section">
+                <div class="container">
+                    <div class="package-inner">
+                        <div class="row">
+                            @if (!((List<WishListItem>)Session["wishlist"] == null))
+                            {
+                                foreach (var item in (List<WishListItem>)Session["wishlist"])
+                                {
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="package-wrap">
+                                            <figure class="feature-image">
+                                                <a href="/Package/Details/@item.Package.PackageId">
+                                                    <img src="@item.Package.MainPhoto" style="object-fit:cover; width:400px ;height:600px " alt="">
+                                                </a>
+                                            </figure>
+                                            
+                                            <div class="package-price">
+                                                <h6>
+                                                    <span>$@item.Package.FinalPrice() </span> / per person
+                                                </h6>
+                                            </div>
+                                            <div class="package-meta text-center">
+                                                <ul>
+                                                    <li>
+                                                        <i class="far fa-clock"></i>
+                                                        @($"{item.Package.TripDuration +1} days / {item.Package.TripDuration} nights")
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                        @item.Package.Destinations
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="package-content">
+                                                <h3>
+                                                    <a href="/Package/Details/@item.Package.PackageId">@item.Package.Title</a>
+                                                </h3>
+                                                <div class="review-area">
+                                                    <span class="review-text">(@item.Package.Comments.Count)</span>
+                                                    <div class="rating-start" title="Rated 5 out of 5">
+                                                        <span style="width: 60%"></span>
+                                                    </div>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                                
+                                                <div>
+
+                                                    <span style="width: 40%"></span>
+                                                </div>
+                                                <div class="btn-wrap">
+                                                    <a href="@Url.Action("Remove", "WishList", new { id = item.Package.PackageId })" class="button-text width-6">remove<i class="far fa-heart"></i></a>
+                                                    <a href="/Booking/Create" class="button-text">Book Now<i class="fas fa-arrow-right"></i></a>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- packages html end -->
+        </main>
+        
+        <a id="backTotop" href="#" class="to-top-icon">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        <!-- custom search field html -->
+        <div class="header-search-form">
+            <div class="container">
+                <div class="header-search-container">
+                    <form class="search-form" role="search" method="get">
+                        <input type="text" name="s" placeholder="Enter your text...">
+                    </form>
+                    <a href="#" class="search-close">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- header html end -->
+    </div>
+
+
