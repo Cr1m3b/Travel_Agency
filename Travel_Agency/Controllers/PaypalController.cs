@@ -79,7 +79,7 @@ namespace Travel_Agency.Controllers
                 db.SaveChanges();
             }
             //on successful payment, show success page to user.
-            return View("SuccessView");
+            return View("SuccessView",booking);
         }
         private PayPal.Api.Payment payment;
         private Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
