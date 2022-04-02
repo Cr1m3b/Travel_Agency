@@ -8,8 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Item = Entities.Models.Item;
-
-
+using System.Globalization;
 
 namespace Travel_Agency.Controllers
 {
@@ -114,7 +113,7 @@ namespace Travel_Agency.Controllers
                 {
                     name = item.Package.Title,
                     currency = "EUR",
-                    price = itemPrice.ToString(),
+                    price = itemPrice.ToString("N2",CultureInfo.InvariantCulture),
                     quantity = item.Quantity.ToString(),
                     sku = "sku"
                 });
@@ -133,15 +132,15 @@ namespace Travel_Agency.Controllers
             var paypalSubtotal = Math.Round(paypalTotal / 1.11M, 2, MidpointRounding.ToEven);
             var details = new Details()
             {
-                tax = (paypalTotal - paypalSubtotal).ToString(),
+                tax = (paypalTotal - paypalSubtotal).ToString("N2", CultureInfo.InvariantCulture),
                 //shipping = "1",
-                subtotal = paypalSubtotal.ToString()
+                subtotal = paypalSubtotal.ToString("N2", CultureInfo.InvariantCulture)
             };
             //Final amount with details
             var amount = new Amount()
             {
                 currency = "EUR",
-                total = paypalTotal.ToString(), // Total must be equal to sum of tax, shipping and subtotal.
+                total = paypalTotal.ToString("N2", CultureInfo.InvariantCulture), // Total must be equal to sum of tax, shipping and subtotal.
                 details = details
             };
             var transactionList = new List<Transaction>();

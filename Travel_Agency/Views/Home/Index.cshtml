@@ -346,9 +346,12 @@
 
                     <div class="col-md-6 col-lg-4">
                         <div class="special-item">
-                            <figure class="special-img">
-                                <img src="@package.MainPhoto" alt="">
-                            </figure>
+                            <a href="~/Package/Details?id=@package.PackageId">
+                                @package.Title
+                                                        <figure class="special-img">
+                                                            <img src="@package.MainPhoto" style="object-fit:cover; width:400px ;height:600px " alt="">
+                                                        </figure>
+                                                    </a>
                             <div class="badge-dis">
                                 <span>
                                     <strong>@package.Discount%</strong>
@@ -360,7 +363,7 @@
                                     <a href="#">@package.Destinations</a>
                                 </div>
                                 <h3>
-                                    <a href="#">Experience the natural beauty of glacier</a>
+                                    <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
                                 </h3>
                                 <div class="package-price">
                                     Price:
