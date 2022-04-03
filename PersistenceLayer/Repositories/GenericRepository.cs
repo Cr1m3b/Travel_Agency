@@ -24,7 +24,7 @@ namespace PersistenceLayer.Repositories
             Context.SaveChanges();
         }
 
-        public void Delete(object id)
+        public void Delete(int id)
         {
             T existing  = table.Find(id);
             table.Remove(existing);
@@ -43,8 +43,12 @@ namespace PersistenceLayer.Repositories
             return table.ToList();
         }
 
-        public T GetById(object id)
+        public T GetById(int id)
         {
+            if(id == null)
+            {
+                throw new ArgumentException("Bad Request");
+            }
             return table.Find(id);
         }
     }
