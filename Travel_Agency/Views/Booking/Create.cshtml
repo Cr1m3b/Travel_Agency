@@ -24,6 +24,11 @@
             <div class="inner-shape"></div>
         </section>
         <!-- Inner Banner html end-->
+        @if (ViewBag.Cancel != null && ViewBag.Cancel == "true")
+        {
+               <h3 style="text-align: center; color: red">Oooops! Something went wrong with payment.</h3>
+               <br/>
+        }
         <div class="step-section booking-section">
             <div class="container">
                 <div class="step-link-wrap">
@@ -141,7 +146,7 @@
                                 </div>
                                 <div class="support-content">
                                     <h5>HELP AND SUPPORT</h5>
-                                    <a href="telto:12345678" class="phone">+11 234 889 00</a>
+                                    <a href="telto:12345678" class="phone">+30 210-1645854</a>
                                     <small>Monday to Friday 9.00am - 7.30pm</small>
                                 </div>
                             </div>
