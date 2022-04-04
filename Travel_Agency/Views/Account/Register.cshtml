@@ -29,7 +29,11 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.LastName)
-                @Html.EditorFor(model => model.LastName)
+                @Html.EditorFor(model => model.LastName, new { @placeholder = "plz input date" })
+            </div>
+            <div class="form-group">
+                <label for="Birthdate">Birthday</label>
+                <input class="text-box single-line" data-val="true" data-val-required="The Birthday field is required." id="Birthdate" name="Birthdate" type="date" value="">
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Password)

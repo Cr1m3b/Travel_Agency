@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Travel_Agency.Models
@@ -68,6 +69,11 @@ namespace Travel_Agency.Models
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
         [Required(ErrorMessage = "The firstname is required.")]
         [Display(Name = "First Name")]
         [MinLength(2, ErrorMessage = "First name cannot be less than 2")]
@@ -81,9 +87,11 @@ namespace Travel_Agency.Models
         public string LastName { get; set; }
 
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Birthday")]
+        public DateTime Birthday { get; set; }
+
+        
 
         //[Required(ErrorMessage = "Contact phone is required.")]
         //[Display(Name = "Contact Number")]
