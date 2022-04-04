@@ -3,6 +3,7 @@
 @{
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
+
 <div class="db-info-wrap">
     <div class="row">
         <div class="col-lg-12">
@@ -33,17 +34,17 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input name="birthday" class="form-control" type="text" value="@Model.Birthdate.Day">
+                                        <input name="birthday" class="form-control" type="text" value="@Model.Birthday.Day">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input name="birthmonth" class="form-control" type="text" value="@Model.Birthdate.Month">
+                                        <input name="birthmonth" class="form-control" type="text" value="@Model.Birthday.Month">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input name="birthyear" class="form-control" type="text" value="@Model.Birthdate.Year">
+                                        <input name="birthyear" class="form-control" type="text" value="@Model.Birthday.Year">
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="button-primary">Upload Setting</button>
+                    <button type="submit" class="button-primary">Edit User</button>
                 </form>
             </div>
         </div>

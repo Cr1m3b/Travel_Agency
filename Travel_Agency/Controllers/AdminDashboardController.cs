@@ -24,10 +24,15 @@ namespace Travel_Agency.Controllers
         }
 
         //Get: AllUsers
-        public ActionResult Users()
+        public ActionResult AllUsers()
         {
             var users = db.Users.Include(u=>u.Bookings).ToList();
             return View(users);
+        }
+
+        public ActionResult AddUser()
+        {
+            return View();
         }
 
         //Get: Edit One User

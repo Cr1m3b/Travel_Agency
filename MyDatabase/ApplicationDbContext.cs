@@ -35,7 +35,6 @@ namespace MyDatabase
         public DbSet<Wishlist> Wishlists { get; set; }
    
         public DbSet<ReplyComment> ReplyComments { get; set; }
-      
 
     }
 }
