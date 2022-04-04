@@ -43,13 +43,17 @@ namespace PersistenceLayer.Repositories
             return table.ToList();
         }
 
-        public T GetById(int id)
+        public T GetById(int? id)
         {
             if(id == null)
             {
                 throw new ArgumentException("Bad Request");
             }
-            return table.Find(id);
+            else
+            {
+                return table.Find(id);
+            }
+            
         }
     }
 }
