@@ -115,7 +115,6 @@
     <Compile Include="Models\ShoppingCard.cs" />
     <Compile Include="Models\ViewModels\CommentReplyVM.cs" />
     <Compile Include="Models\ViewModels\PackageViewModel.cs" />
-    <Compile Include="Models\Wishlist.cs" />
     <Compile Include="Models\WishListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
