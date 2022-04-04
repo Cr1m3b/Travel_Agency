@@ -7,16 +7,18 @@
 
         <div class="header-contact-info">
 
-            @Html.ActionLink(User.Identity.GetUserName() + "   !", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color:white;" })
-            <a href="/Manage" style="color:white;" title="Manage">@User.Identity.GetUserName()   !</a>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "|", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color:white;" })
             <a style="color:white;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         </div>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <div class="header-social social-links">
+        <ul>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        </ul>
+    </div>
+
 }

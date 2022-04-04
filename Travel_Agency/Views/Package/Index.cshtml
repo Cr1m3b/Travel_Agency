@@ -4,6 +4,63 @@
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
 
+
+<style>
+    .list-wrapper {
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    .list-item {
+        border: 1px solid #EEE;
+        background: #FFF;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-shadow: 0px 0px 10px 0px #EEE;
+    }
+
+        .list-item h4 {
+            color: #FF7182;
+            font-size: 18px;
+            margin: 0 0 5px;
+        }
+
+        .list-item p {
+            margin: 0;
+        }
+
+    .simple-pagination ul {
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    .simple-pagination li {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+        .simple-pagination li a, .simple-pagination li span {
+            color: #666;
+            padding: 5px 10px;
+            text-decoration: none;
+            border: 1px solid #EEE;
+            background-color: #FFF;
+            box-shadow: 0px 0px 10px 0px #EEE;
+        }
+
+    .simple-pagination .current {
+        color: #FFF;
+        background-color: #FF7182;
+        border-color: #FF7182;
+    }
+
+    .simple-pagination .prev.current, .simple-pagination .next.current {
+        background: #e04e60;
+    }
+</style>
+
 <div id="page" class="full-page">
     <main id="content" class="site-main">
         <!-- Inner Banner html start-->
@@ -98,8 +155,42 @@
                     </div>
                 </div>
             </div>
+
+            <div id="pagination-container" class="light-theme simple-pagination">
+                <ul>
+                    <li class="active"><span class="current prev">«</span></li>
+                    <li class="active"><span class="current">1</span></li>
+                    <li><a href="#page-2" class="page-link">2</a></li>
+                    <li><a href="#page-2" class="page-link next">»</a></li>
+                </ul>
+            </div>
+
         </div>
         <!-- packages html end -->
     </main>
 </div>
 
+@section scripts{
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+    <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
+    <script type="text/javascript">
+        var items = $(".row .col-lg-4");
+        var numItems = items.length;
+        var perPage = 4;
+
+        items.slice(perPage).hide();
+
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
+    </script>
+
+} 

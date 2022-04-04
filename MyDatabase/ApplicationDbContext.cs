@@ -32,10 +32,9 @@ namespace MyDatabase
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Rating> Ratings { get; set; }
-        public DbSet<Wishlist> Wishlists { get; set; }
+       
    
         public DbSet<ReplyComment> ReplyComments { get; set; }
-      
 
     }
 }

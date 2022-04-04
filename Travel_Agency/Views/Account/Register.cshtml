@@ -17,19 +17,24 @@
             </h1>
             <div class="form-group">
                 @Html.LabelFor(model => model.UserName)
-                @Html.EditorFor(model =>model.UserName)
+                @Html.EditorFor(model => model.UserName)
             </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email)
-                @Html.EditorFor(model => model.Email)
-            </div>
+
             <div class="form-group">
                 @Html.LabelFor(model => model.FirstName)
                 @Html.EditorFor(model => model.FirstName)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.LastName)
-                @Html.EditorFor(model => model.LastName)
+                @Html.EditorFor(model => model.LastName, new { @placeholder = "plz input date" })
+            </div>
+            <div class="form-group">
+                <label for="Birthday">Birthday</label>
+                <input class="text-box single-line" data-val="true" data-val-required="The Birthday field is required." id="Birthday" name="Birthday" type="date" value="">
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email)
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Password)
