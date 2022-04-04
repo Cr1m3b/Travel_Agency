@@ -67,8 +67,8 @@
                                                     <span style="width: 40%"></span>
                                                 </div>
                                                 <div class="btn-wrap">
-                                                    <a href="@Url.Action("Remove", "WishList", new { id = item.Package.PackageId })" class="button-text width-6">remove<i class="far fa-heart"></i></a>
-                                                    <a href="/Booking/Create" class="button-text">Book Now<i class="fas fa-arrow-right"></i></a>
+                                                    <a href="@Url.Action("Remove", "WishList", new { id = item.Package.PackageId })" class="button-text width-6">Remove<i class="far fa-heart"></i></a>
+                                                    <a href="@Url.Action("Buy", "Cart", new { id = item.Package.PackageId})" class="button-text">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                                 </div>
                                                
                                             </div>
