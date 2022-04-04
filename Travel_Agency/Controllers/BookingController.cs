@@ -21,7 +21,13 @@ namespace Travel_Agency.Controllers
         // GET: Booking
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Packages).ToList();
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            var bookings = db.Bookings
+                .Where(b=>b.ApplicationUser.Id==user.Id)
+                .Include(b => b.ApplicationUser)
+                .Include(b => b.Packages)
+                .ToList();
             return View(bookings);
         }
 
@@ -41,8 +47,10 @@ namespace Travel_Agency.Controllers
         }
 
         // GET: Booking/Create
-        public ActionResult Create()
+        public ActionResult Create(string cancel)
         {
+            ViewBag.Cancel = cancel;
+
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             var cart = (List<Item>)Session["cart"];
             if (cart!=null)
@@ -50,7 +58,7 @@ namespace Travel_Agency.Controllers
                 decimal cost = 0;
                 foreach (var item in cart)
                 {
-                    cost = cost + item.Package.Price*item.Quantity;
+                    cost = cost + item.Package.FinalPrice()*item.Quantity;
                 }
                 ViewBag.PackageCost=cost;
             }

@@ -56,19 +56,20 @@ namespace Travel_Agency.Controllers
                 }
                 else
                 {
+
                     // This function exectues after receving all parameters for the payment
                     var guid = Request.Params["guid"];
                     var executedPayment = ExecutePayment(apiContext, payerId, Session[guid] as string);
                     //If executed payment failed then we will show payment failure message to user
                     if (executedPayment.state.ToLower() != "approved")
                     {
-                        return View("FailureView");
                     }
                 }
             }
             catch (Exception ex)
             {
-                return View("FailureView");
+                var failureUrl = "/Booking/Create?cancel=true";
+                return Redirect(failureUrl);
             }
             //Create and add booking at database
             var booking = Session["lastBooking"];
@@ -78,7 +79,7 @@ namespace Travel_Agency.Controllers
                 db.SaveChanges();
             }
             //on successful payment, show success page to user.
-            return View("SuccessView");
+            return View("SuccessView",booking);
         }
         private PayPal.Api.Payment payment;
         private Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)

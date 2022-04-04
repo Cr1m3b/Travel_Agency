@@ -1,42 +1,76 @@
 ﻿@model Entities.Models.Booking
-
 @{
-    ViewBag.Title = "Details";
+
+    Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
+<main id="content" class="site-main">
+    <!-- Inner Banner html start-->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url(assets/images/inner-banner.jpg);">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">Booking  Details</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape"></div>
+    </section>
+    <!-- Inner Banner html end-->
+    <div class="step-section cart-section">
+        <div class="container">
+        
+            <!-- step three form html start -->
+            <div class="confirmation-outer">
 
-<h2>Details</h2>
+                <div class="confirmation-inner">
+                    <div class="row">
+                        <div class="col-lg-8 right-sidebar">
+                            <div class="confirmation-details">
+                                <h3>BOOKING DETAILS</h3>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Booking id:</td>
+                                            <td>@Model.BookingId</td>
+                                        </tr>
+                                        <tr>
+                                            <td>First Name:</td>
+                                            <td>@Model.FirstName</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last Name:</td>
+                                            <td>@Model.LastName</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td>@Model.Email</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>@Model.PhoneNumber</td>
+                                        </tr>
+                                        @if (Model.ApplicationUser != null)
+                                        {
+                                            <tr>
+                                                <td>Country:</td>
+                                                <td>@Model.ApplicationUser.Country</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td>@Model.ApplicationUser.Address</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                              
 
-<div>
-    <h4>Booking</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Package.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Package.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Package.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Package.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PurchaseDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PurchaseDate)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- step three form html end -->
+        </div>
+    </div>
+</main>

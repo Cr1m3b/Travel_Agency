@@ -9,9 +9,9 @@ namespace PersistenceLayer
     public interface IGenericRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
-        T GetById(object id);
+        T GetById(int id);
         void Add(T entity); 
         void Edit(T obj);
-        void Delete(object id);    
+        void Delete(int id);    
     }
 }
