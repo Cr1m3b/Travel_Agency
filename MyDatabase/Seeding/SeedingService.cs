@@ -47,6 +47,8 @@ namespace MyDatabase.Seeding
             b2.Packages.Add(p2);
             b3.Packages.Add(p6);
             b3.Packages.Add(p7);
+            b2.Packages.Add(p1);
+            b3.Packages.Add(p1);
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };

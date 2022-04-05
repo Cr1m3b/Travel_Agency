@@ -1,4 +1,5 @@
-﻿using MyDatabase;
+﻿using Entities.Models.ViewModels;
+using MyDatabase;
 using PersistenceLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,28 @@ namespace Travel_Agency.Controllers
     
     public class HomeController : Controller
     {
-        public ApplicationDbContext db;
-        private HomeRepository homeService;
+        private ApplicationDbContext db;
+        private PackageRepository repository;
         public HomeController()
         {
             db = new ApplicationDbContext();
-            homeService= new HomeRepository(db);
+            repository = new PackageRepository(db);
         }
-         
-
+        
         public ActionResult Index()
         {
-            var offersList=homeService.GetThreeMaxDiscounts();
-            ViewBag.ListHighestDiscount=offersList; 
-            return View();
+            var packageOffer = repository.GetAllWithRelatedTables().Where(p => p.Discount != 0).Take(3).ToList();
+            var topDestinationsPackages = repository.GetAllWithRelatedTables().Where(p => p.AveragePackageRating()>=2).Take(6).ToList();
+            var popularPackages = repository.GetAllWithRelatedTables().OrderByDescending(p => p.Bookings.Count).Take(3).ToList();
+            PackageViewModel vm = new PackageViewModel()
+            {
+                PackageOffer = packageOffer,
+                PopularPackages = popularPackages,
+                TopDestinationsPackages = topDestinationsPackages
+            };
+            return View(vm);
         }
+
         [Authorize]
         public ActionResult About()
         {
@@ -33,6 +41,7 @@ namespace Travel_Agency.Controllers
 
             return View();
         }
+
         [Authorize]
         public ActionResult Contact()
         {

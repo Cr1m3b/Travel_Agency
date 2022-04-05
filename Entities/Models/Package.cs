@@ -39,6 +39,7 @@ namespace Entities.Models
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
         /// <summary>
         /// Final price of package (after calculating discount, if any)
         /// </summary>

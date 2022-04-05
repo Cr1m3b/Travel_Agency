@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Entities.Models.Package>
+﻿@model Entities.Models.ViewModels.PackageViewModel
 
 
 
@@ -38,7 +38,7 @@
                 <div class="row align-items-end">
                     <div class="col-lg-7">
                         <h5 class="dash-style">POPULAR DESTINATION</h5>
-                        <h2>TOP NOTCH DESTINATION</h2>
+                        <h2>TOP DESTINATIONS</h2>
                     </div>
                     <div class="col-lg-5">
                         <div class="section-disc">
@@ -47,106 +47,56 @@
                     </div>
                 </div>
             </div>
-            <div class="destination-inner destination-three-column">
+            <div class="package-inner">
                 <div class="row">
-                    <div class="col-lg-7">
-                        <div class="row">
-                            <div class="col-md-6 col-xl-12">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img style="object-fit: cover; width: 700px; height: 275px" src="~/Content/Images/Barcelona/Barcelona8.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">Barcelona</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Costa Brava</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 4">
-                                            <span style="width: 60%"></span>
-                                        </div>
-                                    </div>
+                    @foreach (var package in Model.TopDestinationsPackages)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="/Package/Details/@package.PackageId">
+                                        <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>€ @package.FinalPrice() </span> / per person
+                                    </h6>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img style="object-fit: cover; width: 322px; height: 300px" src="~/Content/Images/Barcelona/Barcelona8.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">Spain</a>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                @package.Destinations
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="desti-content">
+                                    <div class="package-content">
                                         <h3>
-                                            <a href="#">Barcelona</a>
+                                            <a href="#">@package.Title</a>
                                         </h3>
-                                        <div class="rating-start" title="Rated 5 out of 4">
-                                            <span style="width: 53%"></span>
+                                        <div class="review-area">
+                                            <span class="review-text">(@package.Comments.Count)</span>
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 60%"></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img style="object-fit: cover; width: 322px; height: 300px" src="~/Content/Images/Paris/Paris5.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">France</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Paris</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 100%"></span>
+                                        <p>@package.Description</p>
+                                        <div class="btn-wrap">
+                                            <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                            <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="row">
-                            <div class="col-md-6 col-xl-12">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img style="object-fit: cover; width: 460px; height: 255px" src="~/Content/Images/Paris/Paris5.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">Paris</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Notre Dame</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-12">
-                                <div class="desti-item overlay-desti-item">
-                                    <figure class="desti-image">
-                                        <img style="object-fit: cover; width: 460px; height: 255px" src="~/Content/Images/Lisbon/Lisbon7.jpg" alt="">
-                                    </figure>
-                                    <div class="meta-cat bg-meta-cat">
-                                        <a href="#">Lisbon</a>
-                                    </div>
-                                    <div class="desti-content">
-                                        <h3>
-                                            <a href="#">Ribeira do Cavalo</a>
-                                        </h3>
-                                        <div class="rating-start" title="Rated 5 out of 4">
-                                            <span style="width: 60%"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
                 </div>
                 <div class="btn-wrap text-center">
                     <a href="/Destination/Index" class="button-primary">MORE DESTINATION</a>
@@ -170,150 +120,54 @@
             <!--Here start POPULAR PACKAGES-->
             <div class="package-inner">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-wrap">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="~/Theme/TravelAgency/assets/images/img5.jpg" alt="">
-                                </a>
-                            </figure>
-                            <div class="package-price">
-                                <h6>
-                                    <span>€1,900 </span> / per person
-                                </h6>
-                            </div>
-                            <div class="package-content-wrap">
-                                <div class="package-meta text-center">
-                                    <ul>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            7D/6N
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-user-friends"></i>
-                                            People: 5
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Malaysia
-                                        </li>
-                                    </ul>
+                    @foreach (var package in Model.PopularPackages)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="/Package/Details/@package.PackageId">
+                                        <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span>€ @package.FinalPrice() </span> / per person
+                                    </h6>
                                 </div>
-                                <div class="package-content">
-                                    <h3>
-                                        <a href="#">Sunset view of beautiful lakeside resident</a>
-                                    </h3>
-                                    <div class="review-area">
-                                        <span class="review-text">(25 reviews)</span>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 60%"></span>
-                                        </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-meta text-center">
+                                        <ul>
+                                            <li>
+                                                <i class="far fa-clock"></i>
+                                                @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                            </li>
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                @package.Destinations
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                    <div class="package-content">
+                                        <h3>
+                                            <a href="#">@package.Title</a>
+                                        </h3>
+                                        <div class="review-area">
+                                            <span class="review-text">(25 reviews)</span>
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 60%"></span>
+                                            </div>
+                                        </div>
+                                        <p>@package.Description</p>
+                                        <div class="btn-wrap">
+                                            <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
+                                            <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-wrap">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="~/Theme/TravelAgency/assets/images/img6.jpg" alt="">
-                                </a>
-                            </figure>
-                            <div class="package-price">
-                                <h6>
-                                    <span>€1,230 </span> / per person
-                                </h6>
-                            </div>
-                            <div class="package-content-wrap">
-                                <div class="package-meta text-center">
-                                    <ul>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            5D/4N
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-user-friends"></i>
-                                            People: 8
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Canada
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="package-content">
-                                    <h3>
-                                        <a href="#">Experience the natural beauty of island</a>
-                                    </h3>
-                                    <div class="review-area">
-                                        <span class="review-text">(17 reviews)</span>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="package-wrap">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="~/Theme/TravelAgency/assets/images/img7.jpg" alt="">
-                                </a>
-                            </figure>
-                            <div class="package-price">
-                                <h6>
-                                    <span>€2,000 </span> / per person
-                                </h6>
-                            </div>
-                            <div class="package-content-wrap">
-                                <div class="package-meta text-center">
-                                    <ul>
-                                        <li>
-                                            <i class="far fa-clock"></i>
-                                            6D/5N
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-user-friends"></i>
-                                            People: 6
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Portugal
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="package-content">
-                                    <h3>
-                                        <a href="#">Vacation to the water city of Portugal</a>
-                                    </h3>
-                                    <div class="review-area">
-                                        <span class="review-text">(22 reviews)</span>
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 80%"></span>
-                                        </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
                 </div>
                 <div class="btn-wrap text-center">
                     <a href="/Package/Index" class="button-primary">VIEW ALL PACKAGES</a>
@@ -338,45 +192,41 @@
                     </div>
                 </div>
             </div>
-           <!--Here start the offers-->
+            <!--Here start the offers-->
             <div class="special-inner">
                 <div class="row">
-                    @foreach (var package in ViewBag.ListHighestDiscount)
+                    @foreach (var package in Model.PackageOffer)
                     {
+                        <div class="col-md-6 col-lg-4">
+                            <div class="special-item">
+                                <a href="~/Package/Details?id=@package.PackageId">
 
-                    <div class="col-md-6 col-lg-4">
-                        <div class="special-item">
-                            <a href="~/Package/Details?id=@package.PackageId">
-                               
-                                                        <figure class="special-img">
-                                                            <img src="@package.MainPhoto" style="object-fit:cover; width:400px ;height:600px " alt="">
-                                                        </figure>
-                                                    </a>
-                            <div class="badge-dis">
-                                <span>
-                                    <strong>@package.Discount%</strong>
-                                    off
-                                </span>
-                            </div>
-                            <div class="special-content">
-                                <div class="meta-cat">
-                                    <a href="#">@package.Destinations</a>
+                                    <figure class="special-img">
+                                        <img src="@package.MainPhoto" style="object-fit:cover; width:400px ;height:600px " alt="">
+                                    </figure>
+                                </a>
+                                <div class="badge-dis">
+                                    <span>
+                                        <strong>@package.Discount%</strong>
+                                        off
+                                    </span>
                                 </div>
-                                <h3>
-                                    <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
-                                </h3>
-                                <div class="package-price">
-                                    Price:
-                                    <del>€@package.Price</del>
-                                    <ins>€@package.FinalPrice()</ins>
+                                <div class="special-content">
+                                    <div class="meta-cat">
+                                        <a href="#">@package.Destinations</a>
+                                    </div>
+                                    <h3>
+                                        <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
+                                    </h3>
+                                    <div class="package-price">
+                                        Price:
+                                        <del>€@package.Price.ToString("N0")</del>
+                                        <ins>€@package.FinalPrice()</ins>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
                     }
-
                 </div>
             </div>
         </div>

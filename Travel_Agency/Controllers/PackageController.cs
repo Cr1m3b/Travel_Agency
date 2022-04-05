@@ -28,23 +28,12 @@ namespace Travel_Agency.Controllers
         // GET: Package
         public ActionResult Index()
         {
-            var packages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active);
-            //var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
-            //var packageOffer = activePackages.Where(p => p.Discount != 0).Take(3).ToList();
-            //var popularPackages = activePackages.Where(p => p.AveragePackageRating() >= 3).Take(3).ToList();
-
-            //PackageViewModel vm = new PackageViewModel()
-            //{
-            //    ActivePackages=activePackages,
-            //    PackageOffer = packageOffer,
-            //    PopularPackages=popularPackages
-            //};
-            //return View(vm);
-            return View(packages);
+            var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
+            return View(activePackages);
         }
         public ActionResult PackagesPerDestination(string destination)
         {
-            var packages = db.Packages.Where(p => p.Destinations.ToString().Equals(destination)).ToList();
+            var packages = repository.GetAll().Where(p => p.Destinations.ToString().Equals(destination)).ToList();
 
             return View(packages);
         }
@@ -52,7 +41,7 @@ namespace Travel_Agency.Controllers
 
         public ActionResult PackageOffer()
         {
-            var packages = db.Packages.Where(p => p.Discount != 0).Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).ToList();
+            var packages = repository.GetAllWithRelatedTables().Where(p => p.Discount != 0).ToList();
 
             return View(packages);
         }

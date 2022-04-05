@@ -11,5 +11,6 @@ namespace Entities.Models.ViewModels
         public List<Package> ActivePackages { get; set; }
         public List<Package> PackageOffer { get; set; }
         public List<Package> PopularPackages { get; set; }
+        public List<Package> TopDestinationsPackages { get; set; }
     }
 }

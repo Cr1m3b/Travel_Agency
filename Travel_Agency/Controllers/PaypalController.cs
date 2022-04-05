@@ -79,7 +79,7 @@ namespace Travel_Agency.Controllers
                 db.SaveChanges();
             }
             //on successful payment, show success page to user.
-            return View("SuccessView",booking);
+            return View("SuccessView", booking);
         }
         private PayPal.Api.Payment payment;
         private Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
@@ -114,11 +114,12 @@ namespace Travel_Agency.Controllers
                 {
                     name = item.Package.Title,
                     currency = "EUR",
-                    price = itemPrice.ToString("N2",CultureInfo.InvariantCulture),
+                    price = itemPrice.ToString("N2", CultureInfo.InvariantCulture),
                     quantity = item.Quantity.ToString(),
                     sku = "sku"
                 });
             }
+            ViewBag.PackagesCost = paypalTotal;
             var payer = new Payer()
             {
                 payment_method = "paypal"
