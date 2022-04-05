@@ -26,14 +26,14 @@ namespace Travel_Agency.Controllers
             ViewBag.ListHighestDiscount=offersList; 
             return View();
         }
-        [Authorize]
+        
         public ActionResult About()
         {
 
 
             return View();
         }
-        [Authorize]
+        
         public ActionResult Contact()
         {
 
