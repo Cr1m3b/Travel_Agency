@@ -10,6 +10,7 @@ namespace Travel_Agency.Controllers
     public class DestinationController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Destination
         public ActionResult Index()
         {

@@ -76,8 +76,6 @@ namespace Travel_Agency.Controllers
             return View(package);
         }
 
-        // GET: Package/Edit/5
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
