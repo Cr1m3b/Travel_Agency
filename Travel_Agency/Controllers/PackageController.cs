@@ -26,9 +26,18 @@ namespace Travel_Agency.Controllers
             repository = new PackageRepository(db);
         }
         // GET: Package
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
+
+            if (!String.IsNullOrWhiteSpace(search))
+            {
+                activePackages = activePackages.Where(p => p.Title.ToUpper().Contains(search.ToUpper())  ||
+                                                      p.Description.ToUpper().Contains(search.ToUpper()) || 
+                                                      p.Program.ToUpper().Contains(search.ToUpper()) ||
+                                                      p.Destinations.ToString().ToUpper().Contains(search.ToUpper()))
+                                                      .ToList();
+            }
             return View(activePackages);
         }
         public ActionResult PackagesPerDestination(string destination)
