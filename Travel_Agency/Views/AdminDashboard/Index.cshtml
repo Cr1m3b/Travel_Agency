@@ -59,119 +59,38 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="dashboard-box table-opp-color-box">
-                <h4>Recent Booking</h4>
-                <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
-                <div class="table-responsive">
+                <h4>Recent Bookings</h4>
+                @*<div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Select</th>
+                                <th>Id</th>
                                 <th>User</th>
-                                <th>Name</th>
-                                <th>Date</th>
-                                <th>City</th>
-                                <th>Enquiry</th>
+                                <th>Booking Date</th>
+                                <th>Destination</th>
+                                <th>Trip Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment2.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment3.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment4.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment5.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
+                            @foreach (var booking in Model)
+                            {
+                                foreach (var package in booking.Packages)
+                                {
+                                    <tr class="package">
+                                        <td>@booking.BookingId</td>
+                                        <td>
+                                            <span>John Doe</span>
+                                        </td>
+                                        <td>@booking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                        <td>@package.Destinations</td>
+                                        <td>@package.TripDate.ToString("dd/MM/yyyy")</td>
+                                    </tr>
+                                }
+                            }
+
                         </tbody>
                     </table>
-                </div>
+                </div>*@
             </div>
         </div>
     </div>

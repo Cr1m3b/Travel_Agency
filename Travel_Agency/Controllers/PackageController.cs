@@ -47,13 +47,11 @@ namespace Travel_Agency.Controllers
         }
         public ActionResult PackageReviews()
         {
-            var packages = db.Packages.Include(p => p.Flight)
-                                      .Include(p => p.Comments.Select(a => a.ApplicationUser))
-                                      .Include(p => p.Comments.Select(r => r.ReplyComments))
-                                      .Include(p => p.Hotel)
-                                      .Include(p => p.Photos)
-                                      .Where(p => p.PackageStatus == Status.Expired).ToList();
-            return View(packages);
+            var allPackagesWithReviews = repository.GetAllWithRelatedTables()
+                                        .Where(p=>p.PackageStatus==Status.Expired && p.Comments != null && p.Comments.Count>0)
+                                        .ToList();
+
+            return View(allPackagesWithReviews);
         }
 
 
@@ -61,8 +59,6 @@ namespace Travel_Agency.Controllers
         public ActionResult Details(int? id)
         {
             var package = repository.GetByIdWithRelatedTables(id);
-            package.Comments.Select(a => a.ApplicationUser);
-            package.Comments.Select(r => r.ReplyComments);
             if (package == null)
                 {
                     return HttpNotFound();
