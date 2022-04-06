@@ -33,16 +33,14 @@ namespace Travel_Agency.Controllers
             };
             return View(vm);
         }
-
-        [Authorize]
+        
         public ActionResult About()
         {
 
 
             return View();
         }
-
-        [Authorize]
+        
         public ActionResult Contact()
         {
 
