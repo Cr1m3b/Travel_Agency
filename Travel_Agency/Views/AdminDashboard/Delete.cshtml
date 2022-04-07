@@ -10,9 +10,6 @@
             <div class="dashboard-box user-form-wrap">
                 <div class="col-sm-12">
                     <h3 class="displat-block">You are about to permanently delete "<strong class="displat-block" style="color:red;">@Model.UserName</strong>" from your Data base !!!</h3>
-                    <h2>@Model.FirstName</h2>
-                    <h2>@Model.Email</h2>
-                    <h2>@Model.LastName</h2>
                 </div>
                 <div class="col-sm-4">
                     @using (Html.BeginForm("DeleteUser", "AdminDashboard", FormMethod.Post))
