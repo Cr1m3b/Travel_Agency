@@ -11,60 +11,67 @@
     <div class="list-wrapper">
 
         @foreach (var com in Model)
+        {
+            if (!(com.ApplicationUser == null))
             {
-        <div class="list-item">
-            <div class="comment-area">
-                <div class="comment-area-inner">
-                    <ol class="comment&reply">
-                        <li>
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <h4 class="author-name">@com.ApplicationUser.FirstName @com.ApplicationUser.LastName</h4>
-                                    <span class="post-on">@com.PostTime</span>
-                                </div>
-                                <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
-                                <p>@com.CommentContent</p>
-                                <div class="comment-detail">
+                <div class="list-item">
+                    <div class="comment-area">
+                        <div class="comment-area-inner">
+                            <ol class="comment&reply">
+                                <li>
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <h4 class="author-name" style="color:red">@com.ApplicationUser.FirstName @com.ApplicationUser.LastName</h4>
+                                            <span class="post-on">@com.PostTime</span>
+                                        </div>
+                                        <h5 class="comment-title"><span>comment on:</span>@com.Package.Title</h5>
+                                        <p>@com.CommentContent</p>
+                                        <div class="comment-detail">
 
-                                    <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
-                                    <a href="/Comment/Delete/@com.CommentId" class="btn btn-info btn-danger">Remove Comment</a>
+                                            <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                            <a href="/Comment/Delete/@com.CommentId" class="btn btn-info btn-danger">Remove Comment</a>
 
-                                </div>
-                            </div>
-                        </li>
+                                        </div>
+                                    </div>
+                                </li>
 
 
-                        @if (com.ReplyComments != null)
+                                @if (com.ReplyComments != null)
                                 {
 
                                     foreach (var reply in com.ReplyComments)
                                     {
+                                        if (!(reply.ApplicationUser == null))
+                                        {
+                                            <li>
+                                                <div class="comment-content">
+                                                    <div class="comment-header">
+                                                        <h4 class="author-name" style="color:blue">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>
+                                                        <span class="post-on">@reply.ReplyPostTime</span>
+                                                    </div>
+                                                    <h5 class="comment-title"><span style="color:#038a12">Reply on @com.ApplicationUser.FirstName @com.ApplicationUser.LastName for</span>@com.Package.Title</h5>
+                                                    <p>@reply.ReplyContent</p>
+                                                    <div class="comment-detail">
 
-                        <li>
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <h4 class="author-name" style="color:blue">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h4>
-                                    <span class="post-on">@reply.ReplyPostTime</span>
-                                </div>
-                                <h5 class="comment-title"><span style="color:#038a12">Reply on @com.ApplicationUser.FirstName @com.ApplicationUser.LastName for</span>@com.Package.Title</h5>
-                                <p>@reply.ReplyContent</p>
-                                <div class="comment-detail">
+                                                        <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
+                                                        <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
 
-                                    <a href="/ReplyComment/Create/@com.CommentId" class="btn btn-info btn-default">Post Reply</a>
-                                    <a href="/ReplyComment/Delete/@reply.ReplyCommentId" class="btn btn-info btn-danger">Remove Comment</a>
-
-                                </div>
-                            </div>
-                        </li>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
 
                                     }
                                 }
 
-                    </ol>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
             }
+
+
+        }
     </div>
 
 

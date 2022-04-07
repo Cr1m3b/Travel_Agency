@@ -3,61 +3,6 @@
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
 
-<style>
-    .list-wrapper {
-        padding: 15px;
-        overflow: hidden;
-    }
-
-    .list-item {
-        border: 1px solid #EEE;
-        background: #FFF;
-        margin-bottom: 10px;
-        padding: 10px;
-        box-shadow: 0px 0px 10px 0px #EEE;
-    }
-
-        .list-item h4 {
-            color: #FF7182;
-            font-size: 18px;
-            margin: 0 0 5px;
-        }
-
-        .list-item p {
-            margin: 0;
-        }
-
-    .simple-pagination ul {
-        margin: 0 0 20px;
-        padding: 0;
-        list-style: none;
-        text-align: center;
-    }
-
-    .simple-pagination li {
-        display: inline-block;
-        margin-right: 5px;
-    }
-
-        .simple-pagination li a, .simple-pagination li span {
-            color: #666;
-            padding: 5px 10px;
-            text-decoration: none;
-            border: 1px solid #EEE;
-            background-color: #FFF;
-            box-shadow: 0px 0px 10px 0px #EEE;
-        }
-
-    .simple-pagination .current {
-        color: #FFF;
-        background-color: #FF7182;
-        border-color: #FF7182;
-    }
-
-    .simple-pagination .prev.current, .simple-pagination .next.current {
-        background: #e04e60;
-    }
-</style>
 
 <div id="page" class="full-page">
     <main id="content" class="site-main">
@@ -172,56 +117,60 @@
                                             <div class="list-wrapper">
                                                 @foreach (var comment in Model.Comments)
                                                 {
-                                                    <div class="list-item">
-                                                        <div class="comment-area">
-                                                            <div class="comment-area-inner">
-                                                                <ol>
-                                                                    <li>
+                                                    if (!(comment.ApplicationUser == null))
+                                                    {
+                                                        <div class="list-item">
+                                                            <div class="comment-area">
+                                                                <div class="comment-area-inner">
+                                                                    <ol>
+                                                                        <li>
 
-                                                                        <div class="comment-content">
-                                                                            <div class="comment-header">
-                                                                                <h5 class="author-name">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
-                                                                                <span class="post-on" style="color:dodgerblue">@comment.PostTime.ToString("dd/MM/yyyy")</span>
-                                                                                <div class="rating-wrap">
-                                                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                                                        <span style="width: calc((@comment.Rating*20%))"></span>
+                                                                            <div class="comment-content">
+                                                                                <div class="comment-header">
+                                                                                    <h5 class="author-name" style="color:red">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
+                                                                                    <span class="post-on" style="color:dodgerblue">@comment.PostTime.ToString("dd/MM/yyyy")</span>
+                                                                                    <div class="rating-wrap">
+                                                                                        <div class="rating-start" title="Rated 5 out of 5">
+                                                                                            <span style="width: calc((@comment.Rating*20%))"></span>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
+                                                                                <p>@comment.CommentContent</p>
+                                                                                <div class="comment-detail">
+
+                                                                                    <a href="/ReplyComment/UserReply/@comment.CommentId" class="btn btn-info btn-default">Post Reply</a>
+
+                                                                                </div>
                                                                             </div>
-                                                                            <p>@comment.CommentContent</p>
-                                                                            <div class="comment-detail">
+                                                                        </li>
 
-                                                                                <a href="/ReplyComment/UserReply/@comment.CommentId" class="btn btn-info btn-default">Post Reply</a>
-
-                                                                            </div>
-                                                                            @*<a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>*@
-                                                                        </div>
-                                                                    </li>
-
-                                                                    @if (comment.ReplyComments != null)
-                                                                    {
-
-                                                                        foreach (var reply in comment.ReplyComments)
+                                                                        @if (comment.ReplyComments != null)
                                                                         {
 
-                                                                            <li>
-                                                                                <div class="comment-content">
-                                                                                    <div class="comment-header">
-                                                                                        <div style="color:#021a76;font-style:italic">Reply to @comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName:</div>
-                                                                                        <h5 class="author-name" style="color:red">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h5>
-                                                                                        <span class="post-on">@reply.ReplyPostTime.ToString("dd/MM/yyyy")</span>
-                                                                                    </div>
-                                                                                    <p>@reply.ReplyContent</p>
-                                                                                </div>
-                                                                            </li>
+                                                                            foreach (var reply in comment.ReplyComments)
+                                                                            {
+                                                                                if (!(reply.ApplicationUser == null))
+                                                                                {
+                                                                                    <li>
+                                                                                        <div class="comment-content">
+                                                                                            <div class="comment-header">
+                                                                                                <div style="color:#bf0a7e;font-style:italic">Reply to @comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName:</div>
+                                                                                                <h5 class="author-name" style="color:blue">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h5>
+                                                                                                <span class="post-on">@reply.ReplyPostTime.ToString("dd/MM/yyyy")</span>
+                                                                                            </div>
+                                                                                            <p>@reply.ReplyContent</p>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                }
 
-
+                                                                            }
                                                                         }
-                                                                    }
-                                                                </ol>
+                                                                    </ol>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    }
+
                                                 }
                                                 <div id="pagination-container" class="light-theme simple-pagination">
                                                     <ul>
@@ -352,7 +301,7 @@
     <script type="text/javascript">
         var items = $(".list-wrapper .list-item");
         var numItems = items.length;
-        var perPage =4;
+        var perPage = 4;
 
         items.slice(perPage).hide();
 
