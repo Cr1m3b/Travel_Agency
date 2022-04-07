@@ -421,6 +421,7 @@
     <Content Include="Theme\TravelAgency\admin\user.html" />
     <Content Include="Theme\TravelAgency\assets\css\flight.css" />
     <Content Include="Theme\TravelAgency\assets\css\hotel.css" />
+    <Content Include="Theme\TravelAgency\assets\css\Pagination.css" />
     <Content Include="Theme\TravelAgency\assets\images\404-img.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\banner-pattern.png" />
     <Content Include="Theme\TravelAgency\assets\images\cards.png" />

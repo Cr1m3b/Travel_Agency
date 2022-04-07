@@ -37,8 +37,8 @@ namespace MyDatabase.Seeding
 
             //Booking Seeding
             Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02), PackagesCost=476 };
-            Booking b2 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
-            Booking b3 = new Booking() { PurchaseDate = new DateTime(2022, 08, 04), PackagesCost = 962 };
+            Booking b2 = new Booking() { PurchaseDate = new DateTime(2020, 04, 02), PackagesCost = 699 };
+            Booking b3 = new Booking() { PurchaseDate = new DateTime(2021, 08, 04), PackagesCost = 962 };
            
             List<Booking> bookings = new List<Booking>() { b1, b2, b3 };
             db.Bookings.AddRange(bookings);

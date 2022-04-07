@@ -17,9 +17,15 @@ namespace Travel_Agency.Controllers.AdminController
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AdminBooking
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
             var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Packages).ToList();
+
+            switch (sortOrder)
+            {
+                case "BookAscend": bookings = bookings.OrderBy(b => b.PurchaseDate).ToList();break;
+            }
+
             return View(bookings);
         }
 
