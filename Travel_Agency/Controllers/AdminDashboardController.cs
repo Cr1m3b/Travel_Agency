@@ -1,4 +1,7 @@
-﻿using MyDatabase;
+﻿using Entities.IdentityUsers;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using MyDatabase;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
