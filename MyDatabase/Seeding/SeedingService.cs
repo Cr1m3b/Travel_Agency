@@ -35,12 +35,21 @@ namespace MyDatabase.Seeding
             List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7 };
             db.Packages.AddRange(packages);
 
+
+            //ApplicationUser Seeding
+            ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", FirstName = "John", LastName = "Hopkins", PhoneNumber = "+30 6984548965", Email = "john1@yahoo.gr", Birthday = new DateTime(1990, 8, 1), Country = "France", City = "Paris", ZipCode = "75001", Address = "Rue Pierre Guérin 21" };
+            ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", FirstName = "Nick", LastName = "Hughes", PhoneNumber = "+30 6981236365", Email = "nick1@gmail.com", Birthday = new DateTime(1984, 5, 10), Country = "Greece", City = "Athens", ZipCode = "10431", Address = "Patision 32" };
+
+            db.Users.Add(ap1);
+            db.Users.Add(ap2);
+
             //Booking Seeding
-            Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02), PackagesCost=476 };
-            Booking b2 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
-            Booking b3 = new Booking() { PurchaseDate = new DateTime(2022, 08, 04), PackagesCost = 962 };
-           
-            List<Booking> bookings = new List<Booking>() { b1, b2, b3 };
+            Booking b1 = new Booking() {FirstName=ap1.FirstName,LastName=ap1.LastName,Email=ap1.Email,PhoneNumber=ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost=476 };
+            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
+            Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 962 };
+            Booking b4 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
+
+            List<Booking> bookings = new List<Booking>() { b1, b2, b3,b4 };
             db.Bookings.AddRange(bookings);
 
             b1.Packages.Add(p1);
@@ -49,6 +58,11 @@ namespace MyDatabase.Seeding
             b3.Packages.Add(p7);
             b2.Packages.Add(p1);
             b3.Packages.Add(p1);
+            b4.Packages.Add(p2);
+
+            b1.ApplicationUser = ap1;
+            b2.ApplicationUser = ap2;
+
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
@@ -77,9 +91,6 @@ namespace MyDatabase.Seeding
             p7.Photos.Add(photoCappadocia);
             p7.Photos.Add(photoCappadocia1);
 
-
-
-
             // Comment Seeding
             Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25),Rating=4 };
             Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29), Rating = 5 };
@@ -88,6 +99,9 @@ namespace MyDatabase.Seeding
 
             p1.Comments.Add(com2);
             p5.Comments.Add(com1);
+
+            com1.ApplicationUser = ap1;
+            com2.ApplicationUser = ap2;
 
 
             //Flight Seeding
@@ -138,20 +152,6 @@ namespace MyDatabase.Seeding
             p1.Ratings.Add(r1);
             p1.Ratings.Add(r3);
             p2.Ratings.Add(r2);
-
-
-
-            //ApplicationUser Seeding
-            ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", FirstName = "John", LastName = "Hopkins", PhoneNumber = "+30 6984548965", Email = "john1@yahoo.gr", Birthday = new DateTime ( 1990, 8, 1 ), Country="France", City="Paris", ZipCode="75001",Address= "Rue Pierre Guérin 21" };
-            ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", FirstName = "Nick", LastName = "Hughes", PhoneNumber = "+30 6981236365", Email = "nick1@gmail.com", Birthday = new DateTime(1984, 5, 10), Country = "Greece", City = "Athens", ZipCode = "10431", Address = "Patision 32" };
-
-            db.Users.Add(ap1);
-            db.Users.Add(ap2);
-
-            com1.ApplicationUser = ap1;
-            com2.ApplicationUser = ap2;
-
-
 
             //ReplyComment Seeding
              ReplyComment rep1=new ReplyComment() {ReplyContent= "All recommendations were within our budget. An invaluable service! Thank you",ReplyPostTime=DateTime.Now };

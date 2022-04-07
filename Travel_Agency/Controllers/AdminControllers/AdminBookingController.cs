@@ -16,16 +16,16 @@ namespace Travel_Agency.Controllers.AdminController
     public class AdminBookingController : Controller
     {
         private ApplicationDbContext db;
-        BookingRepository repositroy;
+        BookingRepository repository;
         public AdminBookingController()
         {
             db =  new ApplicationDbContext();
-            repositroy = new BookingRepository(db);
+            repository = new BookingRepository(db);
         }
         // GET: AdminBooking
         public ActionResult Index()
         {
-            var bookings = repositroy.GetAllWithRelatedTables();
+            var bookings = repository.GetAllWithRelatedTables().OrderByDescending(b => b.PurchaseDate);
             return View(bookings);
         }
 
@@ -36,7 +36,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = repositroy.GetById(id);
+            Booking booking = repository.GetById(id);
             if (booking == null)
             {
                 return HttpNotFound();

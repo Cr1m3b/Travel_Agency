@@ -32,11 +32,7 @@ namespace Travel_Agency.Controllers
 
             if (!String.IsNullOrWhiteSpace(search))
             {
-                activePackages = activePackages.Where(p => p.Title.ToUpper().Contains(search.ToUpper())  ||
-                                                      p.Description.ToUpper().Contains(search.ToUpper()) || 
-                                                      p.Program.ToUpper().Contains(search.ToUpper()) ||
-                                                      p.Destinations.ToString().ToUpper().Contains(search.ToUpper()))
-                                                      .ToList();
+                activePackages = activePackages.Where(p => p.Destinations.ToString().ToUpper().Contains(search.ToUpper())).ToList();
             }
             return View(activePackages);
         }

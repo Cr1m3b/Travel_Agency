@@ -75,17 +75,20 @@ namespace Travel_Agency.Controllers
                 var cart = (List<Item>)Session["cart"];
                 if (cart != null)
                 {
+                    List<Package> packages = new List<Package>();
                     decimal cost = 0;
                     foreach (var item in cart)
                     {
+                        packages.Add(item.Package);
                         cost = cost + item.Package.FinalPrice() * item.Quantity;
                     }
-                   booking.PackagesCost = cost;
+                    booking.Packages = packages;
+                    booking.PackagesCost = cost;
                 }
                 booking.PurchaseDate = DateTime.Now;
             }
             Session["lastBooking"] = booking;
-            return RedirectToAction("PaymentWithPaypal","Paypal");
+            return RedirectToAction("PaymentWithPaypal", "Paypal");
         }
         protected override void Dispose(bool disposing)
         {

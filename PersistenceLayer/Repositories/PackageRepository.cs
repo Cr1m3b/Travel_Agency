@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using PersistenceLayer.IRepositories;
 
 namespace PersistenceLayer.Repositories
 {
-    public class PackageRepository : GenericRepository<Package>
+    public class PackageRepository : GenericRepository<Package>,IPackageRepository
     {
         public PackageRepository(ApplicationDbContext context) : base(context)
         {

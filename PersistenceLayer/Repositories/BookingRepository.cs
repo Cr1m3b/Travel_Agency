@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using PersistenceLayer.IRepositories;
 
 namespace PersistenceLayer.Repositories
 {
-    public class BookingRepository : GenericRepository<Booking>
+    public class BookingRepository : GenericRepository<Booking>,IBookingRepository
     {
         public BookingRepository(ApplicationDbContext context) : base(context)
         {
