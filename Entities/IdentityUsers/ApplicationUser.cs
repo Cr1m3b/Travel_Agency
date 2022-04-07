@@ -18,6 +18,7 @@ namespace Entities.IdentityUsers
         public string LastName { get; set; }
         public List<Booking> Bookings { get; set; }
         public List<Comment> Comments { get; set; }
+        public List<ReplyComment> ReplyComments { get; set; }
         public DateTime Birthday { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
