@@ -21,7 +21,6 @@ namespace Travel_Agency.Controllers
     {
         private ApplicationDbContext db;
         private BookingRepository repository;
-        private ApplicationDbContext db;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         public AdminDashboardController()
