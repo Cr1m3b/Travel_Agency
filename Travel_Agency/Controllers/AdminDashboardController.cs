@@ -1,4 +1,7 @@
-﻿using MyDatabase;
+﻿using Entities.IdentityUsers;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using MyDatabase;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -157,7 +160,7 @@ namespace Travel_Agency.Controllers
         }
         public ActionResult Delete(string username)
         {
-            var user = db.Users.Where(u=>u.UserName== username).First();
+            var user = db.Users.Where(u => u.UserName == username).First();
             if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -171,17 +174,47 @@ namespace Travel_Agency.Controllers
         [HttpPost]
         public ActionResult DeleteUser(string username)
         {
-            var user = db.Users.Where(u => u.UserName == username).First();
-            if (user==null)
+            var user = db.Users.Where(u => u.UserName == username)
+                               .Include(u => u.Comments)
+                               .Include(u => u.ReplyComments)
+                               .Include(u => u.Bookings)
+                               .First();
+
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             else
             {
-                db.Users.Remove(user);
-                db.SaveChanges();
-                return RedirectToAction("Alluser", "AdminDashboard");
+                foreach (var comment in user.Comments)
+                {
+                    comment.ApplicationUser = null;
+                }
+                foreach (var reply in user.ReplyComments)
+                {
+                    reply.ApplicationUser = null;
+                }
+                foreach (var booking in user.Bookings)
+                {
+                    booking.ApplicationUser = null;
+                }
+                db.Entry(user).State = EntityState.Deleted;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
             }
+            return RedirectToAction("AllUsers", "AdminDashboard");
         }
 
         private void AddErrors(IdentityResult result)
