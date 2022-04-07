@@ -1,7 +1,4 @@
-﻿using Entities.IdentityUsers;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using MyDatabase;
+﻿using MyDatabase;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -56,6 +53,34 @@ namespace Travel_Agency.Controllers
         //[Authorize]
         public ActionResult Index()
         {
+            var bookings = db.Bookings.Include(p => p.Packages).ToList();
+            var packages = db.Packages.Include(b=>b.Bookings).ToList();
+            
+
+            List<int> times=new List<int>();
+            List<string> Titles = new List<string> ();
+            List<decimal> Income=new List<decimal> ();  
+
+            foreach (var package in packages)
+            {
+
+                times.Add(package.Bookings.Count);  
+
+            }
+            foreach (var package in packages)
+            {
+
+                Income.Add(package.Bookings.Count* package.Price);
+
+            }
+            foreach (var package in packages)
+            {
+                Titles.Add(package.Title);
+            }
+            ViewBag.Titles = Titles;
+            ViewBag.Times = times;
+            ViewBag.Income= Income; 
+
             return View();
         }
 

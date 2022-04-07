@@ -16,7 +16,7 @@ namespace Travel_Agency.Controllers.AdminController
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AdminPackage
-        public ActionResult Index(string status)
+        public ActionResult Index(string status, string sortOrder)
         {
             var packages = db.Packages.Include(x => x.Flight).Include(x => x.Hotel).ToList();
             if (status == "active")
@@ -31,6 +31,12 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 packages = packages.Where(x => x.PackageStatus == Status.Expired).ToList();
             }
+
+            switch (sortOrder)
+            {
+                case "TripAscend": packages = packages.OrderBy(p => p.TripDate).ToList(); break;
+            }
+
 
             return View(packages);
         }
@@ -217,7 +223,7 @@ namespace Travel_Agency.Controllers.AdminController
 
             return RedirectToAction("Index");
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
