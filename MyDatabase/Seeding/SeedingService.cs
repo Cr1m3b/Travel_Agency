@@ -39,14 +39,26 @@ namespace MyDatabase.Seeding
             Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02), PackagesCost=476 };
             Booking b2 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
             Booking b3 = new Booking() { PurchaseDate = new DateTime(2022, 08, 04), PackagesCost = 962 };
-           
-            List<Booking> bookings = new List<Booking>() { b1, b2, b3 };
+            Booking b4 = new Booking() { PurchaseDate = new DateTime(2022, 01, 02), PackagesCost = 340 };
+            Booking b5 = new Booking() { PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 340 };
+            Booking b6 = new Booking() { PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 529 };
+            Booking b7 = new Booking() { PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 355 };
+            Booking b8 = new Booking() { PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 355 };
+            Booking b9 = new Booking() { PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 355 };
+
+            List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5, b6, b7, b8, b9 };
             db.Bookings.AddRange(bookings);
 
             b1.Packages.Add(p1);
             b2.Packages.Add(p2);
             b3.Packages.Add(p6);
             b3.Packages.Add(p7);
+            b4.Packages.Add(p4);
+            b5.Packages.Add(p4);
+            b6.Packages.Add(p5);
+            b7.Packages.Add(p3);
+            b8.Packages.Add(p3);
+            b9.Packages.Add(p3);
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };

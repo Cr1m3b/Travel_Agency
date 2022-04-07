@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
 
+
 <div class="db-info-wrap">
     <!-- Top Row With Statistics START-->
     <div class="row">
@@ -362,27 +363,156 @@
     <!--  Reports END-->
     <!--Bottom Charts & Statistics START-->
     <div class="row">
-        <!-- Site Traffic -->
-        <div class="col-lg-4">
-            <div class="dashboard-box chart-box">
-                <h4>Site Traffic</h4>
-                <div id="chartContainer" style="height: 250px; width: 100%;"></div>
-            </div>
-        </div>
+
+     
+
+
+
         <!-- Bar Chart -->
         <div class="col-lg-4">
+
             <div class="dashboard-box chart-box">
-                <h4>Bar Chart</h4>
-                <div id="barchart" style="height: 250px; width: 100%;"></div>
+               <canvas id="linechart" width="400" height="400"></canvas>
             </div>
+
         </div>
-        <!-- Search Engine -->
-        <div class="col-lg-4 chart-box">
-            <div class="dashboard-box">
-                <h4>Search Engine</h4>
-                <div id="piechart" style="height: 250px; width: 100%;"></div>
+        <div class="col-lg-4">
+
+            <div style="background-color:ghostwhite">
+                <canvas id="barchart" width="400" height="400"></canvas>
             </div>
+
         </div>
+
+
+
+      
+
+
+
+        <!--Bottom Charts & Statistics END-->
     </div>
-    <!--Bottom Charts & Statistics END-->
 </div>
+
+
+<script src="~/Theme/TravelAgency/admin/assets/js/canvasjs.min.js"></script>
+<script src="~/Theme/TravelAgency/admin/assets/js/chart.js"></script>
+<script src="~/Scripts/Chart.js"></script>
+@section scripts{
+
+    <script>
+
+        var Income =@Html.Raw(Json.Encode(ViewBag.Income));
+            var Titles =@Html.Raw(Json.Encode(ViewBag.Titles));
+        const CHART = document.getElementById("linechart");
+        console.log(CHART);
+        let linechart = new Chart(CHART, {
+            type: 'line',
+            data: {
+                labels: Titles,
+                datasets: [
+                    {
+                        label: "Income",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(75,192,192,0.4)",
+                        borderColor: "rgba(75,192,192,1)",
+                        borderCapStyle: 'butt',
+                        borederDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: Income,
+                    }
+
+
+
+                ]
+            },
+             options: {
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true   // minimum value will be 0.
+                        }
+                    }]
+                }
+            },
+
+
+        })
+
+
+
+            var Times =@Html.Raw(Json.Encode(ViewBag.Times));
+            var Titles =@Html.Raw(Json.Encode(ViewBag.Titles));
+           var info = document.getElementById('barchart').getContext('2d');
+            var BarChart = new Chart(info, {
+
+                type: 'bar',
+                data: {
+                    labels: Titles,
+                    datasets: [{
+                        label: "Favourite Package",
+                        data:  Times,
+                        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'],
+                        borderColor: ['rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'],
+                        borderWidth:1
+                    }]
+                },
+               options : {
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                                // OR //
+                                beginAtZero: true   // minimum value will be 0.
+                            }
+                        }]
+                    }
+                },
+
+
+
+
+
+
+
+            });
+
+
+
+
+    </script>
+
+}
+
+
+
+
+
+
+
+
