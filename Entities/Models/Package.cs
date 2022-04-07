@@ -58,6 +58,7 @@ namespace Entities.Models
             }
             return Math.Round(sum / Comments.Count, MidpointRounding.ToEven);
         }
+        
 
     }
     

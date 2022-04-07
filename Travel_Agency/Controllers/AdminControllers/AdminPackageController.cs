@@ -210,7 +210,7 @@ namespace Travel_Agency.Controllers.AdminController
 
             return RedirectToAction("Index");
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

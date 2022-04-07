@@ -60,6 +60,35 @@ namespace Travel_Agency.Controllers
         //[Authorize]
         public ActionResult Index()
         {
+            var bookings = db.Bookings.Include(p => p.Packages).ToList();
+            var packages = db.Packages.Include(b=>b.Bookings).ToList();
+            
+
+            List<int> times=new List<int>();
+            List<string> Titles = new List<string> ();
+            List<decimal> Income=new List<decimal> ();  
+
+            foreach (var package in packages)
+            {
+
+                times.Add(package.Bookings.Count);  
+
+            }
+            foreach (var package in packages)
+            {
+
+                Income.Add(package.Bookings.Count* package.Price);
+
+            }
+            foreach (var package in packages)
+            {
+                Titles.Add(package.Title);
+            }
+            ViewBag.Titles = Titles;
+            ViewBag.Times = times;
+            ViewBag.Income= Income; 
+
+            return View();
             var users = db.Users.ToList();
             var earnings = repository.GetAll().Sum(b => b.PackagesCost);
             var todayBookings = repository.GetAll().Where(b => b.PurchaseDate.Date == DateTime.Now.Date).ToList();
@@ -148,7 +177,7 @@ namespace Travel_Agency.Controllers
         }
         public ActionResult Delete(string username)
         {
-            var user = db.Users.Where(u=>u.UserName== username).First();
+            var user = db.Users.Where(u => u.UserName == username).First();
             if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -162,17 +191,47 @@ namespace Travel_Agency.Controllers
         [HttpPost]
         public ActionResult DeleteUser(string username)
         {
-            var user = db.Users.Where(u => u.UserName == username).First();
-            if (user==null)
+            var user = db.Users.Where(u => u.UserName == username)
+                               .Include(u => u.Comments)
+                               .Include(u => u.ReplyComments)
+                               .Include(u => u.Bookings)
+                               .First();
+
+            if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             else
             {
-                db.Users.Remove(user);
-                db.SaveChanges();
-                return RedirectToAction("Alluser", "AdminDashboard");
+                foreach (var comment in user.Comments)
+                {
+                    comment.ApplicationUser = null;
+                }
+                foreach (var reply in user.ReplyComments)
+                {
+                    reply.ApplicationUser = null;
+                }
+                foreach (var booking in user.Bookings)
+                {
+                    booking.ApplicationUser = null;
+                }
+                db.Entry(user).State = EntityState.Deleted;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
             }
+            return RedirectToAction("AllUsers", "AdminDashboard");
         }
 
         private void AddErrors(IdentityResult result)
