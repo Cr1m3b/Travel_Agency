@@ -44,10 +44,10 @@ namespace MyDatabase.Seeding
             db.Users.Add(ap2);
 
             //Booking Seeding
-            Booking b1 = new Booking() { PurchaseDate = new DateTime(2022, 02, 02), PackagesCost=476 };
-            Booking b2 = new Booking() { PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
-            Booking b3 = new Booking() { PurchaseDate = new DateTime(2022, 08, 04), PackagesCost = 962 };
-            Booking b4 = new Booking() { PurchaseDate = new DateTime(2022, 01, 02), PackagesCost = 340 };
+            Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
+            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
+            Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 962 };
+            Booking b4 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
             Booking b5 = new Booking() { PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 340 };
             Booking b6 = new Booking() { PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 529 };
             Booking b7 = new Booking() { PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 355 };
@@ -55,12 +55,7 @@ namespace MyDatabase.Seeding
             Booking b9 = new Booking() { PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 355 };
 
             List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5, b6, b7, b8, b9 };
-            Booking b1 = new Booking() {FirstName=ap1.FirstName,LastName=ap1.LastName,Email=ap1.Email,PhoneNumber=ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost=476 };
-            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
-            Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 962 };
-            Booking b4 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
-
-            List<Booking> bookings = new List<Booking>() { b1, b2, b3,b4 };
+           
             db.Bookings.AddRange(bookings);
 
             b1.Packages.Add(p1);
