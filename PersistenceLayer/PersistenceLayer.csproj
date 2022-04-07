@@ -67,9 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IGenericRepository.cs" />
+    <Compile Include="IRepositories\IBookingRepository.cs" />
+    <Compile Include="IRepositories\IPackageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DestinationRepository.cs" />
+    <Compile Include="Repositories\BookingRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\HomeRepository.cs" />
     <Compile Include="Repositories\PackageRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +88,6 @@
       <Project>{010de2d0-30c1-4dfa-ad2b-bf5383c1cf43}</Project>
       <Name>MyDatabase</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\PagedList.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

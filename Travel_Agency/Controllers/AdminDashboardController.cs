@@ -1,7 +1,9 @@
-﻿using Entities.IdentityUsers;
+﻿using Entities.Models.ViewModels;
+using Entities.IdentityUsers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using MyDatabase;
+using PersistenceLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,11 +20,13 @@ namespace Travel_Agency.Controllers
     public class AdminDashboardController : Controller
     {
         private ApplicationDbContext db;
+        private BookingRepository repository;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         public AdminDashboardController()
         {
             db = new ApplicationDbContext();
+            repository = new BookingRepository(db);
         }
         public AdminDashboardController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -85,6 +89,19 @@ namespace Travel_Agency.Controllers
             ViewBag.Income= Income; 
 
             return View();
+            var users = db.Users.ToList();
+            var earnings = repository.GetAll().Sum(b => b.PackagesCost);
+            var todayBookings = repository.GetAll().Where(b => b.PurchaseDate.Date == DateTime.Now.Date).ToList();
+            var recentBookings = repository.GetAllWithRelatedTables().Where(b => b.PurchaseDate.Date >= DateTime.Now.Date.AddDays(-30)).OrderByDescending(b => b.PurchaseDate).ToList();
+
+            DashboardViewModel vm = new DashboardViewModel()
+            {
+                Users = users,
+                Earnings = earnings,
+                TodayBookings = todayBookings,
+                RecentBookings = recentBookings
+            };
+            return View(vm);
         }
 
         //Get: AllUsers

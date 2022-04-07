@@ -23,15 +23,11 @@
                     <div class="row">
                         @foreach (var package in Model)
                         {
-
                             <div class="col-sm-4">
                                 <div class="desti-item overlay-desti-item">
                                     <a href="/Package/PackagesPerDestination?destination=@package.Destinations">
                                         <figure class="desti-image">
-
-
                                             <img style="object-fit:cover;width:360px;height:500px" src="@package.MainPhoto" alt="">
-
                                         </figure>
                                     </a>
                                     <div class="meta-cat bg-meta-cat">

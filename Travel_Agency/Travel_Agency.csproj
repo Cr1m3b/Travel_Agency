@@ -269,7 +269,6 @@
     <Content Include="Content\Images\Rome\Rome5.jpg" />
     <Content Include="Content\Images\Rome\Rome5.png" />
     <Content Include="Content\Images\Rome\Rome6.jpg" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -781,7 +780,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\AdminPackage\Create.cshtml" />
     <Content Include="Views\AdminPackage\Delete.cshtml" />
-    <Content Include="Views\AdminPackage\Details.cshtml" />
     <Content Include="Views\AdminPackage\Edit.cshtml" />
     <Content Include="Views\AdminPackage\Index.cshtml" />
     <Content Include="Views\Destination\Index.cshtml" />
@@ -812,8 +810,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Theme\TravelAgency\assets\fonts\" />
-    <Folder Include="Views\Hotel\" />
-    <Folder Include="Views\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

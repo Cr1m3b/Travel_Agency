@@ -1,6 +1,7 @@
 ﻿using Entities.Enums;
 using Entities.Models;
 using MyDatabase;
+using PersistenceLayer.Repositories;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -13,12 +14,17 @@ namespace Travel_Agency.Controllers.AdminController
 {
     public class AdminPackageController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
+        private ApplicationDbContext db ;
+        private PackageRepository repository;
+        public AdminPackageController()
+        {
+            db = new ApplicationDbContext();
+            repository = new PackageRepository(db);
+        }
         // GET: AdminPackage
         public ActionResult Index(string status, string sortOrder)
         {
-            var packages = db.Packages.Include(x => x.Flight).Include(x => x.Hotel).ToList();
+            var packages = repository.GetAllWithRelatedTables().ToList();
             if (status == "active")
             {
                 packages = packages.Where(x => x.PackageStatus == Status.Active).ToList();
@@ -39,21 +45,6 @@ namespace Travel_Agency.Controllers.AdminController
 
 
             return View(packages);
-        }
-
-        // GET: AdminPackage/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Package package = db.Packages.Find(id);
-            if (package == null)
-            {
-                return HttpNotFound();
-            }
-            return View(package);
         }
 
         // GET: AdminPackage/Create
@@ -92,8 +83,7 @@ namespace Travel_Agency.Controllers.AdminController
 
             if (ModelState.IsValid)
             {
-                db.Packages.Add(package);
-                db.SaveChanges();
+                repository.Add(package);
                 return RedirectToAction("Index");
             }
 
@@ -109,7 +99,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package = db.Packages.Include(x => x.Photos).ToList().Find(x => x.PackageId == id);
+            Package package =repository.GetByIdWithRelatedTables(id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -167,9 +157,7 @@ namespace Travel_Agency.Controllers.AdminController
             
             if (ModelState.IsValid)
             {
-
-                db.Entry(package).State = EntityState.Modified;
-                db.SaveChanges();
+                repository.Edit(package);
                 return RedirectToAction("Index");
             }
             ViewBag.FlightId = new SelectList(db.Flights, "FlightId", "CompanyName", package.FlightId);
@@ -184,7 +172,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package = db.Packages.Find(id);
+            Package package =repository.GetByIdWithRelatedTables(id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -199,7 +187,7 @@ namespace Travel_Agency.Controllers.AdminController
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var package = db.Packages.Where(x => x.PackageId == id).Include(x => x.Comments).Include(x => x.Ratings).FirstOrDefault();
+            var package = repository.GetByIdWithRelatedTables(id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -218,8 +206,7 @@ namespace Travel_Agency.Controllers.AdminController
                 db.Entry(rating).State = EntityState.Deleted;
             }
             db.SaveChanges();
-            db.Entry(package).State = EntityState.Deleted;
-            db.SaveChanges();
+            repository.Delete(id);
 
             return RedirectToAction("Index");
         }

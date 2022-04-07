@@ -1,4 +1,7 @@
-﻿@{
+﻿@model Entities.Models.ViewModels.DashboardViewModel
+
+
+@{
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
 
@@ -7,50 +10,38 @@
     <!-- Top Row With Statistics START-->
     <div class="row">
         <!-- Item -->
-        <div class="col-xl-3 col-sm-6">
+        <div class="col-xl-4 col-sm-6">
             <div class="db-info-list">
                 <div class="dashboard-stat-icon bg-blue">
                     <i class="far fa-chart-bar"></i>
                 </div>
                 <div class="dashboard-stat-content">
-                    <h4>Today Views</h4>
-                    <h5>22,520</h5>
+                    <h4>Today Bookings</h4>
+                    <h5>@Model.TodayBookings.Count</h5>
                 </div>
             </div>
         </div>
         <!-- Item -->
-        <div class="col-xl-3 col-sm-6">
+        <div class="col-xl-4 col-sm-6">
             <div class="db-info-list">
                 <div class="dashboard-stat-icon bg-green">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-euro-sign"></i>
                 </div>
                 <div class="dashboard-stat-content">
                     <h4>Earnings</h4>
-                    <h5>16,520</h5>
+                    <h5>@Model.Earnings</h5>
                 </div>
             </div>
         </div>
         <!-- Item -->
-        <div class="col-xl-3 col-sm-6">
+        <div class="col-xl-4 col-sm-6">
             <div class="db-info-list">
                 <div class="dashboard-stat-icon bg-purple">
                     <i class="fas fa-users"></i>
                 </div>
                 <div class="dashboard-stat-content">
                     <h4>Users</h4>
-                    <h5>18,520</h5>
-                </div>
-            </div>
-        </div>
-        <!-- Item -->
-        <div class="col-xl-3 col-sm-6">
-            <div class="db-info-list">
-                <div class="dashboard-stat-icon bg-red">
-                    <i class="far fa-envelope-open"></i>
-                </div>
-                <div class="dashboard-stat-content">
-                    <h4>Enquiry</h4>
-                    <h5>19,520</h5>
+                    <h5>@Model.Users.Count</h5>
                 </div>
             </div>
         </div>
@@ -60,116 +51,35 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="dashboard-box table-opp-color-box">
-                <h4>Recent Booking</h4>
-                <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                <h4>Recent Bookings</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Select</th>
+                                <th>Id</th>
                                 <th>User</th>
-                                <th>Name</th>
-                                <th>Date</th>
-                                <th>City</th>
-                                <th>Enquiry</th>
+                                <th>Booking Date</th>
+                                <th>Destination</th>
+                                <th>Trip Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment2.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment3.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment4.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-input">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="custom-input-field"></span>
-                                    </label>
-                                </td>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment5.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <span class="list-enq-name">John Doe</span>
-                                </td>
-                                <td>12 may</td>
-                                <td>Japan</td>
-                                <td>
-                                    <span class="badge badge-success">15</span>
-                                </td>
-                            </tr>
+                            @foreach (var booking in Model.RecentBookings)
+                            {
+                                foreach (var package in booking.Packages)
+                                {
+                                    <tr class="package">
+                                        <td>@booking.BookingId</td>
+                                        <td>
+                                            <span>@booking.FirstName @booking.LastName</span>
+                                        </td>
+                                        <td>@booking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                        <td>@package.Destinations</td>
+                                        <td>@package.TripDate.ToString("dd/MM/yyyy")</td>
+                                    </tr>
+                                }
+                            }
+
                         </tbody>
                     </table>
                 </div>
@@ -182,115 +92,51 @@
         <div class="col-lg-12">
             <div class="dashboard-box">
                 <h4>User Details</h4>
-                <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Name</th>
+                                <th>Username</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Country</th>
-                                <th>Listings</th>
-                                <th>Enquiry</th>
                                 <th>Bookings</th>
                                 <th>Reviews</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach (var user in Model.Users)
+                            {
                             <tr>
                                 <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment.jpg" alt=""></span>
+                                    <a href="#"><span class="list-name">@user.UserName</span></a>
                                 </td>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>@user.PhoneNumber</td>
+                                <td>@user.Email</td>
+                                <td>@user.Country</td>
+
+                                @if (user.Bookings != null)
+                                {
+                                    <td>
+                                        <span class="badge badge-success">@user.Bookings.Count</span>
+                                    </td>
+                                }
+                                else
+                                {
+
+                                    <td>
+                                        <span class="badge badge-success">@user.Comments</span>
+                                    </td>
+                                }
                                 <td>
-                                    <a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city">United States</span></a>
-                                </td>
-                                <td>+01 3214 6522</td>
-                                <td>chadengle@dummy.com</td>
-                                <td>Australia</td>
-                                <td>
-                                    <span class="badge badge-primary">02</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-danger">12</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-success">24</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-dark">36</span>
+                                    <span class="badge badge-dark"></span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment2.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city">United States</span></a>
-                                </td>
-                                <td>+01 3214 6522</td>
-                                <td>chadengle@dummy.com</td>
-                                <td>Australia</td>
-                                <td>
-                                    <span class="badge badge-primary">02</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-danger">12</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-success">24</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-dark">36</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment3.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city">United States</span></a>
-                                </td>
-                                <td>+01 3214 6522</td>
-                                <td>chadengle@dummy.com</td>
-                                <td>Australia</td>
-                                <td>
-                                    <span class="badge badge-primary">02</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-danger">12</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-success">24</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-dark">36</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="list-img"><img src="~/Theme/TravelAgency/admin/assets/images/comment4.jpg" alt=""></span>
-                                </td>
-                                <td>
-                                    <a href="#"><span class="list-name">Kathy Brown</span><span class="list-enq-city">United States</span></a>
-                                </td>
-                                <td>+01 3214 6522</td>
-                                <td>chadengle@dummy.com</td>
-                                <td>Australia</td>
-                                <td>
-                                    <span class="badge badge-primary">02</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-danger">12</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-success">24</span>
-                                </td>
-                                <td>
-                                    <span class="badge badge-dark">36</span>
-                                </td>
-                            </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -301,63 +147,6 @@
     <!--  Reports START-->
     <div class="row">
         <!-- Reports START-->
-        <div class="col-lg-12">
-            <div class="dashboard-box report-list">
-                <h4>Reports</h4>
-                <div class="report-list-content">
-                    <div class="date">
-                        <h5>Auguest 12</h5>
-                    </div>
-                    <div class="total-amt">
-                        <strong>$1250000</strong>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2356</td>
-                                <td>dummy text </td>
-                                <td>6,200.00</td>
-                            </tr>
-                            <tr>
-                                <td>4589</td>
-                                <td>Lorem Ipsum</td>
-                                <td>6,500.00</td>
-                            </tr>
-
-                            <tr>
-                                <td>3269</td>
-                                <td>specimen book</td>
-                                <td>6,800.00</td>
-                            </tr>
-                            <tr>
-                                <td>5126</td>
-                                <td>Letraset sheets</td>
-                                <td>7,200.00</td>
-                            </tr>
-                            <tr>
-                                <td>7425</td>
-                                <td>PageMaker</td>
-                                <td>5,900.00</td>
-                            </tr>
-                            <tr>
-                                <td>7425</td>
-                                <td>PageMaker</td>
-                                <td>5,900.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
         <!-- Reports END-->
     </div>
     <!--  Reports END-->

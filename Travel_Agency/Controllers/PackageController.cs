@@ -26,25 +26,19 @@ namespace Travel_Agency.Controllers
             repository = new PackageRepository(db);
         }
         // GET: Package
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var packages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active);
-            //var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
-            //var packageOffer = activePackages.Where(p => p.Discount != 0).Take(3).ToList();
-            //var popularPackages = activePackages.Where(p => p.AveragePackageRating() >= 3).Take(3).ToList();
+            var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
 
-            //PackageViewModel vm = new PackageViewModel()
-            //{
-            //    ActivePackages=activePackages,
-            //    PackageOffer = packageOffer,
-            //    PopularPackages=popularPackages
-            //};
-            //return View(vm);
-            return View(packages);
+            if (!String.IsNullOrWhiteSpace(search))
+            {
+                activePackages = activePackages.Where(p => p.Destinations.ToString().ToUpper().Contains(search.ToUpper())).ToList();
+            }
+            return View(activePackages);
         }
         public ActionResult PackagesPerDestination(string destination)
         {
-            var packages = db.Packages.Where(p => p.Destinations.ToString().Equals(destination)).ToList();
+            var packages = repository.GetAll().Where(p => p.Destinations.ToString().Equals(destination)).ToList();
 
             return View(packages);
         }
@@ -52,19 +46,17 @@ namespace Travel_Agency.Controllers
 
         public ActionResult PackageOffer()
         {
-            var packages = db.Packages.Where(p => p.Discount != 0).Include(p => p.Flight).Include(p => p.Hotel).Include(p => p.Photos).ToList();
+            var packages = repository.GetAllWithRelatedTables().Where(p => p.Discount != 0).ToList();
 
             return View(packages);
         }
         public ActionResult PackageReviews()
         {
-            var packages = db.Packages.Include(p => p.Flight)
-                                      .Include(p => p.Comments.Select(a => a.ApplicationUser))
-                                      .Include(p => p.Comments.Select(r => r.ReplyComments))
-                                      .Include(p => p.Hotel)
-                                      .Include(p => p.Photos)
-                                      .Where(p => p.PackageStatus == Status.Expired).ToList();
-            return View(packages);
+            var allPackagesWithReviews = repository.GetAllWithRelatedTables()
+                                        .Where(p=>p.PackageStatus==Status.Expired && p.Comments != null && p.Comments.Count>0)
+                                        .ToList();
+
+            return View(allPackagesWithReviews);
         }
 
 
@@ -72,8 +64,6 @@ namespace Travel_Agency.Controllers
         public ActionResult Details(int? id)
         {
             var package = repository.GetByIdWithRelatedTables(id);
-            package.Comments.Select(a => a.ApplicationUser);
-            package.Comments.Select(r => r.ReplyComments);
             if (package == null)
                 {
                     return HttpNotFound();
@@ -81,8 +71,6 @@ namespace Travel_Agency.Controllers
             
             return View(package);
         }
-
-        // GET: Package/Edit/5
 
         protected override void Dispose(bool disposing)
         {
