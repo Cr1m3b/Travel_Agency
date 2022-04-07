@@ -26,7 +26,7 @@ namespace Travel_Agency.Controllers.AdminController
         public ActionResult Index(string sortOrder)
         {
             //  var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Packages).ToList();
-            var bookings = repository.GetAllWithRelatedTables().OrderByDescending(b => b.PurchaseDate);
+            var bookings = repository.GetAllWithRelatedTables();
             switch (sortOrder)
             {
                 case "BookAscend": bookings = bookings.OrderBy(b => b.PurchaseDate).ToList();break;
