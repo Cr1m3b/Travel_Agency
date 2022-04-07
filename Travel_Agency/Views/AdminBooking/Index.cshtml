@@ -68,12 +68,12 @@
                     <tr>
                         <th>Id</th>
                         <th>User</th>
-                        <th>Booking Date</th>
+                        <th>@Html.ActionLink("Booking", "Index", "AdminBooking", new { sortOrder = "BookAscend" }, null)</th>
                         <th>Destination</th>
-                        <th>Trip Date</th>
+                        <th>@Html.ActionLink("Trip Date", "Index", "AdminBooking", new { sortOrder = "TripAscend" }, null)</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     @foreach (var booking in Model)
                     {
                         foreach (var package in booking.Packages)

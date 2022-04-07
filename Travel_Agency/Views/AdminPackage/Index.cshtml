@@ -4,61 +4,6 @@
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
 
-<style>
-    .list-wrapper {
-        padding: 15px;
-        overflow: hidden;
-    }
-
-    .list-item {
-        border: 1px solid #EEE;
-        background: #FFF;
-        margin-bottom: 10px;
-        padding: 10px;
-        box-shadow: 0px 0px 10px 0px #EEE;
-    }
-
-        .list-item h4 {
-            color: #FF7182;
-            font-size: 18px;
-            margin: 0 0 5px;
-        }
-
-        .list-item p {
-            margin: 0;
-        }
-
-    .simple-pagination ul {
-        margin: 0 0 20px;
-        padding: 0;
-        list-style: none;
-        text-align: center;
-    }
-
-    .simple-pagination li {
-        display: inline-block;
-        margin-right: 5px;
-    }
-
-        .simple-pagination li a, .simple-pagination li span {
-            color: #666;
-            padding: 5px 10px;
-            text-decoration: none;
-            border: 1px solid #EEE;
-            background-color: #FFF;
-            box-shadow: 0px 0px 10px 0px #EEE;
-        }
-
-    .simple-pagination .current {
-        color: #FFF;
-        background-color: #FF7182;
-        border-color: #FF7182;
-    }
-
-    .simple-pagination .prev.current, .simple-pagination .next.current {
-        background: #e04e60;
-    }
-</style>
 
 <div class="db-info-wrap db-package-wrap">
     <div class="dashboard-box table-opp-color-box">
@@ -69,7 +14,7 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Trip Date</th>
+                        <th>@Html.ActionLink("Trip Date", "Index", "AdminPackage", new { sortOrder = "TripAscend" }, null)</th>
                         <th>Destination</th>
                         <th>Status</th>
                         <th>Action</th>

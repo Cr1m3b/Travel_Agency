@@ -17,12 +17,14 @@ namespace Entities.IdentityUsers
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<Booking> Bookings { get; set; }
+        public List<Comment> Comments { get; set; }
         public DateTime Birthday { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
-       
+        
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

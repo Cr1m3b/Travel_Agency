@@ -23,8 +23,15 @@ namespace Travel_Agency.Controllers.AdminController
             repository = new BookingRepository(db);
         }
         // GET: AdminBooking
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Packages).ToList();
+
+            switch (sortOrder)
+            {
+                case "BookAscend": bookings = bookings.OrderBy(b => b.PurchaseDate).ToList();break;
+            }
+
             var bookings = repository.GetAllWithRelatedTables().OrderByDescending(b => b.PurchaseDate);
             return View(bookings);
         }

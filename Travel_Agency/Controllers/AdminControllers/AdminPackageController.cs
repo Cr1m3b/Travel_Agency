@@ -22,7 +22,7 @@ namespace Travel_Agency.Controllers.AdminController
             repository = new PackageRepository(db);
         }
         // GET: AdminPackage
-        public ActionResult Index(string status)
+        public ActionResult Index(string status, string sortOrder)
         {
             var packages = repository.GetAllWithRelatedTables().ToList();
             if (status == "active")
@@ -37,6 +37,12 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 packages = packages.Where(x => x.PackageStatus == Status.Expired).ToList();
             }
+
+            switch (sortOrder)
+            {
+                case "TripAscend": packages = packages.OrderBy(p => p.TripDate).ToList(); break;
+            }
+
 
             return View(packages);
         }
