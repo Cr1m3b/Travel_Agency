@@ -21,12 +21,14 @@ namespace Travel_Agency.Controllers
     {
         private ApplicationDbContext db;
         private BookingRepository repository;
+        private PackageRepository packageRepository;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         public AdminDashboardController()
         {
             db = new ApplicationDbContext();
             repository = new BookingRepository(db);
+            packageRepository = new PackageRepository(db);
         }
         public AdminDashboardController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -60,8 +62,8 @@ namespace Travel_Agency.Controllers
         //[Authorize]
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(p => p.Packages).ToList();
-            var packages = db.Packages.Include(b=>b.Bookings).ToList();
+            var bookings =repository.GetAllWithRelatedTables().ToList();
+            var packages = packageRepository.GetAllWithRelatedTables().ToList();
             
 
             List<int> times=new List<int>();
@@ -88,7 +90,6 @@ namespace Travel_Agency.Controllers
             ViewBag.Times = times;
             ViewBag.Income= Income; 
 
-            return View();
             var users = db.Users.ToList();
             var earnings = repository.GetAll().Sum(b => b.PackagesCost);
             var todayBookings = repository.GetAll().Where(b => b.PurchaseDate.Date == DateTime.Now.Date).ToList();

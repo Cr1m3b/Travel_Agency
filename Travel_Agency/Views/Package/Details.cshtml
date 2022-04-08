@@ -38,7 +38,9 @@
                                         </li>
                                     </ul>
                                 </div>
+
                             </figure>
+
                             <div class="tab-container">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
@@ -172,6 +174,7 @@
                                                     }
 
                                                 }
+
                                                 <div id="pagination-container" class="light-theme simple-pagination">
                                                     <ul>
                                                         <li class="active"><span class="current prev pag">«</span></li>
@@ -191,7 +194,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="btn-outline-light">
+                                    <a href="@Url.Action("Buy", "Cart", new { id = Model.PackageId})" class="btn-outline-primary">Add to Cart<i></i></a>
+
+                                </div>
                             </div>
+                           
                             <div class="single-tour-gallery">
                                 <h3>GALLERY / PHOTOS</h3>
                                 <div class="single-tour-slider">
@@ -230,7 +238,7 @@
                             {
                                 <div class="package-price">
                                     <h5 class="price">
-                                        <span>$@Model.Price </span> / per person
+                                        <span>€@Model.Price </span> / per person
                                     </h5>
                                     @if (!(@Model.Comments.Count == 0))
                                     {
@@ -263,7 +271,10 @@
                                     </li>
                                 </ul>
                             </div>
+
                         </div>
+                      
+                       
                     </div>
                 </div>
             </div>

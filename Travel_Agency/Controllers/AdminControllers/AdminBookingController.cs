@@ -25,7 +25,6 @@ namespace Travel_Agency.Controllers.AdminController
         // GET: AdminBooking
         public ActionResult Index(string sortOrder)
         {
-            //  var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Packages).ToList();
             var bookings = repository.GetAllWithRelatedTables();
             switch (sortOrder)
             {
