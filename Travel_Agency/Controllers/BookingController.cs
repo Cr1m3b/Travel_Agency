@@ -31,6 +31,7 @@ namespace Travel_Agency.Controllers
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
             var bookings = repository.GetAllWithRelatedTables().Where(b => b.ApplicationUser.Id == user.Id);
+ 
             return View(bookings);
         }
 
