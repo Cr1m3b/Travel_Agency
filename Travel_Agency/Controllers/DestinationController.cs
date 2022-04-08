@@ -12,18 +12,17 @@ namespace Travel_Agency.Controllers
     {
 
         private ApplicationDbContext db;
-        DestinationRepository repository;
-
+        private PackageRepository repository;
         public DestinationController()
         {
             db = new ApplicationDbContext();
-            repository = new DestinationRepository(db);
+            repository = new PackageRepository(db);
         }
       
         // GET: Destination
         public ActionResult Index()
         {
-            var packages = repository.GetAllPackages();
+            var packages = repository.GetAll();
             return View(packages);
         }
         protected override void Dispose(bool disposing)
