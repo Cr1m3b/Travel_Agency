@@ -11,6 +11,15 @@
         <div class="col-lg-12">
             <div class="dashboard-box table-opp-color-box">
                 <h4>Users Details</h4>
+                @if (ViewBag.EditedUsername != null)
+                {
+                    <h2>Successfully Edited User with username: @ViewBag.EditedUsername</h2>
+                }
+                @if (ViewBag.NotEditedUsername != null)
+                {
+                    <h2>Unsuccessfully Edited User with username: @ViewBag.NotEditedUsername</h2>
+                }
+
                 <div class="table-responsive">
                     <table class="table">
                         <thead>

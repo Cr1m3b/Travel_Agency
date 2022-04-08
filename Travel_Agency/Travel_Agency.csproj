@@ -809,6 +809,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\UsersImages\" />
     <Folder Include="Theme\TravelAgency\assets\fonts\" />
   </ItemGroup>
   <ItemGroup>
