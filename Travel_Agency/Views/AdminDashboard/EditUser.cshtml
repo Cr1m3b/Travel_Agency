@@ -8,13 +8,12 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="dashboard-box user-form-wrap">
-                <h2>We couldn't find the User with a user name: @ViewBag.UserNameNotFound please check your data again.</h2>
                 <h4>User Details</h4>
                 @if (ViewBag.NotFoundUsername != null)
                 {
                     <h2>Unable to find User with username: @ViewBag.NotFoundUsername</h2>
                 }
-                @using (Html.BeginForm("DeleteUser", "AdminDashboard", FormMethod.Post))
+                @using (Html.BeginForm("EditUser", "AdminDashboard", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
                     <div class="row">
@@ -105,14 +104,14 @@
                         <div class="col-12">
                             <h4>Upload Profile Photo</h4>
                         </div>
-                        @*<div class="col-sm-6">
-                    <div class="upload-input">
-                        <div class="form-group">
-                            <span class="upload-btn">Upload a image</span>
-                            <input type="file" name="myfile">
+                        <div class="col-sm-6">
+                            <div class="upload-input">
+                                <div class="form-group">
+                                    <span class="upload-btn">Upload a image</span>
+                                    <input type="file" name="myfile">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>*@
                     </div>
                     <input name="userId" class="form-control" type="hidden" value="@Model.Id" />
                     <button type="submit" class="button-primary">Edit User</button>
