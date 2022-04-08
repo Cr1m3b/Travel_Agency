@@ -171,9 +171,25 @@ namespace Travel_Agency.Controllers
             }
             else
             {
-                return HttpNotFound();
+                ViewBag.NotFoundUsername = username;
+                return View(user);
             }
 
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser([Bind(Include = "Id,UserName,Email,Password,ConfirmPassword,FirstName,LastName,Birthday,Country,City,Address,ZipCode")] ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.EditedUsername = user.UserName;
+                return RedirectToAction("AllUsers", "AdminDashboard");
+            }
+            ViewBag.NotEditedUsername = user.UserName;
+            return RedirectToAction("AllUsers", "AdminDashboard");
         }
         public ActionResult Delete(string username)
         {
