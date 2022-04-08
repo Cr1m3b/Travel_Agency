@@ -31,8 +31,9 @@ namespace MyDatabase.Seeding
             Package p5 = new Package() { Title = "Rome", Description = "Vacations at Rome", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://c.pxhere.com/photos/a9/4e/colosseum_rome_italy_roman_architecture_landmark_italian_tourism-744892.jpg!d", TripDate = new DateTime(2021, 5, 12), TripDuration = 6, Price = 529, Destinations = Destinations.Rome, PackageStatus = Status.Expired };
             Package p6 = new Package() { Title = "Lisbon", Description = "Vacations at Lisbon", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://www.nationsonline.org/gallery/Portugal/Praca-do-Comercio-Lisbon.jpg", TripDate = new DateTime(2022, 4, 30), TripDuration = 3, Price = 329, Discount=30, Destinations = Destinations.Lisbon, PackageStatus = Status.Active };
             Package p7 = new Package() { Title = "Cappadocia", Description = "Explore Cappadocia", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://d1hjkbq40fs2x4.cloudfront.net/2020-12-07/files/16072849260.jpg", TripDate = new DateTime(2022, 8, 15), TripDuration = 5, Price = 633, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
+            Package p8 = new Package() { Title = "Cappadocia", Description = "Explore Cappadocia", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://d1hjkbq40fs2x4.cloudfront.net/2020-12-07/files/16072849260.jpg", TripDate = new DateTime(2023, 01, 1), TripDuration = 5, Price = 633, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
 
-            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7};
+            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8};
             db.Packages.AddRange(packages);
 
 
@@ -102,6 +103,7 @@ namespace MyDatabase.Seeding
             p6.Photos.Add(photosLisbon);
             p7.Photos.Add(photoCappadocia);
             p7.Photos.Add(photoCappadocia1);
+            p8.Photos.Add(photoCappadocia1);
 
             // Comment Seeding
             Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25),Rating=4 };
@@ -130,6 +132,7 @@ namespace MyDatabase.Seeding
             p5.Flight = f1;
             p6.Flight = f3;
             p7.Flight = f2;
+            p8.Flight = f2;
         
 
             //Hotel Seeding
@@ -152,6 +155,7 @@ namespace MyDatabase.Seeding
             p5.Hotel = h3;
             p6.Hotel = h6;
             p7.Hotel = h7;
+            p8.Hotel = h7;
           
 
             //Rate Seeding
