@@ -33,7 +33,11 @@ namespace Travel_Agency.Controllers
             };
             return View(vm);
         }
-        
+        public ActionResult Chat()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
 
