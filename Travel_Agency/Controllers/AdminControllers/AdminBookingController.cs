@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Entities.IdentityUsers;
 using Entities.Models;
+using Entities.Models.ViewModels;
 using MyDatabase;
 using PersistenceLayer.Repositories;
 
@@ -16,22 +17,36 @@ namespace Travel_Agency.Controllers.AdminController
     public class AdminBookingController : Controller
     {
         private ApplicationDbContext db;
-        BookingRepository repository;
+        private BookingRepository repository;
+        private PackageRepository packageRepository;
         public AdminBookingController()
         {
             db =  new ApplicationDbContext();
             repository = new BookingRepository(db);
+            packageRepository = new PackageRepository(db);
         }
         // GET: AdminBooking
         public ActionResult Index(string sortOrder)
         {
-            var bookings = repository.GetAllWithRelatedTables();
+            var bookings = repository.GetAllWithRelatedTables().ToList();
+            var packages = packageRepository.GetAllWithRelatedTables().ToList();
+
+
             switch (sortOrder)
             {
-                case "BookAscend": bookings = bookings.OrderBy(b => b.PurchaseDate).ToList();break;
+                case "BookAscend": bookings = bookings.OrderBy(b => b.PurchaseDate).ToList(); break;
+                case "TripAscend": packages = packages.OrderBy(p => p.TripDate).ToList(); break;
             }
 
-            return View(bookings);
+
+            AdminBookingViewModel AdBookVm = new AdminBookingViewModel()
+            {
+
+                AdminBookings = bookings,
+                AdminPackages = packages
+            };
+
+            return View(AdBookVm);
         }
 
         // GET: AdminBooking/Details/5
