@@ -22,7 +22,7 @@ namespace Travel_Agency.Controllers
         // GET: Destination
         public ActionResult Index()
         {
-            var packages = repository.GetAll();
+            var packages = repository.GetAll().GroupBy(x => x.Destinations).Select(x => x.First()).ToList();
             return View(packages);
         }
         protected override void Dispose(bool disposing)

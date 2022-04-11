@@ -23,10 +23,10 @@
         <div class="package-section">
             <div class="container">
                 <div class="package-inner">
-                    <div class="row">
+                    <div class="row ">
                         @foreach(var package in Model)
                         {
-                            <div class="col-lg-4 col-md-6">
+                            <div class="col-lg-4" style="max-width:100%;display:inline-block;" >
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="/Package/Details/@package.PackageId">
@@ -75,7 +75,7 @@
 
                                             </h3>
                                             <h5> @package.TripDate.ToShortDateString() </h5>
-                                            <div class="review-area">
+                                            <div class="review-area" style="max-height:30px">
                                                 <span class="review-text">Total Reviews:@package.Comments.Count</span>
                                                 <br />
                                                 @if (!(package.Comments.Count == 0))

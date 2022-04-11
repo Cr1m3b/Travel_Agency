@@ -60,7 +60,7 @@ namespace Travel_Agency.Controllers.AdminController
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Package package, HttpPostedFileBase[] galleryPhotos, HttpPostedFileBase packagePhoto)
+        public ActionResult Create([Bind(Include = "PackageId,Title,MainPhoto,Description,Program,TripDate,TripDuration,Price,Discount,Destinations,PackageStatus,HotelId,FlightId")] Package package, HttpPostedFileBase[] galleryPhotos, HttpPostedFileBase packagePhoto)
         {
             if (galleryPhotos != null)
             {
