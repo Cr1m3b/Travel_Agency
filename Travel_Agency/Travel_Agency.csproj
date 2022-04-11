@@ -212,6 +212,7 @@
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\ReplyCommentController.cs" />
+    <Compile Include="Controllers\WebAPIControllers\EmailController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

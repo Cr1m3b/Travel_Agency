@@ -1,4 +1,5 @@
 ﻿@model Entities.Models.Booking
+
 @{
 
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
@@ -60,11 +61,11 @@
                                         </tr>
                                         <tr>
                                             <td>Last Name:</td>
-                                            <td>@Model.LastName</td>
+                                            <td id="Surname">@Model.LastName</td>
                                         </tr>
                                         <tr>
                                             <td>Email:</td>
-                                            <td>@Model.Email</td>
+                                            <td id="UserEmail">@Model.Email</td>
                                         </tr>
                                         <tr>
                                             <td>Phone</td>
@@ -146,3 +147,43 @@
         </div>
     </div>
 </main>
+@section scripts{
+
+
+ 
+    
+    <script>
+       
+        var email = document.getElementById("UserEmail").textContent;
+        var surname = document.getElementById("Surname").textContent;
+       
+        $(document).ready(function () {
+            console.log(email);
+            var settings = {
+                "url": "https://localhost:44335/api/Email",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Cookie": "ASP.NET_SessionId=szcustdaqg2x4worbd3fvf0n; __RequestVerificationToken=wlCE1hO7kjnP5kJafjc_cwHCzaZJNKm-kLu9OMUlCkSCXWfQQ_Hd2s-nPU3OnTHRk3d7dgx4CzptXaOv7ia7YF8M5ha96LxsFGDb-pehNFg1"
+                },
+                "data": JSON.stringify({
+                    "To": email,
+                    "Subject": "Excited for your next Trip?",
+                    "Body": "Dear Sir/Madam " + surname + "," +
+                        " thank you for choosing Travelle Agency"
+                      
+                }),
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+
+        });
+    </script>
+    
+    
+    
+    
+    }
