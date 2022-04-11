@@ -84,6 +84,7 @@
       <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.4.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
@@ -101,6 +102,7 @@
     <Compile Include="Enums\Status.cs" />
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ReplyComment.cs" />

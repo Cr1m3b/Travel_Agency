@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            @Html.LabelFor(model => model.Hotel.HotelName)
+                                            <label>Hotel Name</label>
                                             @Html.DropDownList("HotelId")
                                             @Html.ValidationMessageFor(model => model.HotelId)
                                         </div>
@@ -92,7 +92,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Discount)
-                                            @Html.EditorFor(model => model.Discount)
+                                            @Html.EditorFor(model => model.Discount, new { htmlAttributes = new {Value=0 } })
                                             @Html.ValidationMessageFor(model => model.Discount)
                                         </div>
                                     </div>

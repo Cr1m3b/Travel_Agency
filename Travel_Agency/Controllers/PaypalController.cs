@@ -72,12 +72,13 @@ namespace Travel_Agency.Controllers
                 return Redirect(failureUrl);
             }
             //Create and add booking at database
-            var booking = Session["lastBooking"];
+            var booking = (Booking)Session["lastBooking"];
             if (booking != null)
             {
                 db.Entry(booking).State = EntityState.Added;
                 db.SaveChanges();
             }
+            
             //on successful payment, show success page to user.
             return View("SuccessView", booking);
         }

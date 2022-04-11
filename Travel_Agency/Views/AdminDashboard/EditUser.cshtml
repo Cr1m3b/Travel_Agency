@@ -9,7 +9,13 @@
         <div class="col-lg-12">
             <div class="dashboard-box user-form-wrap">
                 <h4>User Details</h4>
-                <form class="form-horizontal" method="post">
+                @if (ViewBag.NotFoundUsername != null)
+                {
+                    <h2>Unable to find User with username: @ViewBag.NotFoundUsername</h2>
+                }
+                @using (Html.BeginForm("EditUser", "AdminDashboard", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -107,8 +113,9 @@
                             </div>
                         </div>
                     </div>
+                    <input name="userId" class="form-control" type="hidden" value="@Model.Id" />
                     <button type="submit" class="button-primary">Edit User</button>
-                </form>
+                }
             </div>
         </div>
     </div>
