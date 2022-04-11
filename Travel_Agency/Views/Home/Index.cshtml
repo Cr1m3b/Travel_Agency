@@ -31,419 +31,386 @@
         </div>
     </section>
     <!-- Home slider html END -->
-    <!-- Home popular destinations html START -->
-    <section class="destination-section">
-        <div class="container">
-            <div class="section-heading">
-                <div class="row align-items-end">
-                    <div class="col-lg-7">
-                        <h5 class="dash-style">POPULAR DESTINATION</h5>
-                        <h2>TOP DESTINATIONS</h2>
+    @using (Html.BeginForm("Index", "Package", FormMethod.Get))
+    {
+        <div class="trip-search-section shape-search-section">
+            <div class="slider-shape"></div>
+            <div class="container">
+                <div class="trip-search-inner white-bg d-flex">
+                    <div class="input-group">
+                        <label> Destination* </label>
+                        <input type="text" name="search" placeholder="Enter Destination">
                     </div>
-                    <div class="col-lg-5">
-                        <div class="section-disc">
-                            Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea ipsum ad arcu. Nostrud. Aut nostrum, ornare quas provident laoreet nesciunt.
-                        </div>
+                    <div class="input-group  width-col">
+                        <label> Price From* </label>
+                        <input type="text" name="minPrice" placeholder="Min Price">
                     </div>
-                </div>
-            </div>
-            <div class="package-inner">
-                <div class="row">
-                    @foreach (var package in Model.TopDestinationsPackages)
-                    {
-                        <div class="col-lg-4 col-md-6">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="/Package/Details/@package.PackageId">
-                                        <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>€ @package.FinalPrice() </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-meta text-center">
-                                        <ul>
-                                            <li>
-                                                <i class="far fa-clock"></i>
-                                                @($"{package.TripDuration +1} days / {package.TripDuration} nights")
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                @package.Destinations
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="package-content">
-                                        <h3>
-                                            <a href="#">@package.Title</a>
-                                        </h3>
-                                        <div class="review-area">
-                                            <span class="review-text">(@package.Comments.Count)</span>
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span style="width: 60%"></span>
-                                            </div>
-                                        </div>
-                                        <p>@package.Description</p>
-                                        <div class="btn-wrap">
-                                            <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
-                                            <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    <div class="input-group  width-col-3">
+                        <label> Price To* </label>
+                        <input type="text" name="maxPrice" placeholder="Max Price">
+                    </div>
+                    <div class="input-group width-col-3">
+                        <label> Checkin Date* </label>
+                        <i class="far fa-calendar"></i>
+                        <input class="input-date-picker" type="text" name="checkIn" placeholder="MM / DD / YY" autocomplete="off">
+                    </div>
 
-                </div>
-                <div class="btn-wrap text-center">
-                    <a href="/Destination/Index" class="button-primary">MORE DESTINATIONS</a>
+                    <div class="input-group width-col-3">
+                        <label class="screen-reader-text"> Search </label>
+                        <input type="submit" name="travel-search" value="Search">
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Home popular destinations html END -->
-    <!-- Home packages section html START -->
-    <section class="package-section">
-        <div class="container">
-            <div class="section-heading text-center">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h5 class="dash-style">EXPLORE GREAT PLACES</h5>
-                        <h2>POPULAR PACKAGES</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
-                    </div>
-                </div>
-            </div>
-            <!--Here start POPULAR PACKAGES-->
-            <div class="package-inner">
-                <div class="row">
-                    @foreach (var package in Model.PopularPackages)
-                    {
-                        <div class="col-lg-4 col-md-6">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="/Package/Details/@package.PackageId">
-                                        <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>€ @package.FinalPrice() </span> / per person
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-meta text-center">
-                                        <ul>
-                                            <li>
-                                                <i class="far fa-clock"></i>
-                                                @($"{package.TripDuration +1} days / {package.TripDuration} nights")
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                @package.Destinations
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="package-content">
-                                        <h3>
-                                            <a href="#">@package.Title</a>
-                                        </h3>
-                                        <div class="review-area">
-                                            <span class="review-text">(25 reviews)</span>
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span style="width: 60%"></span>
-                                            </div>
-                                        </div>
-                                        <p>@package.Description</p>
-                                        <div class="btn-wrap">
-                                            <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
-                                            <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+    }
+        <!-- Home popular destinations html START -->
+        <section class="destination-section">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="row align-items-end">
+                        <div class="col-lg-7">
+                            <h5 class="dash-style">POPULAR DESTINATION</h5>
+                            <h2>TOP DESTINATIONS</h2>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="section-disc">
+                                Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea ipsum ad arcu. Nostrud. Aut nostrum, ornare quas provident laoreet nesciunt.
                             </div>
                         </div>
-                    }
-
-                </div>
-                <div class="btn-wrap text-center">
-                    <a href="/Package/Index" class="button-primary">VIEW ALL PACKAGES</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- packages html END -->
-    <!-- Home callback section html START -->
-    <!-- Home callback html END -->
-    <!-- Home activity section html START -->
-    <!-- Home activity html END -->
-    <!-- Home special section html START -->
-    <section class="special-section">
-        <div class="container">
-            <div class="section-heading text-center">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h5 class="dash-style">TRAVEL OFFER & DISCOUNT</h5>
-                        <h2>SPECIAL TRAVEL OFFER</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
                     </div>
                 </div>
-            </div>
-            <!--Here start the offers-->
-            <div class="special-inner">
-                <div class="row">
-                    @foreach (var package in Model.PackageOffer)
-                    {
-                        <div class="col-md-6 col-lg-4">
-                            <div class="special-item">
-                                <a href="~/Package/Details?id=@package.PackageId">
-
-                                    <figure class="special-img">
-                                        <img src="@package.MainPhoto" style="object-fit:cover; width:400px ;height:600px " alt="">
+                <div class="package-inner">
+                    <div class="row">
+                        @foreach (var package in Model.TopDestinationsPackages)
+                        {
+                            <div class="col-lg-4 col-md-6">
+                                <div class="package-wrap">
+                                    <figure class="feature-image">
+                                        <a href="/Package/Details/@package.PackageId">
+                                            <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
+                                        </a>
                                     </figure>
-                                </a>
-                                <div class="badge-dis">
-                                    <span>
-                                        <strong>@package.Discount%</strong>
-                                        off
-                                    </span>
-                                </div>
-                                <div class="special-content">
-                                    <div class="meta-cat">
-                                        <a href="#">@package.Destinations</a>
-                                    </div>
-                                    <h3>
-                                        <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
-                                    </h3>
                                     <div class="package-price">
-                                        Price:
-                                        <del>€@package.Price.ToString("N0")</del>
-                                        <ins>€@package.FinalPrice()</ins>
+                                        <h6>
+                                            <span>€ @package.FinalPrice() </span> / per person
+                                        </h6>
                                     </div>
-                                    <div class="btn-wrap">
-                                        <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="btn-outline-primary">Add to Cart<i></i></a>
+                                    <div class="package-content-wrap">
+                                        <div class="package-meta text-center">
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-clock"></i>
+                                                    @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    @package.Destinations
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="package-content">
+                                            <h3>
+                                                <a href="#">@package.Title</a>
+                                            </h3>
+                                            <div class="review-area">
+                                                <span class="review-text">(@package.Comments.Count)</span>
+                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                    <span style="width: 60%"></span>
+                                                </div>
+                                            </div>
+                                            <p>@package.Description</p>
+                                            <div class="btn-wrap">
+                                                <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
+                                                <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
 
+                    </div>
+                    <div class="btn-wrap text-center">
+                        <a href="/Destination/Index" class="button-primary">MORE DESTINATIONS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Home popular destinations html END -->
+        <!-- Home packages section html START -->
+        <section class="package-section">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <h5 class="dash-style">EXPLORE GREAT PLACES</h5>
+                            <h2>POPULAR PACKAGES</h2>
+                            <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Here start POPULAR PACKAGES-->
+                <div class="package-inner">
+                    <div class="row">
+                        @foreach (var package in Model.PopularPackages)
+                        {
+                            <div class="col-lg-4 col-md-6">
+                                <div class="package-wrap">
+                                    <figure class="feature-image">
+                                        <a href="/Package/Details/@package.PackageId">
+                                            <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
+                                        </a>
+                                    </figure>
+                                    <div class="package-price">
+                                        <h6>
+                                            <span>€ @package.FinalPrice() </span> / per person
+                                        </h6>
+                                    </div>
+                                    <div class="package-content-wrap">
+                                        <div class="package-meta text-center">
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-clock"></i>
+                                                    @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    @package.Destinations
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="package-content">
+                                            <h3>
+                                                <a href="#">@package.Title</a>
+                                            </h3>
+                                            <div class="review-area">
+                                                <span class="review-text">(25 reviews)</span>
+                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                    <span style="width: 60%"></span>
+                                                </div>
+                                            </div>
+                                            <p>@package.Description</p>
+                                            <div class="btn-wrap">
+                                                <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
+                                                <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                              
                             </div>
-                        </div>
-                    }
+                        }
+
+                    </div>
+                    <div class="btn-wrap text-center">
+                        <a href="/Package/Index" class="button-primary">VIEW ALL PACKAGES</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- special html END -->
-    <!-- Home special section html START -->
-    <section class="best-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="section-heading">
-                        <h5 class="dash-style">YOUR BEST MOMENTS</h5>
-                        <h2>BEST SHARED PHOTOS OF 2021</h2>
-                        <p>We are glad to receive your photos sharing the best moments during your travel with us. If you want to share your experience with us, you can send them here.<br />E-mail: info@Travele.com</p>
-                    </div>
-                    <figure class="gallery-img">
-                        <img style="object-fit: cover; width: 455px; height: 400px" src="~/Content/Images/Travellers/download.jpg" alt="">
-                    </figure>
-                </div>
-                <div class="col-lg-7">
+        </section>
+        <!-- packages html END -->
+        <!-- Home callback section html START -->
+        <!-- Home callback html END -->
+        <!-- Home activity section html START -->
+        <!-- Home activity html END -->
+        <!-- Home special section html START -->
+        <section class="special-section">
+            <div class="container">
+                <div class="section-heading text-center">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <figure class="gallery-img">
-                                <img src="~/Content/Images/Travellers/Lisbon.jpg" alt="">
-                            </figure>
-                        </div>
-                        <div class="col-sm-6">
-                            <figure class="gallery-img">
-                                <img src="~/Content/Images/Travellers/Travellers.jpg" alt="">
-                            </figure>
+                        <div class="col-lg-8 offset-lg-2">
+                            <h5 class="dash-style">TRAVEL OFFER & DISCOUNT</h5>
+                            <h2>SPECIAL TRAVEL OFFER</h2>
+                            <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
                         </div>
                     </div>
+                </div>
+                <!--Here start the offers-->
+                <div class="special-inner">
                     <div class="row">
-                        <div class="col-12">
-                            <figure class="gallery-img">
-                                <img style="object-fit: cover; width: 655px; height: 510px" src="~/Content/Images/Travellers/Paris.jpg" alt="">
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- best html END -->
-    <!-- Home awards START -->
-    <div class="client-section">
-        <div class="container">
-            <div class="client-wrap client-slider secondary-bg">
-                <div class="client-item">
-                    <figure>
-                        <img src="~/Theme/TravelAgency/assets/images/logo1.png" alt="">
-                    </figure>
-                </div>
-                <div class="client-item">
-                    <figure>
-                        <img src="~/Theme/TravelAgency/assets/images/logo2.png" alt="">
-                    </figure>
-                </div>
-                <div class="client-item">
-                    <figure>
-                        <img src="~/Theme/TravelAgency/assets/images/logo3.png" alt="">
-                    </figure>
-                </div>
-                <div class="client-item">
-                    <figure>
-                        <img src="~/Theme/TravelAgency/assets/images/logo4.png" alt="">
-                    </figure>
-                </div>
-                <div class="client-item">
-                    <figure>
-                        <img src="~/Theme/TravelAgency/assets/images/logo5.png" alt="">
-                    </figure>
-                </div>
-                <div class="client-item">
-                    <figure>
-                        <img src="~/Theme/TravelAgency/assets/images/logo2.png" alt="">
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Home awards END -->
-    <!-- Home subscribe section html START -->
-    <section class="subscribe-section" style="background-image: url(assets/images/img16.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="section-heading section-heading-white">
-                        <h4 class="dash-style">OUR BEST MOMENTS</h4>
-                        <h2>AWARDS GIVE US MOTIVATION TO BE BETTER</h2>
-                        <h4>Sign up now to receive all the latest news and offers for our tour packages !!</h4>
-                        <div class="newsletter-form">
-                            <form>
-                                <input type="email" name="s" placeholder="Your Email Address">
-                                <input type="submit" name="signup" value="SIGN UP NOW!">
-                            </form>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend temporibus occaecat luctus eleifend tempo ribus.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- subscribe html END -->
-    <!-- Home blog section html START -->
-    <!-- blog html END -->
-    <!-- Home testimonial section html START -->
-    <br />
-    <div class="testimonial-section" style="background-image: url(assets/images/img23.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="testimonial-inner testimonial-slider">
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img20.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    Johny English
-                                    <span class="company">Travel Agent</span>
-                                </cite>
+                        @foreach (var package in Model.PackageOffer)
+                        {
+                            <div class="col-md-6 col-lg-4">
+                                <div class="special-item">
+                                    <a href="~/Package/Details?id=@package.PackageId">
+
+                                        <figure class="special-img">
+                                            <img src="@package.MainPhoto" style="object-fit:cover; width:400px ;height:600px " alt="">
+                                        </figure>
+                                    </a>
+                                    <div class="badge-dis">
+                                        <span>
+                                            <strong>@package.Discount%</strong>
+                                            off
+                                        </span>
+                                    </div>
+                                    <div class="special-content">
+                                        <div class="meta-cat">
+                                            <a href="#">@package.Destinations</a>
+                                        </div>
+                                        <h3>
+                                            <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
+                                        </h3>
+                                        <div class="package-price">
+                                            Price:
+                                            <del>€@package.Price.ToString("N0")</del>
+                                            <ins>€@package.FinalPrice()</ins>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="btn-outline-primary">Add to Cart<i></i></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img21.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    William Housten
-                                    <span class="company">Travel Agent</span>
-                                </cite>
-                            </div>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img22.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    Alison Wright
-                                    <span class="company">Travel Guide</span>
-                                </cite>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- testimonial html END -->
-    <!-- Home contact details section html START -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="contact-img" style="background-image: url(https://c1.wallpaperflare.com/preview/893/1020/960/contact-us-contact-email-phone.jpg); ">
+        </section>
+        <!-- special html END -->
+        <!-- Home special section html START -->
+        <section class="best-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="section-heading">
+                            <h5 class="dash-style">YOUR BEST MOMENTS</h5>
+                            <h2>BEST SHARED PHOTOS OF 2021</h2>
+                            <p>We are glad to receive your photos sharing the best moments during your travel with us. If you want to share your experience with us, you can send them here.<br />E-mail: info@Travele.com</p>
+                        </div>
+                        <figure class="gallery-img">
+                            <img style="object-fit: cover; width: 455px; height: 400px" src="~/Content/Images/Travellers/download.jpg" alt="">
+                        </figure>
                     </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="contact-details-wrap">
+                    <div class="col-lg-7">
                         <div class="row">
-                            <div class="col-sm-4">
-                                <div class="contact-details">
-                                    <div class="contact-icon">
-                                        <img src="~/Theme/TravelAgency/assets/images/icon12.png" alt="">
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="#">info@Travele.com</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">sales@Travele.com</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">career@Travele.com</a>
-                                        </li>
-                                    </ul>
+                            <div class="col-sm-6">
+                                <figure class="gallery-img">
+                                    <img src="~/Content/Images/Travellers/Lisbon.jpg" alt="">
+                                </figure>
+                            </div>
+                            <div class="col-sm-6">
+                                <figure class="gallery-img">
+                                    <img src="~/Content/Images/Travellers/Travellers.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <figure class="gallery-img">
+                                    <img style="object-fit: cover; width: 655px; height: 510px" src="~/Content/Images/Travellers/Paris.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- best html END -->
+        <!-- Home awards START -->
+        <div class="client-section">
+            <div class="container">
+                <div class="client-wrap client-slider secondary-bg">
+                    <div class="client-item">
+                        <figure>
+                            <img src="~/Theme/TravelAgency/assets/images/logo1.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="~/Theme/TravelAgency/assets/images/logo2.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="~/Theme/TravelAgency/assets/images/logo3.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="~/Theme/TravelAgency/assets/images/logo4.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="~/Theme/TravelAgency/assets/images/logo5.png" alt="">
+                        </figure>
+                    </div>
+                    <div class="client-item">
+                        <figure>
+                            <img src="~/Theme/TravelAgency/assets/images/logo2.png" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Home awards END -->
+        <!-- Home subscribe section html START -->
+        <section class="subscribe-section" style="background-image: url(assets/images/img16.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="section-heading section-heading-white">
+                            <h4 class="dash-style">OUR BEST MOMENTS</h4>
+                            <h2>AWARDS GIVE US MOTIVATION TO BE BETTER</h2>
+                            <h4>Sign up now to receive all the latest news and offers for our tour packages !!</h4>
+                            <div class="newsletter-form">
+                                <form>
+                                    <input type="email" name="s" placeholder="Your Email Address">
+                                    <input type="submit" name="signup" value="SIGN UP NOW!">
+                                </form>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend temporibus occaecat luctus eleifend tempo ribus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- subscribe html END -->
+        <!-- Home blog section html START -->
+        <!-- blog html END -->
+        <!-- Home testimonial section html START -->
+        <br />
+        <div class="testimonial-section" style="background-image: url(assets/images/img23.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="testimonial-inner testimonial-slider">
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="~/Theme/TravelAgency/assets/images/img20.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
+                                    <cite>
+                                        Johny English
+                                        <span class="company">Travel Agent</span>
+                                    </cite>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="contact-details">
-                                    <div class="contact-icon">
-                                        <img src="~/Theme/TravelAgency/assets/images/icon13.png" alt="">
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="#">+30 1645854</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">+30 1645855</a>
-                                        </li>
-                                    </ul>
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="~/Theme/TravelAgency/assets/images/img21.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
+                                    <cite>
+                                        William Housten
+                                        <span class="company">Travel Agent</span>
+                                    </cite>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="contact-details">
-                                    <div class="contact-icon">
-                                        <img src="~/Theme/TravelAgency/assets/images/icon14.png" alt="">
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            117 41 Koukaki, Athens
-                                        </li>
-                                        <li>
-                                            Leoforos Andrea Sigrou 32
-                                        </li>
-                                    </ul>
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="~/Theme/TravelAgency/assets/images/img22.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
+                                    <cite>
+                                        Alison Wright
+                                        <span class="company">Travel Guide</span>
+                                    </cite>
                                 </div>
                             </div>
                         </div>
@@ -451,6 +418,71 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!--  Home contact details section html END -->
-</main>
+        <!-- testimonial html END -->
+        <!-- Home contact details section html START -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="contact-img" style="background-image: url(https://c1.wallpaperflare.com/preview/893/1020/960/contact-us-contact-email-phone.jpg); ">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="contact-details-wrap">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="contact-details">
+                                        <div class="contact-icon">
+                                            <img src="~/Theme/TravelAgency/assets/images/icon12.png" alt="">
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <a href="#">info@Travele.com</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">sales@Travele.com</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">career@Travele.com</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="contact-details">
+                                        <div class="contact-icon">
+                                            <img src="~/Theme/TravelAgency/assets/images/icon13.png" alt="">
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <a href="#">+30 1645854</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">+30 1645855</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="contact-details">
+                                        <div class="contact-icon">
+                                            <img src="~/Theme/TravelAgency/assets/images/icon14.png" alt="">
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                117 41 Koukaki, Athens
+                                            </li>
+                                            <li>
+                                                Leoforos Andrea Sigrou 32
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  Home contact details section html END -->
+    </main>

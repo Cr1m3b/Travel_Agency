@@ -28,9 +28,9 @@
                                 <td>
                                     <span>@adminbooking. @adminbooking.Booking.LastName</span>
                                 </td>
-                                <td>@adminbooking.Booking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                <td>@adminbooking.Booking.PurchaseDate.ToShortDateString()</td>
                                 <td>@adminpackage.Destinations</td>
-                                <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
+                                <td>@adminpackage.TripDate.ToShortDateString()</td>
                             </tr>
                         }
                     }

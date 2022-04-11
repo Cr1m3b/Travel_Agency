@@ -27,7 +27,7 @@
                             <td>
                                 <span class="package-name">@package.Title</span>
                             </td>
-                            <td>@package.TripDate.ToString("dd/MM/yyyy")</td>
+                            <td>@package.TripDate.ToShortDateString()</td>
                             <td>@package.Destinations</td>
                             <td>
                                 @if (package.PackageStatus == Entities.Enums.Status.Active)

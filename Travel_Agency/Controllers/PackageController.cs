@@ -26,13 +26,27 @@ namespace Travel_Agency.Controllers
             repository = new PackageRepository(db);
         }
         // GET: Package
-        public ActionResult Index(string search)
+        public ActionResult Index(string search,decimal? minPrice,decimal? maxPrice, DateTime? checkIn)
         {
             var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
-
+           
             if (!String.IsNullOrWhiteSpace(search))
             {
                 activePackages = activePackages.Where(p => p.Destinations.ToString().ToUpper().Contains(search.ToUpper())).ToList();
+            }
+            if (minPrice!=null && minPrice>0)
+            {
+                activePackages = activePackages.Where(p => p.FinalPrice() >= minPrice).ToList();
+            }
+            if (maxPrice != null && minPrice > 0)
+            {
+                activePackages = activePackages.Where(p => p.FinalPrice() <= maxPrice).ToList();
+            }
+            if (checkIn!=null)
+            {
+                var minCheckInDate = ((DateTime)checkIn).AddDays(-4);
+                var maxCheckInDate = ((DateTime)checkIn).AddDays(4);
+                activePackages = activePackages.Where(p => p.TripDate >= minCheckInDate && p.TripDate <=maxCheckInDate).ToList();
             }
             return View(activePackages);
         }
