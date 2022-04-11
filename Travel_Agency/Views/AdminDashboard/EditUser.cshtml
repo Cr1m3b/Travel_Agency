@@ -16,6 +16,7 @@
                 @using (Html.BeginForm("EditUser", "AdminDashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.Id)
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
