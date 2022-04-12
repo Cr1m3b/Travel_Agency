@@ -26,7 +26,7 @@
                     <div class="row ">
                         @foreach(var package in Model)
                         {
-                            <div class="col-lg-4" style="max-width:100%;display:inline-block;" >
+                            <div class="col-lg-4" >
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="/Package/Details/@package.PackageId">
@@ -120,7 +120,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
     <script type="text/javascript">
-        var items = $(".row .col-lg-4");
+        var items = $(".package-inner .row .col-lg-4");
         var numItems = items.length;
         var perPage = 6;
 
