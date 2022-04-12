@@ -71,5 +71,40 @@
                 </div>
             </div>
         </div>
+
+    </div>
+    <!-- pagination html -->
+    <div id="pagination-container" class="light-theme simple-pagination">
+        <ul>
+            <li class="active"><span class="current prev pag">«</span></li>
+            <li class="active"><span class="current">1</span></li>
+            <li><a href="#page-2" class="page-link">2</a></li>
+            <li><a href="#page-2" class="page-link next">»</a></li>
+        </ul>
     </div>
 </div>
+
+@section scripts{
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+    <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
+    <script type="text/javascript">
+        var items = $(".dashboard-box .package");
+        var numItems = items.length;
+        var perPage = 4;
+
+        items.slice(perPage).hide();
+
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
+    </script>
+
+} 

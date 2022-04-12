@@ -22,6 +22,7 @@ namespace Travel_Agency.Controllers
         private ApplicationDbContext db;
         private BookingRepository repository;
         private PackageRepository packageRepository;
+        private ApplicationUserRepository userRepository;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         public AdminDashboardController()
@@ -29,6 +30,7 @@ namespace Travel_Agency.Controllers
             db = new ApplicationDbContext();
             repository = new BookingRepository(db);
             packageRepository = new PackageRepository(db);
+            userRepository = new ApplicationUserRepository(db);
         }
         public AdminDashboardController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -180,12 +182,11 @@ namespace Travel_Agency.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditUser([Bind(Include = "Id,UserName,Email,Password,ConfirmPassword,FirstName,LastName,Birthday,Country,City,Address,ZipCode")] ApplicationUser user)
+        public ActionResult EditUser(ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
+                userRepository.Edit(user);
                 ViewBag.EditedUsername = user.UserName;
                 return RedirectToAction("AllUsers", "AdminDashboard");
             }

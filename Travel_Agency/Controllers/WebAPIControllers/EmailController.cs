@@ -11,8 +11,6 @@ namespace Travel_Agency.Controllers.WebAPIControllers
 {
     public class EmailController : ApiController
     {
-
-       
         public void Post(Email emailaddress)
         {
             Email email = new Email()
@@ -23,12 +21,7 @@ namespace Travel_Agency.Controllers.WebAPIControllers
                 Body = emailaddress.Body
 
             };  
-
-
-
-
-            email.SendMail();
-            
+            email.SendMail();   
         }
     }
 }
