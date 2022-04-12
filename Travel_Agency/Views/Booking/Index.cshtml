@@ -42,9 +42,9 @@
                                             foreach (var package in booking.Packages)
                                             {
                                                 <tr>
-                                                    <td>@booking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                                    <td>@booking.PurchaseDate.ToShortDateString()</td>
                                                     <td>@package.Destinations</td>
-                                                    <td>@package.TripDate.ToString("dd/MM/yyyy")</td>
+                                                    <td>@package.TripDate.ToShortDateString()</td>
                                                     <td>@booking.PackagesCost</td>
                                                 </tr>
                                             }

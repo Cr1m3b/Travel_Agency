@@ -29,6 +29,10 @@
                                 <div class="package-meta text-center">
                                     <ul>
                                         <li>
+                                            <i class="fas fa-calendar"></i>
+                                            @Model.TripDate.ToShortDateString()
+                                        </li>
+                                        <li>
                                             <i class="far fa-clock"></i>
                                             @($"{Model.TripDuration + 1} days / {Model.TripDuration} nights")
                                         </li>
@@ -130,7 +134,7 @@
                                                                             <div class="comment-content">
                                                                                 <div class="comment-header">
                                                                                     <h5 class="author-name" style="color:red">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
-                                                                                    <span class="post-on" style="color:dodgerblue">@comment.PostTime.ToString("dd/MM/yyyy")</span>
+                                                                                    <span class="post-on" style="color:dodgerblue">@comment.PostTime.ToShortDateString()</span>
                                                                                     <div class="rating-wrap">
                                                                                         <div class="rating-start" title="Rated 5 out of 5">
                                                                                             <span style="width: calc((@comment.Rating*20%))"></span>
@@ -158,7 +162,7 @@
                                                                                             <div class="comment-header">
                                                                                                 <div style="color:#bf0a7e;font-style:italic">Reply to @comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName:</div>
                                                                                                 <h5 class="author-name" style="color:blue">@reply.ApplicationUser.FirstName @reply.ApplicationUser.LastName</h5>
-                                                                                                <span class="post-on">@reply.ReplyPostTime.ToString("dd/MM/yyyy")</span>
+                                                                                                <span class="post-on">@reply.ReplyPostTime.ToShortDateString()</span>
                                                                                             </div>
                                                                                             <p>@reply.ReplyContent</p>
                                                                                         </div>

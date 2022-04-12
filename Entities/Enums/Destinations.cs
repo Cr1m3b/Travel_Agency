@@ -15,6 +15,11 @@ namespace Entities.Models.Enums
         London,
         Paris,
         Rome,
+        Prague,
+        Iceland,
+        Amsterdam,
+        Paros,
+        Mallorca
         
     }
 }
