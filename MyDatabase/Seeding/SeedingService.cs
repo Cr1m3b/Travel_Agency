@@ -63,9 +63,88 @@ namespace MyDatabase.Seeding
                 MainPhoto= "https://www.inexhibit.com/wp-content/uploads/2019/11/Amsterdam-light-fest-2019-masamichi-shimada-butterfly-870x580.jpg",
                 TripDate= new DateTime(2022,07,12),TripDuration=5, Price =655,Destinations=Destinations.Amsterdam, PackageStatus= Status.Active
             };
+            Package p12 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti "+
+                "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 05, 20),
+                TripDuration = 10,
+                Price = 750,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p13 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
+             "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 06, 01),
+                TripDuration = 10,
+                Price = 750,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p14 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
+           "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 06, 15),
+                TripDuration = 10,
+                Price = 800,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p15 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
+           "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 07, 15),
+                TripDuration = 10,
+                Price = 800,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p16 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti and on 24th of August enjoy the show about pirates stealing the beatiful girls from the island. " +
+       "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 08, 15),
+                TripDuration = 10,
+                Price = 900,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p17 = new Package()
+            {
+                Title = "Island Destination: Mallorca",
+                Description = "Summer vacation in the largest Balearic island of Spain.",
+                Program = "First Day since the arrival is late in the evening the group meets in the center of Palma de Mallorca so to have dinner and after according to your prefference you can party in El Arenal or to have a quite drink by the beach.  "+
+                " Second day early in the morning a visit to Mirador Es Colomer Formentor is essential and after lunch and coffee in the little village del Sol. "+
+                "The rest of the days are about relaxing and enjoying sun at Playa d'Alcudia ",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 06, 29),
+                TripDuration = 5,
+                Price = 900,
+                Destinations = Destinations.Mallorca,
+                PackageStatus = Status.Active
+            };
 
 
-            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8,p9,p10};
+            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17};
             db.Packages.AddRange(packages);
 
 
@@ -202,6 +281,14 @@ namespace MyDatabase.Seeding
             p8.Flight = f2;
             p9.Flight = f4;
             p10.Flight = f4;
+            p11.Flight = f1;
+            p12.Flight = f1;
+            p13.Flight = f1;
+            p14.Flight = f1;
+            p15.Flight = f1;
+            p16.Flight = f1;
+            p17.Flight = f3;
+           
         
 
             //Hotel Seeding
@@ -215,8 +302,11 @@ namespace MyDatabase.Seeding
             Hotel h7 = new Hotel() { HotelName = "Artemis Cave Suits", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.350357757421!2d34.8294108148368!3d38.64082366963287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a687723611df9%3A0xf53172bac40e5847!2sArtemis%20Cave%20Suites!5e0!3m2!1sen!2sgr!4v1647558056432!5m2!1sen!2sgr", HotelStars = 2, Destinations = Destinations.Cappadocia };
             Hotel h8 = new Hotel() { HotelName = "Occidental Praha Five", MapEmbededUrl = "https://www.google.com/maps/place/Occidental+Praha+Five/@50.0666851,14.4003807,17z/data=!3m1!4b1!4m8!3m7!1s0x470b9450c457315d:0x214770c977c00b46!5m2!4m1!1i2!8m2!3d50.0666845!4d14.4025661", HotelStars = 4, Destinations = Destinations.Prague };
             Hotel h9 = new Hotel() { HotelName = "Fosshotel Baron", MapEmbededUrl = "https://www.google.com/maps/place/Fosshotel+Baron/@64.1449703,-21.9199287,17z/data=!3m1!4b1!4m8!3m7!1s0x48d674ce96cfb8a1:0xbf010d99f692911f!5m2!4m1!1i2!8m2!3d64.1449703!4d-21.91774?hl=el", HotelStars = 3, Destinations = Destinations.Iceland };
+            Hotel h10 = new Hotel() { HotelName = " Westcord Fashion Hotel Amsterdam", MapEmbededUrl = "https://www.google.com/maps/place/WestCord+Fashion+Hotel+Amsterdam/@52.357655,4.8423872,17z/data=!3m1!4b1!4m5!3m4!1s0x47c5e219c91166b7:0xf02fa9d0a6e73cd4!8m2!3d52.357655!4d4.8445759?hl=el", HotelStars = 4, Destinations = Destinations.Amsterdam };
+            Hotel h11 = new Hotel() { HotelName = "San Antonio Summer House", MapEmbededUrl = "https://www.google.com/maps/place/San+Antonio+Summer+House/@37.0366884,25.257604,17z/data=!3m1!4b1!4m5!3m4!1s0x149872eab27c2c07:0xb5c00fc86f7b4fa6!8m2!3d37.0366884!4d25.2597927", HotelStars = 3, Destinations = Destinations.Paros };
+            Hotel h12 = new Hotel() { HotelName = "Hipotels Playa de Palma Palace&Spa", MapEmbededUrl = "https://www.google.com/maps/place/San+Antonio+Summer+House/@37.0366884,25.257604,17z/data=!3m1!4b1!4m5!3m4!1s0x149872eab27c2c07:0xb5c00fc86f7b4fa6!8m2!3d37.0366884!4d25.2597927", HotelStars = 5, Destinations = Destinations.Mallorca};
 
-            List<Hotel> hotels = new List<Hotel>() { h1, h2, h3, h4, h5,h6,h7,h8,h9 };
+            List<Hotel> hotels = new List<Hotel>() { h1, h2, h3, h4, h5,h6,h7,h8,h9,h10,h11,h12 };
             db.Hotels.AddRange(hotels);
 
             p1.Hotel = h4;
@@ -229,6 +319,13 @@ namespace MyDatabase.Seeding
             p8.Hotel = h7;
             p9.Hotel = h8;
             p10.Hotel = h9;
+            p11.Hotel = h10;
+            p12.Hotel = h11;
+            p13.Hotel = h11;
+            p14.Hotel = h11;
+            p15.Hotel = h11;
+            p16.Hotel = h11;
+            p17.Hotel = h12;
           
 
             //Rate Seeding

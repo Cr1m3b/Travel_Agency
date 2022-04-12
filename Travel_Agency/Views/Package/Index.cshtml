@@ -78,7 +78,7 @@
                                             <div class="review-area" style="max-height:30px">
                                                 <span class="review-text">Total Reviews:@package.Comments.Count</span>
                                                 <br />
-                                                @if (!(package.Comments.Count == 0))
+                                                @if (package.Comments.Count != 0)
                                                 {
                                                     <div class="rating-start" title="Rated 5 out of 5">
                                                         @*<span style="width: calc(@package.AveragePackageRating()*20%)"></span>*@
@@ -122,7 +122,7 @@
     <script type="text/javascript">
         var items = $(".row .col-lg-4");
         var numItems = items.length;
-        var perPage = 4;
+        var perPage = 6;
 
         items.slice(perPage).hide();
 
