@@ -31,13 +31,13 @@ namespace Travel_Agency.Controllers.AdminController
             var bookings = repository.GetAllWithRelatedTables().ToList();
             var packages = packageRepository.GetAllWithRelatedTables().ToList();
 
-
             switch (sortOrder)
             {
                 case "BookAscend": bookings = bookings.OrderBy(b => b.PurchaseDate).ToList(); break;
                 case "TripAscend": packages = packages.OrderBy(p => p.TripDate).ToList(); break;
             }
 
+            ViewBag.SortOrder = sortOrder;
 
             AdminBookingViewModel AdBookVm = new AdminBookingViewModel()
             {
