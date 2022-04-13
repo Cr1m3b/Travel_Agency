@@ -369,7 +369,7 @@
     </div>
     <!-- Home awards END -->
     <!-- Home subscribe section html START -->
-    <section class="subscribe-section" style="background-image: url(assets/images/img16.jpg);">
+    <section class="subscribe-section" style="background-image: url(../../Theme/TravelAgency/assets/images/img16.jpg); height:520px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -383,7 +383,6 @@
                                 <input type="submit" name="signup" value="SIGN UP NOW!">
                             </form>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend temporibus occaecat luctus eleifend tempo ribus.</p>
                     </div>
                 </div>
             </div>
@@ -394,59 +393,37 @@
     <!-- blog html END -->
     <!-- Home testimonial section html START -->
     <br />
-    <div class="testimonial-section" style="background-image: url(assets/images/img23.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="testimonial-inner testimonial-slider">
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img20.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    Johny English
-                                    <span class="company">Travel Agent</span>
-                                </cite>
+                        @foreach (var comment in Model.TopComments)
+                        {
+                            <div class="testimonial-item text-center">
+                                <figure class="testimonial-img">
+                                    <img src="~/Theme/TravelAgency/assets/images/img20.jpg" alt="">
+                                </figure>
+                                <div class="testimonial-content">
+                                    <p>@comment.CommentContent</p>
+                                    <cite>
+                                        @comment.ApplicationUser.FirstName  @comment.ApplicationUser.LastName
+                                        <span class="company">Review for @comment.Package.Title</span>
+                                    </cite>
+                                </div>
                             </div>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img21.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    William Housten
-                                    <span class="company">Travel Agent</span>
-                                </cite>
-                            </div>
-                        </div>
-                        <div class="testimonial-item text-center">
-                            <figure class="testimonial-img">
-                                <img src="~/Theme/TravelAgency/assets/images/img22.jpg" alt="">
-                            </figure>
-                            <div class="testimonial-content">
-                                <p>" Dolorum aenean dolorem minima! Voluptatum? Corporis condimentum ac primis fusce, atque! Vivamus. Non cupiditate natus excepturi, quod quo, aute facere? Deserunt aliquip, egestas ipsum, eu.Dolorum aenean dolorem minima!? Corporis condi mentum acpri! "</p>
-                                <cite>
-                                    Alison Wright
-                                    <span class="company">Travel Guide</span>
-                                </cite>
-                            </div>
-                        </div>
+
+                        }
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     <!-- testimonial html END -->
     <!-- Home contact details section html START -->
     <section class="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="contact-img" style="background-image: url(https://c1.wallpaperflare.com/preview/893/1020/960/contact-us-contact-email-phone.jpg); ">
+                    <div class="contact-img" style="background-image: url('../../Theme/TravelAgency/assets/images/img24.jpg'); ">
                     </div>
                 </div>
                 <div class="col-lg-8">
