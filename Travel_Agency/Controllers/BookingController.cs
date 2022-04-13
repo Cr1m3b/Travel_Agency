@@ -29,10 +29,12 @@ namespace Travel_Agency.Controllers
         public ActionResult Index()
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-
-            var bookings = repository.GetAllWithRelatedTables().Where(b => b.ApplicationUser.Id == user.Id);
- 
-            return View(bookings);
+            if (user!=null && user.Bookings!=null && user.Bookings.Count>0)
+            {
+                var bookings = repository.GetAllWithRelatedTables().Where(b => b.ApplicationUser.Id == user.Id);
+                return View(bookings);
+            }
+            return null;   
         }
 
         // GET: Booking/Create
