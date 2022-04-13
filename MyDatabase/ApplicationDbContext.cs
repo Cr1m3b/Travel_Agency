@@ -24,6 +24,7 @@ namespace MyDatabase
         {
             return new ApplicationDbContext();
         }
+
         //Declaration of the DbSets
         public DbSet<Package> Packages { get; set; }
         public DbSet<Booking> Bookings { get; set; }
@@ -32,8 +33,7 @@ namespace MyDatabase
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Rating> Ratings { get; set; }
-       
-   
+        public DbSet<Image> Images { get; set; }
         public DbSet<ReplyComment> ReplyComments { get; set; }
 
     }

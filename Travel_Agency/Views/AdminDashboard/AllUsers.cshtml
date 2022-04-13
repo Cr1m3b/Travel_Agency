@@ -39,7 +39,15 @@
                             @foreach (var user in Model)
                             {
                                 <tr>
-                                    <td><img src="#" alt="User" /></td>
+                                    @if (@user.UserImage != null)
+                                    {
+                                        <td style="object-fit: cover; width: 80px; "><img src="@user.UserImage.ImagePath" alt="User" /></td>
+                                    }
+                                    else
+                                    {
+                                        <td style="object-fit: cover; width: 80px; "><img src="~/Content/UsersImages/no-user.jpg" alt="User" /></td>
+                                    }
+
                                     <td>@user.UserName</td>
                                     <td>@user.FirstName</td>
                                     <td>@user.LastName</td>

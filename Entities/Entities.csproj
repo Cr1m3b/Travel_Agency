@@ -103,6 +103,7 @@
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ReplyComment.cs" />
