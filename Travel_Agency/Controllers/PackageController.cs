@@ -18,17 +18,17 @@ namespace Travel_Agency.Controllers
     public class PackageController : Controller
     {
         private ApplicationDbContext db;
-        PackageRepository repository;
+        PackageRepository packageRepository;
 
         public PackageController()
         {
             db = new ApplicationDbContext();
-            repository = new PackageRepository(db);
+            packageRepository = new PackageRepository(db);
         }
         // GET: Package
         public ActionResult Index(string search,decimal? minPrice,decimal? maxPrice, DateTime? checkIn)
         {
-            var activePackages = repository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
+            var activePackages = packageRepository.GetAllWithRelatedTables().Where(p => p.PackageStatus == Status.Active).ToList();
            
             if (!String.IsNullOrWhiteSpace(search))
             {
@@ -52,7 +52,7 @@ namespace Travel_Agency.Controllers
         }
         public ActionResult PackagesPerDestination(string destination)
         {
-            var packages = repository.GetAll().Where(p => p.Destinations.ToString().Equals(destination)).ToList();
+            var packages = packageRepository.GetAll().Where(p => p.Destinations.ToString().Equals(destination)).ToList();
 
             return View(packages);
         }
@@ -60,13 +60,13 @@ namespace Travel_Agency.Controllers
 
         public ActionResult PackageOffer()
         {
-            var packages = repository.GetAllWithRelatedTables().Where(p => p.Discount != 0).ToList();
+            var packages = packageRepository.GetAllWithRelatedTables().Where(p => p.Discount != 0).ToList();
 
             return View(packages);
         }
         public ActionResult PackageReviews()
         {
-            var allPackagesWithReviews = repository.GetAllWithRelatedTables()
+            var allPackagesWithReviews = packageRepository.GetAllWithRelatedTables()
                                         .Where(p=>p.PackageStatus==Status.Expired && p.Comments != null && p.Comments.Count>0)
                                         .ToList();
 
@@ -77,7 +77,7 @@ namespace Travel_Agency.Controllers
         // GET: Package/Details/5
         public ActionResult Details(int? id)
         {
-            var package = repository.GetByIdWithRelatedTables(id);
+            var package = packageRepository.GetByIdWithRelatedTables(id);
             if (package == null)
                 {
                     return HttpNotFound();

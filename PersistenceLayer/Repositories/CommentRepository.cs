@@ -21,8 +21,7 @@ namespace PersistenceLayer.Repositories
         {
             return Context.Comments.Include(c => c.ApplicationUser)
                                     .Include(c => c.ReplyComments)
-                                    .Include(c => c.Package)
-                                    .ToList();
+                                    .Include(c => c.Package);
         }
 
         public Comment GetByIdWithRelatedTables(int? id)

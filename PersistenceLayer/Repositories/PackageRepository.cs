@@ -21,10 +21,9 @@ namespace PersistenceLayer.Repositories
             return Context.Packages.Include(p => p.Flight)
                                    .Include(p => p.Hotel)
                                    .Include(p => p.Photos)
-                                   .Include(p=> p.Ratings)
+                                   .Include(p => p.Ratings)
                                    .Include(p => p.Comments)
-                                   .Include(p => p.Bookings)
-                                   .ToList();
+                                   .Include(p => p.Bookings);
         }
         public Package GetByIdWithRelatedTables(int? id)
         {
