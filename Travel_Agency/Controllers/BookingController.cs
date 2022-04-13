@@ -91,6 +91,7 @@ namespace Travel_Agency.Controllers
                 booking.PurchaseDate = DateTime.Now;
             }
             Session["lastBooking"] = booking;
+           
             return RedirectToAction("PaymentWithPaypal", "Paypal");
         }
         protected override void Dispose(bool disposing)
