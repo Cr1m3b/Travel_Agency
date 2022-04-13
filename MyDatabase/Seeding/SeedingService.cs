@@ -32,17 +32,132 @@ namespace MyDatabase.Seeding
             Package p6 = new Package() { Title = "Lisbon", Description = "Vacations at Lisbon", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://www.nationsonline.org/gallery/Portugal/Praca-do-Comercio-Lisbon.jpg", TripDate = new DateTime(2022, 4, 30), TripDuration = 3, Price = 329, Discount=30, Destinations = Destinations.Lisbon, PackageStatus = Status.Active };
             Package p7 = new Package() { Title = "Cappadocia", Description = "Explore Cappadocia", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://d1hjkbq40fs2x4.cloudfront.net/2020-12-07/files/16072849260.jpg", TripDate = new DateTime(2022, 8, 15), TripDuration = 5, Price = 633, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
             Package p8 = new Package() { Title = "Cappadocia", Description = "Explore Cappadocia", Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://d1hjkbq40fs2x4.cloudfront.net/2020-12-07/files/16072849260.jpg", TripDate = new DateTime(2023, 01, 1), TripDuration = 5, Price = 633, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
+            Package p9 = new Package() { Title = "LUXURY PRAGUE",
+            Description= "Luxury Prague Holiday w/ Unlimited access to Sauna & Welcome Drink Inc. Dinner cruise on open top glass boat. ",
+                Program = "First day the group will explore the old Town Square, visit the Infant Jesus of Prague and of course watch the Astronomical Clock which strikes every hour. "+
+                
+                "Second day a nice stroll will take place from the hotel till Charles Bridge after visit Prague Castle and in the end visit St Vitus. "+
+                "The afternoon is free for you to enjoy the city. "+
+                "Third and last day a Cruise on the Vltava will amaze.",
+                MainPhoto = "https://www.thetrainline.com/content/vul/hero-images/city/prague/2x.jpg",
+                TripDate = new DateTime(2022,06,12), TripDuration = 3, Price =567, Destinations = Destinations.Prague, PackageStatus= Status.Active 
 
-            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8};
+            };
+            Package p10 = new Package() { Title = "ICELAND, BLUE LAGOON",
+            Description = "Experience an astonishing getaway in Iceland with a one life experience tour of the blue lagoon",
+            Program= "First day hiking to the most beautiful part of Iceland the Kirkjufell mountain (Church Mountain) which is the most photographed place in Iceland and a natural icon on its own."+
+            " Second day is dedicated to the blue lagoon relaxation time. There you can enjoy the natural beauty of Iceland experiencing in warm to hot water the views and the lifestyle of locals. Of course at midnight a tour will take place to stare  the Northern Lights , the phenomenon of aurora borealis."+
+            "Third and fourth days are free for you to enjoy Reykjavik.",
+            MainPhoto= "https://blog.goway.com/globetrotting/wp-content/uploads/2019/10/Blue-Lagoon-at-night-with-Northern-Lights-Iceland-_730839646.jpg",
+            TripDate = new DateTime(2022,09,30), TripDuration = 4   , Price =780,Destinations = Destinations.Iceland, PackageStatus= Status.Active 
+
+            };
+            Package p11 = new Package()
+            {
+                Title = "AMSTERDAM LIGHT FESTIVAL",
+                Description= "Enjoy the Incredible Light Festival with evening Canal Cruise",
+                Program= "First day is dedicated to visit the town, spending 3 hours in Van's Gogh Museam and in the evening experience a luxurious Canal Cruise" +
+                "Second day a trip to country side will take place to see the windmills and enjoy the countryside and beaches. "+
+                "Next day the group will visit the museums & majestic buildings in Museumplein "+
+                "and last two days are free for travellers to enjoy Amsterdam on their on pace.",
+                MainPhoto= "https://www.inexhibit.com/wp-content/uploads/2019/11/Amsterdam-light-fest-2019-masamichi-shimada-butterfly-870x580.jpg",
+                TripDate= new DateTime(2022,07,12),TripDuration=5, Price =655,Destinations=Destinations.Amsterdam, PackageStatus= Status.Active
+            };
+            Package p12 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti "+
+                "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 05, 20),
+                TripDuration = 10,
+                Price = 750,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p13 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
+             "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 06, 01),
+                TripDuration = 10,
+                Price = 750,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p14 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
+           "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 06, 15),
+                TripDuration = 10,
+                Price = 800,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p15 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
+           "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 07, 15),
+                TripDuration = 10,
+                Price = 800,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p16 = new Package()
+            {
+                Title = "Island Destination Paros",
+                Description = "Summer vacation in  greek aegean island Paros",
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti and on 24th of August enjoy the show about pirates stealing the beatiful girls from the island. " +
+       "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 08, 15),
+                TripDuration = 10,
+                Price = 900,
+                Destinations = Destinations.Paros,
+                PackageStatus = Status.Active
+            };
+            Package p17 = new Package()
+            {
+                Title = "Island Destination: Mallorca",
+                Description = "Summer vacation in the largest Balearic island of Spain.",
+                Program = "First Day since the arrival is late in the evening the group meets in the center of Palma de Mallorca so to have dinner and after according to your prefference you can party in El Arenal or to have a quite drink by the beach.  "+
+                " Second day early in the morning a visit to Mirador Es Colomer Formentor is essential and after lunch and coffee in the little village del Sol. "+
+                "The rest of the days are about relaxing and enjoying sun at Playa d'Alcudia ",
+                MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
+                TripDate = new DateTime(2022, 06, 29),
+                TripDuration = 5,
+                Price = 900,
+                Destinations = Destinations.Mallorca,
+                PackageStatus = Status.Active
+            };
+
+
+            List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17};
             db.Packages.AddRange(packages);
 
 
             //ApplicationUser Seeding
             ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", FirstName = "John", LastName = "Hopkins", PhoneNumber = "+30 6984548965", Email = "john1@yahoo.gr", Birthday = new DateTime(1990, 8, 1), Country = "France", City = "Paris", ZipCode = "75001", Address = "Rue Pierre Guérin 21" };
             ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", FirstName = "Nick", LastName = "Hughes", PhoneNumber = "+30 6981236365", Email = "nick1@gmail.com", Birthday = new DateTime(1984, 5, 10), Country = "Greece", City = "Athens", ZipCode = "10431", Address = "Patision 32" };
+            ApplicationUser ap3 = new ApplicationUser() { UserName = "Alex123", FirstName = "Alex", LastName = "Ital", PhoneNumber = "+49 1763535596", Email = "alexital@gmail.com", Birthday = new DateTime(1972, 5, 10), Country = "Germany", City = "Stolhofen", ZipCode = "72456", Address = "Winnipeg Avenue" };
+            ApplicationUser ap4 = new ApplicationUser() { UserName = "Mellie", FirstName = "Melinda", LastName = "Tsaaok", PhoneNumber = "+45 9873535596", Email = "mellie@gmail.com", Birthday = new DateTime(1982, 5, 10), Country = "Slovakia", City = "Houg", ZipCode = "95456", Address = "Ihgatds" };
 
             db.Users.Add(ap1);
             db.Users.Add(ap2);
+            db.Users.Add(ap3);
+            db.Users.Add(ap4);
 
             //Booking Seeding
             Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
@@ -54,8 +169,23 @@ namespace MyDatabase.Seeding
             Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 355 };
             Booking b8 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 355 };
             Booking b9 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 355 };
+            Booking b10 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 19), PackagesCost = 567 };
+            Booking b11 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 567 };
+            Booking b12 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 567 };
+            Booking b13 = new Booking() { FirstName = "Maria", LastName = "Pantazi", Email = "marypan@gmail.com", PhoneNumber = "+30 6973535596", PurchaseDate = new DateTime(2022, 04, 6), PackagesCost = 567 };
+            Booking b14 = new Booking() { FirstName = "Massimo", LastName = "La Rossa", Email = "massimino@gmail.com", PhoneNumber = "+30 6973538654", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 567 };
+            Booking b15 = new Booking() { FirstName = "Iacopo", LastName = "Fantozzi", Email = "fantozzi@gmail.com", PhoneNumber = "+30 6973530000", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 567 };
+            Booking b16 = new Booking() { FirstName = "Carmela", LastName = "Cataluna", Email = "Cataluna@gmail.com", PhoneNumber = "+39 4579530000", PurchaseDate = new DateTime(2022, 04, 29), PackagesCost = 780 };
+            Booking b17 = new Booking() { FirstName = "Dimitra", LastName = "Kalantzi", Email = "mimi@gmail.com", PhoneNumber = "+30 6989530000", PurchaseDate = new DateTime(2022, 03, 2), PackagesCost = 780 };
+            Booking b18 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 780 };
+            Booking b19 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
+            Booking b20 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
+            Booking b21 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 655 };
+            Booking b22 = new Booking() { FirstName = "Anna", LastName = "Selva", Email = "annaSel@gmail.com", PhoneNumber = "+38 9531798456", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
+            Booking b23 = new Booking() { FirstName = "Aggelos", LastName = "Koutourinis", Email = "angel@gmail.com", PhoneNumber = "+30 6931798456", PurchaseDate = new DateTime(2022, 05, 2), PackagesCost = 655 };
+            Booking b24 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@gmail.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 655 };
 
-            List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5, b6, b7, b8, b9 };
+            List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5, b6, b7, b8, b9,b10,b11,b12,b13,b14,b15,b16,b17,b18,b19,b20,b21,b22,b23 };
            
             db.Bookings.AddRange(bookings);
 
@@ -75,6 +205,21 @@ namespace MyDatabase.Seeding
             b7.Packages.Add(p3);
             b8.Packages.Add(p3);
             b9.Packages.Add(p3);
+            b10.ApplicationUser = ap3;
+            b11.Packages.Add(p9);
+            b12.Packages.Add(p9);
+            b13.Packages.Add(p9);
+            b14.Packages.Add(p9);
+            b15.Packages.Add(p9);
+            b16.Packages.Add(p10);
+            b17.Packages.Add(p10);
+            b18.Packages.Add(p10);
+            b19.Packages.Add(p10);
+            b20.Packages.Add(p10);
+            b21.Packages.Add(p11);
+            b22.Packages.Add(p11);
+            b23.Packages.Add(p11);
+            b24.Packages.Add(p11);
 
 
             //Photo Seeding
@@ -122,7 +267,8 @@ namespace MyDatabase.Seeding
             Flight f1 = new Flight() { CompanyName = "Aegean Airlines" };
             Flight f2 = new Flight() { CompanyName = "Turkish Airlines" };
             Flight f3 = new Flight() { CompanyName = "Lufthansa Airlines" };
-            List<Flight> flights = new List<Flight>() { f1, f2, f3 };
+            Flight f4 = new Flight() { CompanyName = "Ryanair Airlines" };
+            List<Flight> flights = new List<Flight>() { f1, f2, f3,f4 };
             db.Flights.AddRange(flights);
 
             p1.Flight = f1;
@@ -133,6 +279,16 @@ namespace MyDatabase.Seeding
             p6.Flight = f3;
             p7.Flight = f2;
             p8.Flight = f2;
+            p9.Flight = f4;
+            p10.Flight = f4;
+            p11.Flight = f1;
+            p12.Flight = f1;
+            p13.Flight = f1;
+            p14.Flight = f1;
+            p15.Flight = f1;
+            p16.Flight = f1;
+            p17.Flight = f3;
+           
         
 
             //Hotel Seeding
@@ -144,8 +300,13 @@ namespace MyDatabase.Seeding
             Hotel h5 = new Hotel() { HotelName = "The California", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.111756808161!2d-0.12565318469073225!3d51.52951001690808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b395f8925f1%3A0xb1a49585b93e2b35!2sThe%20California%20Hotel!5e0!3m2!1sen!2sgr!4v1647557761307!5m2!1sen!2sgr", HotelStars = 3, Destinations = Destinations.London };
             Hotel h6 = new Hotel() { HotelName = "Patio São Vicente", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.096701465115!2d-9.1302479851608!3d38.715588765246316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19338a3d909c55%3A0x583a038c8d45001f!2sPatio%20S%C3%A3o%20Vicente%20Guest%20Houses!5e0!3m2!1sen!2sgr!4v1647557953711!5m2!1sen!2sgr", HotelStars = 4, Destinations = Destinations.Lisbon };
             Hotel h7 = new Hotel() { HotelName = "Artemis Cave Suits", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.350357757421!2d34.8294108148368!3d38.64082366963287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152a687723611df9%3A0xf53172bac40e5847!2sArtemis%20Cave%20Suites!5e0!3m2!1sen!2sgr!4v1647558056432!5m2!1sen!2sgr", HotelStars = 2, Destinations = Destinations.Cappadocia };
+            Hotel h8 = new Hotel() { HotelName = "Occidental Praha Five", MapEmbededUrl = "https://www.google.com/maps/place/Occidental+Praha+Five/@50.0666851,14.4003807,17z/data=!3m1!4b1!4m8!3m7!1s0x470b9450c457315d:0x214770c977c00b46!5m2!4m1!1i2!8m2!3d50.0666845!4d14.4025661", HotelStars = 4, Destinations = Destinations.Prague };
+            Hotel h9 = new Hotel() { HotelName = "Fosshotel Baron", MapEmbededUrl = "https://www.google.com/maps/place/Fosshotel+Baron/@64.1449703,-21.9199287,17z/data=!3m1!4b1!4m8!3m7!1s0x48d674ce96cfb8a1:0xbf010d99f692911f!5m2!4m1!1i2!8m2!3d64.1449703!4d-21.91774?hl=el", HotelStars = 3, Destinations = Destinations.Iceland };
+            Hotel h10 = new Hotel() { HotelName = " Westcord Fashion Hotel Amsterdam", MapEmbededUrl = "https://www.google.com/maps/place/WestCord+Fashion+Hotel+Amsterdam/@52.357655,4.8423872,17z/data=!3m1!4b1!4m5!3m4!1s0x47c5e219c91166b7:0xf02fa9d0a6e73cd4!8m2!3d52.357655!4d4.8445759?hl=el", HotelStars = 4, Destinations = Destinations.Amsterdam };
+            Hotel h11 = new Hotel() { HotelName = "San Antonio Summer House", MapEmbededUrl = "https://www.google.com/maps/place/San+Antonio+Summer+House/@37.0366884,25.257604,17z/data=!3m1!4b1!4m5!3m4!1s0x149872eab27c2c07:0xb5c00fc86f7b4fa6!8m2!3d37.0366884!4d25.2597927", HotelStars = 3, Destinations = Destinations.Paros };
+            Hotel h12 = new Hotel() { HotelName = "Hipotels Playa de Palma Palace&Spa", MapEmbededUrl = "https://www.google.com/maps/place/San+Antonio+Summer+House/@37.0366884,25.257604,17z/data=!3m1!4b1!4m5!3m4!1s0x149872eab27c2c07:0xb5c00fc86f7b4fa6!8m2!3d37.0366884!4d25.2597927", HotelStars = 5, Destinations = Destinations.Mallorca};
 
-            List<Hotel> hotels = new List<Hotel>() { h1, h2, h3, h4, h5,h6,h7 };
+            List<Hotel> hotels = new List<Hotel>() { h1, h2, h3, h4, h5,h6,h7,h8,h9,h10,h11,h12 };
             db.Hotels.AddRange(hotels);
 
             p1.Hotel = h4;
@@ -156,6 +317,15 @@ namespace MyDatabase.Seeding
             p6.Hotel = h6;
             p7.Hotel = h7;
             p8.Hotel = h7;
+            p9.Hotel = h8;
+            p10.Hotel = h9;
+            p11.Hotel = h10;
+            p12.Hotel = h11;
+            p13.Hotel = h11;
+            p14.Hotel = h11;
+            p15.Hotel = h11;
+            p16.Hotel = h11;
+            p17.Hotel = h12;
           
 
             //Rate Seeding

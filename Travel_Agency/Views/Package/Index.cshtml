@@ -20,14 +20,14 @@
         </section>
         <!-- Inner Banner html end-->
         <!-- packages html start -->
-        <div class="package-section">
+        <div class="package-section"> 
             <div class="container">
                 <div class="package-inner">
                     <div class="row ">
                         @foreach(var package in Model)
                         {
-                            <div class="col-lg-4" style="max-width:100%;display:inline-block;" >
-                                <div class="package-wrap">
+                            <div class="col-lg-4">
+                                <div class="package-wrap" style="height:650px">
                                     <figure class="feature-image">
                                         <a href="/Package/Details/@package.PackageId">
                                             <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -75,17 +75,24 @@
 
                                             </h3>
                                             <h5> @package.TripDate.ToShortDateString() </h5>
-                                            <div class="review-area" style="max-height:30px">
-                                                <span class="review-text">Total Reviews:@package.Comments.Count</span>
-                                                <br />
-                                                @if (!(package.Comments.Count == 0))
+                                            <div class="review-area">
+                                                @if (package.Comments.Count() == 0)
                                                 {
-                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                        @*<span style="width: calc(@package.AveragePackageRating()*20%)"></span>*@
-                                                    </div>
+                                                    <span class="review-text">(No reviews with comment)</span>
                                                 }
+                                                else
+                                                {
+                                                    <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                }
+                                                    <br />
+                                                    @if (package.Ratings.Count() != 0)
+                                                    {
+                                                        <div class="rating-start" title="Rated 5 out of 5">
+                                                            <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                        </div>
+                                                    }
 
-                                            </div>
+                                                </div>
                                             <p>@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
@@ -120,9 +127,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
     <script type="text/javascript">
-        var items = $(".row .col-lg-4");
+        var items = $(".package-inner .row .col-lg-4");
         var numItems = items.length;
-        var perPage = 4;
+        var perPage = 6;
 
         items.slice(perPage).hide();
 

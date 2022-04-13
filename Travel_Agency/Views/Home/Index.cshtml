@@ -31,6 +31,38 @@
         </div>
     </section>
     <!-- Home slider html END -->
+    @using (Html.BeginForm("Index", "Package", FormMethod.Get))
+    {
+        <div class="trip-search-section shape-search-section">
+            <div class="slider-shape"></div>
+            <div class="container">
+                <div class="trip-search-inner white-bg d-flex">
+                    <div class="input-group">
+                        <label> Destination* </label>
+                        <input type="text" name="search" placeholder="Enter Destination">
+                    </div>
+                    <div class="input-group  width-col">
+                        <label> Price From* </label>
+                        <input type="text" name="minPrice" placeholder="Min Price">
+                    </div>
+                    <div class="input-group  width-col-3">
+                        <label> Price To* </label>
+                        <input type="text" name="maxPrice" placeholder="Max Price">
+                    </div>
+                    <div class="input-group width-col-3">
+                        <label> Checkin Date* </label>
+                        <i class="far fa-calendar"></i>
+                        <input class="input-date-picker" type="text" name="checkIn" placeholder="MM / DD / YY" autocomplete="off">
+                    </div>
+
+                    <div class="input-group width-col-3">
+                        <label class="screen-reader-text"> Search </label>
+                        <input type="submit" name="travel-search" value="Search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
     <!-- Home popular destinations html START -->
     <section class="destination-section">
         <div class="container">
@@ -42,7 +74,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="section-disc">
-                            Aperiam sociosqu urna praesent, tristique, corrupti condimentum asperiores platea ipsum ad arcu. Nostrud. Aut nostrum, ornare quas provident laoreet nesciunt.
+                            One planet. Endless possibilities. The most amazing destinations in the world are waiting for you. Whether you want to escape to a sun-soaked tropical paradise or envision stunning, snow-capped mountains before you, all you need to know is that Travele is beside you every step of the way.
                         </div>
                     </div>
                 </div>
@@ -81,10 +113,21 @@
                                             <a href="#">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
-                                            <span class="review-text">(@package.Comments.Count)</span>
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span style="width: 60%"></span>
-                                            </div>
+                                            @if (@package.Ratings.Count() == 0)
+                                            {
+                                            <span class="review-text">(No reviews with comment)</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="review-text">(@package.Ratings.Count() reviews)</span>
+
+                                            }
+                                            @if (package.Ratings.Count != 0)
+                                            {
+                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                    <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                </div>
+                                            }
                                         </div>
                                         <p>@package.Description</p>
                                         <div class="btn-wrap">
@@ -113,7 +156,7 @@
                     <div class="col-lg-8 offset-lg-2">
                         <h5 class="dash-style">EXPLORE GREAT PLACES</h5>
                         <h2>POPULAR PACKAGES</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
+                        <p>Travel never stops. While a handful of bucket list destinations around the globe are always on travelers' radar a few are in the midst of or on the verge of going from hidden gems or forgotten destinations to tourist hotspots. Here are some of the most popular destinations.</p>
                     </div>
                 </div>
             </div>
@@ -123,7 +166,7 @@
                     @foreach (var package in Model.PopularPackages)
                     {
                         <div class="col-lg-4 col-md-6">
-                            <div class="package-wrap">
+                            <div class="package-wrap" style="height:650px">
                                 <figure class="feature-image">
                                     <a href="/Package/Details/@package.PackageId">
                                         <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -152,10 +195,21 @@
                                             <a href="#">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
-                                            <span class="review-text">(25 reviews)</span>
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span style="width: 60%"></span>
-                                            </div>
+                                            @if (@package.Ratings.Count() == 0)
+                                            {
+                                            <span class="review-text">(No reviews with comment)</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                            }
+
+                                            @if (package.Comments.Count != 0)
+                                            {
+                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                    <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                </div>
+                                            }
                                         </div>
                                         <p>@package.Description</p>
                                         <div class="btn-wrap">
@@ -188,7 +242,7 @@
                     <div class="col-lg-8 offset-lg-2">
                         <h5 class="dash-style">TRAVEL OFFER & DISCOUNT</h5>
                         <h2>SPECIAL TRAVEL OFFER</h2>
-                        <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
+                        <p>Connecting people and places is at the heart of what we do. And we pride ourselves on our superior selection of hotel and resort partners, as well as the outstanding rates and benefits that we are committed to curating.We continually create irresistible offers to remarkable destinations that are too amazing to miss.</p>
                     </div>
                 </div>
             </div>
@@ -228,7 +282,7 @@
 
                                     </div>
                                 </div>
-                              
+
                             </div>
                         </div>
                     }
