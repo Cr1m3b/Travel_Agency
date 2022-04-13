@@ -74,6 +74,7 @@ namespace Travel_Agency.Controllers
             };
             return View(model);
         }
+        //public ActionResult UserDetails
 
         //
         // POST: /Manage/RemoveLogin
