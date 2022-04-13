@@ -130,9 +130,21 @@
                                         <span class="badge badge-success">0</span>
                                     </td>
                                 }
-                                <td>
-                                    <span class="badge badge-dark">@user.Comments.Count</span>
-                                </td>
+
+                                @if (user.Comments != null)
+                                {
+                                    <td>
+                                        <span class="badge badge-dark">@user.Comments.Count</span>
+                                    </td>
+                                }
+                                else
+                                {
+
+                                    <td>
+                                        <span class="badge badge-success">0</span>
+                                    </td>
+                                }
+
                             </tr>
                             }
                         </tbody>
@@ -151,7 +163,7 @@
     <!--Bottom Charts & Statistics START-->
     <div class="row">
 
-     
+
 
 
 
@@ -159,7 +171,7 @@
         <div class="col-lg-4">
 
             <div class="dashboard-box chart-box">
-               <canvas id="linechart" width="400" height="400"></canvas>
+                <canvas id="linechart" width="400" height="400"></canvas>
             </div>
 
         </div>
@@ -173,7 +185,7 @@
 
 
 
-      
+
 
 
 

@@ -11,27 +11,46 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Booking Number</th>
                         <th>User</th>
                         <th>@Html.ActionLink("Booking", "Index", "AdminBooking", new { sortOrder = "BookAscend" }, null)</th>
                         <th>Destination</th>
                         <th>@Html.ActionLink("Trip Date", "Index", "AdminBooking", new { sortOrder = "TripAscend" }, null)</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    @foreach (var adminbooking in Model)
+                <tbody>
+                    @foreach (var adminbooking in Model.AdminBookings)
                     {
-                        foreach (var adminpackage in adminbooking.AdminPackages)
+                        if (ViewBag.SortOrder == "TripAscend")
                         {
-                            <tr class="package">
-                                <td>@adminbooking</td>
-                                <td>
-                                    <span>@adminbooking. @adminbooking.Booking.LastName</span>
-                                </td>
-                                <td>@adminbooking.Booking.PurchaseDate.ToShortDateString()</td>
-                                <td>@adminpackage.Destinations</td>
-                                <td>@adminpackage.TripDate.ToShortDateString()</td>
-                            </tr>
+                            var sorted = adminbooking.Packages.OrderBy(p => p.TripDate).ToList();
+                            foreach (var adminpackage in sorted)
+                            {
+                                <tr class="package">
+                                    <td>@adminbooking.BookingId</td>
+                                    <td>
+                                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
+                                    </td>
+                                    <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@adminpackage.Destinations</td>
+                                    <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        }
+                        else 
+                        {
+                            foreach (var adminpackage in adminbooking.Packages)
+                            {
+                                <tr class="package">
+                                    <td>@adminbooking.BookingId</td>
+                                    <td>
+                                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
+                                    </td>
+                                    <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@adminpackage.Destinations</td>
+                                    <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
                         }
                     }
 
