@@ -279,6 +279,7 @@
     <Content Include="Content\Images\Rome\Rome5.jpg" />
     <Content Include="Content\Images\Rome\Rome5.png" />
     <Content Include="Content\Images\Rome\Rome6.jpg" />
+    <Content Include="Content\UsersImages\no-user.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -436,6 +437,7 @@
     <Content Include="Theme\TravelAgency\assets\css\flight.css" />
     <Content Include="Theme\TravelAgency\assets\css\hotel.css" />
     <Content Include="Theme\TravelAgency\assets\css\Pagination.css" />
+    <Content Include="Theme\TravelAgency\assets\images\40-img.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\404-img.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\banner-pattern.png" />
     <Content Include="Theme\TravelAgency\assets\images\cards.png" />
@@ -823,7 +825,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\UsersImages\" />
     <Folder Include="Theme\TravelAgency\assets\fonts\" />
   </ItemGroup>
   <ItemGroup>
