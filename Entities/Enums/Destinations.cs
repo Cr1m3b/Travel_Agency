@@ -19,7 +19,16 @@ namespace Entities.Models.Enums
         Iceland,
         Amsterdam,
         Paros,
-        Mallorca
+        Mallorca,
+        Kerkyra,
+        Cancun,
+        Andorra,
+        Mauritius,
+        Dubai,
+        Zurich,
+        Milan,
+        Madrid,
+       Zakunthos
         
     }
 }
