@@ -206,6 +206,7 @@
     <Compile Include="Controllers\DestinationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PaypalController.cs" />
@@ -818,6 +819,7 @@
     <Content Include="Views\AdminDashboard\Delete.cshtml" />
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Shared\SignalRChat.cshtml" />
+    <Content Include="Views\Image\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
