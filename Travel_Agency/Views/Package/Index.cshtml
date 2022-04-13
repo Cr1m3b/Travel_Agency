@@ -76,16 +76,23 @@
                                             </h3>
                                             <h5> @package.TripDate.ToShortDateString() </h5>
                                             <div class="review-area">
-                                                <span class="review-text">Total Reviews:@package.Comments.Count</span>
-                                                <br />
-                                                @if (package.Comments.Count != 0)
+                                                @if (package.Comments.Count() == 0)
                                                 {
-                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                        @*<span style="width: calc(@package.AveragePackageRating()*20%)"></span>*@
-                                                    </div>
+                                                    <span class="review-text">(No reviews with comment)</span>
                                                 }
+                                                else
+                                                {
+                                                    <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                }
+                                                    <br />
+                                                    @if (package.Ratings.Count() != 0)
+                                                    {
+                                                        <div class="rating-start" title="Rated 5 out of 5">
+                                                            <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                        </div>
+                                                    }
 
-                                            </div>
+                                                </div>
                                             <p>@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
