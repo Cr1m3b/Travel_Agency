@@ -53,7 +53,7 @@
                                             </ul>
                                         </div>
                                         <div class="package-content">
-                                            <h3>
+                                            <h3 class="package-title" title="@package.Title">
                                                 <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                             </h3>
                                             <div class="review-area">
@@ -62,7 +62,7 @@
                                                     <span style="width: 70%"></span>
                                                 </div>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
+                                            <p class="package-description">@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                                 <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
