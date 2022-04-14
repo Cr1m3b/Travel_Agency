@@ -28,7 +28,8 @@ namespace Entities.Models.Enums
         Zurich,
         Milan,
         Madrid,
-       Zakunthos
-        
+       Zakunthos,
+        Uzbekistan
+
     }
 }

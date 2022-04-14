@@ -24,7 +24,7 @@ namespace MyDatabase.Seeding
         public void SeedPackages()
         {
             //Package Seeding
-            Package p1 = new Package() { Title = "Barcelona, a city by the sea yet encircled by wooded mountains.", 
+            Package p1 = new Package() { Title = "Barcelona and its stunning architecture.", 
                 Description = "Barcelona is not famous only for its outstanding football team but also for the stunning architecture, lively nightlife, sandy beaches, and world class cuisine. Take the chance to explore the city!",
                 Program= "Barcelona offers a large number of tourist attractions and cultural sights. So, for you in order to not miss anything a tour will take place the first two day to guide and tell the stories of the below landmarks:" +
                 "- Sagrada Familia, Gaudí’s masterpiece and prime example of Catalan modernism. The Sagrada Familia (Church of the Holy Family) is the most popular sight in Barcelona. This large basilica is striking not only because of its whimsical shapes, but also because it is still under construction. "+
@@ -94,10 +94,18 @@ namespace MyDatabase.Seeding
                 "Hike or Horse Ride in Red and Rose Valleys, Cappadocia's most beautiful intertwining valleys lie between the villages of Göreme and Çavusin. Explore the Village of Göreme. Cappadocia's underground cities first began to be chiseled out of the ground in the Bronze Age Hittite era, but they are most famous for their early Byzantine history (6th and 7th centuries), when the region's Christians took to living underground for long periods to escape from Arab and Persian invaders. "+
                 "Hike Ihlara Valley, The narrow, verdant valley at the bottom of this deep (100 meters) gorge in southwest Cappadocia is a nature lover's delight. Hemmed in by rugged, steep cliffs, Ihlara Valley is a lush Eden of tall poplar trees and fertile farming plots beside the babbling Melendiz River, which runs for 14 kilometers from Selime village to Ihlara village. Our advise visit also Kayseri which is a bustling city and has a handful of interesting Seljuk and Ottoman monuments.", 
                 MainPhoto = "https://d1hjkbq40fs2x4.cloudfront.net/2020-12-07/files/16072849260.jpg", TripDate = new DateTime(2022, 8, 15), TripDuration = 5, Price = 633, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
-            Package p8 = new Package() { Title = "Uzbekistan, the land of",
-                Description = "Explore Cappadocia",
-                Program = "1- Visiting city and museums 2-Barcelone Zoo  3-Seaside walk", MainPhoto = "https://d1hjkbq40fs2x4.cloudfront.net/2020-12-07/files/16072849260.jpg", TripDate = new DateTime(2023, 01, 1), TripDuration = 5, Price = 633, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
-            Package p9 = new Package() { Title = "LUXURY PRAGUE",
+            Package p8 = new Package() { Title = "Uzbekistan a trip back in time",
+                Description = "Uzbekistan is full of unreal beauty, and it looks exactly the way that it's depicted in the stunning photographs you see of its cities. ",
+                Program = "Uzbekistan is not a famous destination, so here are some reasons for you to give to this place a chance. "+
+                "WELCOMING PEOPLE It’s rare to find a country full of people who are so excited to befriend foreigners! "+
+                "ANCIENT HISTORY Uzbekistan is home to many famous cities along the Silk Road, and it still has remnants of when it was a part of the Soviet Union. "+
+                "BEAUTIFUL BLUE TILES The mosques are covered in gorgeous blue tiles, making for lots of great photo ops. And that’s especially true if you get outside before sunrise, when the city is just waking up! " +
+                "AMAZING FOOD The national dish 'plov'  is made from rice mixed with veggies and meat, and it’s delicious. So are Lagman noodles, which are similar to ramen but taste better."+
+                "INCREDIBLE SHOPPING This is a given, since you’re traveling along the Silk Road itself.You can find carpets, silks, wood carvings; jewelry, and scarves, all of which make for perfect souvenirs"+
+                "STUNNING WAYS OF LIFE Everywhere you look, you’ll find something unique! From the way the people dress to what they eat and where they live, there’s plenty to see here."+
+                "GORGEOUS (AND DIVERSE) SCENERY Uzbekistan doesn’t just consist of cities and mosques — its borders also contain forests, mountains, deserts, and so much more.",
+                MainPhoto = "https://www.wildfrontierstravel.com/media/cache/page_image_large/upload/cc/70f7ab08/PSX_20211119_103834.jpeg", TripDate = new DateTime(2022, 10, 12), TripDuration = 7, Price = 900, Discount = 20, Destinations = Destinations.Cappadocia, PackageStatus = Status.Active };
+            Package p9 = new Package() { Title = "Prague a city of a thousand spires",
             Description= "Luxury Prague Holiday w/ Unlimited access to Sauna & Welcome Drink Inc. Dinner cruise on open top glass boat. ",
                 Program = "First day the group will explore the old Town Square, visit the Infant Jesus of Prague and of course watch the Astronomical Clock which strikes every hour. "+
                 
@@ -108,7 +116,7 @@ namespace MyDatabase.Seeding
                 TripDate = new DateTime(2022,06,12), TripDuration = 3, Price =567, Destinations = Destinations.Prague, PackageStatus= Status.Active 
 
             };
-            Package p10 = new Package() { Title = "ICELAND, BLUE LAGOON",
+            Package p10 = new Package() { Title = "Iceland, the land of Ice and Fire",
             Description = "Experience an astonishing getaway in Iceland with a one life experience tour of the blue lagoon",
             Program= "First day hiking to the most beautiful part of Iceland the Kirkjufell mountain (Church Mountain) which is the most photographed place in Iceland and a natural icon on its own."+
             " Second day is dedicated to the blue lagoon relaxation time. There you can enjoy the natural beauty of Iceland experiencing in warm to hot water the views and the lifestyle of locals. Of course at midnight a tour will take place to stare  the Northern Lights , the phenomenon of aurora borealis."+
@@ -119,7 +127,7 @@ namespace MyDatabase.Seeding
             };
             Package p11 = new Package()
             {
-                Title = "AMSTERDAM LIGHT FESTIVAL",
+                Title = "Amsterdam and its nncredible light festival ",
                 Description= "Enjoy the Incredible Light Festival with evening Canal Cruise",
                 Program= "First day is dedicated to visit the town, spending 3 hours in Van's Gogh Museam and in the evening experience a luxurious Canal Cruise" +
                 "Second day a trip to country side will take place to see the windmills and enjoy the countryside and beaches. "+
@@ -156,7 +164,7 @@ namespace MyDatabase.Seeding
             };
             Package p14 = new Package()
             {
-                Title = "LUXURY CANCUN HOLIDAY",
+                Title = "Luxurious holidays in Cancun",
                 Description = "Cancun the mexican city known for its spectacular beaches of fine white sand, its fascinating turquoise blue sea and unparalleled weather.",
                 Program = "Places that worth a visit in Cancun, Mexico are: the Xcaret amusement park which is one of the largest theme parks in Mexico which holds more than 40 attractions including adventurous aquatic activities, fun, and educational natural and cultural attractions, and impressive live shows."+
                 " Climb Coba Ruins so to walk through the ruins and see networks of stone streets, monuments that were carved over 1200 years ago, pyramids, everyday dwellings and even traditional ball courts. "+
@@ -171,7 +179,7 @@ namespace MyDatabase.Seeding
             };
             Package p15 = new Package()
             {
-                Title = "ANDORRA SKI BREAK",
+                Title = "Ski break in Andorra",
                 Description = "The best ski break to ski, party and meet new people.",
                 Program = "This trip is ideal for everyone, even for people that never skiied as the resort is beginner & intermediate ski level friendly but also are a few quality advanced pistes & off-piste freeride options for the adventurous. "+
                 "For three days very early in the monring till late in the afternoon you can enjoy skiing, have drinks and meals at the small saloon near the pistes party outdoors. The hotel provides also spa day for those who seek a peaceful and relaxing time.",
@@ -185,7 +193,7 @@ namespace MyDatabase.Seeding
             Package p16 = new Package()
             {
                 Title = "Christmas at Mauritius island",
-                Description = "Summer vacation in the heart of winter",
+                Description = "Summer vacation in the heart of winter for those who seek relaxation next to sea ",
                 Program = "This trip gives you the opportunity for an alternative way to celebrate Christmas. Time spent here is truly relaxing, and a unique experience that you can only have off the coast of Africa. Mauritius has a marvellous blend of cultures, welcoming people and a huge mix of ethnic communities. The local cuisine will not disappoint you since is one of the most diverse in the world, with influences from French, Indian, African and Asian kitchens coming together to create its unique flavours. Don't miss Sega, which is an invigorating traditional dance that originated in Africa and is regularly performed around the island. And last but not least if you are seeking adrenaline-boosting activities you can go zip lining or hiking through the rainforest, try canyoning in the waterfalls or take to the water and explore every kind of ocean-based sport available.",
                 MainPhoto = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgjKZ_mkHzF63grZcbNka2fIdnSio0mYZ_oQ&usqp=CAU",
                 TripDate = new DateTime(2022, 12, 23),
