@@ -74,9 +74,13 @@ namespace Travel_Agency.Controllers
             };
             return View(model);
         }
-        //public ActionResult UserDetails
+        public ActionResult UserDetails(string username)
+        {
 
-        //
+            return View();
+        }
+
+
         // POST: /Manage/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -822,6 +822,7 @@
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Shared\SignalRChat.cshtml" />
     <Content Include="Views\Image\Add.cshtml" />
+    <Content Include="Views\Manage\UserDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
