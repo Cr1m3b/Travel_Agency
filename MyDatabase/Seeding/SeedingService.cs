@@ -53,7 +53,7 @@ namespace MyDatabase.Seeding
                 "Also you cannot miss The Château de Versailles which is the most famous castle in France. According to your preferences you can visit Disneyland, Moulin Rouge and many other monuments. "+
                 "Don't miss the opportunity to taste the best quality wine in the world, have a coffee with a delicius french pastry and live a careless 3 days trip.", 
                 MainPhoto= "https://fadeceilings.com/wp-content/uploads/2019/08/AdobeStock_65117955-720x460.jpeg", TripDate = new DateTime(2022, 5, 3), TripDuration = 3, Price = 699, Destinations = Destinations.Paris, PackageStatus = Status.Active };
-            Package p3 = new Package() { Title = "Athens on of the most historical cities in Europe.", 
+            Package p3 = new Package() { Title = "Athens one of the most historical cities in Europe.", 
                 Description = "The Classical Era is still evident in the city, represented by ancient monuments, works of art with the most famous of all being the Parthenon.", 
                 Program = "",
                 

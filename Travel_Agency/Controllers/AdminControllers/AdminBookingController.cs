@@ -17,18 +17,18 @@ namespace Travel_Agency.Controllers.AdminController
     public class AdminBookingController : Controller
     {
         private ApplicationDbContext db;
-        private BookingRepository repository;
+        private BookingRepository bookingRepository;
         private PackageRepository packageRepository;
         public AdminBookingController()
         {
             db =  new ApplicationDbContext();
-            repository = new BookingRepository(db);
+            bookingRepository = new BookingRepository(db);
             packageRepository = new PackageRepository(db);
         }
         // GET: AdminBooking
         public ActionResult Index(string sortOrder)
         {
-            var bookings = repository.GetAllWithRelatedTables().ToList();
+            var bookings = bookingRepository.GetAllWithRelatedTables().ToList();
             var packages = packageRepository.GetAllWithRelatedTables().ToList();
 
             switch (sortOrder)
@@ -41,7 +41,6 @@ namespace Travel_Agency.Controllers.AdminController
 
             AdminBookingViewModel AdBookVm = new AdminBookingViewModel()
             {
-
                 AdminBookings = bookings,
                 AdminPackages = packages
             };
@@ -56,7 +55,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = repository.GetById(id);
+            Booking booking = bookingRepository.GetById(id);
             if (booking == null)
             {
                 return HttpNotFound();

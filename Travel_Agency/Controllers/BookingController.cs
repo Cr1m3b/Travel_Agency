@@ -18,20 +18,20 @@ namespace Travel_Agency.Controllers
     public class BookingController : Controller
     {
         private ApplicationDbContext db;
-        BookingRepository repository;
+        BookingRepository bookingRepository;
         public BookingController()
         {
             db = new ApplicationDbContext();
-            repository = new BookingRepository(db);
+            bookingRepository = new BookingRepository(db);
         }
 
         // GET: Booking
         public ActionResult Index()
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            if (user!=null && user.Bookings!=null && user.Bookings.Count>0)
-            {
-                var bookings = repository.GetAllWithRelatedTables().Where(b => b.ApplicationUser.Id == user.Id);
+            if (user != null)
+                {
+                var bookings = bookingRepository.GetAllWithRelatedTables().Where(b => b.ApplicationUser != null && b.ApplicationUser.Id == user.Id).ToList();
                 return View(bookings);
             }
             return null;   
