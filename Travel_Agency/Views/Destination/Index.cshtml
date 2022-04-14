@@ -37,13 +37,18 @@
                                         <h3>
                                             <a href="/Package/PackagesPerDestination?destination=@package.Destinations">@package.Destinations</a>
                                         </h3>
-                                        <div class="rating-start" title="Rated 5 out of 4">
-                                            <span style="width: 53%"></span>
+                                        @if (package.Ratings.Count() != 0)
+                                        {
+                                    <div class="review-area">
+                                        <span class="review-text">(@package.Ratings.Count)</span>
+                                        <div class="rating-start">
+                                            <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
                                         </div>
                                     </div>
+                                        }
+                                    </div>
+                                    </div>
                                 </div>
-                            </div>
-
                         }
 
                     </div>

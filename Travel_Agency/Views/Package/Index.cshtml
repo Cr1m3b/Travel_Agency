@@ -27,7 +27,7 @@
                         @foreach(var package in Model)
                         {
                             <div class="col-lg-4">
-                                <div class="package-wrap" style="height:650px">
+                                <div class="package-wrap" style="height:750px">
                                     <figure class="feature-image">
                                         <a href="/Package/Details/@package.PackageId">
                                             <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -76,23 +76,23 @@
                                             </h3>
                                             <h5> @package.TripDate.ToShortDateString() </h5>
                                             <div class="review-area">
-                                                @if (package.Comments.Count() == 0)
+                                                @if (@package.Ratings.Count() == 0)
                                                 {
                                                     <span class="review-text">(No reviews with comment)</span>
                                                 }
                                                 else
                                                 {
                                                     <span class="review-text">(@package.Ratings.Count() reviews)</span>
-                                                }
-                                                    <br />
-                                                    @if (package.Ratings.Count() != 0)
-                                                    {
-                                                        <div class="rating-start" title="Rated 5 out of 5">
-                                                            <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
-                                                        </div>
-                                                    }
 
-                                                </div>
+                                                }
+                                                @if (package.Ratings.Count != 0)
+                                                {
+                                                    <div class="rating-start" title="Rated 5 out of 5">
+                                                        <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                    </div>
+                                                }
+
+                                            </div>
                                             <p>@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
