@@ -109,8 +109,8 @@
                                         </ul>
                                     </div>
                                     <div class="package-content">
-                                        <h3>
-                                            <a href="#">@package.Title</a>
+                                        <h3 class="package-title" title="@package.Title">
+                                            <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
                                             @if (@package.Ratings.Count() == 0)
@@ -129,7 +129,7 @@
                                                 </div>
                                             }
                                         </div>
-                                        <p>@package.Description</p>
+                                        <p class="package-description">@package.Description</p>
                                         <div class="btn-wrap">
                                             <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                             <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
@@ -166,7 +166,7 @@
                     @foreach (var package in Model.PopularPackages)
                     {
                         <div class="col-lg-4 col-md-6">
-                            <div class="package-wrap" style="height:650px">
+                            <div class="package-wrap">
                                 <figure class="feature-image">
                                     <a href="/Package/Details/@package.PackageId">
                                         <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -191,8 +191,8 @@
                                         </ul>
                                     </div>
                                     <div class="package-content">
-                                        <h3>
-                                            <a href="#">@package.Title</a>
+                                        <h3 class="package-title" title="@package.Title">
+                                            <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
                                             @if (@package.Ratings.Count() == 0)
@@ -211,7 +211,7 @@
                                                 </div>
                                             }
                                         </div>
-                                        <p>@package.Description</p>
+                                        <p class="package-description">@package.Description</p>
                                         <div class="btn-wrap">
                                             <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                             <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
@@ -269,7 +269,7 @@
                                     <div class="meta-cat">
                                         <a href="#">@package.Destinations</a>
                                     </div>
-                                    <h3>
+                                    <h3 class="package-title" title="@package.Title">
                                         <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
                                     </h3>
                                     <div class="package-price">
