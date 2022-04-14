@@ -13,12 +13,15 @@ namespace Entities.IdentityUsers
 {
     public class ApplicationUser : IdentityUser
     {
-        
+        public ApplicationUser()
+        {
+            Bookings = new HashSet<Booking>();
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<Booking> Bookings { get; set; }
-        public List<Comment> Comments { get; set; }
-        public List<ReplyComment> ReplyComments { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<ReplyComment> ReplyComments { get; set; }
         public DateTime Birthday { get; set; }
         public string Country { get; set; }
         public string City { get; set; }

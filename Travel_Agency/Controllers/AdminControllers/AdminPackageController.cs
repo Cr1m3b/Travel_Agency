@@ -15,16 +15,16 @@ namespace Travel_Agency.Controllers.AdminController
     public class AdminPackageController : Controller
     {
         private ApplicationDbContext db ;
-        private PackageRepository repository;
+        private PackageRepository packageRepository;
         public AdminPackageController()
         {
             db = new ApplicationDbContext();
-            repository = new PackageRepository(db);
+            packageRepository = new PackageRepository(db);
         }
         // GET: AdminPackage
         public ActionResult Index(string status, string sortOrder)
         {
-            var packages = repository.GetAllWithRelatedTables().ToList();
+            var packages = packageRepository.GetAllWithRelatedTables().ToList();
             if (status == "active")
             {
                 packages = packages.Where(x => x.PackageStatus == Status.Active).ToList();
@@ -83,7 +83,7 @@ namespace Travel_Agency.Controllers.AdminController
 
             if (ModelState.IsValid)
             {
-                repository.Add(package);
+                packageRepository.Add(package);
                 return RedirectToAction("Index");
             }
 
@@ -99,7 +99,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package =repository.GetByIdWithRelatedTables(id);
+            Package package =packageRepository.GetByIdWithRelatedTables(id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -157,7 +157,7 @@ namespace Travel_Agency.Controllers.AdminController
             
             if (ModelState.IsValid)
             {
-                repository.Edit(package);
+                packageRepository.Edit(package);
                 return RedirectToAction("Index");
             }
             ViewBag.FlightId = new SelectList(db.Flights, "FlightId", "CompanyName", package.FlightId);
@@ -172,7 +172,7 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package =repository.GetByIdWithRelatedTables(id);
+            Package package =packageRepository.GetByIdWithRelatedTables(id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -187,7 +187,7 @@ namespace Travel_Agency.Controllers.AdminController
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var package = repository.GetByIdWithRelatedTables(id);
+            var package = packageRepository.GetByIdWithRelatedTables(id);
             if (package == null)
             {
                 return HttpNotFound();
@@ -206,7 +206,7 @@ namespace Travel_Agency.Controllers.AdminController
                 db.Entry(rating).State = EntityState.Deleted;
             }
             db.SaveChanges();
-            repository.Delete(id);
+            packageRepository.Delete(id);
 
             return RedirectToAction("Index");
         }

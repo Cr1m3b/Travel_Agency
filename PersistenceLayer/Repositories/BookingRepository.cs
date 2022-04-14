@@ -18,8 +18,7 @@ namespace PersistenceLayer.Repositories
         public IEnumerable<Booking> GetAllWithRelatedTables()
         {
             return Context.Bookings.Include(b => b.ApplicationUser)
-                                   .Include(b => b.Packages)
-                                   .ToList();
+                                   .Include(b => b.Packages);
         }
     }
 }

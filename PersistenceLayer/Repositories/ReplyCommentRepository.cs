@@ -18,9 +18,8 @@ namespace PersistenceLayer.Repositories
 
         public IEnumerable<ReplyComment> GetAllWithRelatedTables()
         {
-            return Context.ReplyComments.Include(r=>r.ApplicationUser)
-                                        .Include(r => r.Comment)
-                                        .ToList();
+            return Context.ReplyComments.Include(r => r.ApplicationUser)
+                                        .Include(r => r.Comment);
         }
 
         public ReplyComment GetByIdWithRelatedTables(int? id)
