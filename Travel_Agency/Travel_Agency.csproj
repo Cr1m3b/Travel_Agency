@@ -547,6 +547,7 @@
     <Content Include="Theme\TravelAgency\assets\images\slider-banner-1.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\slider-banner-2.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\slider-pattern.png" />
+    <Content Include="Content\Video\The-Greek-Summer-State-of-Mind-1080p.mp4" />
     <Content Include="Theme\TravelAgency\assets\images\travele-logo.png" />
     <Content Include="Theme\TravelAgency\assets\images\user-img.png" />
     <Content Include="Theme\TravelAgency\assets\js\custom.js" />

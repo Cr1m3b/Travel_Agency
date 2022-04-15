@@ -25,7 +25,7 @@
                         @foreach(var package in Model)
                         {
                             <div class="col-lg-4">
-                                <div class="package-wrap">
+                                <div class="package-wrap" style="height:750px">
                                     <figure class="feature-image">
                                         <a href="/Package/Details/@package.PackageId">
                                             <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -89,7 +89,7 @@
                                                     }
 
                                                 </div>
-                                            <p class="package-description">@package.Description</p>
+                                            <p>@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                                 <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
