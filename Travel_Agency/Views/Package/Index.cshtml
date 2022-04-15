@@ -73,16 +73,16 @@
                                             </h3>
                                             <h5> @package.TripDate.ToShortDateString() </h5>
                                             <div class="review-area">
-                                                @if (package.Comments.Count() == 0)
+                                                @if (package.Comments.Count == 0)
                                                 {
                                                     <span class="review-text">(No reviews with comment)</span>
                                                 }
                                                 else
                                                 {
-                                                    <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                    <span class="review-text">(@package.Ratings.Count reviews)</span>
                                                 }
                                                     <br />
-                                                    @if (package.Ratings.Count() != 0)
+                                                    @if (package.Ratings.Count != 0)
                                                     {
                                                         <div class="rating-start" title="Rated 5 out of 5">
                                                             <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
