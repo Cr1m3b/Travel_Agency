@@ -242,6 +242,7 @@
     <Content Include="Content\Images\Backgrounds\travele.jpg" />
     <Content Include="Content\Images\Backgrounds\TravelReady.png" />
     <Content Include="Content\Images\Backgrounds\vonitsa.jpg" />
+    <Content Include="Content\Images\Backgrounds\waterfall.jpg" />
     <Content Include="Content\Images\Backgrounds\wish.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona1.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona2.jpg" />
@@ -878,7 +879,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64542/</IISUrl>
+          <IISUrl>https://localhost:44335/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

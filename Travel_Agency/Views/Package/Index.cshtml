@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
 
-
 <div id="page" class="full-page">
     <main id="content" class="site-main">
         <!-- Inner Banner html start-->
@@ -27,7 +26,7 @@
                         @foreach (var package in Model)
                         {
                             <div class="col-lg-4">
-                                <div class="package-wrap" style="height:750px">
+                                <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="/Package/Details/@package.PackageId">
                                             <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -74,7 +73,7 @@
                                             </h3>
                                             <h5> @package.TripDate.ToShortDateString() </h5>
                                             <div class="review-area">
-                                                @if (package.Comments.Count() == 0)
+                                                @if (package.Comments.Count == 0)
                                                 {
                                                     <span class="review-text">(No reviews)</span>
                                                 }

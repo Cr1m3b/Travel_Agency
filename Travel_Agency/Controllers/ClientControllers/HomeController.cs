@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Travel_Agency.Controllers
 {
-    
+    [RequireHttps]
     public class HomeController : Controller
     {
         private ApplicationDbContext db;
