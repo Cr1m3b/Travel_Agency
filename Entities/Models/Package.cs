@@ -15,7 +15,6 @@ namespace Entities.Models
         {
             Photos = new HashSet<Photo>();
             Comments= new HashSet<Comment>();
-            Ratings = new HashSet<Rating>();
         }
         public int PackageId { get; set; }
         public string Title { get; set; }
@@ -38,7 +37,6 @@ namespace Entities.Models
         public int FlightId { get; set; }
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<Rating> Ratings { get; set; }
         public ICollection<Booking> Bookings { get; set; }
         /// <summary>
         /// Final price of package (after calculating discount, if any)
@@ -54,12 +52,11 @@ namespace Entities.Models
             double sum = 0;
             foreach (var com in Comments)
             {
-                sum += com.Rating;
+                sum += com.Rating.RateScore;
             }
             return Math.Round(sum / Comments.Count, MidpointRounding.ToEven);
         }
         
-
     }
     
 }

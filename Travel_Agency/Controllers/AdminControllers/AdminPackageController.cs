@@ -199,7 +199,14 @@ namespace Travel_Agency.Controllers.AdminController
                 db.Entry(comment).State = EntityState.Deleted;
             }
             db.SaveChanges();
-            var ratingIds = package.Ratings.Select(x => x.RatingId).ToList();
+
+            List<int> ratingIds = new List<int>();
+            foreach (var comment in package.Comments)
+            {
+                ratingIds.Add(comment.Rating.RatingId);
+            }
+            //Να τεστάρουμε το comment και το delete στο AdminPackage
+            //var ratingIds = package.Ratings.Select(x => x.RatingId).ToList();
             foreach (var rate in ratingIds)
             {
                 var rating = db.Ratings.Find(rate);

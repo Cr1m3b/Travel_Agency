@@ -52,14 +52,16 @@ namespace Travel_Agency.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Comment comment,int id)
+        public ActionResult Create(Comment comment,int id,int rating)
         {
           comment.PackageId= id;
           comment.PostTime = DateTime.Now;
+          Rating r1 = new Rating { RateScore = rating };
 
             if (ModelState.IsValid)
             {
                 comment.PostTime = DateTime.Now;
+                comment.Rating = r1;
                 db.Entry(comment).State = EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("Details", "Package", new { id = id });
