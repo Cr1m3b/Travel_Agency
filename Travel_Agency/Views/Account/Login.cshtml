@@ -1,31 +1,36 @@
-﻿@model Travel_Agency.Models.LoginViewModel
+﻿@using Travel_Agency.Models
+@model Travel_Agency.Models.LoginViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+   
     <div class="login-page" style="background-image: url(../../Theme/TravelAgency/admin/assets/images/bg.jpg);">
         <div class="login-from-wrap">
 
             <h1 class="site-title">
                 <a href="/Home/Index"><img src="~/Theme/TravelAgency/admin/assets/images/logo.png" alt=""></a>
             </h1>
-            <div class="form-group">
-                @Html.LabelFor(model => model.UserName)
-                @Html.EditorFor(model => model.UserName)
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password)
-                @Html.EditorFor(model => model.Password)
-            </div>
-            <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="Login" />
-            </div>
-            <a href="~/Account/ForgotPassword" class="for-pass">Forgot Password?</a>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName)
+                    @Html.EditorFor(model => model.UserName)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.EditorFor(model => model.Password)
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Login" />
+                </div>
+                <a href="~/Account/ForgotPassword" class="for-pass">Forgot Password?</a>
+            }
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
         </div>
     </div>
-}
+
 

@@ -3,8 +3,10 @@ using Entities.IdentityUsers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.Twitter;
 using MyDatabase;
 using Owin;
 using Travel_Agency.Models;
@@ -36,7 +38,7 @@ namespace Travel_Agency
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -60,11 +62,11 @@ namespace Travel_Agency
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "999164592707-hchjdi73peng2f74futnpbmgqg66ncv6.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }
