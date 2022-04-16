@@ -724,9 +724,40 @@ namespace MyDatabase.Seeding
 
             //Photo Seeding
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
-            Photo photosBarcelona1 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/fd/f4/museum_historically_architecture_building_barcelona_city_park_spain-1414417.jpg!s1" };
+            Photo A1 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEGc2TaRKDQNxpN0HBwc2ANjH4So5FqBj6A&usqp=CAU" };
+            Photo A2 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo2u1gaSyxDLa3aE89nUaopnALf36dT48xg&usqp=CAU" };
+            Photo A3 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTobkG1T221r0ZX61dFpkDi_I5-qDI7WJIxLA&usqp=CAU" };
+            Photo A4 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS0oLZqQLOy5wOKdXSW6kyBUW_TSQJac_VOQ&usqp=CAU" };
+            Photo A5 = new Photo() { Destinations = Destinations.Athens, Url = "" };
+            
             Photo photosBarcelona2 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/d6/f3/national_palace_palau_nacional_palace_abendstimmung_twilight_afterglow_barcelona_sky-950954.jpg!s1" };
             Photo photosBarcelona3 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/91/ac/barcelona_montjuic_sunset_plaza_espa_a-1068204.jpg!s1" };
+            Photo B4 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjpjjDx6W7vKXQ0Nli8McuzoiHi7rtXzuaMg&usqp=CAU" };
+            Photo B5 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8DmD7BmkCN_5Acpg2G5kkgdERMzDGs5O2EA&usqp=CAU" };
+            Photo B6 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeKpsU6twBnse_2bd-jTImL0KVOWJCut2zw&usqp=CAU" };
+            Photo B7 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://www.kevmrc.com/wp-content/uploads/2021/07/parc-guell-is-in-the-famous-landmarks-barcelona-has-to-offer.jpg" };
+            Photo B8 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWaPFhvlRCgHMAUPKXvcTc-S5zjMxsvk-dg&usqp=CAU" };
+            
+            Photo P1 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2CmJ6MDZLa1Dm0g0-Qp17JygVBQJnTE0Qmg&usqp=CAU" };
+            Photo P2 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWxzwiUH-Y89VezW6IB0ePHmH5rLmgmIU0yA&usqp=CAU" };
+            Photo P3 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnT9v_1XDo8fRQf8hhzV8CwzLaqHbDRWreYQ&usqp=CAU" };
+            Photo P4 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpux9Fc5Fx6B-8O4UaszngbEs1SbdG37TxSg&usqp=CAU" };
+            Photo P5 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7QUuX1p21yD-R1ePkpCZccUUIZiut2A6mDA&usqp=CAU" };
+           
+            Photo L1 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCsix6MqHS0xVZgPYSu9kbtfL58sIq8JaXtA&usqp=CAU" };
+            Photo L2 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx2TH0dprgLJx8l3cuUE-2ISRK5oGcamPOlQ&usqp=CAU" };
+            Photo L3 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC9NaDDcoKb3Cgf8xzwdTi10leMutN__SmVw&usqp=CAU" };
+            Photo L4 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MiTpnWjkiZzfgA3oNGzdJPFaIyx3O8TuQ&usqp=CAU" };
+            
+            Photo R1 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3qg-N6nA6CQmGsP-aOfravqmI8TwbDb6pOA&usqp=CAU" };
+            Photo R2 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj_koovL3giS_JZwrejTMeBP96E7QJocPz6A&usqp=CAU" };
+            Photo R3 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2-F9S5aPhR5yy4FxrCJPlaz_dAEF4BwOteA&usqp=CAU" };
+            Photo R4 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdQLyKusjPCN0i5XCrFpAOEiqwMmhxbpQ3AA&usqp=CAU" };
+            Photo R5 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTB_hHSuIrlMG3nudddhdB2VrjayOIC0wmw&usqp=CAU" };
+            Photo R6 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVIiKGrw29MIhf-hnmuchEqD134AxM9P2CkA&usqp=CAU" };
+
+            Photo P9 = new Photo() { Destinations = Destinations.Paris, Url = "" };
+            
             Photo photosLondon = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvp5BzRDdhtlUNh7CGHYdVp_HFwDs_FOx-Ow&usqp=CAU" };
             Photo photosParis = new Photo() { Destinations = Destinations.Paris, Url = "https://c.pxhere.com/photos/3c/c2/eiffel_tower_paris-159.jpg!s1" };
             Photo photosRome = new Photo() { Destinations = Destinations.Rome, Url = "http://www.cosavisitarearoma.it/images/immagini_articoli/piazza-di-spagna.jpg" };
@@ -735,15 +766,39 @@ namespace MyDatabase.Seeding
             Photo photoCappadocia1 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318992085.jpg?k=5a5214d69215f0998e8b9aaeb42c90330a66c60c64dfd2ee18dbeece0af43c78&o=&hp=1" };
 
 
-            List<Photo> photos = new List<Photo>() { photosAthens,photosBarcelona1, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome, photosLisbon,photoCappadocia,photoCappadocia1 };
+            List<Photo> photos = new List<Photo>() { photosAthens, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome, photosLisbon,photoCappadocia,photoCappadocia1,A1,A2,A3,A4,A5,
+            B4,B5,B6,B7,B8,P2,P1,P3,P4,P5,L1,L2,L3,L4 };
             db.Photos.AddRange(photos);
 
-            p1.Photos.Add(photosBarcelona1);
+           
             p1.Photos.Add(photosBarcelona2);
             p1.Photos.Add(photosBarcelona3);
+            p1.Photos.Add(B4);
+            p1.Photos.Add(B5);
+            p1.Photos.Add(B6);
+            p1.Photos.Add(B7);
+            p1.Photos.Add(B8);
+           
             p2.Photos.Add(photosParis);
+            p2.Photos.Add(P1);
+            p2.Photos.Add(P2);
+            p2.Photos.Add(P3);
+            p2.Photos.Add(P4);
+            p2.Photos.Add(P5);
+           
             p3.Photos.Add(photosAthens);
-            p4.Photos.Add(photosLondon);
+            p3.Photos.Add(A1);
+            p3.Photos.Add(A2);
+            p3.Photos.Add(A3);
+            p3.Photos.Add(A4);
+
+            p26.Photos.Add(photosLondon);
+            p26.Photos.Add(L1);
+            p26.Photos.Add(L2);
+            p26.Photos.Add(L3);
+            p26.Photos.Add(L4);
+            p26.Photos.Add(photosLondon);
+
             p5.Photos.Add(photosRome);
             p6.Photos.Add(photosLisbon);
             p7.Photos.Add(photoCappadocia);
@@ -751,7 +806,8 @@ namespace MyDatabase.Seeding
             p8.Photos.Add(photoCappadocia1);
 
             // Comment Seeding
-            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25),Rating=4 };
+            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25) };
+        
             Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29), Rating = 5 };
             Comment com3 = new Comment() { CommentContent = "The city was nice and we had amazing time in Athens, but the tour guide was't what we expected. He seemed to be bored and avoided to answer questions.",PostTime=new DateTime(2021,05,29), Rating = 3 };
             Comment com4 = new Comment() { CommentContent = "Me and my fiance, we love the city. We had been in Paris before but I wanted to go again everything organised through an agency so everything to be amazing for my marriage proposal. Thank you Travele agency for helping me making this trip an unforgetable mmemory!",PostTime=new DateTime(2022,02,15), Rating = 5 };
@@ -941,10 +997,7 @@ namespace MyDatabase.Seeding
             List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
             db.Ratings.AddRange(ratings);
 
-            p1.Ratings.Add(r1);
-            p1.Ratings.Add(r3);
-            p2.Ratings.Add(r2);
-            p2.Ratings.Add(r2);
+          
 
             //ReplyComment Seeding
              ReplyComment rep1=new ReplyComment() {ReplyContent= "All recommendations were within our budget. An invaluable service! Thank you",ReplyPostTime=DateTime.Now };

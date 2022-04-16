@@ -32,12 +32,13 @@ namespace Entities.Models
         public Destinations Destinations { get; set; }
         public Status PackageStatus { get; set; }
         //Navigation Properties
-        public ICollection<Photo> Photos { get; set; }
+       
         public int HotelId { get; set; }
         public Hotel Hotel { get; set; }
         public int FlightId { get; set; }
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<Photo> Photos{ get; set; }
         public ICollection<Rating> Ratings { get; set; }
         public ICollection<Booking> Bookings { get; set; }
         /// <summary>
