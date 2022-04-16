@@ -230,8 +230,8 @@
                                         <span>€@Model.FinalPrice() </span> / per person
                                     </h5>
                                     <div class="start-wrap">
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 60%"></span>
+                                        <div class="rating-start" title="Rated @Model.AveragePackageRating() out of 5">
+                                            <span style="width: calc((@Model.AveragePackageRating()*20%))"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -245,8 +245,8 @@
                                     @if (!(@Model.Comments.Count == 0))
                                     {
                                         <div class="start-wrap">
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span style="width: 60%"></span>
+                                            <div class="rating-start" title="Rated @Model.AveragePackageRating() out of 5">
+                                                <span style="width: calc((@Model.AveragePackageRating()*20%))"></span>
                                             </div>
                                         </div>
                                     }

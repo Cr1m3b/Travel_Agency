@@ -195,7 +195,7 @@ namespace Travel_Agency.Controllers
         }
         public ActionResult Delete(string username)
         {
-            var user = db.Users.Where(u => u.UserName == username).First();
+            var user = userRepository.GetAll().Where(u => u.UserName == username).First();
             if (user == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

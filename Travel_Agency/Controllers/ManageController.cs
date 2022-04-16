@@ -3,9 +3,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Entities.IdentityUsers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using MyDatabase;
+using PersistenceLayer.Repositories;
 using Travel_Agency.Models;
 
 namespace Travel_Agency.Controllers
@@ -13,11 +16,15 @@ namespace Travel_Agency.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private ApplicationDbContext db;
+        private ApplicationUserRepository userRepository;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public ManageController()
         {
+            db = new ApplicationDbContext();
+            userRepository = new ApplicationUserRepository(db);
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -64,8 +71,10 @@ namespace Travel_Agency.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            var userName = User.Identity.GetUserName();
             var model = new IndexViewModel
             {
+                UserName = userName,
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
@@ -74,10 +83,32 @@ namespace Travel_Agency.Controllers
             };
             return View(model);
         }
-        public ActionResult UserDetails(string username)
+        public ActionResult UserDetails(string userName)
         {
+            var user = db.Users.Where(u=>u.UserName==userName).FirstOrDefault();
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                ViewBag.NotFoundUsername = userName;
+                return View(user);
+            }
+           
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult UserDetails(ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                userRepository.Edit(user);
+                ViewBag.EditedUsername = user.UserName;
+                return RedirectToAction("Index", "Manage");
+            }
+            ViewBag.NotEditedUsername = user.UserName;
+            return RedirectToAction("Index", "Manage");
         }
 
 

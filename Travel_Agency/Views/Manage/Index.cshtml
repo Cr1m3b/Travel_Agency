@@ -1,56 +1,62 @@
 ﻿@model Travel_Agency.Models.IndexViewModel
-    
+
 @{
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
-
-
 <div id="page" class="full-page">
-    <main id="content" class="site-main">
-        <!-- Inner Banner html start-->
-        <section class="inner-banner-wrap">
-            <div class="inner-baner-container" style="background-image: url('../../Content/Images/budapest_1.jpg'); background-position: center ">
-                <div class="container">
-                    <div class="inner-banner-content">
-                        <h1 class="inner-title">Account Settings</h1>
-                    </div>
+
+
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url(../../Content/Images/Backgrounds/wish.jpg);">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h2 class="inner-title">Change Your Details</h2>
                 </div>
             </div>
-            <div class="inner-shape"></div>
-            <div class="col-lg-12 right-sidebar">
-                <p class="text-success">@ViewBag.StatusMessage</p>
-                <div>
-                    <h4>Change your account settings</h4>
-                    <hr />
-                    <dl class="dl-horizontal">
-                        <dt style="position:center;left:50px;">Password:</dt>
-                        <dd>
-                            [
-                            @if (Model.HasPassword)
-                            {
-                                @Html.ActionLink("Change your password", "ChangePassword")
-                            }
-                            else
-                            {
-                                @Html.ActionLink("Create", "SetPassword")
-                            }
-                            ]
-                        </dd>
-                        <dt>External Logins:</dt>
-                        <dd>
-                            @Model.Logins.Count [
-                            @Html.ActionLink("Manage", "ManageLogins") ]
-                        </dd>
+        </div>
+        <div class="inner-shape"></div>
+    </section>
+    <main id="content" class="site-main">
+        <p class="text-success">@ViewBag.StatusMessage</p>
 
-                        @*
+        <dl class="dl-horizontal" style="margin-left:30px;" >
+            <dt>Password:</dt>
+            <dd>
+                @if (Model.HasPassword)
+                {
+                    using (Html.BeginForm("ChangePassword","Manage", FormMethod.Get))
+                    {
+                        <button type="submit" name="Change your password" class="button-primary">Change your password</button>
+                    }
+                    @*<button class="btn btn-primary" value="Change your password">
+                            @Html.ActionLink("Change your password", "ChangePassword")
+                    </button>*@
+
+                }
+                else
+                {
+                    @Html.ActionLink("Create", "SetPassword")
+                }
+            </dd>
+
+            <dt>Change Details:</dt>
+            <dd>
+                @using (Html.BeginForm("UserDetails", "Manage", FormMethod.Get))
+                {
+                    <input type="hidden" name="userName" value="@Model.UserName" />
+                    <button type="submit" class="button-primary">Change your details</button>
+                }
+            </dd>
+
+            @*
                 Phone Numbers can used as a second factor of verification in a two-factor authentication system.
 
                  See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                     for details on setting up this ASP.NET application to support two-factor authentication using SMS.
 
-                 Uncomment the following block after you have set up two-factor authentication
-                        *@
-                        @*
+                     Uncomment the following block after you have set up two-factor authentication
+            *@
+            @*
                 <dt>Phone Number:</dt>
                 <dd>
                     @(Model.PhoneNumber ?? "None")
@@ -69,14 +75,14 @@
                         <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
                     }
                 </dd>
-                        *@
-                        <dt>Two-Factor Authentication:</dt>
-                        <dd>
-                            <p>
-                                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                                for details on setting up this ASP.NET application to support two-factor authentication.
-                            </p>
-                            @*@if (Model.TwoFactor)
+            *@
+            <!--<dt>Two-Factor Authentication:</dt>
+            <dd>
+                <p>
+                    There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                    for details on setting up this ASP.NET application to support two-factor authentication.
+                </p>-->
+                @*@if (Model.TwoFactor)
                     {
                         using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
@@ -96,15 +102,8 @@
                             </text>
                         }
                     }*@
-                        </dd>
-                    </dl>
-
-                    <a href="Manage/UserDetails">
-                        <button type="submit" class="button-primary">Change your details</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-        </main>
-    </div>
-
+            <!--</dd>-->
+        </dl>
+        
+    </main>
+</div>        
