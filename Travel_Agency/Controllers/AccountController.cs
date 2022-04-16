@@ -84,6 +84,10 @@ namespace Travel_Agency.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    if(model.UserName == "Admin")
+                    {
+                        return RedirectToAction("Index", "AdminDashboard");
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

@@ -8,6 +8,8 @@ using System.ComponentModel.DataAnnotations;
 using Entities.Models.Enums;
 using Entities.Enums;
 using Entities.IdentityUsers;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace MyDatabase.Seeding
 {
@@ -894,6 +896,33 @@ namespace MyDatabase.Seeding
 
             com1.ReplyComments.Add(rep2);
             com2.ReplyComments.Add(rep1);
+
+            if (!db.Roles.Any(x => x.Name == MyRoles.RoleAdmin))
+            {
+                var store = new RoleStore<IdentityRole>(db);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole() { Name = MyRoles.RoleAdmin };
+
+                manager.Create(role);
+            }
+            if (!db.Users.Any(x => x.UserName == "Admin"))
+            {
+                var store = new UserStore<ApplicationUser>(db);
+                var userManager = new UserManager<ApplicationUser>(store);
+                var passwordHash = new PasswordHasher();
+
+                var user = new ApplicationUser()
+                {
+                    UserName = "Admin",
+                    FirstName = "Ektoras",
+                    LastName = "Gatsos",
+                    Email = "admin@gmail.com",
+                    Birthday = new DateTime(1978, 02, 03),
+                    PasswordHash = passwordHash.HashPassword("Admin1234!")
+                };
+                userManager.Create(user);
+                userManager.AddToRole(user.Id, "Admin");
+            }
 
             db.SaveChanges();
         }
