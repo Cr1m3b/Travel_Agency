@@ -113,7 +113,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Enums\Destinations.cs" />
     <Compile Include="Models\Package.cs" />
-    <Compile Include="Models\Photos.cs" />
+    <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\MyRoles.cs" />
     <Compile Include="Models\ShoppingCard.cs" />

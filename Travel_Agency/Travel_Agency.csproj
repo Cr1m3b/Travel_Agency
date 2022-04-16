@@ -238,6 +238,7 @@
     <Content Include="Content\Images\Athens\Athens7.jpg" />
     <Content Include="Content\Images\Backgrounds\Europe.jpg" />
     <Content Include="Content\Images\Backgrounds\kgr87n-1.jpg" />
+    <Content Include="Content\Images\Backgrounds\lights.jpg" />
     <Content Include="Content\Images\Backgrounds\nature1.jpg" />
     <Content Include="Content\Images\Backgrounds\travele.jpg" />
     <Content Include="Content\Images\Backgrounds\TravelReady.png" />
@@ -675,7 +676,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Booking\Create.cshtml" />
-    <Content Include="Views\Booking\Details.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Theme\TravelAgency\admin\assets\sass\base\_clearings.scss" />
     <Content Include="Theme\TravelAgency\admin\assets\sass\base\_normalize.scss" />

@@ -38,7 +38,6 @@ namespace Entities.Models
         public Flight Flight { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<Photo> Photos{ get; set; }
         public ICollection<Rating> Ratings { get; set; }
         public ICollection<Booking> Bookings { get; set; }
         /// <summary>
