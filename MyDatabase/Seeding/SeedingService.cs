@@ -24,6 +24,7 @@ namespace MyDatabase.Seeding
         public void SeedPackages()
         {
             //Package Seeding
+            #region Packages
             Package p1 = new Package() { Title = "Discover Barcelona ", 
                 Description = "Barcelona is not famous only for its outstanding football team but also for the stunning architecture, lively nightlife, sandy beaches, and world class cuisine. Take the chance to explore the city!",
                 Program = "Barcelona offers a large number of tourist attractions and cultural sights. So, for you in order to not miss anything a tour will take place the first two day to guide and tell the stories of the below landmarks:" +
@@ -401,9 +402,10 @@ namespace MyDatabase.Seeding
             };
             List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26};
             db.Packages.AddRange(packages);
-
+            #endregion
 
             //ApplicationUser Seeding
+            #region registeredUsers
             ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", FirstName = "John", LastName = "Hopkins", PhoneNumber = "+30 6984548965", Email = "john1@yahoo.gr", Birthday = new DateTime(1990, 8, 1), Country = "France", City = "Paris", ZipCode = "75001", Address = "Rue Pierre Guérin 21" };
             ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", FirstName = "Nick", LastName = "Hughes", PhoneNumber = "+30 6981236365", Email = "nick1@gmail.com", Birthday = new DateTime(1984, 5, 10), Country = "Greece", City = "Athens", ZipCode = "10431", Address = "Patision 32" };
             ApplicationUser ap3 = new ApplicationUser() { UserName = "Alex123", FirstName = "Alex", LastName = "Ital", PhoneNumber = "+49 1763535596", Email = "alexital@gmail.com", Birthday = new DateTime(1972, 5, 10), Country = "Germany", City = "Stolhofen", ZipCode = "72456", Address = "Winnipeg Avenue" };
@@ -429,8 +431,10 @@ namespace MyDatabase.Seeding
             db.Users.Add(ap10);
             db.Users.Add(ap11);
             db.Users.Add(ap12);
+            #endregion
 
             //Booking Seeding
+            #region Bookings
             Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
             Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
             Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 966 };
@@ -749,7 +753,7 @@ namespace MyDatabase.Seeding
             b123.Packages.Add(p15);
             b124.Packages.Add(p15);
             b125.Packages.Add(p15);
-
+            #endregion
 
 
             //Photo Seeding
@@ -844,37 +848,64 @@ namespace MyDatabase.Seeding
 
 
             // Comment Seeding
+            #region comments and their ratings
             Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25) };
-        
-            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29), Rating = 5 };
-            Comment com3 = new Comment() { CommentContent = "The city was nice and we had amazing time in Athens, but the tour guide was't what we expected. He seemed to be bored and avoided to answer questions.",PostTime=new DateTime(2021,05,29), Rating = 3 };
-            Comment com4 = new Comment() { CommentContent = "Me and my fiance, we love the city. We had been in Paris before but I wanted to go again everything organised through an agency so everything to be amazing for my marriage proposal. Thank you Travele agency for helping me making this trip an unforgetable mmemory!",PostTime=new DateTime(2022,02,15), Rating = 5 };
-            Comment com5 = new Comment() { CommentContent = "I love London, I can visit this city again and again. I am so happy that Travele agency organised everything because <i was super stressed with covid regulations. Although I want to confess that the hotel didn't reach my expectations.",PostTime=new DateTime(2022,01,15), Rating = 4 };
-            Comment com6 = new Comment() { CommentContent = "Travelling was not my thing, but not any more... Thank you for everything, the trip was perfectly organised till the last detail.",PostTime=new DateTime(2021,10,15), Rating = 5 };
-            Comment com7 = new Comment() { CommentContent = "We haven't been there yet, but we are looking forward. Friends of ours suggested the agency and I hope to fullfill my son's desire to fly high with a ballon.",PostTime=new DateTime(2022,03,1), Rating = 5 };
-            Comment com8 = new Comment() { CommentContent = "My mind was blown away. Didn't expect the city to be that magical. Was like an Alladin movie....",PostTime=new DateTime(2022,04,1), Rating = 5 };
-            Comment com9 = new Comment() { CommentContent = "Trip was good, but the city was too dark - gothic from my taste",PostTime=new DateTime(2022,03,10), Rating = 3 };
-            Comment com10 = new Comment() { CommentContent = "I am really curius about this trip because northen countries are not really my cup of tea. I like the idea of relaxing at a natural pool with tha extraordinary scenery.",PostTime=new DateTime(2022,03,10), Rating = 5 };
-            Comment com11 = new Comment() { CommentContent = "I loved the vibes of the city. The Light Festival was the best highlight.",PostTime=new DateTime(2021,10,10), Rating = 5 };
-            Comment com12 = new Comment() { CommentContent = "Travelling to Greece was always my dream. Strongly recommend this offer. PS book a daily cruise.",PostTime=new DateTime(2021,09,10), Rating = 5 };
-            Comment com13 = new Comment() { CommentContent = "In love with island's wild beauty, fresh fish and the warm locals.",PostTime=new DateTime(2022,02,19), Rating = 5 };
-            Comment com14 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.",PostTime=new DateTime(2021,05,30), Rating = 4 };
-            Comment com15 = new Comment() { CommentContent = "Love love love. Unforgetable memories! I made loads of new friend that we all share the same interests: ski and outdoor parties.",PostTime=new DateTime(2021,12,30), Rating = 5 };
-            Comment com16 = new Comment() { CommentContent = "A paradise on Earth. First Christmas that didn't have to organise anything. Hope Travele Agency will make similar destinations for Christmas vacay otherwise every year we will travel to Mauritius :P",PostTime=new DateTime(2022,1,2), Rating = 5 };
-            Comment com17 = new Comment() { CommentContent = "Village Sol, the bearth taking view at Mirador Es Colomer Formentor, party life at Es Arenal... more than good reasons to visit this island.", PostTime=new DateTime(2021,11,2), Rating = 5 };
-            Comment com18 = new Comment() { CommentContent = "Two days are not enough for Dubai.. This place makes you feel rich without spending a fortune.", PostTime=new DateTime(2021,11,2), Rating = 5 };
-            Comment com19 = new Comment() { CommentContent = "Booked this trip to show off to a friend. Cute city but nothing special, unless if you like window shopping Rollex, Louis Vuiton... A place that I liked was the waterfalls close to Zurich that was really spectacullar.", PostTime=new DateTime(2022,4,2), Rating = 3 };
-            Comment com20 = new Comment() { CommentContent = "You have to visit Milan, the cathedral Duomo and the amazing shopping opportunities are more than enough! But in general I adore the italian life style and don't loose the opportunity to visit this country. ", PostTime=new DateTime(2022,2,1), Rating = 5 };
-            Comment com21 = new Comment() { CommentContent = "For real this trip is for art lovers, I enjoyed so much Reina Sofia Museum plus my husband visited Real Madrid's stadium so was a double win.", PostTime=new DateTime(2022,2,1), Rating = 5 };
-            Comment com22 = new Comment() { CommentContent = "I enjoyed a lot the food, the view, the hotel.Everything was amazing but not the vans that was trasferring us from place to place... We felt unsafe and we had to rent a car for ourselves.", PostTime=new DateTime(2021,12,1), Rating = 3 };
-            Comment com23 = new Comment() { CommentContent = "Top destination! Quite expenseive but worth the money", PostTime=new DateTime(2021,11,10), Rating = 5 };
-            Comment com24 = new Comment() { CommentContent = "I had a nice time there but not  an extraordinary place", PostTime=new DateTime(2022,3,28), Rating = 5 };
-            Comment com25 = new Comment() { CommentContent = "Nice job guys, keep it this way", PostTime=new DateTime(2022,2,28), Rating = 5 };
-            Comment com26 = new Comment() { CommentContent = "Happy that crossed this capital from my bucket list. Had fun wandering around the city.", PostTime=new DateTime(2021,10,28), Rating = 5 };
-            Comment com27 = new Comment() { CommentContent = "After so many years of marriage we visited Cancun and renewed our love, better than holiday. We had such an amazing time we didn't left the resort.", PostTime=new DateTime(2021,10,28), Rating = 5 };
-            Comment com28 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2022,1,28), Rating = 5 };
-           
-            
+            com1.Rating = r2;
+            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29) };
+            com2.Rating = r2;
+            Comment com3 = new Comment() { CommentContent = "The city was nice and we had amazing time in Athens, but the tour guide was't what we expected. He seemed to be bored and avoided to answer questions.",PostTime=new DateTime(2021,05,29)};
+            com3.Rating = r1;
+            Comment com4 = new Comment() { CommentContent = "Me and my fiance, we love the city. We had been in Paris before but I wanted to go again everything organised through an agency so everything to be amazing for my marriage proposal. Thank you Travele agency for helping me making this trip an unforgetable mmemory!",PostTime=new DateTime(2022,02,15)};
+            com4.Rating = r2;
+            Comment com5 = new Comment() { CommentContent = "I love London, I can visit this city again and again. I am so happy that Travele agency organised everything because <i was super stressed with covid regulations. Although I want to confess that the hotel didn't reach my expectations.",PostTime=new DateTime(2022,01,15)};
+            com5.Rating = r2;
+            Comment com6 = new Comment() { CommentContent = "Travelling was not my thing, but not any more... Thank you for everything, the trip was perfectly organised till the last detail.",PostTime=new DateTime(2021,10,15)};
+            com6.Rating = r2;
+            Comment com7 = new Comment() { CommentContent = "We haven't been there yet, but we are looking forward. Friends of ours suggested the agency and I hope to fullfill my son's desire to fly high with a ballon.",PostTime=new DateTime(2022,03,1)};
+            com7.Rating = r2;
+            Comment com8 = new Comment() { CommentContent = "My mind was blown away. Didn't expect the city to be that magical. Was like an Alladin movie....",PostTime=new DateTime(2022,04,1)};
+            com8.Rating = r2;
+            Comment com9 = new Comment() { CommentContent = "Trip was good, but the city was too dark - gothic from my taste",PostTime=new DateTime(2022,03,10)};
+            com9.Rating = r3;
+            Comment com10 = new Comment() { CommentContent = "I am really curius about this trip because northen countries are not really my cup of tea. I like the idea of relaxing at a natural pool with tha extraordinary scenery.",PostTime=new DateTime(2022,03,10)};
+            com10.Rating = r3;
+            Comment com11 = new Comment() { CommentContent = "I loved the vibes of the city. The Light Festival was the best highlight.",PostTime=new DateTime(2021,10,10)};
+            com11.Rating = r2;
+            Comment com12 = new Comment() { CommentContent = "Travelling to Greece was always my dream. Strongly recommend this offer. PS book a daily cruise.",PostTime=new DateTime(2021,09,10)};
+            com12.Rating = r2;
+            Comment com13 = new Comment() { CommentContent = "In love with island's wild beauty, fresh fish and the warm locals.",PostTime=new DateTime(2022,02,19)};
+            com13.Rating = r2;
+            Comment com14 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.",PostTime=new DateTime(2021,05,30)};
+            com14.Rating = r1;
+            Comment com15 = new Comment() { CommentContent = "Love love love. Unforgetable memories! I made loads of new friend that we all share the same interests: ski and outdoor parties.",PostTime=new DateTime(2021,12,30)};
+            com15.Rating = r2;
+            Comment com16 = new Comment() { CommentContent = "A paradise on Earth. First Christmas that didn't have to organise anything. Hope Travele Agency will make similar destinations for Christmas vacay otherwise every year we will travel to Mauritius :P",PostTime=new DateTime(2022,1,2)};
+            com16.Rating = r2;
+            Comment com17 = new Comment() { CommentContent = "Village Sol, the bearth taking view at Mirador Es Colomer Formentor, party life at Es Arenal... more than good reasons to visit this island.", PostTime=new DateTime(2021,11,2)};
+            com17.Rating = r2;
+            Comment com18 = new Comment() { CommentContent = "Two days are not enough for Dubai.. This place makes you feel rich without spending a fortune.", PostTime=new DateTime(2021,11,2)};
+            com18.Rating = r2;
+            Comment com19 = new Comment() { CommentContent = "Booked this trip to show off to a friend. Cute city but nothing special, unless if you like window shopping Rollex, Louis Vuiton... A place that I liked was the waterfalls close to Zurich that was really spectacullar.", PostTime=new DateTime(2022,4,2)};
+            com19.Rating = r3;
+            Comment com20 = new Comment() { CommentContent = "You have to visit Milan, the cathedral Duomo and the amazing shopping opportunities are more than enough! But in general I adore the italian life style and don't loose the opportunity to visit this country. ", PostTime=new DateTime(2022,2,1)};
+            com20.Rating = r2;
+            Comment com21 = new Comment() { CommentContent = "For real this trip is for art lovers, I enjoyed so much Reina Sofia Museum plus my husband visited Real Madrid's stadium so was a double win.", PostTime=new DateTime(2022,2,1)};
+            com21.Rating = r2;
+            Comment com22 = new Comment() { CommentContent = "I enjoyed a lot the food, the view, the hotel.Everything was amazing but not the vans that was trasferring us from place to place... We felt unsafe and we had to rent a car for ourselves.", PostTime=new DateTime(2021,12,1)};
+            com22.Rating = r2;
+            Comment com23 = new Comment() { CommentContent = "Top destination! Quite expensive but worth the money", PostTime=new DateTime(2021,11,10)};
+            com23.Rating = r2;
+            Comment com24 = new Comment() { CommentContent = "I had a nice time there but not  an extraordinary place", PostTime=new DateTime(2022,3,28)};
+            com2.Rating = r3;
+            Comment com25 = new Comment() { CommentContent = "Nice job guys, keep it this way", PostTime=new DateTime(2022,2,28)};
+            com25.Rating = r2;
+            Comment com26 = new Comment() { CommentContent = "Happy that crossed this capital from my bucket list. Had fun wandering around the city.", PostTime=new DateTime(2021,10,28)};
+            com26.Rating = r2;
+            Comment com27 = new Comment() { CommentContent = "After so many years of marriage we visited Cancun and renewed our love, better than holiday. We had such an amazing time we didn't left the resort.", PostTime=new DateTime(2021,10,28)};
+            com27.Rating = r2;
+            Comment com28 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2022,1,28)};
+            com28.Rating = r2;
+
             List<Comment> comments = new List<Comment>() { com1, com2,com3,com4,com5,com6,com7,com8,com9,com10,com11,com12,com13,com14,com15,com16,com17,com18,com19,com20,com21,com22,com23,
            com24,com25,com26,com27,com28 };
             db.Comments.AddRange(comments);
@@ -936,9 +967,10 @@ namespace MyDatabase.Seeding
             com26.ApplicationUser = ap4;
             com27.ApplicationUser = ap2;
             com28.ApplicationUser = ap8;
-
+            #endregion
 
             //Flight Seeding
+            #region aircompanies
             Flight f1 = new Flight() { CompanyName = "Aegean Airlines" };
             Flight f2 = new Flight() { CompanyName = "Turkish Airlines" };
             Flight f3 = new Flight() { CompanyName = "Lufthansa Airlines" };
@@ -972,11 +1004,11 @@ namespace MyDatabase.Seeding
             p24.Flight = f1;
             p25.Flight = f1;
             p26.Flight = f4;
-           
-        
+#endregion
+
 
             //Hotel Seeding
-
+            #region hotels
             Hotel h1 = new Hotel() { HotelName = "Saint-Roch", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1371578.3464393283!2d0.4517993!3d47.8228538!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2fc254a387%3A0x577904b1300e4ac7!2sH%C3%B4tel%20Saint%20Roch!5e0!3m2!1sen!2sgr!4v1647555131144!5m2!1sen!2sgr", HotelStars = 2, Destinations = Destinations.Paris };
             Hotel h2 = new Hotel() { HotelName = "InnAthens", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1600039324967!2d23.732028314815786!3d37.97339510848113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd3e119676e7%3A0x93f811d49b5e927d!2sINNATHENS%20HOTEL!5e0!3m2!1sen!2sgr!4v1647557551859!5m2!1sen!2sgr", HotelStars = 3, Destinations = Destinations.Athens };
             Hotel h3 = new Hotel() { HotelName = "Royal Palace Luxury Hotel", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23755.145321876313!2d12.46329223955078!3d41.90590610000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6055aa8c9451%3A0x6136f4b5c3fb2d3c!2sRoyal%20Palace%20Luxury%20Hotel!5e0!3m2!1sen!2sgr!4v1647563026489!5m2!1sen!2sgr", HotelStars = 4, Destinations = Destinations.Rome };
@@ -1028,15 +1060,17 @@ namespace MyDatabase.Seeding
             p24.Hotel = h20;
             p25.Hotel = h12;
             p26.Hotel = h5;
+            #endregion
+
 
             //Rate Seeding
-            Rating r1 = new Rating() { RateScore = 3};
-            Rating r2 = new Rating() { RateScore = 5};
-            Rating r3 = new Rating() { RateScore = 4};
-            List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
-            db.Ratings.AddRange(ratings);
+            //Rating r1 = new Rating() { RateScore = 3};
+            //Rating r2 = new Rating() { RateScore = 5};
+            //Rating r3 = new Rating() { RateScore = 4};
+            //List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
+            //db.Ratings.AddRange(ratings);
 
-          
+
 
             //ReplyComment Seeding
             ReplyComment rep1 = new ReplyComment() { ReplyContent = "All recommendations were within our budget. An invaluable service! Thank you", ReplyPostTime = DateTime.Now };
