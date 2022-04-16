@@ -22,7 +22,7 @@ namespace Entities.IdentityUsers
         public ICollection<Booking> Bookings { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<ReplyComment> ReplyComments { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string Address { get; set; }

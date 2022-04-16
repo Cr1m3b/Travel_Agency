@@ -200,21 +200,19 @@
     <Compile Include="Controllers\AdminControllers\AdminBookingController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminPackageController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
-    <Compile Include="Controllers\BookingController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\CommentController.cs" />
-    <Compile Include="Controllers\DestinationController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\HotelController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ClientControllers\BookingController.cs" />
+    <Compile Include="Controllers\ClientControllers\CartController.cs" />
+    <Compile Include="Controllers\ClientControllers\CommentController.cs" />
+    <Compile Include="Controllers\ClientControllers\DestinationController.cs" />
+    <Compile Include="Controllers\ClientControllers\HomeController.cs" />
+    <Compile Include="Controllers\ClientControllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PackageController.cs" />
-    <Compile Include="Controllers\PaypalController.cs" />
-    <Compile Include="Controllers\PhotoController.cs" />
-    <Compile Include="Controllers\RatingController.cs" />
-    <Compile Include="Controllers\ReplyCommentController.cs" />
+    <Compile Include="Controllers\ClientControllers\PackageController.cs" />
+    <Compile Include="Controllers\ClientControllers\PaypalController.cs" />
+    <Compile Include="Controllers\ClientControllers\RatingController.cs" />
+    <Compile Include="Controllers\ClientControllers\ReplyCommentController.cs" />
     <Compile Include="Controllers\WebAPIControllers\EmailController.cs" />
-    <Compile Include="Controllers\WishListController.cs" />
+    <Compile Include="Controllers\ClientControllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,9 +238,11 @@
     <Content Include="Content\Images\Athens\Athens7.jpg" />
     <Content Include="Content\Images\Backgrounds\Europe.jpg" />
     <Content Include="Content\Images\Backgrounds\kgr87n-1.jpg" />
+    <Content Include="Content\Images\Backgrounds\nature1.jpg" />
     <Content Include="Content\Images\Backgrounds\travele.jpg" />
     <Content Include="Content\Images\Backgrounds\TravelReady.png" />
     <Content Include="Content\Images\Backgrounds\vonitsa.jpg" />
+    <Content Include="Content\Images\Backgrounds\waterfall.jpg" />
     <Content Include="Content\Images\Backgrounds\wish.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona1.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona2.jpg" />
@@ -251,6 +251,8 @@
     <Content Include="Content\Images\Barcelona\Barcelona5.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona6.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona7.jpg" />
+    <Content Include="Content\Images\budapest_1.jpg" />
+    <Content Include="Content\Images\croatia_1.jpg" />
     <Content Include="Content\Images\Lisbon\Lisbon1.jpg" />
     <Content Include="Content\Images\Lisbon\Lisbon2.jpg" />
     <Content Include="Content\Images\Lisbon\Lisbon3.png" />
@@ -261,6 +263,7 @@
     <Content Include="Content\Images\London\London2.jpg" />
     <Content Include="Content\Images\London\London3.jpg" />
     <Content Include="Content\Images\London\London4.jpg" />
+    <Content Include="Content\Images\nafplio_1.jpg" />
     <Content Include="Content\Images\Paris\Paris1.jpg" />
     <Content Include="Content\Images\Paris\Paris10.jpg" />
     <Content Include="Content\Images\Paris\Paris2.jpg" />
@@ -279,6 +282,10 @@
     <Content Include="Content\Images\Rome\Rome5.jpg" />
     <Content Include="Content\Images\Rome\Rome5.png" />
     <Content Include="Content\Images\Rome\Rome6.jpg" />
+    <Content Include="Content\Images\santorini_1.jpg" />
+    <Content Include="Content\Images\wp1809473.jpg" />
+    <Content Include="Content\Images\wp1823646-1600x900_0.jpg" />
+    <Content Include="Theme\TravelAgency\assets\css\Package.css" />
     <Content Include="Content\UsersImages\no-user.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -437,7 +444,7 @@
     <Content Include="Theme\TravelAgency\assets\css\flight.css" />
     <Content Include="Theme\TravelAgency\assets\css\hotel.css" />
     <Content Include="Theme\TravelAgency\assets\css\Pagination.css" />
-    <Content Include="Theme\TravelAgency\assets\images\40-img.jpg" />
+    <Content Include="Content\Images\Backgrounds\40-img.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\404-img.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\banner-pattern.png" />
     <Content Include="Theme\TravelAgency\assets\images\cards.png" />
@@ -547,6 +554,7 @@
     <Content Include="Theme\TravelAgency\assets\images\slider-banner-1.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\slider-banner-2.jpg" />
     <Content Include="Theme\TravelAgency\assets\images\slider-pattern.png" />
+    <Content Include="Content\Video\The-Greek-Summer-State-of-Mind-1080p.mp4" />
     <Content Include="Theme\TravelAgency\assets\images\travele-logo.png" />
     <Content Include="Theme\TravelAgency\assets\images\user-img.png" />
     <Content Include="Theme\TravelAgency\assets\js\custom.js" />
@@ -871,7 +879,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64542/</IISUrl>
+          <IISUrl>https://localhost:44335/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

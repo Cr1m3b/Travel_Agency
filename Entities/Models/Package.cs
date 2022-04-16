@@ -15,7 +15,6 @@ namespace Entities.Models
         {
             Photos = new HashSet<Photo>();
             Comments= new HashSet<Comment>();
-            Ratings = new HashSet<Rating>();
         }
         public int PackageId { get; set; }
         public string Title { get; set; }
@@ -32,12 +31,13 @@ namespace Entities.Models
         public Destinations Destinations { get; set; }
         public Status PackageStatus { get; set; }
         //Navigation Properties
-        public ICollection<Photo> Photos { get; set; }
+       
         public int HotelId { get; set; }
         public Hotel Hotel { get; set; }
         public int FlightId { get; set; }
         public Flight Flight { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<Photo> Photos{ get; set; }
         public ICollection<Rating> Ratings { get; set; }
         public ICollection<Booking> Bookings { get; set; }
         /// <summary>
@@ -54,12 +54,11 @@ namespace Entities.Models
             double sum = 0;
             foreach (var com in Comments)
             {
-                sum += com.Rating;
+                sum += com.Rating.RateScore;
             }
             return Math.Round(sum / Comments.Count, MidpointRounding.ToEven);
         }
         
-
     }
     
 }

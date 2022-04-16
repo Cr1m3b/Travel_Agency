@@ -1,7 +1,6 @@
 ﻿@model Entities.Models.ViewModels.PackageViewModel
 
 
-
 <main id="content" class="site-main">
     <!-- Home slider html START -->
     <section class="home-slider-section">
@@ -50,7 +49,7 @@
                         <input type="text" name="maxPrice" placeholder="Max Price">
                     </div>
                     <div class="input-group width-col-3">
-                        <label> Checkin Date* </label>
+                        <label> Check-in Date* </label>
                         <i class="far fa-calendar"></i>
                         <input class="input-date-picker" type="text" name="checkIn" placeholder="MM / DD / YY" autocomplete="off">
                     </div>
@@ -109,27 +108,27 @@
                                         </ul>
                                     </div>
                                     <div class="package-content">
-                                        <h3>
-                                            <a href="#">@package.Title</a>
+                                        <h3 class="package-title" title="@package.Title">
+                                            <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
-                                            @if (@package.Ratings.Count() == 0)
+                                            @if (package.Comments == null)
                                             {
-                                            <span class="review-text">(No reviews with comment)</span>
+                                            <span class="review-text">(No reviews)</span>
                                             }
                                             else
                                             {
-                                                <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                <span class="review-text">(@package.Comments.Count() reviews)</span>
 
                                             }
-                                            @if (package.Ratings.Count != 0)
+                                            @if (package.Comments.Count() != 0)
                                             {
-                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
                                                     <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
                                                 </div>
                                             }
                                         </div>
-                                        <p>@package.Description</p>
+                                        <p class="package-description">@package.Description</p>
                                         <div class="btn-wrap">
                                             <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                             <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
@@ -166,7 +165,7 @@
                     @foreach (var package in Model.PopularPackages)
                     {
                         <div class="col-lg-4 col-md-6">
-                            <div class="package-wrap" style="height:650px">
+                            <div class="package-wrap">
                                 <figure class="feature-image">
                                     <a href="/Package/Details/@package.PackageId">
                                         <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
@@ -191,17 +190,17 @@
                                         </ul>
                                     </div>
                                     <div class="package-content">
-                                        <h3>
-                                            <a href="#">@package.Title</a>
+                                        <h3 class="package-title" title="@package.Title">
+                                            <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
-                                            @if (@package.Ratings.Count() == 0)
+                                            @if (@package.Comments.Count() == 0)
                                             {
                                             <span class="review-text">(No reviews with comment)</span>
                                             }
                                             else
                                             {
-                                                <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                <span class="review-text">(@package.Comments.Count() reviews)</span>
                                             }
 
                                             @if (package.Comments.Count != 0)
@@ -211,7 +210,7 @@
                                                 </div>
                                             }
                                         </div>
-                                        <p>@package.Description</p>
+                                        <p class="package-description">@package.Description</p>
                                         <div class="btn-wrap">
                                             <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                             <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
@@ -269,7 +268,7 @@
                                     <div class="meta-cat">
                                         <a href="#">@package.Destinations</a>
                                     </div>
-                                    <h3>
+                                    <h3 class="package-title" title="@package.Title">
                                         <a href="~/Package/Details?id=@package.PackageId">@package.Title</a>
                                     </h3>
                                     <div class="package-price">

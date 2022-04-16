@@ -387,7 +387,24 @@ namespace Travel_Agency.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+                ApplicationUser user;
+
+                if (info.Login.LoginProvider == "Google")
+                {
+                    var externalIdentity = AuthenticationManager.GetExternalIdentityAsync(DefaultAuthenticationTypes.ExternalCookie);
+                    var emailClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
+                    var lastNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
+                    var givenNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName);
+
+                    var email = emailClaim.Value;
+                    var firstName = givenNameClaim.Value;
+                    var lastname = lastNameClaim.Value;
+                    user = new ApplicationUser { UserName = firstName, Email = email, FirstName = firstName, LastName = lastname };
+                }
+                else
+                    user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
