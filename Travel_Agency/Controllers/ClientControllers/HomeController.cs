@@ -29,13 +29,12 @@ namespace Travel_Agency.Controllers
             var popularPackages = repository.GetAllWithRelatedTables().OrderByDescending(p => p.Bookings.Count).Take(3).ToList();
             var RecentComments = commentRepository.GetAllWithRelatedTables().OrderBy(c=>c.PostTime).Take(3).ToList();
 
-
             PackageViewModel vm = new PackageViewModel()
             {
                 PackageOffer = packageOffer,
                 PopularPackages = popularPackages,
                 TopDestinationsPackages = topDestinationsPackages,
-                TopComments = RecentComments
+                TopComments = RecentComments,
             };
             return View(vm);
         }

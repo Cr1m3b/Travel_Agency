@@ -251,6 +251,8 @@
     <Content Include="Content\Images\Barcelona\Barcelona5.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona6.jpg" />
     <Content Include="Content\Images\Barcelona\Barcelona7.jpg" />
+    <Content Include="Content\Images\budapest_1.jpg" />
+    <Content Include="Content\Images\croatia_1.jpg" />
     <Content Include="Content\Images\Lisbon\Lisbon1.jpg" />
     <Content Include="Content\Images\Lisbon\Lisbon2.jpg" />
     <Content Include="Content\Images\Lisbon\Lisbon3.png" />
@@ -261,6 +263,7 @@
     <Content Include="Content\Images\London\London2.jpg" />
     <Content Include="Content\Images\London\London3.jpg" />
     <Content Include="Content\Images\London\London4.jpg" />
+    <Content Include="Content\Images\nafplio_1.jpg" />
     <Content Include="Content\Images\Paris\Paris1.jpg" />
     <Content Include="Content\Images\Paris\Paris10.jpg" />
     <Content Include="Content\Images\Paris\Paris2.jpg" />
@@ -279,6 +282,9 @@
     <Content Include="Content\Images\Rome\Rome5.jpg" />
     <Content Include="Content\Images\Rome\Rome5.png" />
     <Content Include="Content\Images\Rome\Rome6.jpg" />
+    <Content Include="Content\Images\santorini_1.jpg" />
+    <Content Include="Content\Images\wp1809473.jpg" />
+    <Content Include="Content\Images\wp1823646-1600x900_0.jpg" />
     <Content Include="Theme\TravelAgency\assets\css\Package.css" />
     <Content Include="Content\UsersImages\no-user.jpg" />
     <Content Include="favicon.ico" />

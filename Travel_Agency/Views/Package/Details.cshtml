@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab">
                                         <div class="summary-review">
-                                            @if (!(@Model.Comments.Count == 0))
+                                            @if (Model.Comments.Count != 0)
                                             {
                                                 <div class="review-score">
                                                     <span>@Model.AveragePackageRating()</span>
@@ -93,10 +93,8 @@
 
                                             <div class="review-score-content">
                                                 <h3>
-                                                    Excellent
                                                     <span>( Based on @Model.Comments.Count reviews )</span>
                                                 </h3>
-                                                <p>Tincidunt iaculis pede mus lobortis hendrerit eveniet impedit aenean mauris qui, pharetra rem doloremque laboris euismod deserunt non, cupiditate, vestibulum.</p>
                                             </div>
                                         </div>
                                         <!-- review comment html -->
@@ -136,8 +134,8 @@
                                                                                     <h5 class="author-name" style="color:red">@comment.ApplicationUser.FirstName @comment.ApplicationUser.LastName</h5>
                                                                                     <span class="post-on" style="color:dodgerblue">@comment.PostTime.ToShortDateString()</span>
                                                                                     <div class="rating-wrap">
-                                                                                        <div class="rating-start" title="Rated 5 out of 5">
-                                                                                            <span style="width: calc((@comment.Rating*20%))"></span>
+                                                                                        <div class="rating-start" title="Rated @comment.Rating.RateScore out of 5">
+                                                                                            <span style="width: calc((@comment.Rating.RateScore*20%))"></span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -236,8 +234,8 @@
                                         <span>€@Model.FinalPrice() </span> / per person
                                     </h5>
                                     <div class="start-wrap">
-                                        <div class="rating-start" title="Rated 5 out of 5">
-                                            <span style="width: 60%"></span>
+                                        <div class="rating-start" title="Rated @Model.AveragePackageRating() out of 5">
+                                            <span style="width: calc((@Model.AveragePackageRating()*20%))"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -251,8 +249,8 @@
                                     @if (!(@Model.Comments.Count == 0))
                                     {
                                         <div class="start-wrap">
-                                            <div class="rating-start" title="Rated 5 out of 5">
-                                                <span style="width: 60%"></span>
+                                            <div class="rating-start" title="Rated @Model.AveragePackageRating() out of 5">
+                                                <span style="width: calc((@Model.AveragePackageRating()*20%))"></span>
                                             </div>
                                         </div>
                                     }

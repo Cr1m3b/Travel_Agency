@@ -56,11 +56,19 @@
                                             <h3 class="package-title" title="@package.Title">
                                                 <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                             </h3>
-                                            @if (package.Ratings.Count() != 0)
-                                            {
-                                                <div class="review-area">
-                                                    <span class="review-text">(@package.Ratings.Count)</span>
-                                                    <div class="rating-start">
+                                            <div class="review-area">
+                                                @if (package.Comments == null)
+                                                {
+                                                    <span class="review-text">(No reviews)</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="review-text">(@package.Comments.Count() reviews)</span>
+
+                                                }
+                                                @if (package.Comments.Count() != 0)
+                                                {
+                                                    <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
                                                         <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
                                                     </div>
                                                 </div>

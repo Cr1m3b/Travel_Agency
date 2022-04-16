@@ -13,5 +13,6 @@ namespace Entities.Models.ViewModels
         public List<Package> PopularPackages { get; set; }
         public List<Package> TopDestinationsPackages { get; set; }
         public List<Comment> TopComments { get; set; }
+        public List<Comment> AllComments { get; set; }
     }
 }

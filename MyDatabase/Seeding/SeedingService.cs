@@ -26,12 +26,13 @@ namespace MyDatabase.Seeding
         public void SeedPackages()
         {
             //Package Seeding
+            #region Packages
             Package p1 = new Package() { Title = "Discover Barcelona ", 
                 Description = "Barcelona is not famous only for its outstanding football team but also for the stunning architecture, lively nightlife, sandy beaches, and world class cuisine. Take the chance to explore the city!",
-                Program= "Barcelona offers a large number of tourist attractions and cultural sights. So, for you in order to not miss anything a tour will take place the first two day to guide and tell the stories of the below landmarks:" +
-                "- Sagrada Familia, Gaudí’s masterpiece and prime example of Catalan modernism. The Sagrada Familia (Church of the Holy Family) is the most popular sight in Barcelona. This large basilica is striking not only because of its whimsical shapes, but also because it is still under construction. "+
-                "- The Hospital de la Santa Creu y de Sant Pau (Hospital of the Holy Cross and Saint Paul) is one of the largest complexes in Catalan modernist architecture. It was built between 1902 and 1930 following the design of architect Lluís Domènec i Montaner, and thanks to a donation made by banker Pau Gil i Serra. "+
-                "- Park Güell offers the perfect surroundings to enjoy some modernist architecture and a pleasant stroll through the park at the same time. Designed by Gaudí under the patronage of entrepreneur Eusebi Güell, it was meant initially to be a housing development for Barcelona’s bourgeoisie. "+
+                Program = "Barcelona offers a large number of tourist attractions and cultural sights. So, for you in order to not miss anything a tour will take place the first two day to guide and tell the stories of the below landmarks:" +
+                "- Sagrada Familia, Gaudí’s masterpiece and prime example of Catalan modernism. The Sagrada Familia (Church of the Holy Family) is the most popular sight in Barcelona. This large basilica is striking not only because of its whimsical shapes, but also because it is still under construction. " +
+                "- The Hospital de la Santa Creu y de Sant Pau (Hospital of the Holy Cross and Saint Paul) is one of the largest complexes in Catalan modernist architecture. It was built between 1902 and 1930 following the design of architect Lluís Domènec i Montaner, and thanks to a donation made by banker Pau Gil i Serra. " +
+                "- Park Güell offers the perfect surroundings to enjoy some modernist architecture and a pleasant stroll through the park at the same time. Designed by Gaudí under the patronage of entrepreneur Eusebi Güell, it was meant initially to be a housing development for Barcelona’s bourgeoisie. " +
                 "- Casa Milà, popularly known as «La pedrera» («The Quarry») because of its stone façade resembling a quarry, is one of Gaudí’s most famous buildings." +
                 "- Casa Batlló, Of all Gaudí’s works, Casa Batlló is probably the most fanciful one, and the one that impresses most with its play of shapes and colors. "+
                 " - The Picasso Museum houses early works by the Spanish artist which show not only his evolution at the beginning of his career, but also his links with the city. "+
@@ -55,7 +56,7 @@ namespace MyDatabase.Seeding
                 "Also you cannot miss The Château de Versailles which is the most famous castle in France. According to your preferences you can visit Disneyland, Moulin Rouge and many other monuments. "+
                 "Don't miss the opportunity to taste the best quality wine in the world, have a coffee with a delicius french pastry and live a careless 3 days trip.", 
                 MainPhoto= "https://fadeceilings.com/wp-content/uploads/2019/08/AdobeStock_65117955-720x460.jpeg", TripDate = new DateTime(2022, 5, 3), TripDuration = 3, Price = 699, Destinations = Destinations.Paris, PackageStatus = Status.Active };
-            Package p3 = new Package() { Title = "Athens and its historical treasure.", 
+            Package p3 = new Package() { Title = "Athens a historical treasure.", 
                 Description = "The Classical Era is still evident in the city, represented by ancient monuments, works of art with the most famous of all being the Parthenon.", 
                 Program = "First day is decicated to Acropolis and the area around it. At nine in the morning the group will meet with the tour guide at the entrance of Acropolis. The Acropolis is on an abrupt rocky outcrop above the city and has world-renowned Classical landmarks that people spend whole lifetimes waiting to see in the flesh."+
                 "On top of the hill you will see the majestic Parthenon. The Parthenon was dedicated to the goddess Athena and begun in 447 BC, when the Athenian Empire was the dominant force in the Aegean, but of course you will find out more during your visit there. Next to the list is Acropolis Museum, which of course it will amaze."+
@@ -65,28 +66,46 @@ namespace MyDatabase.Seeding
                 MainPhoto = "https://c.pxhere.com/photos/a9/a9/temple_athens_greece_architecture_ancient_greek_history_culture-763875.jpg!s1", 
                 TripDate = new DateTime(2022, 9, 1),Discount=25, TripDuration = 3, Price = 400, Destinations = Destinations.Athens, PackageStatus = Status.Active
             };
-            Package p4 = new Package() { Title = "London, the city that can give all!", 
+            Package p4 = new Package()
+            {
+                Title = "London, the city that can give all!",
                 Description = "London's vibrant culture is this melting pot of cultures, nationalities, and languages – which makes London so attractive to travelers worldwide.",
-                Program = "London is a modern, innovative, and iconic city, steeped in history. It’s famous for its historic palaces and magnificent landmarks, world-class museums, iconic attractions and events, picturesque parks and gardens. "+
-                "This city always surprises... From Camden’s punky vibe to leafy Hampstead Heath and historic Big Ben, London’s incomparable blend of influences, traditions and history make it an unmissable destination for travellers. Get your culture fix at world-renowned venues like the Natural History Museum or savour award-winning cuisines in Chinatown, Little Venice and Brick Lane.  Satisfy your inner shopaholic with vintage finds in Portobello Road or catch the latest bands at legendary venues like Wembley Stadium. Whether you want to watch some of the world’s finest acting talent in the West End, spot squirrels in Royal Parks or soak up the scenery in Greenwich with a pint of local ale, Britain’s biggest city has it all – and then some!"+
+                Program = "London is a modern, innovative, and iconic city, steeped in history. It’s famous for its historic palaces and magnificent landmarks, world-class museums, iconic attractions and events, picturesque parks and gardens. " +
+                "This city always surprises... From Camden’s punky vibe to leafy Hampstead Heath and historic Big Ben, London’s incomparable blend of influences, traditions and history make it an unmissable destination for travellers. Get your culture fix at world-renowned venues like the Natural History Museum or savour award-winning cuisines in Chinatown, Little Venice and Brick Lane.  Satisfy your inner shopaholic with vintage finds in Portobello Road or catch the latest bands at legendary venues like Wembley Stadium. Whether you want to watch some of the world’s finest acting talent in the West End, spot squirrels in Royal Parks or soak up the scenery in Greenwich with a pint of local ale, Britain’s biggest city has it all – and then some!" +
                 "London boasts some truly epic nightlife too, but we’re not just talking about bars and clubs. After dark, Secret Adventures runs moonlit kayaking trips on the River Thames, while the Science Museum and V&A open for exclusive late-night events (selected dates). On summer evenings, the Rooftop Film Club screens outdoor movies at locations in east and south London, while the Open Air Theatre stages everything from West End musicals to Shakespeare plays in the leafy grounds of Regent’s Park.",
-                MainPhoto = "https://c.pxhere.com/photos/29/2d/london_parliament_england_ben_ben_westminster_tower_city_british-772846.jpg!d", TripDate = new DateTime(2022, 1, 12), TripDuration = 4, Price = 420, Destinations = Destinations.London, PackageStatus = Status.Expired };
-            Package p5 = new Package() { Title = "Rome, the Eternal City", 
-                Description = "In Rome you can find not only numerous masterpieces of the world's most influential artists, as well as impressive architecture manifesting the greatness of the Roman Empire.", 
-                Program = "Four days in Rome are more than enough to experience the italian life style, taste the delicius italian cuisine and party all night long. But don't miss visiting also Rome's famous monuments.  "+
-                "Colosseum, Rome’s most internationally recognized symbol. Gaze at the Architectural Marvel That Is the Pantheon. Transport Yourself to Baroque Rome at Piazza Navona. Pay Your Respects to the Vatican and Its Museums "+
-"You could easily spend a whole day exploring the area around the Vatican. Start at the Piazza di San Pietro, which Bernini designed to look like arms extended in an embrace. Besides St. Peter’s Basilica, the absolute must-see is the Vatican Museums, which contain Michelangelo’s Sistine Chapel. Climb the Spanish Steps "+
-"Fascinating in its contradictions,  the Piazza di Spagna is both democratic and home to the city’s fanciest boutiques on Via dei Condotti, Rome’s legendary shopping street. In Latin, Trastevere means “across the Tiber,” and you’ll notice the difference once you cross the river. The vibe is hip and bohemian, and you’ll find plenty of boutiques selling jewelry, perfumes, and handicrafts in a neighborhood where you can stroll aimlessly along cobblestone streets flanked by ochre-colored buildings. "+
-"And of course don't miss the Trevi Fountain and throw a coin in becuase any trip to Rome would be incomplete without a visit to the Trevi Fountain.Nicola Salvi’s inspiring Baroque masterpiece features a marble statue of Neptune at the center, surrounded by tritons. "+
+                MainPhoto = "https://c.pxhere.com/photos/29/2d/london_parliament_england_ben_ben_westminster_tower_city_british-772846.jpg!d",
+                TripDate = new DateTime(2022, 1, 12),
+                TripDuration = 4,
+                Price = 420,
+                Destinations = Destinations.London,
+                PackageStatus = Status.Expired
+            };
+            Package p5 = new Package()
+            {
+                Title = "Rome, the Eternal City",
+                Description = "In Rome you can find not only numerous masterpieces of the world's most influential artists, as well as impressive architecture manifesting the greatness of the Roman Empire.",
+                Program = "Four days in Rome are more than enough to experience the italian life style, taste the delicius italian cuisine and party all night long. But don't miss visiting also Rome's famous monuments.  " +
+                "Colosseum, Rome’s most internationally recognized symbol. Gaze at the Architectural Marvel That Is the Pantheon. Transport Yourself to Baroque Rome at Piazza Navona. Pay Your Respects to the Vatican and Its Museums " +
+"You could easily spend a whole day exploring the area around the Vatican. Start at the Piazza di San Pietro, which Bernini designed to look like arms extended in an embrace. Besides St. Peter’s Basilica, the absolute must-see is the Vatican Museums, which contain Michelangelo’s Sistine Chapel. Climb the Spanish Steps " +
+"Fascinating in its contradictions,  the Piazza di Spagna is both democratic and home to the city’s fanciest boutiques on Via dei Condotti, Rome’s legendary shopping street. In Latin, Trastevere means “across the Tiber,” and you’ll notice the difference once you cross the river. The vibe is hip and bohemian, and you’ll find plenty of boutiques selling jewelry, perfumes, and handicrafts in a neighborhood where you can stroll aimlessly along cobblestone streets flanked by ochre-colored buildings. " +
+"And of course don't miss the Trevi Fountain and throw a coin in becuase any trip to Rome would be incomplete without a visit to the Trevi Fountain.Nicola Salvi’s inspiring Baroque masterpiece features a marble statue of Neptune at the center, surrounded by tritons. " +
 "In conclusion, one of Rome’s great joys is losing yourself in the narrow cobblestone streets that make up Centro Storico. Starting at Piazza del Popolo, three main roads form a trident leading toward Piazza Venezia and the Colosseum. Branching off are countless streets and alleyways where you’ll find churches with Baroque art, boutiques selling everything from carved wooden figurines to precious jewelry, private courtyards where the wealthiest Romans live, enticing gelaterias, cafés, and restaurants. Take your time and do as the Romans do—this is what la dolce vita is all about.",
-                MainPhoto = "https://c.pxhere.com/photos/a9/4e/colosseum_rome_italy_roman_architecture_landmark_italian_tourism-744892.jpg!d", TripDate = new DateTime(2021, 5, 12), TripDuration = 4, Price = 529, Destinations = Destinations.Rome, PackageStatus = Status.Active };
-            Package p6 = new Package() { Title = "Enjoy the colorfull Lisbon", 
+                MainPhoto = "https://c.pxhere.com/photos/a9/4e/colosseum_rome_italy_roman_architecture_landmark_italian_tourism-744892.jpg!d",
+                TripDate = new DateTime(2021, 5, 12),
+                TripDuration = 4,
+                Price = 529,
+                Destinations = Destinations.Rome,
+                PackageStatus = Status.Active
+            };
+            Package p6 = new Package()
+            {
+                Title = "Enjoy the colorfull Lisbon",
                 Description = "Lisbon, the town of sunny weather, great nightlife, colorful buildings, Fado music and friendly locals.",
-                Program = "Once in Lisbon you cannot miss the Torre de Belém. Soaring high above the seafront of the Lisbon quays, this great tower displays a veritable fusion of architectural styles from the Mudejar to the Moorish, the Gothic to the Romanesque. It has stood watch over the mouth of the Tagus River since its construction under the patronage of Saint John back in the 16th century. "+
-                "Since then, it has risen to become perhaps the most iconic feature of the city, famed as the last sight adventurers like the prodigal Vasco da Gama would have seen as they drifted out into the vast Atlantic Ocean. "+
-                "Ride Tram 28, Like San Francisco in the United States, Lisbon is a city famed for its historic, rattling tram lines. None are more iconic than Tram 28 which has been working its way up the steep, cobbled roads and into the old Alfama district for decades. The journey starts below the palm - spotted hills of Graça, and weaves toward the hair - pin alleys of Escolas Gerais, before pulling up to a halt beneath the gorgeous domes of the Estrela Basilica. "+
-                "Get lost in the Alfama District, The compact little Alfama District is Lisbon’s answer to the old town centers of Europe’s other ancient capitals. Like the Forum of Rome, it’s hailed as the oldest part of the city, although this one dates back to the Moors of Africa instead of the kings of Latium. Conquer the bulwarks of St George’s Castle. St George’s Castle is unquestionably the most visible landmark of Lisbon’s historic center. "+
-"Standing tall and firm above the streets of the old Alfama District, the great citadel was first built more than 2000 years ago by the Romans. Trace glorious history in the Monastery of Jerónimos. Go underwater in the Lisbon Oceanarium. Find your inner explorer at the Padrão dos Descobrimentos, marks the shore of the Tagus Estuary with its grand architecture and beige stone. It’s been here since the early 1960s and is an ornate testimony to the successes of Portuguese exploration during the Age of Discovery. "+
+                Program = "Once in Lisbon you cannot miss the Torre de Belém. Soaring high above the seafront of the Lisbon quays, this great tower displays a veritable fusion of architectural styles from the Mudejar to the Moorish, the Gothic to the Romanesque. It has stood watch over the mouth of the Tagus River since its construction under the patronage of Saint John back in the 16th century. " +
+                "Since then, it has risen to become perhaps the most iconic feature of the city, famed as the last sight adventurers like the prodigal Vasco da Gama would have seen as they drifted out into the vast Atlantic Ocean. " +
+                "Ride Tram 28, Like San Francisco in the United States, Lisbon is a city famed for its historic, rattling tram lines. None are more iconic than Tram 28 which has been working its way up the steep, cobbled roads and into the old Alfama district for decades. The journey starts below the palm - spotted hills of Graça, and weaves toward the hair - pin alleys of Escolas Gerais, before pulling up to a halt beneath the gorgeous domes of the Estrela Basilica. " +
+                "Get lost in the Alfama District, The compact little Alfama District is Lisbon’s answer to the old town centers of Europe’s other ancient capitals. Like the Forum of Rome, it’s hailed as the oldest part of the city, although this one dates back to the Moors of Africa instead of the kings of Latium. Conquer the bulwarks of St George’s Castle. St George’s Castle is unquestionably the most visible landmark of Lisbon’s historic center. " +
+"Standing tall and firm above the streets of the old Alfama District, the great citadel was first built more than 2000 years ago by the Romans. Trace glorious history in the Monastery of Jerónimos. Go underwater in the Lisbon Oceanarium. Find your inner explorer at the Padrão dos Descobrimentos, marks the shore of the Tagus Estuary with its grand architecture and beige stone. It’s been here since the early 1960s and is an ornate testimony to the successes of Portuguese exploration during the Age of Discovery. " +
 "And of course The Sanctuary of Christ the King (Portuguese: Santuário de Cristo Rei) is a Catholic monument and shrine dedicated to the Sacred Heart of Jesus Christ overlooking the city of Lisbon situated in Almada, in Portugal.",
                 MainPhoto = "https://www.nationsonline.org/gallery/Portugal/Praca-do-Comercio-Lisbon.jpg", TripDate = new DateTime(2022, 4, 30), TripDuration = 3, Price = 329, Discount=10, Destinations = Destinations.Lisbon, PackageStatus = Status.Active };
             Package p7 = new Package() { Title = "Cappadocia, a moon-like landscape", 
@@ -115,7 +134,11 @@ namespace MyDatabase.Seeding
                 "The afternoon is free for you to enjoy the city. "+
                 "Third and last day a Cruise on the Vltava will amaze.",
                 MainPhoto = "https://www.thetrainline.com/content/vul/hero-images/city/prague/2x.jpg",
-                TripDate = new DateTime(2022,06,12), TripDuration = 3, Price =567, Destinations = Destinations.Prague, PackageStatus= Status.Active 
+                TripDate = new DateTime(2022, 06, 12),
+                TripDuration = 3,
+                Price = 567,
+                Destinations = Destinations.Prague,
+                PackageStatus = Status.Active
 
             };
             Package p10 = new Package() { Title = "Iceland- Blue Lagoon ",
@@ -123,8 +146,12 @@ namespace MyDatabase.Seeding
             Program= "First day hiking to the most beautiful part of Iceland the Kirkjufell mountain (Church Mountain) which is the most photographed place in Iceland and a natural icon on its own."+
             " Second day is dedicated to the blue lagoon relaxation time. There you can enjoy the natural beauty of Iceland experiencing in warm to hot water the views and the lifestyle of locals. Of course at midnight a tour will take place to stare  the Northern Lights , the phenomenon of aurora borealis."+
             "Third and fourth days are free for you to enjoy Reykjavik.",
-            MainPhoto= "https://blog.goway.com/globetrotting/wp-content/uploads/2019/10/Blue-Lagoon-at-night-with-Northern-Lights-Iceland-_730839646.jpg",
-            TripDate = new DateTime(2022,09,30), TripDuration = 4   , Price =780,Destinations = Destinations.Iceland, PackageStatus= Status.Active 
+                MainPhoto = "https://blog.goway.com/globetrotting/wp-content/uploads/2019/10/Blue-Lagoon-at-night-with-Northern-Lights-Iceland-_730839646.jpg",
+                TripDate = new DateTime(2022, 09, 30),
+                TripDuration = 4,
+                Price = 780,
+                Destinations = Destinations.Iceland,
+                PackageStatus = Status.Active
 
             };
             Package p11 = new Package()
@@ -135,14 +162,18 @@ namespace MyDatabase.Seeding
                 "Second day a trip to country side will take place to see the windmills and enjoy the countryside and beaches. "+
                 "Next day the group will visit the museums & majestic buildings in Museumplein "+
                 "and last two days are free for travellers to enjoy Amsterdam on their on pace.",
-                MainPhoto= "https://www.inexhibit.com/wp-content/uploads/2019/11/Amsterdam-light-fest-2019-masamichi-shimada-butterfly-870x580.jpg",
-                TripDate= new DateTime(2022,07,12),TripDuration=5, Price =655,Destinations=Destinations.Amsterdam, PackageStatus= Status.Active
+                MainPhoto = "https://www.inexhibit.com/wp-content/uploads/2019/11/Amsterdam-light-fest-2019-masamichi-shimada-butterfly-870x580.jpg",
+                TripDate = new DateTime(2022, 07, 12),
+                TripDuration = 5,
+                Price = 655,
+                Destinations = Destinations.Amsterdam,
+                PackageStatus = Status.Active
             };
             Package p12 = new Package()
             {
                 Title = "Island Destination: Paros",
                 Description = "Summer vacation in  greek aegean island: Paros",
-                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti "+
+                Program = "This destination has a free style schedule that you costumise it according to your prefferences, we recommend you to visit the beaches Punta beach, Kolibithres and Xrisi Akti " +
                 "In the package is included one day  enjoying a cruise around the island and one day visiting the close island Naxos.",
                 MainPhoto = "https://www.discovergreece.com/sites/default/files/styles/hd_half/public/2019-12/1alt_naoussas_tiny_harbour_with_restaurants_bars_and_the_old_castle-edited-1.jpg?itok=Sy_wXhyB",
                 TripDate = new DateTime(2022, 07, 20),
@@ -155,7 +186,7 @@ namespace MyDatabase.Seeding
             {
                 Title = "Island Destination: Kerkura",
                 Description = "Summer vacation in  greek Ionian island: Kerkura",
-                Program = "In this trip you will have the opportunity to visit princess´s Sissy summer palace Achilleion, Pontikonisi a quite place next to the sea, the Royal Palace: Museum of Asian Art "+
+                Program = "In this trip you will have the opportunity to visit princess´s Sissy summer palace Achilleion, Pontikonisi a quite place next to the sea, the Royal Palace: Museum of Asian Art " +
                 " the  Old Fortress (Citadel) with amazing view and of course to wander the cosmopolitan city. There is a big variety of beaches to choose accordinrding to your style like  Paleokastritsa a small bay, Kavos a busy place full of people that they want to have an amazing time while listening to party music, Barbati a very natural virgin beauty or Marathias the beach with crystalline waters and golden sand.  ",
                 MainPhoto = "https://www.atlantis-hotel-corfu.com/assets/img/corfu/beaches/slideshow.jpg",
                 TripDate = new DateTime(2022, 07, 29),
@@ -168,9 +199,9 @@ namespace MyDatabase.Seeding
             {
                 Title = "Luxurious holidays in Cancun",
                 Description = "Cancun the mexican city known for its spectacular beaches of fine white sand, its fascinating turquoise blue sea and unparalleled weather.",
-                Program = "Places that worth a visit in Cancun, Mexico are: the Xcaret amusement park which is one of the largest theme parks in Mexico which holds more than 40 attractions including adventurous aquatic activities, fun, and educational natural and cultural attractions, and impressive live shows."+
-                " Climb Coba Ruins so to walk through the ruins and see networks of stone streets, monuments that were carved over 1200 years ago, pyramids, everyday dwellings and even traditional ball courts. "+
-                "Relax at Playa Delfines where you will be able to find a quiet spot of your own along the wide stretch of sand and even some shade under one of the many umbrellas. And of course party at Coco Bongo It is not your typical nightclub with a dance floor, although there are plenty of those in the city, but rather a venue that provides high energy entertainment and music and of course flowing drinks. "+
+                Program = "Places that worth a visit in Cancun, Mexico are: the Xcaret amusement park which is one of the largest theme parks in Mexico which holds more than 40 attractions including adventurous aquatic activities, fun, and educational natural and cultural attractions, and impressive live shows." +
+                " Climb Coba Ruins so to walk through the ruins and see networks of stone streets, monuments that were carved over 1200 years ago, pyramids, everyday dwellings and even traditional ball courts. " +
+                "Relax at Playa Delfines where you will be able to find a quiet spot of your own along the wide stretch of sand and even some shade under one of the many umbrellas. And of course party at Coco Bongo It is not your typical nightclub with a dance floor, although there are plenty of those in the city, but rather a venue that provides high energy entertainment and music and of course flowing drinks. " +
                 " If nothing of the above seems appealing don't worry beacause you can enjoy the maximum at the All Inclusive Resort 'Excellence Playa Mujeres - Adults Only All Inclusive'. ",
                 MainPhoto = "https://images.trvl-media.com/hotels/2000000/1680000/1672500/1672497/b11e8c54.jpg?impolicy=resizecrop&rw=598&ra=fit",
                 TripDate = new DateTime(2022, 12, 15),
@@ -183,7 +214,7 @@ namespace MyDatabase.Seeding
             {
                 Title = "Ski break in Andorra",
                 Description = "The best ski break to ski, party and meet new people.",
-                Program = "This trip is ideal for everyone, even for people that never skiied as the resort is beginner & intermediate ski level friendly but also are a few quality advanced pistes & off-piste freeride options for the adventurous. "+
+                Program = "This trip is ideal for everyone, even for people that never skiied as the resort is beginner & intermediate ski level friendly but also are a few quality advanced pistes & off-piste freeride options for the adventurous. " +
                 "For three days very early in the monring till late in the afternoon you can enjoy skiing, have drinks and meals at the small saloon near the pistes party outdoors. The hotel provides also spa day for those who seek a peaceful and relaxing time.",
                 MainPhoto = "https://d19tiqumqauva7.cloudfront.net/var/andorra/storage/images/_aliases/intro_slide/www.andorra.ad/multimedia/galeria/esqui/activitats-hivern-estacions/esquiar-a-ordino-arcalis/1906x960_ordino-arcalis/26927200-20-eng-US/1906x960_ordino-arcalis.jpg",
                 TripDate = new DateTime(2023, 01, 15),
@@ -208,8 +239,8 @@ namespace MyDatabase.Seeding
             {
                 Title = "Island Destination: Mallorca",
                 Description = "Summer vacation in the largest Balearic island of Spain.",
-                Program = "First Day since the arrival is late in the evening the group meets in the center of Palma de Mallorca so to have dinner and after according to your prefference you can party in El Arenal or to have a quite drink by the beach.  "+
-                " Second day early in the morning a visit to Mirador Es Colomer Formentor is essential and after lunch and coffee in the little village del Sol. "+
+                Program = "First Day since the arrival is late in the evening the group meets in the center of Palma de Mallorca so to have dinner and after according to your prefference you can party in El Arenal or to have a quite drink by the beach.  " +
+                " Second day early in the morning a visit to Mirador Es Colomer Formentor is essential and after lunch and coffee in the little village del Sol. " +
                 "The rest of the days are about relaxing and enjoying sun at Playa d'Alcudia ",
                 MainPhoto = "https://www.galeria-reisen.de/static/cr/412/200/imgpath/temp/fileadmin/style/images/region_big/GKK-urlaub-spanien-inseln-mallorca-1200x360-mallorca-blaue-bucht.jpeg",
                 TripDate = new DateTime(2022, 06, 29),
@@ -223,7 +254,7 @@ namespace MyDatabase.Seeding
             {
                 Title = "Visit cosmopolitan Dubai",
                 Description = "Dubai is a destination that offers everything a visitor desires, either that is enjoying a sunny day at the beach, shopping or skiing in the mall.",
-                Program = "Dubai is known for its abundant wealth, luxury shopping, lively nightlife, and state of the art architecture, such as the Burj Khalifa.Its blue - green waters, white sandy beaches, and ever changing skyline never fail to impress.Shopaholics visiting Dubai are nearly guaranteed to fall in love with Dubai’s rich shopping experience."+
+                Program = "Dubai is known for its abundant wealth, luxury shopping, lively nightlife, and state of the art architecture, such as the Burj Khalifa.Its blue - green waters, white sandy beaches, and ever changing skyline never fail to impress.Shopaholics visiting Dubai are nearly guaranteed to fall in love with Dubai’s rich shopping experience." +
                  "THE WEALTHY CITY-STATE BOASTS A LIVELY NIGHTLIFE and when it comes to nightlife, Dubai comes out on top.The environment in Dubai is ideal for the night scene, from viewing the incredible city state from the top of the Burj Khalifa to clubbing in the many upscale lounges.",
                 MainPhoto = "https://www.travel-time.gr/wp-content/uploads/2021/09/1_2994_02.jpg",
                 TripDate = new DateTime(2022, 11, 25),
@@ -236,8 +267,8 @@ namespace MyDatabase.Seeding
             {
                 Title = "Zurich not a boring destination",
                 Description = "Zurich is well known as the financial capital of Switzerland but don't underestimate the possibillities this urban center has to offer!",
-                Program = "Zürich’s sights, eye-wateringly pricey shops and effortlessly cool nightspots are in the Altstadt, a historic centre cut in two by the Limmat river which flows off the lake. So first stop is the famous lake which curves past the wooded peaks of Pfannenstiel to the east and the Albis chain to the west. A bit further, near to the Schauspielhaus on Heimplatz is Zürich’s phenomenal Museum of Art."+
-                "Altstadt the Old Town with the medieval and early modern streets of the Altstadt are where much of the city’s culture, nightlife and shopping is concentrated. It’s one of those places you’re happy to get lost in, to chance upon squares, cafes, quirky one-of-a-kind shops and all manner of historic monuments from the four medieval churches to 17th-century Town Hall. "+
+                Program = "Zürich’s sights, eye-wateringly pricey shops and effortlessly cool nightspots are in the Altstadt, a historic centre cut in two by the Limmat river which flows off the lake. So first stop is the famous lake which curves past the wooded peaks of Pfannenstiel to the east and the Albis chain to the west. A bit further, near to the Schauspielhaus on Heimplatz is Zürich’s phenomenal Museum of Art." +
+                "Altstadt the Old Town with the medieval and early modern streets of the Altstadt are where much of the city’s culture, nightlife and shopping is concentrated. It’s one of those places you’re happy to get lost in, to chance upon squares, cafes, quirky one-of-a-kind shops and all manner of historic monuments from the four medieval churches to 17th-century Town Hall. " +
                 "Don't miss FIFA’s long-mooted museum, which is in the Enge quarter and opened in 2016. It occupies three floors of a mixed-use development and has a swish layout. And last but no least the Zürich Opera House. The resplendent Neoclassical Opera House at Sechseläutenplatz dates to the 1890s and was conceived by the prolific Viennese architects Fellner & Helmer and definitely worths a visit.",
                 MainPhoto = "https://upload.wikimedia.org/wikipedia/commons/7/76/Z%C3%BCrich.jpg",
                 TripDate = new DateTime(2022, 08, 5),
@@ -251,9 +282,9 @@ namespace MyDatabase.Seeding
                 Title = "Milan, a city that has it all!",
                 Description = "Milan, one of Italy's most fashionable cities and the majestic Duomo Cathedral ",
                 Program = "Today Milan offers a sublime mix of historical architecture, modern high-rise skyscrapers, all mingled together with a dash of Italian life. The city is particularly known for its abundance of high end fashion retailers and the beautiful Duomo Cathedral which is famed for its sublime architecture that took over 600 years to complete." +
-                "Second stop the Grand Galleria Vittorio Emanuele II, which seems inside like the entrance hall to an opera house or palace but is an extremely opulent and extravagant indoor shopping area."+
-                "Castello Sforzesco certainly worths a visit. This 15th century castle has a central location in Milan and is set in extensive grounds and gardens. Leonardo da Vinci National Museum of Science and Technology "+
-                "is one of the most important museums in the world. There you can expect to find such collections as a myriad of model cars created from da Vinci drawings, reconstructions of his flying machines, and a plethora of his drawings, blueprints and sketches."+
+                "Second stop the Grand Galleria Vittorio Emanuele II, which seems inside like the entrance hall to an opera house or palace but is an extremely opulent and extravagant indoor shopping area." +
+                "Castello Sforzesco certainly worths a visit. This 15th century castle has a central location in Milan and is set in extensive grounds and gardens. Leonardo da Vinci National Museum of Science and Technology " +
+                "is one of the most important museums in the world. There you can expect to find such collections as a myriad of model cars created from da Vinci drawings, reconstructions of his flying machines, and a plethora of his drawings, blueprints and sketches." +
                 "Town has many touristic attractions but don't forget to go to Piazza del Duomo, is an immense open public space that features some impressive architecture and sculptures where you can view the wonderful Duomo and surrounding buildings.",
                 MainPhoto = "https://cdn.thecrazytourist.com/wp-content/uploads/2017/03/Milan-Cathedral.jpg",
                 TripDate = new DateTime(2022, 06, 5),
@@ -288,13 +319,13 @@ namespace MyDatabase.Seeding
             {
                 Title = "Zakinthos, the greek paradise!",
                 Description = "The appeal of Zakinthos is the nature, the colours, the dramatic and unspoilt beaches with their white pebbles and electric blue waters. The pristine coast and perfect winds for exploring by various waterborne craft, with several tiny uninhabited islands to explore.",
-                Program = "The first beach that crosses the mind of someone listening the word Zakinthos is Navagio (Shipwreck Cove). "+
-                "On the white beach there are the rusting remains of the MV Panagiotis, a container ship that ran aground in 1980. "+
-                "Kalamaki Beach, one of a few beaches that we’ll mention in the Greek National Marine Park. Kalamaki is on the eastern pocket of Laganas Bay and could be the best on the island. "+
-                "Blue Caves, the little harbour at Skinari in the very north of Zakynthos is the point of departure for trips to the Blue Caves, also only accessed by water. "+
-                "Porto Limnionas Beach, a newly laid road from the village of Agios Leon weaves down to this fjord on the west coast, bounded on its east side by high white cliffs hollowed with caves. "+
-"Resting above the fjord on the western slope is a taverna with tables and sun loungers on terraces where you gaze into the pristine blue water. Marathonisi, this islet in Laganas Bay in the south of Zakythos is often called Turtle Island, as it’s a hatching ground for the loggerhead sea turtle. "+
-"For that reason Marathonisi is uninhabited and visitors have to clear the sandy beach to the north before sunset in summer to allow the turtles to come ashore to lay their eggs. "+
+                Program = "The first beach that crosses the mind of someone listening the word Zakinthos is Navagio (Shipwreck Cove). " +
+                "On the white beach there are the rusting remains of the MV Panagiotis, a container ship that ran aground in 1980. " +
+                "Kalamaki Beach, one of a few beaches that we’ll mention in the Greek National Marine Park. Kalamaki is on the eastern pocket of Laganas Bay and could be the best on the island. " +
+                "Blue Caves, the little harbour at Skinari in the very north of Zakynthos is the point of departure for trips to the Blue Caves, also only accessed by water. " +
+                "Porto Limnionas Beach, a newly laid road from the village of Agios Leon weaves down to this fjord on the west coast, bounded on its east side by high white cliffs hollowed with caves. " +
+"Resting above the fjord on the western slope is a taverna with tables and sun loungers on terraces where you gaze into the pristine blue water. Marathonisi, this islet in Laganas Bay in the south of Zakythos is often called Turtle Island, as it’s a hatching ground for the loggerhead sea turtle. " +
+"For that reason Marathonisi is uninhabited and visitors have to clear the sandy beach to the north before sunset in summer to allow the turtles to come ashore to lay their eggs. " +
 "At the villages on the south coast like Limni Keriou, Agios Sostis and Laganas you can book a boat tour along the indented coastline in the far south of the island and see the Keri Caves." +
 "In the island there are also many monasteries, Keri Lighthouse, Askos Stone Park and many other places. You can make your one programm according to your preferences and use the private car that we provide. ",
                 MainPhoto = "https://www.diplomattravel.gr/wp-content/uploads/2019/03/zakynthos-beach.jpg",
@@ -373,9 +404,10 @@ namespace MyDatabase.Seeding
             };
             List<Package> packages = new List<Package>() { p1, p2, p3, p4, p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26};
             db.Packages.AddRange(packages);
-
+            #endregion
 
             //ApplicationUser Seeding
+            #region registeredUsers
             ApplicationUser ap1 = new ApplicationUser() { UserName = "John11", FirstName = "John", LastName = "Hopkins", PhoneNumber = "+30 6984548965", Email = "john1@yahoo.gr", Birthday = new DateTime(1990, 8, 1), Country = "France", City = "Paris", ZipCode = "75001", Address = "Rue Pierre Guérin 21" };
             ApplicationUser ap2 = new ApplicationUser() { UserName = "Nick22", FirstName = "Nick", LastName = "Hughes", PhoneNumber = "+30 6981236365", Email = "nick1@gmail.com", Birthday = new DateTime(1984, 5, 10), Country = "Greece", City = "Athens", ZipCode = "10431", Address = "Patision 32" };
             ApplicationUser ap3 = new ApplicationUser() { UserName = "Alex123", FirstName = "Alex", LastName = "Ital", PhoneNumber = "+49 1763535596", Email = "alexital@gmail.com", Birthday = new DateTime(1972, 5, 10), Country = "Germany", City = "Stolhofen", ZipCode = "72456", Address = "Winnipeg Avenue" };
@@ -401,17 +433,19 @@ namespace MyDatabase.Seeding
             db.Users.Add(ap10);
             db.Users.Add(ap11);
             db.Users.Add(ap12);
+            #endregion
 
             //Booking Seeding
+            #region Bookings
             Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
             Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
-            Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 962 };
+            Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 966 };
             Booking b4 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
             Booking b5 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 340 };
             Booking b6 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 529 };
-            Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 355 };
-            Booking b8 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 355 };
-            Booking b9 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 355 };
+            Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
+            Booking b8 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 300 };
+            Booking b9 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 300 };
             Booking b10 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 19), PackagesCost = 567 };
             Booking b11 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 567 };
             Booking b12 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 567 };
@@ -428,17 +462,17 @@ namespace MyDatabase.Seeding
             Booking b23 = new Booking() { FirstName = "Aggelos", LastName = "Koutourinis", Email = "angel@gmail.com", PhoneNumber = "+30 6931798456", PurchaseDate = new DateTime(2022, 05, 2), PackagesCost = 655 };
             Booking b24 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@gmail.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 655 };
            
-            Booking b25 = new Booking() { FirstName = ap12.FirstName, LastName = ap12.LastName, Email = ap12.Email, PhoneNumber = ap12.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b26 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b27 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b28 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b29 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b30 = new Booking() { FirstName = ap9.FirstName, LastName = ap9.LastName, Email = ap9.Email, PhoneNumber = ap9.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b31 = new Booking() { FirstName = ap5.FirstName, LastName = ap5.LastName, Email = ap5.Email, PhoneNumber = ap5.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b32 = new Booking() { FirstName = ap7.FirstName, LastName = ap7.LastName, Email = ap7.Email, PhoneNumber = ap7.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b33 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 900 };
-            Booking b34 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost =900 };
-            Booking b35 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 900 };
+            Booking b25 = new Booking() { FirstName = ap12.FirstName, LastName = ap12.LastName, Email = ap12.Email, PhoneNumber = ap12.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b26 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b27 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b28 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b29 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b30 = new Booking() { FirstName = ap9.FirstName, LastName = ap9.LastName, Email = ap9.Email, PhoneNumber = ap9.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b31 = new Booking() { FirstName = ap5.FirstName, LastName = ap5.LastName, Email = ap5.Email, PhoneNumber = ap5.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b32 = new Booking() { FirstName = ap7.FirstName, LastName = ap7.LastName, Email = ap7.Email, PhoneNumber = ap7.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b33 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b34 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 702 };
+            Booking b35 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 702 };
 
             Booking b36 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 300 };
             Booking b37 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 300 };
@@ -488,11 +522,11 @@ namespace MyDatabase.Seeding
 
             Booking b74 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 780 };
 
-            Booking b75 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 655 };
-            Booking b76 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 655 };
-            Booking b77 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
-            Booking b78 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 655 };
-            Booking b79 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 655 };
+            Booking b75 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
+            Booking b76 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 800 };
+            Booking b77 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 800 };
+            Booking b78 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 800 };
+            Booking b79 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 800 };
 
             Booking b80 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
             Booking b81 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
@@ -504,7 +538,7 @@ namespace MyDatabase.Seeding
             Booking b84 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 1800 };
             Booking b85 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 1800 };
 
-            Booking b86 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 900 };
+            Booking b86 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 702 };
 
             Booking b87 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 450 };
             Booking b88 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 450 };
@@ -526,8 +560,41 @@ namespace MyDatabase.Seeding
             Booking b99 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 420 };
             Booking b100 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 420 };
            
+            Booking b101 = new Booking() { FirstName = "Sabrina", LastName = "Theotokatou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 506 };
+            Booking b102 = new Booking() { FirstName = "Menelaos", LastName = "Theotokatos", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 506 };
+           
+            Booking b103 = new Booking() { FirstName = "Xaris", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720};
+            Booking b104 = new Booking() { FirstName = "Selma", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
+            Booking b105 = new Booking() { FirstName = "Panagiotis", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
+            Booking b106 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
+           
+            Booking b107 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
+            Booking b108 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
+            Booking b109 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 655 };
+            Booking b110 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 655 };
+            Booking b111 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
+            Booking b112 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 655 };
+            Booking b113 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 655 };
+
+
+            Booking b114 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 950 };
+            Booking b115 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 950 };
+            Booking b116 = new Booking() { FirstName = "Dimitra", LastName = "Papadopoulou", Email = "papa@gmail.com", PhoneNumber = "+30 6976325369", PurchaseDate = new DateTime(2022, 02, 15), PackagesCost = 950 };
+            Booking b117 = new Booking() { FirstName = "Eliza", LastName = "Staurou", Email = "eli@gmail.com", PhoneNumber = "+30 6976325921", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 950 };
+            
+            Booking b118 = new Booking() { FirstName = "Maria", LastName = "Pantazi", Email = "marypan@gmail.com", PhoneNumber = "+30 6973535596", PurchaseDate = new DateTime(2022, 04, 6), PackagesCost = 300 };
+            Booking b119 = new Booking() { FirstName = "Massimo", LastName = "La Rossa", Email = "massimino@gmail.com", PhoneNumber = "+30 6973538654", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 300 };
+            Booking b120 = new Booking() { FirstName = "Iacopo", LastName = "Fantozzi", Email = "fantozzi@gmail.com", PhoneNumber = "+30 6973530000", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 300 };
+            Booking b121 = new Booking() { FirstName = "Iacopo", LastName = "Fantozzi", Email = "fantozzi@gmail.com", PhoneNumber = "+30 6973530000", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 300 };
+            Booking b122 = new Booking() { FirstName = "Carmela", LastName = "Cataluna", Email = "Cataluna@gmail.com", PhoneNumber = "+39 4579530000", PurchaseDate = new DateTime(2022, 04, 29), PackagesCost = 300 };
+            Booking b123 = new Booking() { FirstName = "Dimitra", LastName = "Kalantzi", Email = "mimi@gmail.com", PhoneNumber = "+30 6989530000", PurchaseDate = new DateTime(2022, 03, 2), PackagesCost = 300 };
+            Booking b124 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 300 };
+            Booking b125 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 300 };
+           
+            
             List<Booking> bookings = new List<Booking>() { b1, b2, b3, b4, b5, b6, b7, b8, b9,b10,b11,b12,b13,b14,b15,b16,b17,b18,b19,b20,b21,b22,b23,b24,b25,b26,b27,b28,b29,b30,b31,b32,b33,b34,b35,b36,b37,b38,b39,b40,b41,b42,b43,
-            b44,b45,b46,b47,b48,b49,b50,b51,b52,b53,b54,b55,b56,b57,b58,b59,b60,b61,b62,b63,b64,b65,b66,b67,b68,b69,b70,b71,b72,b73,b74,b75,b76,b77,b78,b79,b80,b81,b82,b83,b84,b85,b86,b87,b88,b89,b90,b91,b92,b93,b94,b95,b96,b97,b98,b99,b100    };
+            b44,b45,b46,b47,b48,b49,b50,b51,b52,b53,b54,b55,b56,b57,b58,b59,b60,b61,b62,b63,b64,b65,b66,b67,b68,b69,b70,b71,b72,b73,b74,b75,b76,b77,b78,b79,b80,b81,b82,b83,b84,b85,b86,b87,b88,b89,b90,b91,b92,b93,b94,b95,b96,b97,b98,b99,b100,
+            b101,b102,b103,b104,b105,b106,b107,b108,b109,b110,b111,b112,b113,b114,b115,b116,b117,b118,b119,b120,b121,b122,b123,b124,b125};
            
             db.Bookings.AddRange(bookings);
 
@@ -621,11 +688,12 @@ namespace MyDatabase.Seeding
             
             b74.Packages.Add(p10);
            
-            b75.Packages.Add(p11);
-            b76.Packages.Add(p11);
-            b77.Packages.Add(p11);
-            b78.Packages.Add(p11);
-            b77.Packages.Add(p11);
+            b75.Packages.Add(p12);
+            b76.Packages.Add(p12);
+            b77.Packages.Add(p12);
+            b78.Packages.Add(p12);
+            b79.Packages.Add(p12);
+           
 
             b80.ApplicationUser = ap10;
             b81.ApplicationUser = ap3;
@@ -657,14 +725,75 @@ namespace MyDatabase.Seeding
             b98.Packages.Add(p26);
             b99.Packages.Add(p26);
             b100.Packages.Add(p26);
-
+           
+            b101.Packages.Add(p7);
+            b102.Packages.Add(p7);
+           
+            b103.Packages.Add(p8);
+            b104.Packages.Add(p8);
+            b105.Packages.Add(p8);
+            b106.Packages.Add(p8);
+           
+            b107.Packages.Add(p11);
+            b108.Packages.Add(p11);
+            b109.Packages.Add(p11);
+            b110.Packages.Add(p11);
+            b111.Packages.Add(p11);
+            b112.Packages.Add(p11);
+            b113.Packages.Add(p11);
+           
+            b114.Packages.Add(p13);
+            b115.Packages.Add(p13);
+            b116.Packages.Add(p13);
+            b117.Packages.Add(p13);
+           
+            b118.Packages.Add(p15);
+            b119.Packages.Add(p15);
+            b120.Packages.Add(p15);
+            b121.Packages.Add(p15);
+            b122.Packages.Add(p15);
+            b123.Packages.Add(p15);
+            b124.Packages.Add(p15);
+            b125.Packages.Add(p15);
+            #endregion
 
 
             //Photo Seeding
+            #region Photos
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
-            Photo photosBarcelona1 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/fd/f4/museum_historically_architecture_building_barcelona_city_park_spain-1414417.jpg!s1" };
+            Photo A1 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEGc2TaRKDQNxpN0HBwc2ANjH4So5FqBj6A&usqp=CAU" };
+            Photo A2 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo2u1gaSyxDLa3aE89nUaopnALf36dT48xg&usqp=CAU" };
+            Photo A3 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTobkG1T221r0ZX61dFpkDi_I5-qDI7WJIxLA&usqp=CAU" };
+            Photo A4 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS0oLZqQLOy5wOKdXSW6kyBUW_TSQJac_VOQ&usqp=CAU" };
+            Photo A5 = new Photo() { Destinations = Destinations.Athens, Url = "" };
+            
             Photo photosBarcelona2 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/d6/f3/national_palace_palau_nacional_palace_abendstimmung_twilight_afterglow_barcelona_sky-950954.jpg!s1" };
             Photo photosBarcelona3 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://c.pxhere.com/photos/91/ac/barcelona_montjuic_sunset_plaza_espa_a-1068204.jpg!s1" };
+            Photo B4 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjpjjDx6W7vKXQ0Nli8McuzoiHi7rtXzuaMg&usqp=CAU" };
+            Photo B5 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8DmD7BmkCN_5Acpg2G5kkgdERMzDGs5O2EA&usqp=CAU" };
+            Photo B6 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzeKpsU6twBnse_2bd-jTImL0KVOWJCut2zw&usqp=CAU" };
+            Photo B7 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://www.kevmrc.com/wp-content/uploads/2021/07/parc-guell-is-in-the-famous-landmarks-barcelona-has-to-offer.jpg" };
+            Photo B8 = new Photo() { Destinations = Destinations.Barcelona, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWaPFhvlRCgHMAUPKXvcTc-S5zjMxsvk-dg&usqp=CAU" };
+            
+            Photo P1 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2CmJ6MDZLa1Dm0g0-Qp17JygVBQJnTE0Qmg&usqp=CAU" };
+            Photo P2 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWxzwiUH-Y89VezW6IB0ePHmH5rLmgmIU0yA&usqp=CAU" };
+            Photo P3 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnT9v_1XDo8fRQf8hhzV8CwzLaqHbDRWreYQ&usqp=CAU" };
+            Photo P4 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpux9Fc5Fx6B-8O4UaszngbEs1SbdG37TxSg&usqp=CAU" };
+            Photo P5 = new Photo() { Destinations = Destinations.Paris, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7QUuX1p21yD-R1ePkpCZccUUIZiut2A6mDA&usqp=CAU" };
+           
+            Photo L1 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCsix6MqHS0xVZgPYSu9kbtfL58sIq8JaXtA&usqp=CAU" };
+            Photo L2 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx2TH0dprgLJx8l3cuUE-2ISRK5oGcamPOlQ&usqp=CAU" };
+            Photo L3 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC9NaDDcoKb3Cgf8xzwdTi10leMutN__SmVw&usqp=CAU" };
+            Photo L4 = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr5MiTpnWjkiZzfgA3oNGzdJPFaIyx3O8TuQ&usqp=CAU" };
+            
+            Photo R1 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3qg-N6nA6CQmGsP-aOfravqmI8TwbDb6pOA&usqp=CAU" };
+            Photo R2 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj_koovL3giS_JZwrejTMeBP96E7QJocPz6A&usqp=CAU" };
+            Photo R3 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2-F9S5aPhR5yy4FxrCJPlaz_dAEF4BwOteA&usqp=CAU" };
+            Photo R4 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdQLyKusjPCN0i5XCrFpAOEiqwMmhxbpQ3AA&usqp=CAU" };
+            Photo R5 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTB_hHSuIrlMG3nudddhdB2VrjayOIC0wmw&usqp=CAU" };
+            Photo R6 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVIiKGrw29MIhf-hnmuchEqD134AxM9P2CkA&usqp=CAU" };
+
+           
             Photo photosLondon = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvp5BzRDdhtlUNh7CGHYdVp_HFwDs_FOx-Ow&usqp=CAU" };
             Photo photosParis = new Photo() { Destinations = Destinations.Paris, Url = "https://c.pxhere.com/photos/3c/c2/eiffel_tower_paris-159.jpg!s1" };
             Photo photosRome = new Photo() { Destinations = Destinations.Rome, Url = "http://www.cosavisitarearoma.it/images/immagini_articoli/piazza-di-spagna.jpg" };
@@ -672,56 +801,337 @@ namespace MyDatabase.Seeding
             Photo photoCappadocia = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://www.acetestravel.com/tour-image/cappadocia-27.webp" };
             Photo photoCappadocia1 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318992085.jpg?k=5a5214d69215f0998e8b9aaeb42c90330a66c60c64dfd2ee18dbeece0af43c78&o=&hp=1" };
 
+            Photo Lis1 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpr5I4x2gAFvCgo9RXqsPqF29WOirjQEm8DQ&usqp=CAU" };
+            Photo Lis2 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQja6oMehaiodg6nSq5FHMTpPDkmuMoNKbBVQ&usqp=CAU" };
+            Photo Lis3 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC4ozy26VnNUmk40UuLk-wcGmfnNGn4iM2QA&usqp=CAU" };
+            Photo Lis4 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFRv6HMR2fGwfmcKlGCcfFLoh0KftU_aaeog&usqp=CAU" };
+           
+            Photo Cap1 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOPaId1nas4TXhScWoZokx6lN3BW1kByLmZw&usqp=CAU" };
+            Photo Cap2 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS64DophW8sPsGzHO5gB7WRq1tR9IYOQsjlWw&usqp=CAU" };
+            Photo Cap3 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4djXdU4VRIl-0HwHK5xw3mqCB-EPp3Ho7iQ&usqp=CAU" };
+            Photo Cap4 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjNMszc3MqlABsc80KLE_wJfngT4pMTp0NEw&usqp=CAU" };
+           
+            Photo Uz1 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhgdg32BUq-1sIjcjPDa2kh5mLyxV_rLbrQ&usqp=CAU" };
+            Photo Uz2 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH8BPeYFTc61lvMp879uu4upZbBR-fgCAK7A&usqp=CAU" };
+            Photo Uz3 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtcAeWlf6vPGd57ntCRX8-wRVpX2pfHpvamA&usqp=CAU" };
+            Photo Uz4 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU1Zo2RJ0byS9Eg765a1MxCp18z5TCytOLvQ&usqp=CAU" };
+            Photo Uz5 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLrnYgdK6BRxg8ytWevdHY21jQIo3SLX41sQ&usqp=CAU" };
+            Photo Uz6 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRaBXRxZH2m7Vne4XxwfK7MT0VMmR6USR5ew&usqp=CAU" };
+            Photo Uz7 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT39mvJwpQ-P0gaJAWt17FnK3dFj2CuEngW-w&usqp=CAU" };
+          
+            Photo Pr1 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6d8TGwHa25PtfqG_b7UU7vCEvxAPGplidTg&usqp=CAU" };
+            Photo Pr2 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV1btzZSdAfD2OYuIIB4P4Ie_E8G1NJQl-oA&usqp=CAU" };
+            Photo Pr3 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTphd-ux7F2_A51ibjlfNP-wKURtR0Ty5zusA&usqp=CAU" };
+           
+            Photo Ic1= new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSforyVL73b6c87xksjenlXOrtvsuQA9T_4lQ&usqp=CAU" };
+            Photo Ic2 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNu3vmcRk6WWWnCEYabSnYUSJnzW_k2LwSg&usqp=CAU" };
+            Photo Ic3 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCoHnGzP-s6QS49rLDwE9sBs576f5iNp-MaA&usqp=CAU" };
+            Photo Ic4 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqhz3kSR6HEuR96_jtL0Wi6ppkb6RbkpIvMQ&usqp=CAU" };
+            Photo Ic5 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqhz3kSR6HEuR96_jtL0Wi6ppkb6RbkpIvMQ&usqp=CAU" };
+           
+            Photo Am1 = new Photo() { Destinations = Destinations.Amsterdam, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmsJQ2feZYi4iOsSOJ6U6-UfFq4RTtGxXsA&usqp=CAU" };
+            Photo Am2 = new Photo() { Destinations = Destinations.Amsterdam, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmsJQ2feZYi4iOsSOJ6U6-UfFq4RTtGxXsA&usqp=CAU" };
+            Photo Am3 = new Photo() { Destinations = Destinations.Amsterdam, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmsJQ2feZYi4iOsSOJ6U6-UfFq4RTtGxXsA&usqp=CAU" };
+           
+            Photo Paros1 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBMIxABXPNl6iBr7mHZs17RuEfLxzNbDaV2Q&usqp=CAU" };
+            Photo Paros2 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkStBMS4tiC6us7Mcl4mU5ijWEzi8dAR-lXw&usqp=CAU" };
+            Photo Paros3 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfPl6BMkfpAFNgRt8JDPTbNe8Q8EvYQXLC6Q&usqp=CAU" };
+           Photo Paros4 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJdDDDXeXYkqH3H-M-caH-wcccyeS6UQ1GEQ&usqp=CAU" };
+           
+            Photo K1 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyCYBV3aRi_hZqjMuBXa5kzJssaaW8ey6L7g&usqp=CAU" };
+            Photo K2 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStHPhZ2EaPFzWib_fTV0oak-20ufVn9E0sAw&usqp=CAU" };
+            Photo K3 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT518whv-2lw07p1Dx1110GeFCMvhVCy-bTIA&usqp=CAU" };
+            Photo K4 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJy0GTPCtmzUycPBiBWzUvJ8jihvkCtcYbXQ&usqp=CAU" };
+            Photo K5 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoW6rrriBJfAOVVX2lmZVbIZ-9zA9YlScAsg&usqp=CAU" };
+           
+            Photo Can1 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPomgEOpsWU5MhajZmgCFHfkI7lNEbX2WcNg&usqp=CAU" };
+            Photo Can2 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIiwSdWxpQUxCuUf_Eep7kSa7cJvh2ttt9qg&usqp=CAU" };
+            Photo Can3 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTfOzMbzodIirJJXhuCgCXuHf4KUf9SYBkKQ&usqp=CAU" };
+            Photo Can4 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPfr6k390y52SbdEuhKFyVQ3rO-Ebm_jCZpA&usqp=CAU" };
+            Photo Can5 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfYsrOoSGVsytZ1tqBmha8S21oeRhkaICWaQ&usqp=CAU" };
+            Photo Can6 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScOUaYcqnJXZUry8A0R-YvGxZpkP5LW7wscw&usqp=CAU" };
+            Photo Can8 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaE1uHnnMQXFBAJoioJ4jOhrc6-4veV1yAuw&usqp=CAU" };
+            Photo Can7 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeIhgubu9RMDtXdXYnwtiAsiFA0_KOqHrVLA&usqp=CAU" };
+           
+            Photo An1 = new Photo() { Destinations = Destinations.Andorra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWY1x4AFwbiKt1xQgYojndyzvODrDCWZd-pw&usqp=CAU" };
+            Photo An2 = new Photo() { Destinations = Destinations.Andorra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5FpDMNp50P3ld4E2IO0aXMpa0jmhl5sX1WA&usqp=CAU" };
+            Photo An3 = new Photo() { Destinations = Destinations.Andorra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeerpzdtO994aKq7n7iKOfNzJTcWldd3Voyw&usqp=CAU" };
+           
+            Photo M1 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq2YJBfE5bffHVGIyKL8UVKJoKbSufjJDvjw&usqp=CAU" };
+            Photo M2 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTT7Abpm675H-LV8Y_XRYdaESR0s1oe3E47g&usqp=CAU" };
+            Photo M3 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSanFNghqvfzrsG5yTVyETiNxYu9gwS1lFaKw&usqp=CAU" };
+            Photo M4 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawmGVN3ijqkIoLdmp9LZkhJTZU9yUG8RzNw&usqp=CAU" };
+            Photo M5 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd7giDUMNc1GLlte1DjY7t9jbbobVL5mnkOA&usqp=CAU" };
+            
+            
+            Photo Ma3 = new Photo() { Destinations = Destinations.Mallorca, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfO5yomocMBEdDYE6HGQWiFv-L8XZceAcCUA&usqp=CAU" };
+            Photo Ma1 = new Photo() { Destinations = Destinations.Mallorca, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSanWu7Ab9CEBp_DAvn2mBsS_YSBhwi9r3LTA&usqp=CAU" };
+            Photo Ma2 = new Photo() { Destinations = Destinations.Mallorca, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFgAvwtH7kFWKgLvXrBpVhZR5XnW3l5GzTw&usqp=CAU" };
+          
+            Photo Z1 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkDPC-zjRDX54en297F_BxYAJ4NszZhGrS1w&usqp=CAU" };
+            Photo Z2 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHnwqjpcC3jtcFycXeOJ6oNxs5BKfdcHWscQ&usqp=CAU" };
+            Photo Z3 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Zv0WfHPIfnJWRfNUAL6YVrv6zN0HBq7laQ&usqp=CAU" };
+            Photo Z4 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcOAQfptXcX3w0Rl8VMS2HsqZWp_ppzaVCaw&usqp=CAU" };
+           
+            Photo Mil1 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT--88yF2O3F8esjgTwYFG9KJQwRgm53NWXPA&usqp=CAU" };
+            Photo Mil2 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScTnkEnHBHU1KsQtwfhjMvdPeKbP-epYwjDQ&usqp=CAU" };
+            Photo Mil3 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5EmzCdQIZuVZ5-1PJ7ObR8CLYzDX-ImNqVQ&usqp=CAU" };
+            Photo Mil4 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU5JxhlmNrddosdp80-OHHqmvFRq_DTK_4YQ&usqp=CAU" };
+            
+            Photo Mad1 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1bECScn3wKvohRLS3C0tqmtIQzQEtnu4esA&usqp=CAU" };
+            Photo Mad2 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4tMWYqjmMAv7TywgL5t5H-F7YZi8EKRJFPg&usqp=CAU" };
+            Photo Mad3 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKO7RlSuyQoTy7hKHdcGj1VB5hdWJ0cYgfw&usqp=CAU" };
+            Photo Mad4 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9BKThcB_BKW8wMb2r4UNEEFEhnVoLutfFyA&usqp=CAU" };
+            Photo Mad5 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtxPST7cKYD-dGB4Er1JRx9ipb5SefHP03QA&usqp=CAU" };
+            Photo Mad6 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYQIc41rGWODwkaPPgP8QLGvfLPEufQDOEZA&usqp=CAU" };
+           
+            Photo Za1 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNiklzdwUjJnbQCcoezaCYOcuhWhEIenTjDQ&usqp=CAU" };
+            Photo Za2 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8KDvVWpNSsCXD-FRxjKMIKd3T5XOV4Uywzw&usqp=CAU" };
+            Photo Za3 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJxrIf4PyE3wgDooATNgW8kT-E3PcbxgG1Q&usqp=CAU" };
+            Photo Za4 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQcciTvZcE9RHuMfcm9Ro3RvbhoHghE7eX0A&usqp=CAU" };
+           
+            Photo D1 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_Cn71KOuwxgYPk0Bdye2TR2LeoYfpOz4LA&usqp=CAU" };
+            Photo D2 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThKfQH5zZ9nCuoyaJW4wi_0_cIYWZk8iSUhg&usqp=CAU" };
+            Photo D3 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_RIvTNr36nswdvq7tGx4CjsfmgIkEcVoVw&usqp=CAU" };
+            Photo D4 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhRikNGe9ph7bWKm5djXhvlg-KAdScDRsdQ&usqp=CAU" };
+            Photo D5 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaR9ytEUioRdlIO_j3dIWa09VZy7AGxXOguA&usqp=CAU" };
+         
+           
 
-            List<Photo> photos = new List<Photo>() { photosAthens,photosBarcelona1, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome, photosLisbon,photoCappadocia,photoCappadocia1 };
+            List<Photo> photos = new List<Photo>() { photosAthens, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome, photosLisbon,photoCappadocia,photoCappadocia1,A1,A2,A3,A4,A5,
+            B4,B5,B6,B7,B8,P2,P1,P3,P4,P5,L1,L2,L3,L4,Lis1,Lis2,Lis3,Lis4,Cap1,Cap2,Cap3,Cap4,Uz1,Uz2,Uz3,Uz4,Uz5,Uz6,Uz7, Pr1,Pr2,Pr3,Ic1,Ic2,Ic3,Ic4,Ic5,Am1,Am2,Am3,Paros1,Paros2,Paros3,Paros4,K1,
+            K2,K3,K4,K5,Can1,Can2,Can3,Can4,Can5,Can6,Can7,Can8,An1,An2,An3,M1,M2,M3,M4,M5,Ma1,Ma2,Ma3,Z1,Z2,Z3,Z4,Mil1,Mil2,Mil3,Mil4,Mad1,Mad2,Mad3,Mad4,Mad5,Mad6,Za1,Za2,Za3,Za4,D1,D2,D3,D4,D5};
             db.Photos.AddRange(photos);
 
-            p1.Photos.Add(photosBarcelona1);
+            p23.Photos.Add(photosBarcelona2);
+            p23.Photos.Add(photosBarcelona3);
+            p23.Photos.Add(B4);
+            p23.Photos.Add(B5);
+            p23.Photos.Add(B6);
+            p23.Photos.Add(B7);
+            p23.Photos.Add(B8);
+            
+            p26.Photos.Add(L1);
+            p26.Photos.Add(L2);
+            p26.Photos.Add(L3);
+            p26.Photos.Add(L4);
+            p26.Photos.Add(photosLondon);
+
+            p9.Photos.Add(Pr1);
+            p9.Photos.Add(Pr2);
+            p9.Photos.Add(Pr3);
+
+            p21.Photos.Add(Mad1);
+            p21.Photos.Add(Mad2);
+            p21.Photos.Add(Mad3);
+            p21.Photos.Add(Mad4);
+            p21.Photos.Add(Mad5);
+            p21.Photos.Add(Mad6);
+          
+            p22.Photos.Add(Za1);
+            p22.Photos.Add(Za2);
+            p22.Photos.Add(Za3);
+            p22.Photos.Add(Za4);
+           
+            
+            p20.Photos.Add(Mil1);
+            p20.Photos.Add(Mil2);
+            p20.Photos.Add(Mil3);
+            p20.Photos.Add(Mil4);
+            p24.Photos.Add(Mil1);
+            p24.Photos.Add(Mil2);
+            p24.Photos.Add(Mil3);
+            p24.Photos.Add(Mil4);
+           
+            p15.Photos.Add(An1);
+            p15.Photos.Add(An2);
+            p15.Photos.Add(An3);
+           
+            p18.Photos.Add(D1);
+            p18.Photos.Add(D2);
+            p18.Photos.Add(D3);
+            p18.Photos.Add(D4);
+            p18.Photos.Add(D5);
+           
+            p19.Photos.Add(Z1);
+            p19.Photos.Add(Z2);
+            p19.Photos.Add(Z3);
+            p19.Photos.Add(Z4);
+            
+            p17.Photos.Add(Ma1);
+            p17.Photos.Add(Ma2);
+            p17.Photos.Add(Ma3);
+            p25.Photos.Add(Ma1);
+            p25.Photos.Add(Ma2);
+            p25.Photos.Add(Ma3);
+          
+            p16.Photos.Add(M1);
+            p16.Photos.Add(M2);
+            p16.Photos.Add(M3);
+            p16.Photos.Add(M4);
+            p16.Photos.Add(M5);
+           
+            p14.Photos.Add(Can1);
+            p14.Photos.Add(Can2);
+            p14.Photos.Add(Can3);
+            p14.Photos.Add(Can4);
+            p14.Photos.Add(Can5);
+            p14.Photos.Add(Can6);
+            p14.Photos.Add(Can7);
+            p14.Photos.Add(Can8);
+           
+            p13.Photos.Add(K1);
+            p13.Photos.Add(K2);
+            p13.Photos.Add(K3);
+            p13.Photos.Add(K4);
+            p13.Photos.Add(K5);
+           
+            p12.Photos.Add(Paros1);
+            p12.Photos.Add(Paros2);
+            p12.Photos.Add(Paros3);
+            p12.Photos.Add(Paros4);
+           
+            p11.Photos.Add(Am1);
+            p11.Photos.Add(Am2);
+            p11.Photos.Add(Am3);
+           
+            p10.Photos.Add(Ic1);
+            p10.Photos.Add(Ic2);
+            p10.Photos.Add(Ic3);
+            p10.Photos.Add(Ic4);
+            p10.Photos.Add(Ic5);
+
+            p7.Photos.Add(Cap1);
+            p7.Photos.Add(Cap2);
+            p7.Photos.Add(Cap3);
+            p7.Photos.Add(Cap4);
+
+            p8.Photos.Add(Uz1);
+            p8.Photos.Add(Uz2);
+            p8.Photos.Add(Uz3);
+            p8.Photos.Add(Uz5);
+            p8.Photos.Add(Uz6);
+            p8.Photos.Add(Uz7);
+           
+            p6.Photos.Add(Lis1);
+            p6.Photos.Add(Lis2);
+            p6.Photos.Add(Lis3);
+            p6.Photos.Add(Lis4);
+
             p1.Photos.Add(photosBarcelona2);
             p1.Photos.Add(photosBarcelona3);
+            p1.Photos.Add(B4);
+            p1.Photos.Add(B5);
+            p1.Photos.Add(B6);
+            p1.Photos.Add(B7);
+            p1.Photos.Add(B8);
+           
             p2.Photos.Add(photosParis);
+            p2.Photos.Add(P1);
+            p2.Photos.Add(P2);
+            p2.Photos.Add(P3);
+            p2.Photos.Add(P4);
+            p2.Photos.Add(P5);
+           
             p3.Photos.Add(photosAthens);
-            p4.Photos.Add(photosLondon);
+            p3.Photos.Add(A1);
+            p3.Photos.Add(A2);
+            p3.Photos.Add(A3);
+            p3.Photos.Add(A4);
+
+            p26.Photos.Add(photosLondon);
+            p26.Photos.Add(L1);
+            p26.Photos.Add(L2);
+            p26.Photos.Add(L3);
+            p26.Photos.Add(L4);
+            p26.Photos.Add(photosLondon);
+
             p5.Photos.Add(photosRome);
+            p5.Photos.Add(R1);
+            p5.Photos.Add(R2);
+            p5.Photos.Add(R3);
+            p5.Photos.Add(R4);
+            p5.Photos.Add(R5);
+            p5.Photos.Add(R6);
+           
             p6.Photos.Add(photosLisbon);
             p7.Photos.Add(photoCappadocia);
             p7.Photos.Add(photoCappadocia1);
             p8.Photos.Add(photoCappadocia1);
 
+            #endregion
+          
+            //Rate Seeding
+            Rating r1 = new Rating() { RateScore = 3 };
+            Rating r2 = new Rating() { RateScore = 5 };
+            Rating r3 = new Rating() { RateScore = 4 };
+            List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
+            db.Ratings.AddRange(ratings);
+
+
             // Comment Seeding
-            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25),Rating=4 };
-            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29), Rating = 5 };
-            Comment com3 = new Comment() { CommentContent = "The city was nice and we had amazing time in Athens, but the tour guide was't what we expected. He seemed to be bored and avoided to answer questions.",PostTime=new DateTime(2021,05,29), Rating = 3 };
-            Comment com4 = new Comment() { CommentContent = "Me and my fiance, we love the city. We had been in Paris before but I wanted to go again everything organised through an agency so everything to be amazing for my marriage proposal. Thank you Travele agency for helping me making this trip an unforgetable mmemory!",PostTime=new DateTime(2022,02,15), Rating = 5 };
-            Comment com5 = new Comment() { CommentContent = "I love London, I can visit this city again and again. I am so happy that Travele agency organised everything because <i was super stressed with covid regulations. Although I want to confess that the hotel didn't reach my expectations.",PostTime=new DateTime(2022,01,15), Rating = 4 };
-            Comment com6 = new Comment() { CommentContent = "Travelling was not my thing, but not any more... Thank you for everything, the trip was perfectly organised till the last detail.",PostTime=new DateTime(2021,10,15), Rating = 5 };
-            Comment com7 = new Comment() { CommentContent = "We haven't been there yet, but we are looking forward. Friends of ours suggested the agency and I hope to fullfill my son's desire to fly high with a ballon.",PostTime=new DateTime(2022,03,1), Rating = 5 };
-            Comment com8 = new Comment() { CommentContent = "My mind was blown away. Didn't expect the city to be that magical. Was like an Alladin movie....",PostTime=new DateTime(2022,04,1), Rating = 5 };
-            Comment com9 = new Comment() { CommentContent = "Trip was good, but the city was too dark - gothic from my taste",PostTime=new DateTime(2022,03,10), Rating = 3 };
-            Comment com10 = new Comment() { CommentContent = "I am really curius about this trip because northen countries are not really my cup of tea. I like the idea of relaxing at a natural pool with tha extraordinary scenery.",PostTime=new DateTime(2022,03,10), Rating = 5 };
-            Comment com11 = new Comment() { CommentContent = "I loved the vibes of the city. The Light Festival was the best highlight.",PostTime=new DateTime(2021,10,10), Rating = 5 };
-            Comment com12 = new Comment() { CommentContent = "Travelling to Greece was always my dream. Strongly recommend this offer. PS book a daily cruise.",PostTime=new DateTime(2021,09,10), Rating = 5 };
-            Comment com13 = new Comment() { CommentContent = "In love with island's wild beauty, fresh fish and the warm locals.",PostTime=new DateTime(2022,02,19), Rating = 5 };
-            Comment com14 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.",PostTime=new DateTime(2021,05,30), Rating = 4 };
-            Comment com15 = new Comment() { CommentContent = "Love love love. Unforgetable memories! I made loads of new friend that we all share the same interests: ski and outdoor parties.",PostTime=new DateTime(2021,12,30), Rating = 5 };
-            Comment com16 = new Comment() { CommentContent = "A paradise on Earth. First Christmas that didn't have to organise anything. Hope Travele Agency will make similar destinations for Christmas vacay otherwise every year we will travel to Mauritius :P",PostTime=new DateTime(2022,1,2), Rating = 5 };
-            Comment com17 = new Comment() { CommentContent = "Village Sol, the bearth taking view at Mirador Es Colomer Formentor, party life at Es Arenal... more than good reasons to visit this island.", PostTime=new DateTime(2021,11,2), Rating = 5 };
-            Comment com18 = new Comment() { CommentContent = "Two days are not enough for Dubai.. This place makes you feel rich without spending a fortune.", PostTime=new DateTime(2021,11,2), Rating = 5 };
-            Comment com19 = new Comment() { CommentContent = "Booked this trip to show off to a friend. Cute city but nothing special, unless if you like window shopping Rollex, Louis Vuiton... A place that I liked was the waterfalls close to Zurich that was really spectacullar.", PostTime=new DateTime(2022,4,2), Rating = 3 };
-            Comment com20 = new Comment() { CommentContent = "You have to visit Milan, the cathedral Duomo and the amazing shopping opportunities are more than enough! But in general I adore the italian life style and don't loose the opportunity to visit this country. ", PostTime=new DateTime(2022,2,1), Rating = 5 };
-            Comment com21 = new Comment() { CommentContent = "For real this trip is for art lovers, I enjoyed so much Reina Sofia Museum plus my husband visited Real Madrid's stadium so was a double win.", PostTime=new DateTime(2022,2,1), Rating = 5 };
-            Comment com22 = new Comment() { CommentContent = "I enjoyed a lot the food, the view, the hotel.Everything was amazing but not the vans that was trasferring us from place to place... We felt unsafe and we had to rent a car for ourselves.", PostTime=new DateTime(2021,12,1), Rating = 3 };
-            Comment com23 = new Comment() { CommentContent = "Top destination! Quite expenseive but worth the money", PostTime=new DateTime(2021,11,10), Rating = 5 };
-            Comment com24 = new Comment() { CommentContent = "I had a nice time there but not  an extraordinary place", PostTime=new DateTime(2022,3,28), Rating = 5 };
-            Comment com25 = new Comment() { CommentContent = "Nice job guys, keep it this way", PostTime=new DateTime(2022,2,28), Rating = 5 };
-            Comment com26 = new Comment() { CommentContent = "Happy that crossed this capital from my bucket list. Had fun wandering around the city.", PostTime=new DateTime(2021,10,28), Rating = 5 };
-            Comment com27 = new Comment() { CommentContent = "After so many years of marriage we visited Cancun and renewed our love, better than holiday. We had such an amazing time we didn't left the resort.", PostTime=new DateTime(2021,10,28), Rating = 5 };
-            Comment com28 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2022,1,28), Rating = 5 };
-           
-            
+            #region comments and their ratings
+            Comment com1 = new Comment() { CommentContent = "Excellent! Very good service from beginning to end", PostTime=new DateTime(2022,01,25) };
+            com1.Rating = r2;
+            Comment com2 = new Comment() { CommentContent = "Awesome support! Very much appreciated",PostTime=new DateTime(2021,05,29) };
+            com2.Rating = r2;
+            Comment com3 = new Comment() { CommentContent = "The city was nice and we had amazing time in Athens, but the tour guide was't what we expected. He seemed to be bored and avoided to answer questions.",PostTime=new DateTime(2021,05,29)};
+            com3.Rating = r1;
+            Comment com4 = new Comment() { CommentContent = "Me and my fiance, we love the city. We had been in Paris before but I wanted to go again everything organised through an agency so everything to be amazing for my marriage proposal. Thank you Travele agency for helping me making this trip an unforgetable mmemory!",PostTime=new DateTime(2022,02,15)};
+            com4.Rating = r2;
+            Comment com5 = new Comment() { CommentContent = "I love London, I can visit this city again and again. I am so happy that Travele agency organised everything because <i was super stressed with covid regulations. Although I want to confess that the hotel didn't reach my expectations.",PostTime=new DateTime(2022,01,15)};
+            com5.Rating = r2;
+            Comment com6 = new Comment() { CommentContent = "Travelling was not my thing, but not any more... Thank you for everything, the trip was perfectly organised till the last detail.",PostTime=new DateTime(2021,10,15)};
+            com6.Rating = r2;
+            Comment com7 = new Comment() { CommentContent = "We haven't been there yet, but we are looking forward. Friends of ours suggested the agency and I hope to fullfill my son's desire to fly high with a ballon.",PostTime=new DateTime(2022,03,1)};
+            com7.Rating = r2;
+            Comment com8 = new Comment() { CommentContent = "My mind was blown away. Didn't expect the city to be that magical. Was like an Alladin movie....",PostTime=new DateTime(2022,04,1)};
+            com8.Rating = r2;
+            Comment com9 = new Comment() { CommentContent = "Trip was good, but the city was too dark - gothic from my taste",PostTime=new DateTime(2022,03,10)};
+            com9.Rating = r3;
+            Comment com10 = new Comment() { CommentContent = "I am really curius about this trip because northen countries are not really my cup of tea. I like the idea of relaxing at a natural pool with tha extraordinary scenery.",PostTime=new DateTime(2022,03,10)};
+            com10.Rating = r3;
+            Comment com11 = new Comment() { CommentContent = "I loved the vibes of the city. The Light Festival was the best highlight.",PostTime=new DateTime(2021,10,10)};
+            com11.Rating = r2;
+            Comment com12 = new Comment() { CommentContent = "Travelling to Greece was always my dream. Strongly recommend this offer. PS book a daily cruise.",PostTime=new DateTime(2021,09,10)};
+            com12.Rating = r2;
+            Comment com13 = new Comment() { CommentContent = "In love with island's wild beauty, fresh fish and the warm locals.",PostTime=new DateTime(2022,02,19)};
+            com13.Rating = r2;
+            Comment com14 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.",PostTime=new DateTime(2021,05,30)};
+            com14.Rating = r1;
+            Comment com15 = new Comment() { CommentContent = "Love love love. Unforgetable memories! I made loads of new friend that we all share the same interests: ski and outdoor parties.",PostTime=new DateTime(2021,12,30)};
+            com15.Rating = r2;
+            Comment com16 = new Comment() { CommentContent = "A paradise on Earth. First Christmas that didn't have to organise anything. Hope Travele Agency will make similar destinations for Christmas vacay otherwise every year we will travel to Mauritius :P",PostTime=new DateTime(2022,1,2)};
+            com16.Rating = r2;
+            Comment com17 = new Comment() { CommentContent = "Village Sol, the bearth taking view at Mirador Es Colomer Formentor, party life at Es Arenal... more than good reasons to visit this island.", PostTime=new DateTime(2021,11,2)};
+            com17.Rating = r2;
+            Comment com18 = new Comment() { CommentContent = "Two days are not enough for Dubai.. This place makes you feel rich without spending a fortune.", PostTime=new DateTime(2021,11,2)};
+            com18.Rating = r2;
+            Comment com19 = new Comment() { CommentContent = "Booked this trip to show off to a friend. Cute city but nothing special, unless if you like window shopping Rollex, Louis Vuiton... A place that I liked was the waterfalls close to Zurich that was really spectacullar.", PostTime=new DateTime(2022,4,2)};
+            com19.Rating = r3;
+            Comment com20 = new Comment() { CommentContent = "You have to visit Milan, the cathedral Duomo and the amazing shopping opportunities are more than enough! But in general I adore the italian life style and don't loose the opportunity to visit this country. ", PostTime=new DateTime(2022,2,1)};
+            com20.Rating = r2;
+            Comment com21 = new Comment() { CommentContent = "For real this trip is for art lovers, I enjoyed so much Reina Sofia Museum plus my husband visited Real Madrid's stadium so was a double win.", PostTime=new DateTime(2022,2,1)};
+            com21.Rating = r2;
+            Comment com22 = new Comment() { CommentContent = "I enjoyed a lot the food, the view, the hotel.Everything was amazing but not the vans that was trasferring us from place to place... We felt unsafe and we had to rent a car for ourselves.", PostTime=new DateTime(2021,12,1)};
+            com22.Rating = r2;
+            Comment com23 = new Comment() { CommentContent = "Top destination! Quite expensive but worth the money", PostTime=new DateTime(2021,11,10)};
+            com23.Rating = r2;
+            Comment com24 = new Comment() { CommentContent = "I had a nice time there but not  an extraordinary place", PostTime=new DateTime(2022,3,28)};
+            com24.Rating = r3;
+            Comment com25 = new Comment() { CommentContent = "Nice job guys, keep it this way", PostTime=new DateTime(2022,2,28)};
+            com25.Rating = r2;
+            Comment com26 = new Comment() { CommentContent = "Happy that crossed this capital from my bucket list. Had fun wandering around the city.", PostTime=new DateTime(2021,10,28)};
+            com26.Rating = r2;
+            Comment com27 = new Comment() { CommentContent = "After so many years of marriage we visited Cancun and renewed our love, better than holiday. We had such an amazing time we didn't left the resort.", PostTime=new DateTime(2021,10,28)};
+            com27.Rating = r2;
+            Comment com28 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2022,1,28)};
+            com28.Rating = r2;
+
             List<Comment> comments = new List<Comment>() { com1, com2,com3,com4,com5,com6,com7,com8,com9,com10,com11,com12,com13,com14,com15,com16,com17,com18,com19,com20,com21,com22,com23,
            com24,com25,com26,com27,com28 };
             db.Comments.AddRange(comments);
+
 
             p1.Comments.Add(com2);
             p5.Comments.Add(com1);
@@ -779,14 +1189,15 @@ namespace MyDatabase.Seeding
             com26.ApplicationUser = ap4;
             com27.ApplicationUser = ap2;
             com28.ApplicationUser = ap8;
-
+            #endregion
 
             //Flight Seeding
+            #region aircompanies
             Flight f1 = new Flight() { CompanyName = "Aegean Airlines" };
             Flight f2 = new Flight() { CompanyName = "Turkish Airlines" };
             Flight f3 = new Flight() { CompanyName = "Lufthansa Airlines" };
             Flight f4 = new Flight() { CompanyName = "Ryanair Airlines" };
-            List<Flight> flights = new List<Flight>() { f1, f2, f3,f4 };
+            List<Flight> flights = new List<Flight>() { f1, f2, f3, f4 };
             db.Flights.AddRange(flights);
 
             p1.Flight = f1;
@@ -815,12 +1226,12 @@ namespace MyDatabase.Seeding
             p24.Flight = f1;
             p25.Flight = f1;
             p26.Flight = f4;
-           
-        
+#endregion
+
 
             //Hotel Seeding
-           
-            Hotel h1 = new Hotel() { HotelName = "Saint-Roch", MapEmbededUrl= "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1371578.3464393283!2d0.4517993!3d47.8228538!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2fc254a387%3A0x577904b1300e4ac7!2sH%C3%B4tel%20Saint%20Roch!5e0!3m2!1sen!2sgr!4v1647555131144!5m2!1sen!2sgr", HotelStars = 2, Destinations = Destinations.Paris };
+            #region hotels
+            Hotel h1 = new Hotel() { HotelName = "Saint-Roch", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1371578.3464393283!2d0.4517993!3d47.8228538!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2fc254a387%3A0x577904b1300e4ac7!2sH%C3%B4tel%20Saint%20Roch!5e0!3m2!1sen!2sgr!4v1647555131144!5m2!1sen!2sgr", HotelStars = 2, Destinations = Destinations.Paris };
             Hotel h2 = new Hotel() { HotelName = "InnAthens", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.1600039324967!2d23.732028314815786!3d37.97339510848113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd3e119676e7%3A0x93f811d49b5e927d!2sINNATHENS%20HOTEL!5e0!3m2!1sen!2sgr!4v1647557551859!5m2!1sen!2sgr", HotelStars = 3, Destinations = Destinations.Athens };
             Hotel h3 = new Hotel() { HotelName = "Royal Palace Luxury Hotel", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23755.145321876313!2d12.46329223955078!3d41.90590610000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6055aa8c9451%3A0x6136f4b5c3fb2d3c!2sRoyal%20Palace%20Luxury%20Hotel!5e0!3m2!1sen!2sgr!4v1647563026489!5m2!1sen!2sgr", HotelStars = 4, Destinations = Destinations.Rome };
             Hotel h4 = new Hotel() { HotelName = "Catalonia Atenas", MapEmbededUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5984.501640833719!2d2.1822930631818833!3d41.412073656162754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a32887f34395%3A0xd83c995bbcadbca8!2sHotel%20Catalonia%20Atenas!5e0!3m2!1sen!2sgr!4v1647557627131!5m2!1sen!2sgr", HotelStars = 3, Destinations = Destinations.Barcelona };
@@ -871,22 +1282,21 @@ namespace MyDatabase.Seeding
             p24.Hotel = h20;
             p25.Hotel = h12;
             p26.Hotel = h5;
+            #endregion
+
 
             //Rate Seeding
-            Rating r1 = new Rating() { RateScore = 3};
-            Rating r2 = new Rating() { RateScore = 5};
-            Rating r3 = new Rating() { RateScore = 4};
-            List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
-            db.Ratings.AddRange(ratings);
+            //Rating r1 = new Rating() { RateScore = 3};
+            //Rating r2 = new Rating() { RateScore = 5};
+            //Rating r3 = new Rating() { RateScore = 4};
+            //List<Rating> ratings = new List<Rating>() { r1, r2, r3 };
+            //db.Ratings.AddRange(ratings);
 
-            p1.Ratings.Add(r1);
-            p1.Ratings.Add(r3);
-            p2.Ratings.Add(r2);
-            p2.Ratings.Add(r2);
+
 
             //ReplyComment Seeding
-             ReplyComment rep1=new ReplyComment() {ReplyContent= "All recommendations were within our budget. An invaluable service! Thank you",ReplyPostTime=DateTime.Now };
-             ReplyComment rep2=new ReplyComment() {ReplyContent= "The video chat was well worth the fee, and helped us to fell confident about our choices for the trip",ReplyPostTime=DateTime.Now };
+            ReplyComment rep1 = new ReplyComment() { ReplyContent = "All recommendations were within our budget. An invaluable service! Thank you", ReplyPostTime = DateTime.Now };
+            ReplyComment rep2 = new ReplyComment() { ReplyContent = "The video chat was well worth the fee, and helped us to fell confident about our choices for the trip", ReplyPostTime = DateTime.Now };
 
             List<ReplyComment> replyComments = new List<ReplyComment>() { rep1, rep2 };
             db.ReplyComments.AddRange(replyComments);

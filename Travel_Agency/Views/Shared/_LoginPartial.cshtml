@@ -7,7 +7,7 @@
 
         <div class="header-contact-info">
 
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "|", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color:white;" })
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "|", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage",  style = "color:white;" })
             <a style="color:white;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         </div>
     }
