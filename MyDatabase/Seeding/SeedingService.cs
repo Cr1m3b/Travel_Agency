@@ -896,7 +896,7 @@ namespace MyDatabase.Seeding
             Comment com23 = new Comment() { CommentContent = "Top destination! Quite expensive but worth the money", PostTime=new DateTime(2021,11,10)};
             com23.Rating = r2;
             Comment com24 = new Comment() { CommentContent = "I had a nice time there but not  an extraordinary place", PostTime=new DateTime(2022,3,28)};
-            com2.Rating = r3;
+            com24.Rating = r3;
             Comment com25 = new Comment() { CommentContent = "Nice job guys, keep it this way", PostTime=new DateTime(2022,2,28)};
             com25.Rating = r2;
             Comment com26 = new Comment() { CommentContent = "Happy that crossed this capital from my bucket list. Had fun wandering around the city.", PostTime=new DateTime(2021,10,28)};
