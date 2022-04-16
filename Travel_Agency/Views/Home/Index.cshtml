@@ -1,7 +1,6 @@
 ﻿@model Entities.Models.ViewModels.PackageViewModel
 
 
-
 <main id="content" class="site-main">
     <!-- Home slider html START -->
     <section class="home-slider-section">
@@ -113,18 +112,18 @@
                                             <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
-                                            @if (@package.Ratings.Count() == 0)
+                                            @if (package.Comments == null)
                                             {
                                             <span class="review-text">(No reviews with comment)</span>
                                             }
                                             else
                                             {
-                                                <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                <span class="review-text">(@package.Comments.Count() reviews)</span>
 
                                             }
-                                            @if (package.Ratings.Count != 0)
+                                            @if (package.Comments.Count() != 0)
                                             {
-                                                <div class="rating-start" title="Rated 5 out of 5">
+                                                <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
                                                     <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
                                                 </div>
                                             }
@@ -195,13 +194,13 @@
                                             <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                         </h3>
                                         <div class="review-area">
-                                            @if (@package.Ratings.Count() == 0)
+                                            @if (@package.Comments.Count() == 0)
                                             {
                                             <span class="review-text">(No reviews with comment)</span>
                                             }
                                             else
                                             {
-                                                <span class="review-text">(@package.Ratings.Count() reviews)</span>
+                                                <span class="review-text">(@package.Comments.Count() reviews)</span>
                                             }
 
                                             @if (package.Comments.Count != 0)

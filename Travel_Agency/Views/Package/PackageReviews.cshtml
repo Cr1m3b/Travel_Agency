@@ -56,10 +56,10 @@
                                             <h3 class="package-title" title="@package.Title">
                                                 <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                             </h3>
-                                            @if (package.Ratings.Count() != 0)
+                                            @if (package.Comments.Count() != 0)
                                             {
                                                 <div class="review-area">
-                                                    <span class="review-text">(@package.Ratings.Count)</span>
+                                                    <span class="review-text">(@package.Comments.Count()</span>
                                                     <div class="rating-start">
                                                         <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
                                                     </div>

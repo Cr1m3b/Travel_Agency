@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Entities.Models.Package>
+
 @{
     Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
 }
@@ -18,11 +19,11 @@
         </section>
         <!-- Inner Banner html end-->
         <!-- packages html start -->
-        <div class="package-section"> 
+        <div class="package-section">
             <div class="container">
                 <div class="package-inner">
                     <div class="row ">
-                        @foreach(var package in Model)
+                        @foreach (var package in Model)
                         {
                             <div class="col-lg-4">
                                 <div class="package-wrap">
@@ -74,22 +75,22 @@
                                             <div class="review-area">
                                                 @if (package.Comments.Count == 0)
                                                 {
-                                                    <span class="review-text">(No reviews with comment)</span>
+                                                    <span class="review-text">(No reviews)</span>
                                                 }
                                                 else
                                                 {
-                                                    <span class="review-text">(@package.Ratings.Count reviews)</span>
+                                                    <span class="review-text">(@package.Comments.Count() reviews)</span>
                                                 }
-                                                    <br />
-                                                    @if (package.Ratings.Count != 0)
-                                                    {
-                                                        <div class="rating-start" title="Rated 5 out of 5">
-                                                            <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
-                                                        </div>
-                                                    }
+                                                <br />
+                                                @if (package.Comments.Count != 0)
+                                                {
+                                                    <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
+                                                        <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                    </div>
+                                                }
 
-                                                </div>
-                                            <p class="package-description">@package.Description</p>
+                                            </div>
+                                            <p>@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                                 <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>

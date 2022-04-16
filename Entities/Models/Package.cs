@@ -15,7 +15,6 @@ namespace Entities.Models
         {
             Photos = new HashSet<Photo>();
             Comments= new HashSet<Comment>();
-            Ratings = new HashSet<Rating>();
         }
         public int PackageId { get; set; }
         public string Title { get; set; }
@@ -55,12 +54,11 @@ namespace Entities.Models
             double sum = 0;
             foreach (var com in Comments)
             {
-                sum += com.Rating;
+                sum += com.Rating.RateScore;
             }
             return Math.Round(sum / Comments.Count, MidpointRounding.ToEven);
         }
         
-
     }
     
 }
