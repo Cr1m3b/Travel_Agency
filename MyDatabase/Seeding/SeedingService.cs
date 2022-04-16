@@ -818,8 +818,8 @@ namespace MyDatabase.Seeding
             Photo Uz7 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT39mvJwpQ-P0gaJAWt17FnK3dFj2CuEngW-w&usqp=CAU" };
           
             Photo Pr1 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6d8TGwHa25PtfqG_b7UU7vCEvxAPGplidTg&usqp=CAU" };
-            Photo Pr2 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgWiz79bzBqe8SA-tVci9n6-k2U1JbuzhkFA&usqp=CAU" };
-            Photo Pr3 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbYBj2RAgFU9vw1Q9H1THlBr4bjJsbgxSIvQ&usqp=CAU" };
+            Photo Pr2 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV1btzZSdAfD2OYuIIB4P4Ie_E8G1NJQl-oA&usqp=CAU" };
+            Photo Pr3 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTphd-ux7F2_A51ibjlfNP-wKURtR0Ty5zusA&usqp=CAU" };
            
             Photo Ic1= new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSforyVL73b6c87xksjenlXOrtvsuQA9T_4lQ&usqp=CAU" };
             Photo Ic2 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNu3vmcRk6WWWnCEYabSnYUSJnzW_k2LwSg&usqp=CAU" };
@@ -887,12 +887,18 @@ namespace MyDatabase.Seeding
             Photo Za2 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8KDvVWpNSsCXD-FRxjKMIKd3T5XOV4Uywzw&usqp=CAU" };
             Photo Za3 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJxrIf4PyE3wgDooATNgW8kT-E3PcbxgG1Q&usqp=CAU" };
             Photo Za4 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQcciTvZcE9RHuMfcm9Ro3RvbhoHghE7eX0A&usqp=CAU" };
-          
+           
+            Photo D1 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_Cn71KOuwxgYPk0Bdye2TR2LeoYfpOz4LA&usqp=CAU" };
+            Photo D2 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThKfQH5zZ9nCuoyaJW4wi_0_cIYWZk8iSUhg&usqp=CAU" };
+            Photo D3 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_RIvTNr36nswdvq7tGx4CjsfmgIkEcVoVw&usqp=CAU" };
+            Photo D4 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhRikNGe9ph7bWKm5djXhvlg-KAdScDRsdQ&usqp=CAU" };
+            Photo D5 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaR9ytEUioRdlIO_j3dIWa09VZy7AGxXOguA&usqp=CAU" };
+         
            
 
             List<Photo> photos = new List<Photo>() { photosAthens, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome, photosLisbon,photoCappadocia,photoCappadocia1,A1,A2,A3,A4,A5,
             B4,B5,B6,B7,B8,P2,P1,P3,P4,P5,L1,L2,L3,L4,Lis1,Lis2,Lis3,Lis4,Cap1,Cap2,Cap3,Cap4,Uz1,Uz2,Uz3,Uz4,Uz5,Uz6,Uz7, Pr1,Pr2,Pr3,Ic1,Ic2,Ic3,Ic4,Ic5,Am1,Am2,Am3,Paros1,Paros2,Paros3,Paros4,K1,
-            K2,K3,K4,K5,Can1,Can2,Can3,Can4,Can5,Can6,Can7,Can8,An1,An2,An3,M1,M2,M3,M4,M5,Ma1,Ma2,Ma3,Z1,Z2,Z3,Z4,Mil1,Mil2,Mil3,Mil4,Mad1,Mad2,Mad3,Mad4,Mad5,Mad6,Za1,Za2,Za3,Za4};
+            K2,K3,K4,K5,Can1,Can2,Can3,Can4,Can5,Can6,Can7,Can8,An1,An2,An3,M1,M2,M3,M4,M5,Ma1,Ma2,Ma3,Z1,Z2,Z3,Z4,Mil1,Mil2,Mil3,Mil4,Mad1,Mad2,Mad3,Mad4,Mad5,Mad6,Za1,Za2,Za3,Za4,D1,D2,D3,D4,D5};
             db.Photos.AddRange(photos);
 
             p23.Photos.Add(photosBarcelona2);
@@ -938,6 +944,12 @@ namespace MyDatabase.Seeding
             p15.Photos.Add(An1);
             p15.Photos.Add(An2);
             p15.Photos.Add(An3);
+           
+            p18.Photos.Add(D1);
+            p18.Photos.Add(D2);
+            p18.Photos.Add(D3);
+            p18.Photos.Add(D4);
+            p18.Photos.Add(D5);
            
             p19.Photos.Add(Z1);
             p19.Photos.Add(Z2);
