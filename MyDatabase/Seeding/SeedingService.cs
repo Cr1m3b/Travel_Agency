@@ -1033,6 +1033,13 @@ namespace MyDatabase.Seeding
             p26.Photos.Add(photosLondon);
 
             p5.Photos.Add(photosRome);
+            p5.Photos.Add(R1);
+            p5.Photos.Add(R2);
+            p5.Photos.Add(R3);
+            p5.Photos.Add(R4);
+            p5.Photos.Add(R5);
+            p5.Photos.Add(R6);
+           
             p6.Photos.Add(photosLisbon);
             p7.Photos.Add(photoCappadocia);
             p7.Photos.Add(photoCappadocia1);
