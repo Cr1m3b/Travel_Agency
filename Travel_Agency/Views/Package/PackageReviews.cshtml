@@ -56,17 +56,24 @@
                                             <h3 class="package-title" title="@package.Title">
                                                 <a href="/Package/Details/@package.PackageId">@package.Title</a>
                                             </h3>
-                                            @if (package.Comments.Count() != 0)
-                                            {
-                                                <div class="review-area">
-                                                    <span class="review-text">(@package.Comments.Count()</span>
-                                                    <div class="rating-start">
+                                            <div class="review-area">
+                                                @if (package.Comments == null)
+                                                {
+                                                    <span class="review-text">(No reviews)</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="review-text">(@package.Comments.Count() reviews)</span>
+
+                                                }
+                                                @if (package.Comments.Count() != 0)
+                                                {
+                                                    <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
                                                         <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
                                                     </div>
-                                                </div>
-                                            }
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>
-                                            <div class="btn-wrap">
+                                                }
+                                            </div>
+                                            <p class="package-description">@package.Description</p>                                            <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                                 <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
                                             </div>
