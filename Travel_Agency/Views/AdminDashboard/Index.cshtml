@@ -57,9 +57,10 @@
                         <thead>
                             <tr>
                                 <th>User</th>
-                                <th>Booking Date</th>
+                                <th>@Html.ActionLink("Booking Date", "Index", "AdminDashboard", new { sortOrder = "BookingAscend" }, null)</th>
                                 <th>Destination</th>
-                                <th>Trip Date</th>
+                                <th>@Html.ActionLink("Trip Date", "Index", "AdminDashboard", new { sortOrder = "TripAscend" }, null)</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -67,13 +68,13 @@
                             {
                                 foreach (var package in booking.Packages)
                                 {
-                                    <tr class="package">
+                                    <tr class="bookings">
                                         <td>
                                             <span>@booking.FirstName @booking.LastName</span>
                                         </td>
                                         <td>@booking.PurchaseDate.ToShortDateString()</td>
                                         <td>@package.Destinations</td>
-                                        <td>@package.TripDate.ToShortDateString()</td>
+                                        <td>@booking.PurchaseDate.ToShortDateString()</td>
                                     </tr>
                                 }
                             }
@@ -82,6 +83,16 @@
                     </table>
                 </div>
             </div>
+            <!-- pagination html -->
+            <div id="pagination-container" class="light-theme simple-pagination">
+                <ul>
+                    <li class="active"><span class="current prev pag">«</span></li>
+                    <li class="active"><span class="current">1</span></li>
+                    <li><a href="#page-2" class="page-link">2</a></li>
+                    <li><a href="#page-2" class="page-link next">»</a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
     <!-- Recent Booking & Package Enquiry  END-->
@@ -107,45 +118,45 @@
                         <tbody>
                             @foreach (var user in Model.Users)
                             {
-                            <tr>
-                                <td>
-                                    <a href="#"><span class="list-name">@user.UserName</span></a>
-                                </td>
-                                <td>@user.FirstName</td>
-                                <td>@user.LastName</td>
-                                <td>@user.PhoneNumber</td>
-                                <td>@user.Email</td>
-                                <td>@user.Country</td>
-
-                                @if (user.Bookings != null)
-                                {
+                                <tr>
                                     <td>
-                                        <span class="badge badge-success">@user.Bookings.Count</span>
+                                        <a href="#"><span class="list-name">@user.UserName</span></a>
                                     </td>
-                                }
-                                else
-                                {
+                                    <td>@user.FirstName</td>
+                                    <td>@user.LastName</td>
+                                    <td>@user.PhoneNumber</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.Country</td>
 
-                                    <td>
-                                        <span class="badge badge-success">0</span>
-                                    </td>
-                                }
+                                    @if (user.Bookings != null)
+                                    {
+                                        <td>
+                                            <span class="badge badge-success">@user.Bookings.Count</span>
+                                        </td>
+                                    }
+                                    else
+                                    {
 
-                                @if (user.Comments != null)
-                                {
-                                    <td>
-                                        <span class="badge badge-dark">@user.Comments.Count</span>
-                                    </td>
-                                }
-                                else
-                                {
+                                        <td>
+                                            <span class="badge badge-success">0</span>
+                                        </td>
+                                    }
 
-                                    <td>
-                                        <span class="badge badge-success">0</span>
-                                    </td>
-                                }
+                                    @if (user.Comments != null)
+                                    {
+                                        <td>
+                                            <span class="badge badge-dark">@user.Comments.Count</span>
+                                        </td>
+                                    }
+                                    else
+                                    {
 
-                            </tr>
+                                        <td>
+                                            <span class="badge badge-success">0</span>
+                                        </td>
+                                    }
+
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -162,8 +173,6 @@
     <!--  Reports END-->
     <!--Bottom Charts & Statistics START-->
     <div class="row">
-
-
 
 
 
@@ -184,11 +193,6 @@
         </div>
 
 
-
-
-
-
-
         <!--Bottom Charts & Statistics END-->
     </div>
 </div>
@@ -198,6 +202,29 @@
 <script src="~/Theme/TravelAgency/admin/assets/js/chart.js"></script>
 <script src="~/Scripts/Chart.js"></script>
 @section scripts{
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+    <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
+    <script type="text/javascript">
+        var items = $(".dashboard-box .bookings");
+        var numItems = items.length;
+        var perPage = 7;
+
+        items.slice(perPage).hide();
+
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
+    </script>
+
 
     <script>
 
@@ -231,7 +258,6 @@
                         pointHitRadius: 10,
                         data: Income,
                     }
-
 
 
                 ]
@@ -270,13 +296,55 @@
                             'rgba(255, 206, 86, 0.2)',
                             'rgba(75, 192, 192, 0.2)',
                             'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'],
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(125, 85, 12, 0.2)',
+                            'rgba(120, 65, 65, 0.2)',
+                            'rgba(175, 175, 25, 0.2)',
+                            'rgba(102, 255, 102, 0.2)',
+                            'rgba(220, 160, 204, 0.2)',
+                            'rgba(255, 204, 204, 0.2)',
+                            'rgba(153, 204, 255, 0.2)',
+                            'rgba(255, 102, 178, 0.2)',
+                            'rgba(255, 255, 51, 0.2)',
+                            'rgba(255, 128, 0, 0.2)',
+                            'rgba(255, 102, 255, 0.2)',
+                            'rgba(178, 255, 102, 0.2)',
+                            'rgba(255, 204, 255, 0.2)',
+                            'rgba(153, 204, 255, 0.2)',
+                            'rgba(255, 51, 255, 0.2)',
+                            'rgba(102, 0, 204, 0.2)',
+                            'rgba(76, 153, 0, 0.2)',
+                            'rgba(204, 0, 204, 0.2)',
+                            'rgba(255, 51, 51, 0.2)',
+                            'rgba(102, 51, 0, 0.2)',
+
+                        ],
                         borderColor: ['rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(255, 206, 86, 1)',
                             'rgba(75, 192, 192, 1)',
                             'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'],
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(125, 85, 12, 1)',
+                            'rgba(120, 65, 65, 1)',
+                            'rgba(175, 175, 25, 1)',
+                            'rgba(102, 255, 102, 1)',
+                            'rgba(255, 204, 204, 1)',
+                            'rgba(153, 204, 255, 1)',
+                            'rgba(255, 102, 178, 1)',
+                            'rgba(255, 255, 51, 1)',
+                            'rgba(255, 128, 0, 1)',
+                            'rgba(255, 102, 255, 1)',
+                            'rgba(178, 255, 102, 1)',
+                            'rgba(255, 204, 255, 1)',
+                            'rgba(153, 204, 255, 1)',
+                            'rgba(255, 51, 255, 1)',
+                            'rgba(102, 0, 204, 1)',
+                            'rgba(76, 153, 0, 1)',
+                            'rgba(204, 0, 204, 1)',
+                            'rgba(255, 51, 51, 1)',
+                            'rgba(102, 51, 0 1)',
+                        ],
                         borderWidth:1
                     }]
                 },

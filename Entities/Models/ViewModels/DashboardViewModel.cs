@@ -14,5 +14,7 @@ namespace Entities.Models.ViewModels
         public decimal Earnings { get; set; }
         public List<Booking> TodayBookings { get; set; }
         public List<Booking> RecentBookings { get; set; }
+        public List<Package> AdminPackages { get; set; }
+
     }
 }
