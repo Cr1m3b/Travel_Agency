@@ -111,13 +111,12 @@
                             <div class="custom-field-wrap">
                                 <div class="dragable-field">
                                     <div class="dragable-field-inner">
-                                        @*<p class="drag-drop-info">Drop Files To Upload</p>
-                                            <p>or</p>*@
                                         <div class="upload-input">
                                             <div class="form-group">
                                                 <span class="upload-btn">Upload a image</span>
                                                 <input type="file" name="packagePhoto">
                                             </div>
+                                            @Html.ValidationMessageFor(model => model.MainPhoto)
                                         </div>
                                     </div>
                                 </div>
@@ -128,8 +127,6 @@
                             <div class="custom-field-wrap">
                                 <div class="dragable-field">
                                     <div class="dragable-field-inner">
-                                        @*<p class="drag-drop-info">Drop Files To Upload</p>
-                                            <p>or</p>*@
                                         <div class="upload-input">
                                             <div class="form-group">
                                                 <span class="upload-btn">Upload a image</span>
