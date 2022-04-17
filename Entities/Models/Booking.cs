@@ -16,14 +16,25 @@ namespace Entities.Models
             Packages=new HashSet<Package>();
         }
         public int BookingId { get; set; }
+        [Required]
+        [Display(Name = "First Name")]
+        [MinLength(2, ErrorMessage = "First name can not be less than 2 letters")]
+        [MaxLength(40,ErrorMessage ="First name can not be more than 40 letters")]
         public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
+        [MinLength(2, ErrorMessage = "Last name can not be less than 2 letters")]
+        [MaxLength(40, ErrorMessage = "Last name can not be more than 40 letters")]
         public string LastName { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
+        [Display(Name = "Contact Number")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Invalid Contact Number")]
         public string PhoneNumber { get; set; }
-
         [Display(Name = "Purchased Date")]
-       // [CustomValidation(typeof(MyValidations), "ValidateDateAttribute")]
         public DateTime PurchaseDate { get; set; }
+        [Display(Name = "Packages Cost")]
+        [CustomValidation(typeof(MyValidations), "ValidateGreaterToZero")]
         public decimal PackagesCost { get; set; }
         //Navigation Properties
         public ICollection<Package> Packages { get; set; }
