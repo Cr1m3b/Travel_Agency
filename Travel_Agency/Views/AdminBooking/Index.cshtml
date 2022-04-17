@@ -27,10 +27,10 @@
                             foreach (var adminpackage in sorted)
                             {
                                 <tr class="package">
-                                    <td>@adminbooking.BookingId</td>
+                                    <td style="position:absolute;left:420px">@adminbooking.BookingId</td>
                                     <td>
-                                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
-                                    </td>
+                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
+                    </td>
                                     <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
                                     <td>@adminpackage.Destinations</td>
                                     <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
@@ -41,15 +41,15 @@
                         {
                             foreach (var adminpackage in adminbooking.Packages)
                             {
-                                <tr class="package">
-                                    <td>@adminbooking.BookingId</td>
-                                    <td>
-                                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
-                                    </td>
-                                    <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
-                                    <td>@adminpackage.Destinations</td>
-                                    <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
-                                </tr>
+                <tr class="package">
+                    <td style="position:absolute;left:420px">@adminbooking.BookingId</td>
+                    <td>
+                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
+                    </td>
+                    <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                    <td>@adminpackage.Destinations</td>
+                    <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
+                </tr>
                             }
                         }
                     }
@@ -79,7 +79,7 @@
     <script type="text/javascript">
         var items = $(".dashboard-box .package");
         var numItems = items.length;
-        var perPage = 4;
+        var perPage = 7;
 
         items.slice(perPage).hide();
 

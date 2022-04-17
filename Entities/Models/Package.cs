@@ -1,4 +1,5 @@
 ﻿using Entities.Enums;
+using Entities.IdentityUsers;
 using Entities.Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,7 @@ namespace Entities.Models
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Rating> Ratings { get; set; }
         public ICollection<Booking> Bookings { get; set; }
+
         /// <summary>
         /// Final price of package (after calculating discount, if any)
         /// </summary>
