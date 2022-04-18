@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th>Booking Number</th>
-                        <th>User</th>
+                        <th >User</th>
                         <th>@Html.ActionLink("Booking", "Index", "AdminBooking", new { sortOrder = "BookAscend" }, null)</th>
                         <th>Destination</th>
                         <th>@Html.ActionLink("Trip Date", "Index", "AdminBooking", new { sortOrder = "TripAscend" }, null)</th>
@@ -26,15 +26,14 @@
                             var sorted = adminbooking.Packages.OrderBy(p => p.TripDate).ToList();
                             foreach (var adminpackage in sorted)
                             {
-                                <tr class="package">
-                                    <td style="position:absolute;left:420px">@adminbooking.BookingId</td>
-                                    <td>
+                    <tr class="package">
+                        <td style="width:175px">@adminbooking.BookingId</td>
+                        <td style="object-fit: cover; width: 35px;"><img src="~/Content/UsersImages/no-user.jpg" alt="User" /></td>
                         @*<span>@adminbooking.ApplicationUser.LastName</span>*@
-                    </td>
-                                    <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
-                                    <td>@adminpackage.Destinations</td>
-                                    <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
-                                </tr>
+                        <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
+                        <td>@adminpackage.Destinations</td>
+                        <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
+                    </tr>
                             }
                         }
                         else 
@@ -42,10 +41,8 @@
                             foreach (var adminpackage in adminbooking.Packages)
                             {
                 <tr class="package">
-                    <td style="position:absolute;left:420px">@adminbooking.BookingId</td>
-                    <td>
-                        @*<span>@adminbooking.ApplicationUser.LastName</span>*@
-                    </td>
+                    <td style="width:175px">@adminbooking.BookingId</td>
+                    <td style="object-fit: cover; width: 35px;"><img src="~/Content/UsersImages/no-user.jpg" alt="User" /></td>
                     <td>@adminbooking.PurchaseDate.ToString("dd/MM/yyyy")</td>
                     <td>@adminpackage.Destinations</td>
                     <td>@adminpackage.TripDate.ToString("dd/MM/yyyy")</td>
