@@ -73,7 +73,6 @@ namespace Travel_Agency.Controllers
         }
 
 
-
         // GET: ReplyComment/Edit/5
         public ActionResult Edit(int? id)
         {
