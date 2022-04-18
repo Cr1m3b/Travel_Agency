@@ -38,8 +38,8 @@
                         <tbody>
                             @foreach (var user in Model)
                             {
-                                <tr class="users"> 
-                                    @if (@user.UserImage != null)
+                                <tr class="users">
+                                    @if (user.UserImage != null)
                                     {
                                         <td style="object-fit: cover; width: 80px; "><img src="@user.UserImage.ImagePath" alt="User" /></td>
                                     }

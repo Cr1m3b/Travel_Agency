@@ -129,9 +129,10 @@ namespace Travel_Agency.Controllers
             fileName = fileName + extension;
             newImage.ImagePath = "~/Content/UsersImages/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Content/UsersImages/"), fileName);
+            user.UserImage = newImage;
             newImage.ImageFile.SaveAs(fileName);
             db.Images.Add(newImage);
-            user.UserImage = newImage;
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
             return View();
         }
