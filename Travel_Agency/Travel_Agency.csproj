@@ -286,6 +286,9 @@
     <Content Include="Content\Images\santorini_1.jpg" />
     <Content Include="Content\Images\wp1809473.jpg" />
     <Content Include="Content\Images\wp1823646-1600x900_0.jpg" />
+    <Content Include="Content\UsersImages\1.jpg" />
+    <Content Include="Content\UsersImages\2.jpg" />
+    <Content Include="Content\UsersImages\3.jpg" />
     <Content Include="Theme\TravelAgency\assets\css\Package.css" />
     <Content Include="Content\UsersImages\no-user.jpg" />
     <Content Include="favicon.ico" />
