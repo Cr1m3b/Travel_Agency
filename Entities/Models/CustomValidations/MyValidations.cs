@@ -22,5 +22,23 @@ namespace Entities.Models.CustomValidations
             }
             return new ValidationResult($"The field {context.MemberName} can not be bigger than actual date", new List<string> { context.MemberName });
         }
+        public static ValidationResult ValidateGreaterToZero(decimal value, ValidationContext context)
+        {
+            bool isValid = true;
+
+            if (value <= decimal.Zero)
+            {
+                isValid = false;
+            }
+
+            if (isValid)
+            {
+                return ValidationResult.Success;
+            }
+            else
+            {
+                return new ValidationResult($"The field {context.MemberName} must be greater than 0", new List<string> { context.MemberName });
+            }
+        }
     }
 }

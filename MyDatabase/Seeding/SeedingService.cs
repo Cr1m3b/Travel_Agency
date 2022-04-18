@@ -437,16 +437,16 @@ namespace MyDatabase.Seeding
 
             //Booking Seeding
             #region Bookings
-            Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
-            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
+            Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+306547896365", PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
+            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+306547896123", PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
             Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 966 };
             Booking b4 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
             Booking b5 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 340 };
             Booking b6 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 529 };
-            Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
+            Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
             Booking b8 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 300 };
             Booking b9 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 300 };
-            Booking b10 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 19), PackagesCost = 567 };
+            Booking b10 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = "+3065445665695", PurchaseDate = new DateTime(2022, 04, 19), PackagesCost = 567 };
             Booking b11 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 567 };
             Booking b12 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 567 };
             Booking b13 = new Booking() { FirstName = "Maria", LastName = "Pantazi", Email = "marypan@gmail.com", PhoneNumber = "+30 6973535596", PurchaseDate = new DateTime(2022, 04, 6), PackagesCost = 567 };
@@ -455,30 +455,30 @@ namespace MyDatabase.Seeding
             Booking b16 = new Booking() { FirstName = "Carmela", LastName = "Cataluna", Email = "Cataluna@gmail.com", PhoneNumber = "+39 4579530000", PurchaseDate = new DateTime(2022, 04, 29), PackagesCost = 780 };
             Booking b17 = new Booking() { FirstName = "Dimitra", LastName = "Kalantzi", Email = "mimi@gmail.com", PhoneNumber = "+30 6989530000", PurchaseDate = new DateTime(2022, 03, 2), PackagesCost = 780 };
             Booking b18 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 780 };
-            Booking b19 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
-            Booking b20 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
-            Booking b21 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 655 };
+            Booking b19 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@yahoo.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
+            Booking b20 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+35534545665695", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
+            Booking b21 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+35565445661111", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 655 };
             Booking b22 = new Booking() { FirstName = "Anna", LastName = "Selva", Email = "annaSel@gmail.com", PhoneNumber = "+38 9531798456", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
             Booking b23 = new Booking() { FirstName = "Aggelos", LastName = "Koutourinis", Email = "angel@gmail.com", PhoneNumber = "+30 6931798456", PurchaseDate = new DateTime(2022, 05, 2), PackagesCost = 655 };
-            Booking b24 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@gmail.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 655 };
+            Booking b24 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@yahoo.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 655 };
            
-            Booking b25 = new Booking() { FirstName = ap12.FirstName, LastName = ap12.LastName, Email = ap12.Email, PhoneNumber = ap12.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b26 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b27 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b28 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b29 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b30 = new Booking() { FirstName = ap9.FirstName, LastName = ap9.LastName, Email = ap9.Email, PhoneNumber = ap9.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b31 = new Booking() { FirstName = ap5.FirstName, LastName = ap5.LastName, Email = ap5.Email, PhoneNumber = ap5.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b32 = new Booking() { FirstName = ap7.FirstName, LastName = ap7.LastName, Email = ap7.Email, PhoneNumber = ap7.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b33 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b25 = new Booking() { FirstName = ap12.FirstName, LastName = ap12.LastName, Email = ap12.Email, PhoneNumber = "+35565325665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b26 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+4965445665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b27 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = "+3065545665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b28 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = "+35565987665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b29 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+35565445490695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b30 = new Booking() { FirstName = ap9.FirstName, LastName = ap9.LastName, Email = ap9.Email, PhoneNumber = "+26565445665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b31 = new Booking() { FirstName = ap5.FirstName, LastName = ap5.LastName, Email = ap5.Email, PhoneNumber = "+4165445665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b32 = new Booking() { FirstName = ap7.FirstName, LastName = ap7.LastName, Email = ap7.Email, PhoneNumber = "+35565445569695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b33 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+3065445611695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
             Booking b34 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 702 };
-            Booking b35 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 702 };
+            Booking b35 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@yahoo.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 702 };
 
             Booking b36 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 300 };
             Booking b37 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 300 };
             Booking b38 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 300 };
-            Booking b39 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 300 };
-            Booking b40 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
+            Booking b39 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@yahoo.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 300 };
+            Booking b40 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
             Booking b41 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 300 };
             Booking b42 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 300 };
             Booking b43 = new Booking() { FirstName = "Anna", LastName = "Selva", Email = "annaSel@gmail.com", PhoneNumber = "+38 9531798456", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 300 };
@@ -492,10 +492,10 @@ namespace MyDatabase.Seeding
             Booking b50 = new Booking() { FirstName = "Dimitra", LastName = "Kalantzi", Email = "mimi@gmail.com", PhoneNumber = "+30 6989530000", PurchaseDate = new DateTime(2022, 03, 2), PackagesCost = 476 };
             Booking b51 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 476 };
             Booking b52 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 476 };
-            Booking b53 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 476 };
+            Booking b53 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+410123566325", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 476 };
 
-            Booking b54 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 420 };
-            Booking b55 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 420 };
+            Booking b54 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+410564566325", PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 420 };
+            Booking b55 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+440644566325", PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 420 };
             Booking b56 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 420 };
             Booking b57= new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 420 };
             Booking b58= new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 420 };
@@ -505,8 +505,8 @@ namespace MyDatabase.Seeding
             Booking b61 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 476 };
             Booking b62 = new Booking() { FirstName = "Maria", LastName = "Pantazi", Email = "marypan@gmail.com", PhoneNumber = "+30 6973535596", PurchaseDate = new DateTime(2022, 04, 6), PackagesCost = 476 };
 
-            Booking b63 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
-            Booking b64 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
+            Booking b63 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+410648866325", PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
+            Booking b64 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+410944566325", PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
 
             Booking b65 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@gmail.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 400 };
 
@@ -525,12 +525,12 @@ namespace MyDatabase.Seeding
             Booking b75 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
             Booking b76 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 800 };
             Booking b77 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 800 };
-            Booking b78 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 800 };
+            Booking b78 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 800 };
             Booking b79 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 800 };
 
-            Booking b80 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
-            Booking b81 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
-            Booking b82 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
+            Booking b80 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
+            Booking b81 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = "+300644566325", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
+            Booking b82 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+410666566325", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
 
             Booking b83 = new Booking() { FirstName = "Iacopo", LastName = "Fantozzi", Email = "fantozzi@gmail.com", PhoneNumber = "+30 6973530000", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 1450 };
 
@@ -565,15 +565,15 @@ namespace MyDatabase.Seeding
            
             Booking b103 = new Booking() { FirstName = "Xaris", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720};
             Booking b104 = new Booking() { FirstName = "Selma", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
-            Booking b105 = new Booking() { FirstName = "Panagiotis", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
+            Booking b105 = new Booking() { FirstName = "Panagiotis", LastName = "Lazarou", Email = "em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
             Booking b106 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
            
-            Booking b107 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
-            Booking b108 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
-            Booking b109 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 655 };
-            Booking b110 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 655 };
-            Booking b111 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
-            Booking b112 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 655 };
+            Booking b107 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = "em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
+            Booking b108 = new Booking() { FirstName = "John", LastName = "Smith", Email = "j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
+            Booking b109 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = "t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 655 };
+            Booking b110 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = "olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 655 };
+            Booking b111 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = "em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
+            Booking b112 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 655 };
             Booking b113 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 655 };
 
 
@@ -1327,7 +1327,8 @@ namespace MyDatabase.Seeding
                     FirstName = "Ektoras",
                     LastName = "Gatsos",
                     Email = "admin@gmail.com",
-                    Birthday = new DateTime(1978, 02, 03),
+                    Birthday = new DateTime(1987, 04, 17),
+                    Country="Greece",
                     PasswordHash = passwordHash.HashPassword("Admin1234!")
                 };
                 userManager.Create(user);
