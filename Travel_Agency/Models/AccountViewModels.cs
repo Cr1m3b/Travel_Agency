@@ -67,18 +67,23 @@ namespace Travel_Agency.Models
     {
         [Required]
         [Display(Name = "User Name")]
+        [MinLength(2, ErrorMessage = "First name cannot be less than 2")]
+        [MaxLength(20, ErrorMessage = "First name cannot be greater than 20")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$", ErrorMessage = "Your User Name must start with a capital letter.")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "The firstname is required.")]
         [Display(Name = "First Name")]
         [MinLength(2, ErrorMessage = "First name cannot be less than 2")]
         [MaxLength(20, ErrorMessage = "First name cannot be greater than 20")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$", ErrorMessage = "Your First Name must start with a capital letter.")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "The last name is required.")]
         [Display(Name = "Last Name")]
         [MinLength(2, ErrorMessage = "Last name cannot be less than 2")]
         [MaxLength(20, ErrorMessage = "Last name cannot be greater than 20")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$", ErrorMessage = "Your Last Name must start with a capital letter.")]
         public string LastName { get; set; }
 
         [Required]
@@ -97,7 +102,7 @@ namespace Travel_Agency.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
