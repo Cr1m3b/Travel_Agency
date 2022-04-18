@@ -831,6 +831,7 @@
     <Content Include="Views\Shared\SignalRChat.cshtml" />
     <Content Include="Views\Image\Add.cshtml" />
     <Content Include="Views\Manage\UserDetails.cshtml" />
+    <Content Include="Views\Manage\AddPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
