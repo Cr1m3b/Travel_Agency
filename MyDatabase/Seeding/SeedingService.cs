@@ -420,6 +420,20 @@ namespace MyDatabase.Seeding
             ApplicationUser ap10 = new ApplicationUser() { UserName = "girl98", FirstName = "Dana", LastName = "Rekop", PhoneNumber = "+35 9587535596", Email = "dana@gmail.com", Birthday = new DateTime(1998, 4, 21), Country = "Skopia", City = "Ersip", ZipCode = "59651", Address = "Pio" };
             ApplicationUser ap11= new ApplicationUser() { UserName = "Julia12", FirstName = "Ioulia", LastName = "Stathopoulou", PhoneNumber = "+30 6957535596", Email = "jul@gmail.com", Birthday = new DateTime(1997, 07, 12), Country = "Greece", City = "Karpathos", ZipCode = "25654", Address = "Swsti 5" };
             ApplicationUser ap12= new ApplicationUser() { UserName = "KostasGa", FirstName = "Konstantinos", LastName = "Galifianakis", PhoneNumber = "+30 6959735596", Email = "ga@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7" };
+            ApplicationUser ap13= new ApplicationUser() { UserName = "Iosif", FirstName = "Iosif", LastName = "Vasou", PhoneNumber = "+30 6958345596", Email = "ga@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+            ApplicationUser ap14= new ApplicationUser() { UserName = "Vicky", FirstName = "Vasiliki", LastName = "Kalantzi", PhoneNumber = "+30 6958345596", Email = "va@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+            ApplicationUser ap15= new ApplicationUser() { UserName = "Mire", FirstName = "Mirela", LastName = "Qirici", PhoneNumber = "+30 6958345596", Email = "mi@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+            ApplicationUser ap16= new ApplicationUser() { UserName = "Ias", FirstName = "Iaswnas", LastName = "Koufakos", PhoneNumber = "+30 6938345596", Email = "ias@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+
+            Image i1=new Image() { Title="Iosif",ImagePath= "~.../Content/UsersImages/1.jpg" };
+            Image i2=new Image() { Title="Iaswnas",ImagePath= "~Travel_Agency/Content/UsersImages/2jpg" };
+            Image i3=new Image() { Title="Vicky",ImagePath= "~Travel_Agency/Content/UsersImages/3.jpg" };
+            Image i4=new Image() { Title="Mirela",ImagePath= "~Travel_Agency/Content/UsersImages/1.jpg" };
+          //< img src = "~/Theme/TravelAgency/assets/images/img20.jpg" alt = "" >
+             ap13.UserImage = i1;    
+             ap14.UserImage = i3;    
+             ap15.UserImage = i4;    
+             ap16.UserImage = i2;    
 
             db.Users.Add(ap1);
             db.Users.Add(ap2);
@@ -1097,7 +1111,7 @@ namespace MyDatabase.Seeding
             com12.Rating = r2;
             Comment com13 = new Comment() { CommentContent = "In love with island's wild beauty, fresh fish and the warm locals.",PostTime=new DateTime(2022,02,19)};
             com13.Rating = r2;
-            Comment com14 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.",PostTime=new DateTime(2021,05,30)};
+            Comment com14 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2021,05,30)};
             com14.Rating = r1;
             Comment com15 = new Comment() { CommentContent = "Love love love. Unforgetable memories! I made loads of new friend that we all share the same interests: ski and outdoor parties.",PostTime=new DateTime(2021,12,30)};
             com15.Rating = r2;
@@ -1125,7 +1139,7 @@ namespace MyDatabase.Seeding
             com26.Rating = r2;
             Comment com27 = new Comment() { CommentContent = "After so many years of marriage we visited Cancun and renewed our love, better than holiday. We had such an amazing time we didn't left the resort.", PostTime=new DateTime(2021,10,28)};
             com27.Rating = r2;
-            Comment com28 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2022,1,28)};
+            Comment com28 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.", PostTime=new DateTime(2022,04,17)};
             com28.Rating = r2;
 
             List<Comment> comments = new List<Comment>() { com1, com2,com3,com4,com5,com6,com7,com8,com9,com10,com11,com12,com13,com14,com15,com16,com17,com18,com19,com20,com21,com22,com23,
@@ -1163,8 +1177,8 @@ namespace MyDatabase.Seeding
             p14.Comments.Add(com28);
 
             com1.ApplicationUser = ap1;
-            com2.ApplicationUser = ap2;
-            com3.ApplicationUser = ap12;
+            com2.ApplicationUser = ap14;
+            com3.ApplicationUser = ap13;
             com4.ApplicationUser = ap3;
             com5.ApplicationUser = ap5;
             com6.ApplicationUser = ap9;
@@ -1172,9 +1186,9 @@ namespace MyDatabase.Seeding
             com8.ApplicationUser = ap5;
             com9.ApplicationUser = ap9;
             com11.ApplicationUser = ap4;
-            com12.ApplicationUser = ap7;
+            com12.ApplicationUser = ap16;
             com13.ApplicationUser = ap6;
-            com14.ApplicationUser = ap10;
+            com14.ApplicationUser = ap15;
             com15.ApplicationUser = ap11;
             com16.ApplicationUser = ap12;
             com17.ApplicationUser = ap8;
@@ -1188,7 +1202,7 @@ namespace MyDatabase.Seeding
             com25.ApplicationUser = ap8;
             com26.ApplicationUser = ap4;
             com27.ApplicationUser = ap2;
-            com28.ApplicationUser = ap8;
+            com28.ApplicationUser = ap13;
             #endregion
 
             //Flight Seeding

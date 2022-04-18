@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Windows.Media;
 
 namespace Entities.Models
 {
@@ -18,5 +19,7 @@ namespace Entities.Models
         public string ImagePath { get; set; }
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
+        public ImageSource Portrait { get; set; }
+
     }
 }
