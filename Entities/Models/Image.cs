@@ -19,7 +19,7 @@ namespace Entities.Models
         public string ImagePath { get; set; }
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
-        public ImageSource Portrait { get; set; }
+        
 
     }
 }
