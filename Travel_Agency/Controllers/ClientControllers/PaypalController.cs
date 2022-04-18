@@ -75,8 +75,11 @@ namespace Travel_Agency.Controllers
             var booking = (Booking)Session["lastBooking"];
             if (booking != null)
             {
-                var user=  db.Users.Find(booking.ApplicationUser.Id);
-                booking.ApplicationUser = user;
+                var user=  db.Users.Find(booking.ApplicationUser?.Id);
+                if (user != null)
+                {
+                    booking.ApplicationUser = user;
+                }
                 db.Entry(booking).State = EntityState.Added;
                 db.SaveChanges();
             }

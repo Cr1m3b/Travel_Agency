@@ -29,7 +29,7 @@
                                     {
                                         <h2>Unable to find User with username: @ViewBag.NotFoundUsername</h2>
                                     }
-                                    @using (Html.BeginForm("EditUser", "AdminDashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    @using (Html.BeginForm("UserDetails", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                     {
                                         @Html.AntiForgeryToken()
                                         @Html.HiddenFor(model => model.Id)
@@ -103,7 +103,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        @Html.HiddenFor(model => model.Id)
+                                        <button type="submit" class="button-primary">Edit User</button>
                                     }
                                 </div>
                             </div>

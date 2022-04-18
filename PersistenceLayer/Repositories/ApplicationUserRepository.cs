@@ -15,7 +15,9 @@ namespace PersistenceLayer.Repositories
         {
         }
 
-
-
+        public ApplicationUser GetByUserName(string userName)
+        {
+            return Context.Users.Where(u=> u.UserName == userName).FirstOrDefault();
+        }
     }
 }

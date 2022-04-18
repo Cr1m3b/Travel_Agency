@@ -30,11 +30,11 @@ namespace Travel_Agency.Controllers
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             if (user != null)
-                {
+            {
                 var bookings = bookingRepository.GetAllWithRelatedTables().Where(b => b.ApplicationUser != null && b.ApplicationUser.Id == user.Id).ToList();
                 return View(bookings);
             }
-            return null;   
+            return null;
         }
 
         // GET: Booking/Create
@@ -68,31 +68,31 @@ namespace Travel_Agency.Controllers
         public ActionResult Create(Booking booking)
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-
+            if (user != null)
+            {
+                booking.ApplicationUser = user;
+            }
+            var cart = (List<Item>)Session["cart"];
+            if (cart != null)
+            {
+                List<Package> packages = new List<Package>();
+                decimal cost = 0;
+                foreach (var item in cart)
+                {
+                    packages.Add(item.Package);
+                    cost = cost + item.Package.FinalPrice() * item.Quantity;
+                }
+                booking.Packages = packages;
+                booking.PackagesCost = cost;
+            }
+            booking.PurchaseDate = DateTime.Now;
             if (ModelState.IsValid)
             {
-                if (user != null)
-                {
-                    booking.ApplicationUser = user;
-                }
-                var cart = (List<Item>)Session["cart"];
-                if (cart != null)
-                {
-                    List<Package> packages = new List<Package>();
-                    decimal cost = 0;
-                    foreach (var item in cart)
-                    {
-                        packages.Add(item.Package);
-                        cost = cost + item.Package.FinalPrice() * item.Quantity;
-                    }
-                    booking.Packages = packages;
-                    booking.PackagesCost = cost;
-                }
-                booking.PurchaseDate = DateTime.Now;
+                Session["lastBooking"] = booking;
+                return RedirectToAction("PaymentWithPaypal", "Paypal");
             }
-            Session["lastBooking"] = booking;
-           
-            return RedirectToAction("PaymentWithPaypal", "Paypal");
+
+            return View(booking);
         }
         protected override void Dispose(bool disposing)
         {

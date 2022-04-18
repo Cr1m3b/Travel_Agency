@@ -26,7 +26,7 @@ namespace Entities.Models.CustomValidations
         {
             bool isValid = true;
 
-            if (value <= decimal.Zero)
+            if (value <= 0.0M)
             {
                 isValid = false;
             }

@@ -286,6 +286,9 @@
     <Content Include="Content\Images\santorini_1.jpg" />
     <Content Include="Content\Images\wp1809473.jpg" />
     <Content Include="Content\Images\wp1823646-1600x900_0.jpg" />
+    <Content Include="Content\UsersImages\1.jpg" />
+    <Content Include="Content\UsersImages\2.jpg" />
+    <Content Include="Content\UsersImages\3.jpg" />
     <Content Include="Theme\TravelAgency\assets\css\Package.css" />
     <Content Include="Content\UsersImages\no-user.jpg" />
     <Content Include="favicon.ico" />
@@ -831,6 +834,7 @@
     <Content Include="Views\Shared\SignalRChat.cshtml" />
     <Content Include="Views\Image\Add.cshtml" />
     <Content Include="Views\Manage\UserDetails.cshtml" />
+    <Content Include="Views\Manage\AddPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

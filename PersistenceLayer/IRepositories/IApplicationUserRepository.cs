@@ -9,6 +9,6 @@ namespace PersistenceLayer.IRepositories
 {
     public interface IApplicationUserRepository
     {
-
+        ApplicationUser GetByUserName(string userName);
     }
 }

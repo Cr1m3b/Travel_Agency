@@ -1,0 +1,56 @@
+﻿@model Entities.Models.Image
+
+@{
+    Layout = "~/Views/Shared/Client/_ClientLayout.cshtml";
+}
+<div id="page" class="full-page">
+
+
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url(../../Content/Images/Backgrounds/wish.jpg);">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h2 class="inner-title">Change Your Details</h2>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape"></div>
+    </section>
+    <main id="content" class="site-main">
+        @using (Html.BeginForm("AddPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Upload your image</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="ImageFile" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="UserName" value="@ViewBag.UserName" />
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index", "Manage")
+        </div>
+    </main>
+</div>

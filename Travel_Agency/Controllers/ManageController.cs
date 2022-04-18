@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Entities.IdentityUsers;
+using Entities.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -111,6 +113,28 @@ namespace Travel_Agency.Controllers
             return RedirectToAction("Index", "Manage");
         }
 
+        [HttpGet]
+        public ActionResult AddPhoto(string UserName)
+        {
+            ViewBag.UserName = UserName;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPhoto(Image newImage,string userName)
+        {
+            var user = userRepository.GetByUserName(userName);
+            string fileName = Path.GetFileNameWithoutExtension(newImage.ImageFile.FileName);
+            string extension = Path.GetExtension(newImage.ImageFile.FileName);
+            fileName = fileName + extension;
+            newImage.ImagePath = "~/Content/UsersImages/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Content/UsersImages/"), fileName);
+            newImage.ImageFile.SaveAs(fileName);
+            db.Images.Add(newImage);
+            user.UserImage = newImage;
+            db.SaveChanges();
+            return View();
+        }
 
         // POST: /Manage/RemoveLogin
         [HttpPost]
