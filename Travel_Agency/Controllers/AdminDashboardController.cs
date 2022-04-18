@@ -64,7 +64,7 @@ namespace Travel_Agency.Controllers
         //[Authorize]
         public ActionResult Index(string sortOrder)
         {
-            var bookings =repository.GetAllWithRelatedTables().ToList();
+            var bookings = repository.GetAllWithRelatedTables().ToList();
             var packages = packageRepository.GetAllWithRelatedTables().ToList();
             
 
@@ -74,18 +74,8 @@ namespace Travel_Agency.Controllers
 
             foreach (var package in packages)
             {
-
-                times.Add(package.Bookings.Count);  
-
-            }
-            foreach (var package in packages)
-            {
-
+                times.Add(package.Bookings.Count);
                 Income.Add(package.Bookings.Count* package.Price);
-
-            }
-            foreach (var package in packages)
-            {
                 Titles.Add(package.Title);
             }
             ViewBag.Titles = Titles;
@@ -94,15 +84,14 @@ namespace Travel_Agency.Controllers
 
             var users = db.Users.ToList();
             var earnings = repository.GetAll().Sum(b => b.PackagesCost);
-            var todayBookings = repository.GetAll().Where(b => b.PurchaseDate.Date == DateTime.Now.Date).ToList();
-            var recentBookings = repository.GetAllWithRelatedTables().Where(b => b.PurchaseDate.Date >= DateTime.Now.Date.AddDays(-30)).OrderByDescending(b => b.PurchaseDate).ToList();
+            var todayBookings = bookings.Where(b => b.PurchaseDate.Date == DateTime.Now.Date).ToList();
+            var recentBookings = bookings.OrderByDescending(b => b.PurchaseDate).ToList();
 
             switch (sortOrder)
             {
                 case "BookingAscend": recentBookings = bookings.OrderBy(b => b.PurchaseDate).ToList(); break;
                 case "TripDateAscend": packages = packages.OrderBy(p => p.TripDate).ToList(); break;
             }
-
 
             DashboardViewModel vm = new DashboardViewModel()
             {

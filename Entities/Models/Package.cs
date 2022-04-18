@@ -19,7 +19,6 @@ namespace Entities.Models
         public int PackageId { get; set; }
         [Required(ErrorMessage ="Title is required")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Main photo is required")]
         public string MainPhoto { get; set; }
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }

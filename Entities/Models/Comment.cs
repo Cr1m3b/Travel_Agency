@@ -24,8 +24,6 @@ namespace Entities.Models
         public string CommentContent { get; set; }
         public DateTime PostTime { get; set; }
  
-
-
         //TODO: Navigation Properties for user
         public ApplicationUser ApplicationUser { get; set; }
         public int PackageId { get; set; }
