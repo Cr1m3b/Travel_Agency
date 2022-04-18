@@ -89,7 +89,7 @@
                                                 }
 
                                             </div>
-                                            <p>@package.Description</p>
+                                            <p class="package-description">@package.Description</p>
                                             <div class="btn-wrap">
                                                 <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
                                                 <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>

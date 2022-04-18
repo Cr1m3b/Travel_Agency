@@ -62,7 +62,7 @@ namespace Travel_Agency.Controllers
         }
 
         //[Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
             var bookings =repository.GetAllWithRelatedTables().ToList();
             var packages = packageRepository.GetAllWithRelatedTables().ToList();
@@ -97,12 +97,20 @@ namespace Travel_Agency.Controllers
             var todayBookings = repository.GetAll().Where(b => b.PurchaseDate.Date == DateTime.Now.Date).ToList();
             var recentBookings = repository.GetAllWithRelatedTables().Where(b => b.PurchaseDate.Date >= DateTime.Now.Date.AddDays(-30)).OrderByDescending(b => b.PurchaseDate).ToList();
 
+            switch (sortOrder)
+            {
+                case "BookingAscend": recentBookings = bookings.OrderBy(b => b.PurchaseDate).ToList(); break;
+                case "TripDateAscend": packages = packages.OrderBy(p => p.TripDate).ToList(); break;
+            }
+
+
             DashboardViewModel vm = new DashboardViewModel()
             {
                 Users = users,
                 Earnings = earnings,
                 TodayBookings = todayBookings,
-                RecentBookings = recentBookings
+                RecentBookings = recentBookings,
+                AdminPackages= packages
             };
             return View(vm);
         }

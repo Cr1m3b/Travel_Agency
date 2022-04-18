@@ -13,93 +13,96 @@
             <div class="inner-baner-container" style="background-image: url('../../Theme/TravelAgency/assets/images/img31.jpg'); background-position:top">
                 <div class="container">
                     <div class="inner-banner-content">
-                        <h1 class="inner-title">Tour Packages</h1>
+                        <h1 class="inner-title">Package Reviews</h1>
                     </div>
                 </div>
             </div>
             <div class="inner-shape"></div>
-        </section>
-        <!-- Inner Banner html end-->
-        <!-- packages html start -->
-        <div class="package-section">
-            <div class="container">
-                <div class="package-inner">
-                    <div class="row">
-                        @foreach (var package in Model)
-                        {
-                            <div class="col-lg-4 col-md-6">
-                                <div class="package-wrap">
-                                    <figure class="feature-image">
-                                        <a href="/Package/Details/@package.PackageId">
-                                            <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
-                                        </a>
-                                    </figure>
-                                    <div class="package-price">
-                                        <h6>
-                                            <span>€@package.Price </span> / per person
-                                        </h6>
-                                    </div>
-                                    <div class="package-content-wrap">
-                                        <div class="package-meta text-center">
-                                            <ul>
-                                                <li>
-                                                    <i class="far fa-clock"></i>
-                                                    @($"{package.TripDuration +1} days / {package.TripDuration} nights")
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                    @package.Destinations
-                                                </li>
-                                            </ul>
+            <!-- Inner Banner html end-->
+            <!-- packages html start -->
+            <div class="package-section">
+                <div class="container">
+                    <div class="package-inner">
+                        <div class="row">
+                            @foreach (var package in Model)
+                            {
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="package-wrap">
+                                        <figure class="feature-image">
+                                            <a href="/Package/Details/@package.PackageId">
+                                                <img src=@package.MainPhoto style="object-fit:cover; width:365px ;height:305px " alt="">
+                                            </a>
+                                        </figure>
+                                        <div class="package-price">
+                                            <h6>
+                                                <span>€@package.Price </span> / per person
+                                            </h6>
                                         </div>
-                                        <div class="package-content">
-                                            <h3 class="package-title" title="@package.Title">
-                                                <a href="/Package/Details/@package.PackageId">@package.Title</a>
-                                            </h3>
-                                            <div class="review-area">
-                                                @if (package.Comments == null)
-                                                {
-                                                    <span class="review-text">(No reviews)</span>
-                                                }
-                                                else
-                                                {
-                                                    <span class="review-text">(@package.Comments.Count() reviews)</span>
+                                        <div class="package-content-wrap">
+                                            <div class="package-meta text-center">
+                                                <ul>
+                                                    <li>
+                                                        <i class="far fa-clock"></i>
+                                                        @($"{package.TripDuration +1} days / {package.TripDuration} nights")
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                        @package.Destinations
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="package-content">
+                                                <h3 class="package-title" title="@package.Title">
+                                                    <a href="/Package/Details/@package.PackageId">@package.Title</a>
+                                                </h3>
+                                                <div class="review-area">
+                                                    @if (package.Comments == null)
+                                                    {
+                                                        <span class="review-text">(No reviews)</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="review-text">(@package.Comments.Count() reviews)</span>
 
-                                                }
-                                                @if (package.Comments.Count() != 0)
-                                                {
-                                                    <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
-                                                        <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
-                                                    </div>
-                                                }
-                                            </div>
-                                            <p class="package-description">@package.Description</p>                                            <div class="btn-wrap">
-                                                <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
-                                                <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
+                                                    }
+                                                    @if (package.Comments.Count() != 0)
+                                                    {
+                                                        <div class="rating-start" title="Rated @package.AveragePackageRating() out of 5">
+                                                            <span style="width: calc(@package.AveragePackageRating()*20%)"></span>
+                                                        </div>
+
+                                                    }
+                                                </div>
+                                                <p class="package-description">@package.Description</p>
+                                                <div class="btn-wrap">
+                                                    <a href="@Url.Action("Buy", "Cart", new { id = package.PackageId})" class="button-text width-6">Add to Cart<i class="fas fa-arrow-right"></i></a>
+                                                    <a href="@Url.Action("Add","WishList",new { id = package.PackageId})" class="button-text width-6">Wishlist<i class="far fa-heart"></i></a>
+                                                </div>
+
                                             </div>
                                         </div>
-                                        
                                     </div>
+
+
                                 </div>
-                            </div>
-                        }
-
+                            }
+                        </div>
                     </div>
-
-                    <div id="pagination-container" class="light-theme simple-pagination">
-                        <ul>
-                            <li class="active"><span class="current prev">«</span></li>
-                            <li class="active"><span class="current">1</span></li>
-                            <li><a href="#page-2" class="page-link">2</a></li>
-                            <li><a href="#page-2" class="page-link next">»</a></li>
-                        </ul>
-                    </div>
-
                 </div>
             </div>
-        </div>
-        <!-- packages html end -->
+
+            <div id="pagination-container" class="light-theme simple-pagination">
+                <ul>
+                    <li class="active"><span class="current prev">«</span></li>
+                    <li class="active"><span class="current">1</span></li>
+                    <li><a href="#page-2" class="page-link">2</a></li>
+                    <li><a href="#page-2" class="page-link next">»</a></li>
+                </ul>
+            </div>
+            <!-- packages html end -->
+        </section>
     </main>
+
 </div>
 
 
@@ -111,7 +114,7 @@
     <script type="text/javascript">
         var items = $(".row .col-lg-4");
         var numItems = items.length;
-        var perPage =4;
+        var perPage = 4;
 
         items.slice(perPage).hide();
 

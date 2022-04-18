@@ -8,6 +8,8 @@ using System.ComponentModel.DataAnnotations;
 using Entities.Models.Enums;
 using Entities.Enums;
 using Entities.IdentityUsers;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace MyDatabase.Seeding
 {
@@ -418,6 +420,20 @@ namespace MyDatabase.Seeding
             ApplicationUser ap10 = new ApplicationUser() { UserName = "girl98", FirstName = "Dana", LastName = "Rekop", PhoneNumber = "+35 9587535596", Email = "dana@gmail.com", Birthday = new DateTime(1998, 4, 21), Country = "Skopia", City = "Ersip", ZipCode = "59651", Address = "Pio" };
             ApplicationUser ap11= new ApplicationUser() { UserName = "Julia12", FirstName = "Ioulia", LastName = "Stathopoulou", PhoneNumber = "+30 6957535596", Email = "jul@gmail.com", Birthday = new DateTime(1997, 07, 12), Country = "Greece", City = "Karpathos", ZipCode = "25654", Address = "Swsti 5" };
             ApplicationUser ap12= new ApplicationUser() { UserName = "KostasGa", FirstName = "Konstantinos", LastName = "Galifianakis", PhoneNumber = "+30 6959735596", Email = "ga@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7" };
+            ApplicationUser ap13= new ApplicationUser() { UserName = "Iosif", FirstName = "Iosif", LastName = "Vasou", PhoneNumber = "+30 6958345596", Email = "ga@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+            ApplicationUser ap14= new ApplicationUser() { UserName = "Vicky", FirstName = "Vasiliki", LastName = "Kalantzi", PhoneNumber = "+30 6958345596", Email = "va@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+            ApplicationUser ap15= new ApplicationUser() { UserName = "Mire", FirstName = "Mirela", LastName = "Qirici", PhoneNumber = "+30 6958345596", Email = "mi@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+            ApplicationUser ap16= new ApplicationUser() { UserName = "Ias", FirstName = "Iaswnas", LastName = "Koufakos", PhoneNumber = "+30 6938345596", Email = "ias@gmail.com", Birthday = new DateTime(1969, 07, 12), Country = "Greece", City = "Peiraias", ZipCode = "73654", Address = "Kriti 7"};
+
+            Image i1=new Image() { Title="Iosif",ImagePath= "~.../Content/UsersImages/1.jpg" };
+            Image i2=new Image() { Title="Iaswnas",ImagePath= "~Travel_Agency/Content/UsersImages/2jpg" };
+            Image i3=new Image() { Title="Vicky",ImagePath= "~Travel_Agency/Content/UsersImages/3.jpg" };
+            Image i4=new Image() { Title="Mirela",ImagePath= "~Travel_Agency/Content/UsersImages/1.jpg" };
+          //< img src = "~/Theme/TravelAgency/assets/images/img20.jpg" alt = "" >
+             ap13.UserImage = i1;    
+             ap14.UserImage = i3;    
+             ap15.UserImage = i4;    
+             ap16.UserImage = i2;    
 
             db.Users.Add(ap1);
             db.Users.Add(ap2);
@@ -435,16 +451,16 @@ namespace MyDatabase.Seeding
 
             //Booking Seeding
             #region Bookings
-            Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
-            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
+            Booking b1 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+306547896365", PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 476 };
+            Booking b2 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+306547896123", PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
             Booking b3 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 966 };
             Booking b4 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
             Booking b5 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 340 };
             Booking b6 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 529 };
-            Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
+            Booking b7 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
             Booking b8 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 300 };
             Booking b9 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 300 };
-            Booking b10 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 19), PackagesCost = 567 };
+            Booking b10 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = "+3065445665695", PurchaseDate = new DateTime(2022, 04, 19), PackagesCost = 567 };
             Booking b11 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 567 };
             Booking b12 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 567 };
             Booking b13 = new Booking() { FirstName = "Maria", LastName = "Pantazi", Email = "marypan@gmail.com", PhoneNumber = "+30 6973535596", PurchaseDate = new DateTime(2022, 04, 6), PackagesCost = 567 };
@@ -453,30 +469,30 @@ namespace MyDatabase.Seeding
             Booking b16 = new Booking() { FirstName = "Carmela", LastName = "Cataluna", Email = "Cataluna@gmail.com", PhoneNumber = "+39 4579530000", PurchaseDate = new DateTime(2022, 04, 29), PackagesCost = 780 };
             Booking b17 = new Booking() { FirstName = "Dimitra", LastName = "Kalantzi", Email = "mimi@gmail.com", PhoneNumber = "+30 6989530000", PurchaseDate = new DateTime(2022, 03, 2), PackagesCost = 780 };
             Booking b18 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 780 };
-            Booking b19 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
-            Booking b20 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
-            Booking b21 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 655 };
+            Booking b19 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@yahoo.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
+            Booking b20 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+35534545665695", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 780 };
+            Booking b21 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+35565445661111", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 655 };
             Booking b22 = new Booking() { FirstName = "Anna", LastName = "Selva", Email = "annaSel@gmail.com", PhoneNumber = "+38 9531798456", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
             Booking b23 = new Booking() { FirstName = "Aggelos", LastName = "Koutourinis", Email = "angel@gmail.com", PhoneNumber = "+30 6931798456", PurchaseDate = new DateTime(2022, 05, 2), PackagesCost = 655 };
-            Booking b24 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@gmail.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 655 };
+            Booking b24 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@yahoo.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 655 };
            
-            Booking b25 = new Booking() { FirstName = ap12.FirstName, LastName = ap12.LastName, Email = ap12.Email, PhoneNumber = ap12.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b26 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b27 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b28 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b29 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b30 = new Booking() { FirstName = ap9.FirstName, LastName = ap9.LastName, Email = ap9.Email, PhoneNumber = ap9.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b31 = new Booking() { FirstName = ap5.FirstName, LastName = ap5.LastName, Email = ap5.Email, PhoneNumber = ap5.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b32 = new Booking() { FirstName = ap7.FirstName, LastName = ap7.LastName, Email = ap7.Email, PhoneNumber = ap7.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
-            Booking b33 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b25 = new Booking() { FirstName = ap12.FirstName, LastName = ap12.LastName, Email = ap12.Email, PhoneNumber = "+35565325665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b26 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+4965445665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b27 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = "+3065545665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b28 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = "+35565987665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b29 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+35565445490695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b30 = new Booking() { FirstName = ap9.FirstName, LastName = ap9.LastName, Email = ap9.Email, PhoneNumber = "+26565445665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b31 = new Booking() { FirstName = ap5.FirstName, LastName = ap5.LastName, Email = ap5.Email, PhoneNumber = "+4165445665695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b32 = new Booking() { FirstName = ap7.FirstName, LastName = ap7.LastName, Email = ap7.Email, PhoneNumber = "+35565445569695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
+            Booking b33 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+3065445611695", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 702 };
             Booking b34 = new Booking() { FirstName = "Vasiliki", LastName = "Kalantzi", Email = "vicky@gmail.com", PhoneNumber = "+30 6974567821", PurchaseDate = new DateTime(2022, 02, 27), PackagesCost = 702 };
-            Booking b35 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 702 };
+            Booking b35 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@yahoo.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 702 };
 
             Booking b36 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 300 };
             Booking b37 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 300 };
             Booking b38 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 300 };
-            Booking b39 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 300 };
-            Booking b40 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
+            Booking b39 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@yahoo.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 300 };
+            Booking b40 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 300 };
             Booking b41 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 300 };
             Booking b42 = new Booking() { FirstName = "Ilda", LastName = "Tufa", Email = " i.tufa@gmail.com", PhoneNumber = "+35565445665695", PurchaseDate = new DateTime(2022, 07, 19), PackagesCost = 300 };
             Booking b43 = new Booking() { FirstName = "Anna", LastName = "Selva", Email = "annaSel@gmail.com", PhoneNumber = "+38 9531798456", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 300 };
@@ -490,10 +506,10 @@ namespace MyDatabase.Seeding
             Booking b50 = new Booking() { FirstName = "Dimitra", LastName = "Kalantzi", Email = "mimi@gmail.com", PhoneNumber = "+30 6989530000", PurchaseDate = new DateTime(2022, 03, 2), PackagesCost = 476 };
             Booking b51 = new Booking() { FirstName = "Nikolas", LastName = "Masouras", Email = "nm@gmail.com", PhoneNumber = "+30 6970995300", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 476 };
             Booking b52 = new Booking() { FirstName = "Anna", LastName = "Mpakoxristou", Email = "anna@gmail.com", PhoneNumber = "+30 6970995369", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 476 };
-            Booking b53 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 476 };
+            Booking b53 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+410123566325", PurchaseDate = new DateTime(2022, 04, 15), PackagesCost = 476 };
 
-            Booking b54 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 420 };
-            Booking b55 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 420 };
+            Booking b54 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+410564566325", PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 420 };
+            Booking b55 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+440644566325", PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 420 };
             Booking b56 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 420 };
             Booking b57= new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 420 };
             Booking b58= new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 420 };
@@ -503,8 +519,8 @@ namespace MyDatabase.Seeding
             Booking b61 = new Booking() { FirstName = "Emanuel", LastName = "Sentpeteri", Email = "emansent@gmail.com", PhoneNumber = "+49 1763538965", PurchaseDate = new DateTime(2022, 03, 16), PackagesCost = 476 };
             Booking b62 = new Booking() { FirstName = "Maria", LastName = "Pantazi", Email = "marypan@gmail.com", PhoneNumber = "+30 6973535596", PurchaseDate = new DateTime(2022, 04, 6), PackagesCost = 476 };
 
-            Booking b63 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = ap1.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
-            Booking b64 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = ap2.PhoneNumber, PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
+            Booking b63 = new Booking() { FirstName = ap1.FirstName, LastName = ap1.LastName, Email = ap1.Email, PhoneNumber = "+410648866325", PurchaseDate = new DateTime(2022, 04, 02), PackagesCost = 699 };
+            Booking b64 = new Booking() { FirstName = ap2.FirstName, LastName = ap2.LastName, Email = ap2.Email, PhoneNumber = "+410944566325", PurchaseDate = new DateTime(2022, 04, 05), PackagesCost = 699 };
 
             Booking b65 = new Booking() { FirstName = "Tobias", LastName = "Weber", Email = "webert@gmail.com", PhoneNumber = "+49 1731798456", PurchaseDate = new DateTime(2022, 02, 28), PackagesCost = 400 };
 
@@ -523,12 +539,12 @@ namespace MyDatabase.Seeding
             Booking b75 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 800 };
             Booking b76 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 800 };
             Booking b77 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 800 };
-            Booking b78 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 800 };
+            Booking b78 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 800 };
             Booking b79 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 800 };
 
-            Booking b80 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = ap10.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
-            Booking b81 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = ap3.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
-            Booking b82 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = ap4.PhoneNumber, PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
+            Booking b80 = new Booking() { FirstName = ap10.FirstName, LastName = ap10.LastName, Email = ap10.Email, PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
+            Booking b81 = new Booking() { FirstName = ap3.FirstName, LastName = ap3.LastName, Email = ap3.Email, PhoneNumber = "+300644566325", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
+            Booking b82 = new Booking() { FirstName = ap4.FirstName, LastName = ap4.LastName, Email = ap4.Email, PhoneNumber = "+410666566325", PurchaseDate = new DateTime(2021, 01, 01), PackagesCost = 800 };
 
             Booking b83 = new Booking() { FirstName = "Iacopo", LastName = "Fantozzi", Email = "fantozzi@gmail.com", PhoneNumber = "+30 6973530000", PurchaseDate = new DateTime(2022, 01, 29), PackagesCost = 1450 };
 
@@ -563,15 +579,15 @@ namespace MyDatabase.Seeding
            
             Booking b103 = new Booking() { FirstName = "Xaris", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720};
             Booking b104 = new Booking() { FirstName = "Selma", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
-            Booking b105 = new Booking() { FirstName = "Panagiotis", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
+            Booking b105 = new Booking() { FirstName = "Panagiotis", LastName = "Lazarou", Email = "em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
             Booking b106 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 720 };
            
-            Booking b107 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
-            Booking b108 = new Booking() { FirstName = "John", LastName = "Smith", Email = " j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
-            Booking b109 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = " t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 655 };
-            Booking b110 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = " olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 655 };
-            Booking b111 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = " em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
-            Booking b112 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora@rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 655 };
+            Booking b107 = new Booking() { FirstName = "Xara", LastName = "Lazarou", Email = "em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
+            Booking b108 = new Booking() { FirstName = "John", LastName = "Smith", Email = "j.s@gmail.com", PhoneNumber = "+306547896325", PurchaseDate = new DateTime(2022, 03, 29), PackagesCost = 655 };
+            Booking b109 = new Booking() { FirstName = "Tim", LastName = "Correy", Email = "t.c@gmail.com", PhoneNumber = "+306544566325", PurchaseDate = new DateTime(2022, 03, 31), PackagesCost = 655 };
+            Booking b110 = new Booking() { FirstName = "Olivia", LastName = "Elem", Email = "olivia.el@gmail.com", PhoneNumber = "+410644566325", PurchaseDate = new DateTime(2021, 10, 04), PackagesCost = 655 };
+            Booking b111 = new Booking() { FirstName = "Ema", LastName = "Diana", Email = "em.diana@gmail.com", PhoneNumber = "+416564866325", PurchaseDate = new DateTime(2021, 04, 04), PackagesCost = 655 };
+            Booking b112 = new Booking() { FirstName = "Bora", LastName = "Rraja", Email = " bora.rraja@gmail.com", PhoneNumber = "+3553694566325", PurchaseDate = new DateTime(2022, 08, 02), PackagesCost = 655 };
             Booking b113 = new Booking() { FirstName = "Sara", LastName = "Nosedive", Email = " sar.rrota@gmail.com", PhoneNumber = "+906544566325", PurchaseDate = new DateTime(2022, 06, 15), PackagesCost = 655 };
 
 
@@ -757,6 +773,7 @@ namespace MyDatabase.Seeding
 
 
             //Photo Seeding
+            #region Photos
             Photo photosAthens = new Photo() { Destinations = Destinations.Athens, Url = "https://3.bp.blogspot.com/-ZfIVrmoK0HA/XfsiM6oOIkI/AAAAAAABsfI/qwIuU7cz9ukjN2pw0wECSCR48Bulvf8IACK4BGAYYCw/s1600/Screenshot_5.jpg" };
             Photo A1 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVEGc2TaRKDQNxpN0HBwc2ANjH4So5FqBj6A&usqp=CAU" };
             Photo A2 = new Photo() { Destinations = Destinations.Athens, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzo2u1gaSyxDLa3aE89nUaopnALf36dT48xg&usqp=CAU" };
@@ -790,8 +807,7 @@ namespace MyDatabase.Seeding
             Photo R5 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTB_hHSuIrlMG3nudddhdB2VrjayOIC0wmw&usqp=CAU" };
             Photo R6 = new Photo() { Destinations = Destinations.Rome, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVIiKGrw29MIhf-hnmuchEqD134AxM9P2CkA&usqp=CAU" };
 
-            Photo P9 = new Photo() { Destinations = Destinations.Paris, Url = "" };
-            
+           
             Photo photosLondon = new Photo() { Destinations = Destinations.London, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvp5BzRDdhtlUNh7CGHYdVp_HFwDs_FOx-Ow&usqp=CAU" };
             Photo photosParis = new Photo() { Destinations = Destinations.Paris, Url = "https://c.pxhere.com/photos/3c/c2/eiffel_tower_paris-159.jpg!s1" };
             Photo photosRome = new Photo() { Destinations = Destinations.Rome, Url = "http://www.cosavisitarearoma.it/images/immagini_articoli/piazza-di-spagna.jpg" };
@@ -799,12 +815,223 @@ namespace MyDatabase.Seeding
             Photo photoCappadocia = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://www.acetestravel.com/tour-image/cappadocia-27.webp" };
             Photo photoCappadocia1 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318992085.jpg?k=5a5214d69215f0998e8b9aaeb42c90330a66c60c64dfd2ee18dbeece0af43c78&o=&hp=1" };
 
+            Photo Lis1 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpr5I4x2gAFvCgo9RXqsPqF29WOirjQEm8DQ&usqp=CAU" };
+            Photo Lis2 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQja6oMehaiodg6nSq5FHMTpPDkmuMoNKbBVQ&usqp=CAU" };
+            Photo Lis3 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC4ozy26VnNUmk40UuLk-wcGmfnNGn4iM2QA&usqp=CAU" };
+            Photo Lis4 = new Photo() { Destinations = Destinations.Lisbon, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFRv6HMR2fGwfmcKlGCcfFLoh0KftU_aaeog&usqp=CAU" };
+           
+            Photo Cap1 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOPaId1nas4TXhScWoZokx6lN3BW1kByLmZw&usqp=CAU" };
+            Photo Cap2 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS64DophW8sPsGzHO5gB7WRq1tR9IYOQsjlWw&usqp=CAU" };
+            Photo Cap3 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4djXdU4VRIl-0HwHK5xw3mqCB-EPp3Ho7iQ&usqp=CAU" };
+            Photo Cap4 = new Photo() { Destinations = Destinations.Cappadocia, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjNMszc3MqlABsc80KLE_wJfngT4pMTp0NEw&usqp=CAU" };
+           
+            Photo Uz1 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKhgdg32BUq-1sIjcjPDa2kh5mLyxV_rLbrQ&usqp=CAU" };
+            Photo Uz2 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH8BPeYFTc61lvMp879uu4upZbBR-fgCAK7A&usqp=CAU" };
+            Photo Uz3 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtcAeWlf6vPGd57ntCRX8-wRVpX2pfHpvamA&usqp=CAU" };
+            Photo Uz4 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU1Zo2RJ0byS9Eg765a1MxCp18z5TCytOLvQ&usqp=CAU" };
+            Photo Uz5 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLrnYgdK6BRxg8ytWevdHY21jQIo3SLX41sQ&usqp=CAU" };
+            Photo Uz6 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRaBXRxZH2m7Vne4XxwfK7MT0VMmR6USR5ew&usqp=CAU" };
+            Photo Uz7 = new Photo() { Destinations = Destinations.Uzbekistan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT39mvJwpQ-P0gaJAWt17FnK3dFj2CuEngW-w&usqp=CAU" };
+          
+            Photo Pr1 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6d8TGwHa25PtfqG_b7UU7vCEvxAPGplidTg&usqp=CAU" };
+            Photo Pr2 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV1btzZSdAfD2OYuIIB4P4Ie_E8G1NJQl-oA&usqp=CAU" };
+            Photo Pr3 = new Photo() { Destinations = Destinations.Prague, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTphd-ux7F2_A51ibjlfNP-wKURtR0Ty5zusA&usqp=CAU" };
+           
+            Photo Ic1= new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSforyVL73b6c87xksjenlXOrtvsuQA9T_4lQ&usqp=CAU" };
+            Photo Ic2 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNu3vmcRk6WWWnCEYabSnYUSJnzW_k2LwSg&usqp=CAU" };
+            Photo Ic3 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCoHnGzP-s6QS49rLDwE9sBs576f5iNp-MaA&usqp=CAU" };
+            Photo Ic4 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqhz3kSR6HEuR96_jtL0Wi6ppkb6RbkpIvMQ&usqp=CAU" };
+            Photo Ic5 = new Photo() { Destinations = Destinations.Iceland, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqhz3kSR6HEuR96_jtL0Wi6ppkb6RbkpIvMQ&usqp=CAU" };
+           
+            Photo Am1 = new Photo() { Destinations = Destinations.Amsterdam, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmsJQ2feZYi4iOsSOJ6U6-UfFq4RTtGxXsA&usqp=CAU" };
+            Photo Am2 = new Photo() { Destinations = Destinations.Amsterdam, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmsJQ2feZYi4iOsSOJ6U6-UfFq4RTtGxXsA&usqp=CAU" };
+            Photo Am3 = new Photo() { Destinations = Destinations.Amsterdam, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmsJQ2feZYi4iOsSOJ6U6-UfFq4RTtGxXsA&usqp=CAU" };
+           
+            Photo Paros1 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBMIxABXPNl6iBr7mHZs17RuEfLxzNbDaV2Q&usqp=CAU" };
+            Photo Paros2 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkStBMS4tiC6us7Mcl4mU5ijWEzi8dAR-lXw&usqp=CAU" };
+            Photo Paros3 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfPl6BMkfpAFNgRt8JDPTbNe8Q8EvYQXLC6Q&usqp=CAU" };
+           Photo Paros4 = new Photo() { Destinations = Destinations.Paros, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJdDDDXeXYkqH3H-M-caH-wcccyeS6UQ1GEQ&usqp=CAU" };
+           
+            Photo K1 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyCYBV3aRi_hZqjMuBXa5kzJssaaW8ey6L7g&usqp=CAU" };
+            Photo K2 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStHPhZ2EaPFzWib_fTV0oak-20ufVn9E0sAw&usqp=CAU" };
+            Photo K3 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT518whv-2lw07p1Dx1110GeFCMvhVCy-bTIA&usqp=CAU" };
+            Photo K4 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJy0GTPCtmzUycPBiBWzUvJ8jihvkCtcYbXQ&usqp=CAU" };
+            Photo K5 = new Photo() { Destinations = Destinations.Kerkyra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoW6rrriBJfAOVVX2lmZVbIZ-9zA9YlScAsg&usqp=CAU" };
+           
+            Photo Can1 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPomgEOpsWU5MhajZmgCFHfkI7lNEbX2WcNg&usqp=CAU" };
+            Photo Can2 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIiwSdWxpQUxCuUf_Eep7kSa7cJvh2ttt9qg&usqp=CAU" };
+            Photo Can3 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTfOzMbzodIirJJXhuCgCXuHf4KUf9SYBkKQ&usqp=CAU" };
+            Photo Can4 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPfr6k390y52SbdEuhKFyVQ3rO-Ebm_jCZpA&usqp=CAU" };
+            Photo Can5 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfYsrOoSGVsytZ1tqBmha8S21oeRhkaICWaQ&usqp=CAU" };
+            Photo Can6 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScOUaYcqnJXZUry8A0R-YvGxZpkP5LW7wscw&usqp=CAU" };
+            Photo Can8 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaE1uHnnMQXFBAJoioJ4jOhrc6-4veV1yAuw&usqp=CAU" };
+            Photo Can7 = new Photo() { Destinations = Destinations.Cancun, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeIhgubu9RMDtXdXYnwtiAsiFA0_KOqHrVLA&usqp=CAU" };
+           
+            Photo An1 = new Photo() { Destinations = Destinations.Andorra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWY1x4AFwbiKt1xQgYojndyzvODrDCWZd-pw&usqp=CAU" };
+            Photo An2 = new Photo() { Destinations = Destinations.Andorra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5FpDMNp50P3ld4E2IO0aXMpa0jmhl5sX1WA&usqp=CAU" };
+            Photo An3 = new Photo() { Destinations = Destinations.Andorra, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeerpzdtO994aKq7n7iKOfNzJTcWldd3Voyw&usqp=CAU" };
+           
+            Photo M1 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq2YJBfE5bffHVGIyKL8UVKJoKbSufjJDvjw&usqp=CAU" };
+            Photo M2 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTT7Abpm675H-LV8Y_XRYdaESR0s1oe3E47g&usqp=CAU" };
+            Photo M3 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSanFNghqvfzrsG5yTVyETiNxYu9gwS1lFaKw&usqp=CAU" };
+            Photo M4 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTawmGVN3ijqkIoLdmp9LZkhJTZU9yUG8RzNw&usqp=CAU" };
+            Photo M5 = new Photo() { Destinations = Destinations.Mauritius, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd7giDUMNc1GLlte1DjY7t9jbbobVL5mnkOA&usqp=CAU" };
+            
+            
+            Photo Ma3 = new Photo() { Destinations = Destinations.Mallorca, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfO5yomocMBEdDYE6HGQWiFv-L8XZceAcCUA&usqp=CAU" };
+            Photo Ma1 = new Photo() { Destinations = Destinations.Mallorca, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSanWu7Ab9CEBp_DAvn2mBsS_YSBhwi9r3LTA&usqp=CAU" };
+            Photo Ma2 = new Photo() { Destinations = Destinations.Mallorca, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFgAvwtH7kFWKgLvXrBpVhZR5XnW3l5GzTw&usqp=CAU" };
+          
+            Photo Z1 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkDPC-zjRDX54en297F_BxYAJ4NszZhGrS1w&usqp=CAU" };
+            Photo Z2 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHnwqjpcC3jtcFycXeOJ6oNxs5BKfdcHWscQ&usqp=CAU" };
+            Photo Z3 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Zv0WfHPIfnJWRfNUAL6YVrv6zN0HBq7laQ&usqp=CAU" };
+            Photo Z4 = new Photo() { Destinations = Destinations.Zurich, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcOAQfptXcX3w0Rl8VMS2HsqZWp_ppzaVCaw&usqp=CAU" };
+           
+            Photo Mil1 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT--88yF2O3F8esjgTwYFG9KJQwRgm53NWXPA&usqp=CAU" };
+            Photo Mil2 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScTnkEnHBHU1KsQtwfhjMvdPeKbP-epYwjDQ&usqp=CAU" };
+            Photo Mil3 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5EmzCdQIZuVZ5-1PJ7ObR8CLYzDX-ImNqVQ&usqp=CAU" };
+            Photo Mil4 = new Photo() { Destinations = Destinations.Milan, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU5JxhlmNrddosdp80-OHHqmvFRq_DTK_4YQ&usqp=CAU" };
+            
+            Photo Mad1 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1bECScn3wKvohRLS3C0tqmtIQzQEtnu4esA&usqp=CAU" };
+            Photo Mad2 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4tMWYqjmMAv7TywgL5t5H-F7YZi8EKRJFPg&usqp=CAU" };
+            Photo Mad3 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQKO7RlSuyQoTy7hKHdcGj1VB5hdWJ0cYgfw&usqp=CAU" };
+            Photo Mad4 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9BKThcB_BKW8wMb2r4UNEEFEhnVoLutfFyA&usqp=CAU" };
+            Photo Mad5 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtxPST7cKYD-dGB4Er1JRx9ipb5SefHP03QA&usqp=CAU" };
+            Photo Mad6 = new Photo() { Destinations = Destinations.Madrid, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYQIc41rGWODwkaPPgP8QLGvfLPEufQDOEZA&usqp=CAU" };
+           
+            Photo Za1 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNiklzdwUjJnbQCcoezaCYOcuhWhEIenTjDQ&usqp=CAU" };
+            Photo Za2 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8KDvVWpNSsCXD-FRxjKMIKd3T5XOV4Uywzw&usqp=CAU" };
+            Photo Za3 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJxrIf4PyE3wgDooATNgW8kT-E3PcbxgG1Q&usqp=CAU" };
+            Photo Za4 = new Photo() { Destinations = Destinations.Zakunthos, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQcciTvZcE9RHuMfcm9Ro3RvbhoHghE7eX0A&usqp=CAU" };
+           
+            Photo D1 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_Cn71KOuwxgYPk0Bdye2TR2LeoYfpOz4LA&usqp=CAU" };
+            Photo D2 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThKfQH5zZ9nCuoyaJW4wi_0_cIYWZk8iSUhg&usqp=CAU" };
+            Photo D3 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_RIvTNr36nswdvq7tGx4CjsfmgIkEcVoVw&usqp=CAU" };
+            Photo D4 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUhRikNGe9ph7bWKm5djXhvlg-KAdScDRsdQ&usqp=CAU" };
+            Photo D5 = new Photo() { Destinations = Destinations.Dubai, Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaR9ytEUioRdlIO_j3dIWa09VZy7AGxXOguA&usqp=CAU" };
+         
+           
 
             List<Photo> photos = new List<Photo>() { photosAthens, photosBarcelona2,photosBarcelona3 , photosLondon, photosParis, photosRome, photosLisbon,photoCappadocia,photoCappadocia1,A1,A2,A3,A4,A5,
-            B4,B5,B6,B7,B8,P2,P1,P3,P4,P5,L1,L2,L3,L4 };
+            B4,B5,B6,B7,B8,P2,P1,P3,P4,P5,L1,L2,L3,L4,Lis1,Lis2,Lis3,Lis4,Cap1,Cap2,Cap3,Cap4,Uz1,Uz2,Uz3,Uz4,Uz5,Uz6,Uz7, Pr1,Pr2,Pr3,Ic1,Ic2,Ic3,Ic4,Ic5,Am1,Am2,Am3,Paros1,Paros2,Paros3,Paros4,K1,
+            K2,K3,K4,K5,Can1,Can2,Can3,Can4,Can5,Can6,Can7,Can8,An1,An2,An3,M1,M2,M3,M4,M5,Ma1,Ma2,Ma3,Z1,Z2,Z3,Z4,Mil1,Mil2,Mil3,Mil4,Mad1,Mad2,Mad3,Mad4,Mad5,Mad6,Za1,Za2,Za3,Za4,D1,D2,D3,D4,D5};
             db.Photos.AddRange(photos);
 
+            p23.Photos.Add(photosBarcelona2);
+            p23.Photos.Add(photosBarcelona3);
+            p23.Photos.Add(B4);
+            p23.Photos.Add(B5);
+            p23.Photos.Add(B6);
+            p23.Photos.Add(B7);
+            p23.Photos.Add(B8);
+            
+            p26.Photos.Add(L1);
+            p26.Photos.Add(L2);
+            p26.Photos.Add(L3);
+            p26.Photos.Add(L4);
+            p26.Photos.Add(photosLondon);
+
+            p9.Photos.Add(Pr1);
+            p9.Photos.Add(Pr2);
+            p9.Photos.Add(Pr3);
+
+            p21.Photos.Add(Mad1);
+            p21.Photos.Add(Mad2);
+            p21.Photos.Add(Mad3);
+            p21.Photos.Add(Mad4);
+            p21.Photos.Add(Mad5);
+            p21.Photos.Add(Mad6);
+          
+            p22.Photos.Add(Za1);
+            p22.Photos.Add(Za2);
+            p22.Photos.Add(Za3);
+            p22.Photos.Add(Za4);
            
+            
+            p20.Photos.Add(Mil1);
+            p20.Photos.Add(Mil2);
+            p20.Photos.Add(Mil3);
+            p20.Photos.Add(Mil4);
+            p24.Photos.Add(Mil1);
+            p24.Photos.Add(Mil2);
+            p24.Photos.Add(Mil3);
+            p24.Photos.Add(Mil4);
+           
+            p15.Photos.Add(An1);
+            p15.Photos.Add(An2);
+            p15.Photos.Add(An3);
+           
+            p18.Photos.Add(D1);
+            p18.Photos.Add(D2);
+            p18.Photos.Add(D3);
+            p18.Photos.Add(D4);
+            p18.Photos.Add(D5);
+           
+            p19.Photos.Add(Z1);
+            p19.Photos.Add(Z2);
+            p19.Photos.Add(Z3);
+            p19.Photos.Add(Z4);
+            
+            p17.Photos.Add(Ma1);
+            p17.Photos.Add(Ma2);
+            p17.Photos.Add(Ma3);
+            p25.Photos.Add(Ma1);
+            p25.Photos.Add(Ma2);
+            p25.Photos.Add(Ma3);
+          
+            p16.Photos.Add(M1);
+            p16.Photos.Add(M2);
+            p16.Photos.Add(M3);
+            p16.Photos.Add(M4);
+            p16.Photos.Add(M5);
+           
+            p14.Photos.Add(Can1);
+            p14.Photos.Add(Can2);
+            p14.Photos.Add(Can3);
+            p14.Photos.Add(Can4);
+            p14.Photos.Add(Can5);
+            p14.Photos.Add(Can6);
+            p14.Photos.Add(Can7);
+            p14.Photos.Add(Can8);
+           
+            p13.Photos.Add(K1);
+            p13.Photos.Add(K2);
+            p13.Photos.Add(K3);
+            p13.Photos.Add(K4);
+            p13.Photos.Add(K5);
+           
+            p12.Photos.Add(Paros1);
+            p12.Photos.Add(Paros2);
+            p12.Photos.Add(Paros3);
+            p12.Photos.Add(Paros4);
+           
+            p11.Photos.Add(Am1);
+            p11.Photos.Add(Am2);
+            p11.Photos.Add(Am3);
+           
+            p10.Photos.Add(Ic1);
+            p10.Photos.Add(Ic2);
+            p10.Photos.Add(Ic3);
+            p10.Photos.Add(Ic4);
+            p10.Photos.Add(Ic5);
+
+            p7.Photos.Add(Cap1);
+            p7.Photos.Add(Cap2);
+            p7.Photos.Add(Cap3);
+            p7.Photos.Add(Cap4);
+
+            p8.Photos.Add(Uz1);
+            p8.Photos.Add(Uz2);
+            p8.Photos.Add(Uz3);
+            p8.Photos.Add(Uz5);
+            p8.Photos.Add(Uz6);
+            p8.Photos.Add(Uz7);
+           
+            p6.Photos.Add(Lis1);
+            p6.Photos.Add(Lis2);
+            p6.Photos.Add(Lis3);
+            p6.Photos.Add(Lis4);
+
             p1.Photos.Add(photosBarcelona2);
             p1.Photos.Add(photosBarcelona3);
             p1.Photos.Add(B4);
@@ -834,11 +1061,20 @@ namespace MyDatabase.Seeding
             p26.Photos.Add(photosLondon);
 
             p5.Photos.Add(photosRome);
+            p5.Photos.Add(R1);
+            p5.Photos.Add(R2);
+            p5.Photos.Add(R3);
+            p5.Photos.Add(R4);
+            p5.Photos.Add(R5);
+            p5.Photos.Add(R6);
+           
             p6.Photos.Add(photosLisbon);
             p7.Photos.Add(photoCappadocia);
             p7.Photos.Add(photoCappadocia1);
             p8.Photos.Add(photoCappadocia1);
 
+            #endregion
+          
             //Rate Seeding
             Rating r1 = new Rating() { RateScore = 3 };
             Rating r2 = new Rating() { RateScore = 5 };
@@ -875,7 +1111,7 @@ namespace MyDatabase.Seeding
             com12.Rating = r2;
             Comment com13 = new Comment() { CommentContent = "In love with island's wild beauty, fresh fish and the warm locals.",PostTime=new DateTime(2022,02,19)};
             com13.Rating = r2;
-            Comment com14 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.",PostTime=new DateTime(2021,05,30)};
+            Comment com14 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2021,05,30)};
             com14.Rating = r1;
             Comment com15 = new Comment() { CommentContent = "Love love love. Unforgetable memories! I made loads of new friend that we all share the same interests: ski and outdoor parties.",PostTime=new DateTime(2021,12,30)};
             com15.Rating = r2;
@@ -903,7 +1139,7 @@ namespace MyDatabase.Seeding
             com26.Rating = r2;
             Comment com27 = new Comment() { CommentContent = "After so many years of marriage we visited Cancun and renewed our love, better than holiday. We had such an amazing time we didn't left the resort.", PostTime=new DateTime(2021,10,28)};
             com27.Rating = r2;
-            Comment com28 = new Comment() { CommentContent = "We had amazing time at exotic Cancun. We loved wandering in the city and we made new friends.", PostTime=new DateTime(2022,1,28)};
+            Comment com28 = new Comment() { CommentContent = "Inside the resort was amazing but outside I was scared for my life. A trip for adventurous people.", PostTime=new DateTime(2022,04,17)};
             com28.Rating = r2;
 
             List<Comment> comments = new List<Comment>() { com1, com2,com3,com4,com5,com6,com7,com8,com9,com10,com11,com12,com13,com14,com15,com16,com17,com18,com19,com20,com21,com22,com23,
@@ -941,8 +1177,8 @@ namespace MyDatabase.Seeding
             p14.Comments.Add(com28);
 
             com1.ApplicationUser = ap1;
-            com2.ApplicationUser = ap2;
-            com3.ApplicationUser = ap12;
+            com2.ApplicationUser = ap14;
+            com3.ApplicationUser = ap13;
             com4.ApplicationUser = ap3;
             com5.ApplicationUser = ap5;
             com6.ApplicationUser = ap9;
@@ -950,9 +1186,9 @@ namespace MyDatabase.Seeding
             com8.ApplicationUser = ap5;
             com9.ApplicationUser = ap9;
             com11.ApplicationUser = ap4;
-            com12.ApplicationUser = ap7;
+            com12.ApplicationUser = ap16;
             com13.ApplicationUser = ap6;
-            com14.ApplicationUser = ap10;
+            com14.ApplicationUser = ap15;
             com15.ApplicationUser = ap11;
             com16.ApplicationUser = ap12;
             com17.ApplicationUser = ap8;
@@ -966,7 +1202,7 @@ namespace MyDatabase.Seeding
             com25.ApplicationUser = ap8;
             com26.ApplicationUser = ap4;
             com27.ApplicationUser = ap2;
-            com28.ApplicationUser = ap8;
+            com28.ApplicationUser = ap13;
             #endregion
 
             //Flight Seeding
@@ -1084,6 +1320,34 @@ namespace MyDatabase.Seeding
 
             com1.ReplyComments.Add(rep2);
             com2.ReplyComments.Add(rep1);
+
+            if (!db.Roles.Any(x => x.Name == MyRoles.RoleAdmin))
+            {
+                var store = new RoleStore<IdentityRole>(db);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole() { Name = MyRoles.RoleAdmin };
+
+                manager.Create(role);
+            }
+            if (!db.Users.Any(x => x.UserName == "Admin"))
+            {
+                var store = new UserStore<ApplicationUser>(db);
+                var userManager = new UserManager<ApplicationUser>(store);
+                var passwordHash = new PasswordHasher();
+
+                var user = new ApplicationUser()
+                {
+                    UserName = "Admin",
+                    FirstName = "Ektoras",
+                    LastName = "Gatsos",
+                    Email = "admin@gmail.com",
+                    Birthday = new DateTime(1987, 04, 17),
+                    Country="Greece",
+                    PasswordHash = passwordHash.HashPassword("Admin1234!")
+                };
+                userManager.Create(user);
+                userManager.AddToRole(user.Id, "Admin");
+            }
 
             db.SaveChanges();
         }

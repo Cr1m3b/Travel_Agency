@@ -1,4 +1,6 @@
-﻿<div class="dashboard-header sticky-header">
+﻿@using Microsoft.AspNet.Identity
+
+<div class="dashboard-header sticky-header">
 
     <!-- Top Left Logo START -->
     <div class="content-left  logo-section pull-left">
@@ -8,128 +10,41 @@
 
 
     <div class="heaer-content-right pull-right">
-        <!-- Search START -->
-        <div class="search-field">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="search" placeholder="Search Now">
-                    <a href="#"><span class="search_btn"><i class="fa fa-search" aria-hidden="true"></i></span></a>
-                </div>
-            </form>
-        </div>
-        <!-- Search END -->
-        <!-- Notifications  START -->
-        <div class="dropdown">
-            <a class="dropdown-toggle" id="notifyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="dropdown-item">
-                    <i class="far fa-envelope"></i>
-                    <span class="notify">3</span>
-                </div>
-            </a>
-            <div class="dropdown-menu notification-menu" aria-labelledby="notifyDropdown">
-                <h4> 3 Notifications</h4>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <div class="list-img">
-                                <img src="~/Theme/TravelAgency/admin/assets/images/comment.jpg" alt="">
-                            </div>
-                            <div class="notification-content">
-                                <p>You have a notification.</p>
-                                <small>2 hours ago</small>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="list-img">
-                                <img src="~/Theme/TravelAgency/admin/assets/images/comment2.jpg" alt="">
-                            </div>
-                            <div class="notification-content">
-                                <p>You have a notification.</p>
-                                <small>2 hours ago</small>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="list-img">
-                                <img src="~/Theme/TravelAgency/admin/assets/images/comment3.jpg" alt="">
-                            </div>
-                            <div class="notification-content">
-                                <p>You have a notification.</p>
-                                <small>2 hours ago</small>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <a href="#" class="all-button">See all messages</a>
-            </div>
-        </div>
-        <!-- Notifications  END -->
-        <!-- Messages  START -->
-        <div class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">
-                <div class="dropdown-item">
-                    <i class="far fa-bell"></i>
-                    <span class="notify">3</span>
-                </div>
-            </a>
-            <div class="dropdown-menu notification-menu">
-                <h4> 3 Messages</h4>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <div class="list-img">
-                                <img src="~/Theme/TravelAgency/admin/assets/images/comment4.jpg" alt="">
-                            </div>
-                            <div class="notification-content">
-                                <p>You have a notification.</p>
-                                <small>2 hours ago</small>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="list-img">
-                                <img src="~/Theme/TravelAgency/admin/assets/images/comment5.jpg" alt="">
-                            </div>
-                            <div class="notification-content">
-                                <p>You have a notification.</p>
-                                <small>2 hours ago</small>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="list-img">
-                                <img src="~/Theme/TravelAgency/admin/assets/images/comment6.jpg" alt="">
-                            </div>
-                            <div class="notification-content">
-                                <p>You have a notification.</p>
-                                <small>2 hours ago</small>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <a href="#" class="all-button">See all messages</a>
-            </div>
-        </div>
-        <!-- Messages  END -->
+
+
         <!-- Account START -->
         <div class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">
                 <div class="dropdown-item profile-sec">
-                    <img src="~/Theme/TravelAgency/admin/assets/images/comment.jpg" alt="">
+                    <img src="~/Content/UsersImages/no-user.jpg" alt="">
                     <i class="fas fa-caret-down"></i>
                 </div>
             </a>
             <div class="dropdown-menu account-menu">
                 <ul>
-                    <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
-                    <li><a href="#"><i class="fas fa-user-tie"></i>Profile</a></li>
-                    <li><a href="#"><i class="fas fa-key"></i>Password</a></li>
-                    <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                    <li>
+
+                        @using (Html.BeginForm("UserDetails", "Manage", FormMethod.Get, new { username = User.Identity.GetUserName(), @class = "navbar-right", style = "color:black;" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a style="color:black;" href="#" ><i class="fas fa-user-tie"></i>Profile</a>
+
+                        }
+
+                    </li>
+                    <li><a href="~/Views/Manage/ChangePassword.cshtml"><i class="fas fa-key"></i>Password</a></li>
+                    <li>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", style = "color:black;" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+
+                            <a style="color:black;" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        }
+
+
+                    </li>
+
                 </ul>
             </div>
         </div>

@@ -38,7 +38,7 @@
                         <tbody>
                             @foreach (var user in Model)
                             {
-                                <tr>
+                                <tr class="users"> 
                                     @if (@user.UserImage != null)
                                     {
                                         <td style="object-fit: cover; width: 80px; "><img src="@user.UserImage.ImagePath" alt="User" /></td>
@@ -78,17 +78,17 @@
                     </table>
                 </div>
             </div>
-        </div>
+            <!-- pagination html -->
+            <div id="pagination-container" class="light-theme simple-pagination">
+                <ul>
+                    <li class="active"><span class="current prev pag">«</span></li>
+                    <li class="active"><span class="current">1</span></li>
+                    <li><a href="#page-2" class="page-link">2</a></li>
+                    <li><a href="#page-2" class="page-link next">»</a></li>
+                </ul>
+            </div>
 
-    </div>
-    <!-- pagination html -->
-    <div id="pagination-container" class="light-theme simple-pagination">
-        <ul>
-            <li class="active"><span class="current prev pag">«</span></li>
-            <li class="active"><span class="current">1</span></li>
-            <li><a href="#page-2" class="page-link">2</a></li>
-            <li><a href="#page-2" class="page-link next">»</a></li>
-        </ul>
+        </div>
     </div>
 </div>
 
@@ -98,9 +98,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="http://flaviusmatis.github.io/simplePagination.js/"></script>
     <script type="text/javascript">
-        var items = $(".dashboard-box .package");
+        var items = $(".dashboard-box .users");
         var numItems = items.length;
-        var perPage = 4;
+        var perPage = 5;
 
         items.slice(perPage).hide();
 

@@ -124,15 +124,6 @@ namespace Travel_Agency.Controllers.AdminController
             }
             if (galleryPhotos != null)
             {
-             
-                //var photoIds= package.Photos.Select(x => x.PhotoId).ToList();
-                //foreach (var id in photoIds)
-                //{
-                //    var photo = db.Photos.Find(id);
-                //    db.Entry(photo).State = EntityState.Deleted;
-                //    db.SaveChanges();
-                //}
-
                 List<Photo> packagePhotos = new List<Photo>();
                 foreach (var photo in galleryPhotos)
                 {
@@ -178,8 +169,6 @@ namespace Travel_Agency.Controllers.AdminController
                 return HttpNotFound();
             }
             return View(package);
-
-
         }
 
         // POST: AdminPackage/Delete/5
@@ -205,8 +194,6 @@ namespace Travel_Agency.Controllers.AdminController
             {
                 ratingIds.Add(comment.Rating.RatingId);
             }
-            //Να τεστάρουμε το comment και το delete στο AdminPackage
-            //var ratingIds = package.Ratings.Select(x => x.RatingId).ToList();
             foreach (var rate in ratingIds)
             {
                 var rating = db.Ratings.Find(rate);

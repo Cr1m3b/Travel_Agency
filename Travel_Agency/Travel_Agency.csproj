@@ -238,6 +238,7 @@
     <Content Include="Content\Images\Athens\Athens7.jpg" />
     <Content Include="Content\Images\Backgrounds\Europe.jpg" />
     <Content Include="Content\Images\Backgrounds\kgr87n-1.jpg" />
+    <Content Include="Content\Images\Backgrounds\lights.jpg" />
     <Content Include="Content\Images\Backgrounds\nature1.jpg" />
     <Content Include="Content\Images\Backgrounds\travele.jpg" />
     <Content Include="Content\Images\Backgrounds\TravelReady.png" />
@@ -285,6 +286,9 @@
     <Content Include="Content\Images\santorini_1.jpg" />
     <Content Include="Content\Images\wp1809473.jpg" />
     <Content Include="Content\Images\wp1823646-1600x900_0.jpg" />
+    <Content Include="Content\UsersImages\1.jpg" />
+    <Content Include="Content\UsersImages\2.jpg" />
+    <Content Include="Content\UsersImages\3.jpg" />
     <Content Include="Theme\TravelAgency\assets\css\Package.css" />
     <Content Include="Content\UsersImages\no-user.jpg" />
     <Content Include="favicon.ico" />
@@ -675,7 +679,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Booking\Create.cshtml" />
-    <Content Include="Views\Booking\Details.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Theme\TravelAgency\admin\assets\sass\base\_clearings.scss" />
     <Content Include="Theme\TravelAgency\admin\assets\sass\base\_normalize.scss" />

@@ -20,7 +20,6 @@ namespace Entities.Models
         public Destinations Destinations { get; set; }
 
         //Navigation Properties
-
         public  ICollection<Package> Packages { get; set; }
     }
 }
