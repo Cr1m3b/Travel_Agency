@@ -55,10 +55,18 @@
                                                     <a href="/Package/Details/@item.Package.PackageId">@item.Package.Title</a>
                                                 </h3>
                                                 <div class="review-area">
-                                                    @*<span class="review-text">(@item.Package.Comments.Count)</span>*@
-                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                        <span style="width: 100%"></span>
-                                                    </div>
+                                                    @if (item.Package.Comments.Count == 0)
+                                                    {
+                                                        <span class="review-text">(No reviews)</span>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="review-text">(@item.Package.Comments.Count)</span>
+                                                        <div class="rating-start" title="Rated (@item.Package.Comments.Count) out of 5">
+                                                            <span style="width: calc(@item.Package.AveragePackageRating()*20%)"></span>
+                                                        </div>
+                                                    }
                                                 </div>
                                                 <p class="package-description">@item.Package.Description</p>
                                                 
