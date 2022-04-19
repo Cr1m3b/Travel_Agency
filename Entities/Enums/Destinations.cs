@@ -29,7 +29,8 @@ namespace Entities.Models.Enums
         Milan,
         Madrid,
        Zakunthos,
-        Uzbekistan
+        Uzbekistan,
+        Vonitsa
 
     }
 }
