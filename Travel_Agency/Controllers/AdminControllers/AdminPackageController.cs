@@ -185,21 +185,27 @@ namespace Travel_Agency.Controllers.AdminController
             foreach (var com in commentIds)
             {
                 var comment = db.Comments.Find(com);
+                var replyIds = comment.ReplyComments.Select(x => x.ReplyCommentId).ToList();
+                foreach (var reply in replyIds)
+                {
+                    var replyComment = db.ReplyComments.Find(reply);
+                    db.Entry(replyComment).State = EntityState.Deleted;
+                }
                 db.Entry(comment).State = EntityState.Deleted;
             }
             db.SaveChanges();
 
-            List<int> ratingIds = new List<int>();
-            foreach (var comment in package.Comments)
-            {
-                ratingIds.Add(comment.Rating.RatingId);
-            }
-            foreach (var rate in ratingIds)
-            {
-                var rating = db.Ratings.Find(rate);
-                db.Entry(rating).State = EntityState.Deleted;
-            }
-            db.SaveChanges();
+            //List<int> ratingIds = new List<int>();
+            //foreach (var comment in package.Comments)
+            //{
+            //    ratingIds.Add(comment.Rating.RatingId);
+            //}
+            //foreach (var rate in ratingIds)
+            //{
+            //    var rating = db.Ratings.Find(rate);
+            //    db.Entry(rating).State = EntityState.Deleted;
+            //}
+            //db.SaveChanges();
             packageRepository.Delete(id);
 
             return RedirectToAction("Index");
