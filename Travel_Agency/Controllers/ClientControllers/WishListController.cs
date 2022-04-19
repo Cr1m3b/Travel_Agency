@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using MyDatabase;
+using PersistenceLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,17 @@ namespace Travel_Agency.Controllers
     public class WishListController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        PackageRepository packageRepository;
+
+        public WishListController()
+        {
+            db = new ApplicationDbContext();
+            packageRepository = new PackageRepository(db);
+        }
+
+
+
+
         // GET: WishList
         public ActionResult Index()
         {
@@ -22,7 +34,7 @@ namespace Travel_Agency.Controllers
             if (Session["wishlist"] == null)
             {
                 List<WishListItem> wishlist = new List<WishListItem>();
-                wishlist.Add(new WishListItem { Package = db.Packages.Find(id), Quantity = 1 });
+                wishlist.Add(new WishListItem { Package = packageRepository.GetByIdWithRelatedTables(id), Quantity = 1 });
                 Session["wishlist"] = wishlist;
             }
             else
@@ -35,7 +47,7 @@ namespace Travel_Agency.Controllers
                 }
                 else
                 {
-                    wishlist.Add(new WishListItem { Package = db.Packages.Find(id), Quantity = 1 });
+                    wishlist.Add(new WishListItem { Package = packageRepository.GetByIdWithRelatedTables(id), Quantity = 1 });
                 }
                 Session["wishlist"] = wishlist;
             }
